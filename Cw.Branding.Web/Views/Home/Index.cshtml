@@ -1,0 +1,9 @@
+﻿@{
+    var lang = ViewBag.Lang as string ?? "en";
+    ViewData["Title"] = lang == "vi" ? "Trang chủ" : "Home";
+}
+
+<section>
+    <h1>@(lang == "vi" ? "Chào mừng đến với CW Branding" : "Welcome to CW Branding")</h1>
+    <p>@(lang == "vi" ? "Đây là trang chủ MVP." : "This is the MVP home page.")</p>
+</section>

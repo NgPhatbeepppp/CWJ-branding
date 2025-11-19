@@ -1,0 +1,125 @@
+2025-11-13 16:54:25.342 +07:00 [INF] Executed DbCommand (1,055ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [CwBrandingDb];
+2025-11-13 16:54:26.208 +07:00 [INF] Executed DbCommand (760ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [CwBrandingDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-11-13 16:54:26.269 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-13 16:54:26.615 +07:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2025-11-13 16:54:26.618 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-13 16:54:26.645 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-13 16:54:26.692 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-13 16:54:26.721 +07:00 [INF] Applying migration '20251113095323_InitialCreate'.
+2025-11-13 16:54:27.095 +07:00 [INF] Executed DbCommand (145ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Code] nvarchar(450) NOT NULL,
+    [NameVi] nvarchar(max) NOT NULL,
+    [NameEn] nvarchar(max) NOT NULL,
+    [SlugVi] nvarchar(450) NULL,
+    [SlugEn] nvarchar(450) NULL,
+    [IsActive] bit NOT NULL,
+    [DisplayOrder] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2025-11-13 16:54:27.099 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ContactFormEntries] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Company] nvarchar(max) NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [Phone] nvarchar(max) NULL,
+    [Message] nvarchar(max) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [IsHandled] bit NOT NULL,
+    [HandledAt] datetime2 NULL,
+    CONSTRAINT [PK_ContactFormEntries] PRIMARY KEY ([Id])
+);
+2025-11-13 16:54:27.176 +07:00 [INF] Executed DbCommand (77ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [News] (
+    [Id] int NOT NULL IDENTITY,
+    [TitleVi] nvarchar(max) NOT NULL,
+    [TitleEn] nvarchar(max) NOT NULL,
+    [SummaryVi] nvarchar(max) NULL,
+    [SummaryEn] nvarchar(max) NULL,
+    [ContentVi] nvarchar(max) NULL,
+    [ContentEn] nvarchar(max) NULL,
+    [SlugVi] nvarchar(450) NULL,
+    [SlugEn] nvarchar(450) NULL,
+    [IsPublished] bit NOT NULL,
+    [PublishedAt] datetime2 NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    CONSTRAINT [PK_News] PRIMARY KEY ([Id])
+);
+2025-11-13 16:54:27.197 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Code] nvarchar(450) NOT NULL,
+    [NameVi] nvarchar(max) NOT NULL,
+    [NameEn] nvarchar(max) NOT NULL,
+    [ShortDescriptionVi] nvarchar(max) NULL,
+    [ShortDescriptionEn] nvarchar(max) NULL,
+    [DescriptionVi] nvarchar(max) NULL,
+    [DescriptionEn] nvarchar(max) NULL,
+    [SlugVi] nvarchar(450) NULL,
+    [SlugEn] nvarchar(450) NULL,
+    [IsActive] bit NOT NULL,
+    [DisplayOrder] int NOT NULL,
+    [CategoryId] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [UpdatedAt] datetime2 NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2025-11-13 16:54:27.207 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [ProductImages] (
+    [Id] int NOT NULL IDENTITY,
+    [ProductId] int NOT NULL,
+    [FilePath] nvarchar(max) NOT NULL,
+    [AltVi] nvarchar(max) NULL,
+    [AltEn] nvarchar(max) NULL,
+    [IsMain] bit NOT NULL,
+    [DisplayOrder] int NOT NULL,
+    CONSTRAINT [PK_ProductImages] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ProductImages_Products_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Products] ([Id]) ON DELETE CASCADE
+);
+2025-11-13 16:54:27.229 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Categories_Code] ON [Categories] ([Code]);
+2025-11-13 16:54:27.233 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Categories_SlugEn] ON [Categories] ([SlugEn]);
+2025-11-13 16:54:27.235 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Categories_SlugVi] ON [Categories] ([SlugVi]);
+2025-11-13 16:54:27.243 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ContactFormEntries_CreatedAt] ON [ContactFormEntries] ([CreatedAt]);
+2025-11-13 16:54:27.247 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_News_SlugEn] ON [News] ([SlugEn]);
+2025-11-13 16:54:27.249 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_News_SlugVi] ON [News] ([SlugVi]);
+2025-11-13 16:54:27.251 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_ProductImages_ProductId] ON [ProductImages] ([ProductId]);
+2025-11-13 16:54:27.262 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2025-11-13 16:54:27.266 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Products_Code] ON [Products] ([Code]);
+2025-11-13 16:54:27.276 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_SlugEn] ON [Products] ([SlugEn]);
+2025-11-13 16:54:27.281 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_SlugVi] ON [Products] ([SlugVi]);
+2025-11-13 16:54:27.367 +07:00 [INF] Executed DbCommand (86ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20251113095323_InitialCreate', N'8.0.22');
