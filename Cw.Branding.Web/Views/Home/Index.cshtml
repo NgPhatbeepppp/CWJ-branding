@@ -1,9 +1,40 @@
 ﻿@{
-    var lang = ViewBag.Lang as string ?? "en";
-    ViewData["Title"] = lang == "vi" ? "Trang chủ" : "Home";
+    ViewData["Title"] = "Home";
 }
 
-<section>
-    <h1>@(lang == "vi" ? "Chào mừng đến với CW Branding" : "Welcome to CW Branding")</h1>
-    <p>@(lang == "vi" ? "Đây là trang chủ MVP." : "This is the MVP home page.")</p>
-</section>
+<div class="section-container">
+    <div class="mb-6">
+        <h2 class="section-title">
+            Charles Wembley Medical Solutions
+        </h2>
+        <p class="section-subtitle">
+            Trusted medical and F&B solutions partner for hospitals and businesses.
+        </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="card">
+            <h3 class="text-xl font-heading mb-2">
+                Diagnostic Imaging
+            </h3>
+            <p class="text-sm md:text-base text-slate-700 mb-4">
+                High-quality imaging equipment for accurate and reliable diagnosis.
+            </p>
+            <button type="button" class="btn-primary">
+                Learn more
+            </button>
+        </article>
+
+        <article class="card">
+            <h3 class="text-xl font-heading mb-2">
+                Operating Theatre
+            </h3>
+            <p class="text-sm md:text-base text-slate-700 mb-4">
+                Integrated solutions for safe and efficient surgical environments.
+            </p>
+            <button type="button" class="btn-secondary">
+                View details
+            </button>
+        </article>
+    </div>
+</div>
