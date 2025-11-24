@@ -1,0 +1,38 @@
+﻿@model dynamic
+@{
+    // Lấy dữ liệu từ object Model truyền vào, nếu không có thì dùng giá trị mặc định
+    string title = Model.GetType().GetProperty("Title")?.GetValue(Model, null) as string ?? "";
+    string subtitle = Model.GetType().GetProperty("Subtitle")?.GetValue(Model, null) as string ?? "";
+    string imageUrl = Model.GetType().GetProperty("ImageUrl")?.GetValue(Model, null) as string ?? "";
+    // Mặc định chiều cao là 600px, có thể override
+    string heightClass = Model.GetType().GetProperty("HeightClass")?.GetValue(Model, null) as string ?? "h-[500px] md:h-[600px]";
+}
+
+<section class="relative w-full @heightClass flex items-center justify-center overflow-hidden bg-blue-900">
+
+    <div class="absolute inset-0 z-0">
+        @if (!string.IsNullOrEmpty(imageUrl))
+        {
+            <img src="@imageUrl" alt="@title" class="w-full h-full object-cover" />
+        }
+        else
+        {
+            <div class="w-full h-full bg-gradient-to-br from-blue-900 to-blue-800"></div>
+        }
+
+        <div class="absolute inset-0 bg-black/30 bg-gradient-to-b from-black/50 via-transparent to-black/20"></div>
+    </div>
+
+    <div class="container relative z-10 px-4 text-center text-white mt-16">
+        <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg tracking-tight">
+            @title
+        </h1>
+
+        @if (!string.IsNullOrEmpty(subtitle))
+        {
+            <p class="font-body text-lg md:text-2xl opacity-90 max-w-3xl mx-auto font-light tracking-wide leading-relaxed drop-shadow-md">
+                @subtitle
+            </p>
+        }
+    </div>
+</section>
