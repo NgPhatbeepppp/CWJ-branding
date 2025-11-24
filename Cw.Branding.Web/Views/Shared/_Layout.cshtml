@@ -1,40 +1,27 @@
 ﻿<!DOCTYPE html>
-<html lang="@ViewBag.Lang ?? " en"">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewData["Title"] - CW Branding</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Charles Wembley</title>
+
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="page">
-    <header class="site-header">
-        <div class="container">
-            <a asp-controller="Home" asp-action="Index" asp-route-lang="@ViewBag.Lang">CW Branding</a>
+<body class="bg-brand-bg text-slate-900 font-body antialiased flex flex-col min-h-screen">
 
-            <nav class="main-nav">
-                <a asp-controller="Home" asp-action="Index" asp-route-lang="@ViewBag.Lang">Home</a>
-                <a asp-controller="Products" asp-action="Index" asp-route-lang="@ViewBag.Lang">Products</a>
-                <a asp-controller="News" asp-action="Index" asp-route-lang="@ViewBag.Lang">News</a>
-                <a asp-controller="Contact" asp-action="Index" asp-route-lang="@ViewBag.Lang">Contact</a>
-            </nav>
+    <partial name="_Header" />
 
-            <div class="lang-switcher">
-                <a asp-route-lang="vi">VI</a> |
-                <a asp-route-lang="en">EN</a>
-            </div>
-        </div>
-    </header>
-
-    <main class="site-main container">
+    <main role="main" class="flex-grow w-full">
         @RenderBody()
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; @DateTime.Now.Year - CW Branding</p>
-        </div>
-    </footer>
+    <partial name="_Footer" />
 
-    @RenderSection("Scripts", required: false)
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

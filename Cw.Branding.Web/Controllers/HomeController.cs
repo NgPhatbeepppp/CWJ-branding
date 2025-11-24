@@ -10,5 +10,9 @@ public class HomeController : Controller
         ViewBag.Lang = lang;
         ViewData["Title"] = lang == "vi" ? "Trang chủ" : "Home";
         return View();
+    }// Trong HomeController.cs
+    public IActionResult Medical()
+    {
+        return View();
     }
 }

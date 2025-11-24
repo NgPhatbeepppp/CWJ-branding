@@ -1,0 +1,117 @@
+2025-11-24 13:49:22.984 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-24 13:49:23.557 +07:00 [INF] Now listening on: https://localhost:7248
+2025-11-24 13:49:23.558 +07:00 [INF] Now listening on: http://localhost:5238
+2025-11-24 13:49:23.702 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-24 13:49:23.703 +07:00 [INF] Hosting environment: Development
+2025-11-24 13:49:23.703 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2025-11-24 13:49:25.429 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/ - null null
+2025-11-24 13:49:25.763 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:49:25.868 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2025-11-24 13:49:26.024 +07:00 [INF] Executing ViewResult, running view Index.
+2025-11-24 13:49:26.275 +07:00 [INF] Executed ViewResult - view Index executed in 254.9251ms.
+2025-11-24 13:49:26.280 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 409.1926ms
+2025-11-24 13:49:26.281 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:49:26.285 +07:00 [INF] HTTP GET / responded 200 in 578.4858 ms
+2025-11-24 13:49:26.301 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/ - 200 null text/html; charset=utf-8 889.046ms
+2025-11-24 13:49:26.342 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/css/site.css?v=NCKxtBYe1it26gNZaFkNn1smzjDZq21KaSzsReG1Nug - null null
+2025-11-24 13:49:26.343 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2025-11-24 13:49:26.343 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 13:49:26.365 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 21.9836ms
+2025-11-24 13:49:26.380 +07:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\css\site.css'
+2025-11-24 13:49:26.381 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/css/site.css?v=NCKxtBYe1it26gNZaFkNn1smzjDZq21KaSzsReG1Nug - 200 10561 text/css 39.4306ms
+2025-11-24 13:49:26.482 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 139.114ms
+2025-11-24 13:53:42.167 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-24 13:53:42.658 +07:00 [INF] Now listening on: https://localhost:7248
+2025-11-24 13:53:42.660 +07:00 [INF] Now listening on: http://localhost:5238
+2025-11-24 13:53:42.752 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-24 13:53:42.752 +07:00 [INF] Hosting environment: Development
+2025-11-24 13:53:42.753 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2025-11-24 13:53:43.558 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/ - null null
+2025-11-24 13:53:43.880 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:53:43.981 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2025-11-24 13:53:44.174 +07:00 [INF] Executing ViewResult, running view Index.
+2025-11-24 13:53:44.389 +07:00 [INF] Executed ViewResult - view Index executed in 221.8759ms.
+2025-11-24 13:53:44.391 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 408.4898ms
+2025-11-24 13:53:44.391 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:53:44.395 +07:00 [INF] HTTP GET / responded 200 in 572.4431 ms
+2025-11-24 13:53:44.405 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/ - 200 null text/html; charset=utf-8 864.7062ms
+2025-11-24 13:53:44.469 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 13:53:44.469 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/css/site.css?v=NCKxtBYe1it26gNZaFkNn1smzjDZq21KaSzsReG1Nug - null null
+2025-11-24 13:53:44.474 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2025-11-24 13:53:44.480 +07:00 [INF] The file /css/site.css was not modified
+2025-11-24 13:53:44.489 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/css/site.css?v=NCKxtBYe1it26gNZaFkNn1smzjDZq21KaSzsReG1Nug - 304 null text/css 19.7899ms
+2025-11-24 13:53:44.509 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 40.0419ms
+2025-11-24 13:53:44.911 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 436.5945ms
+2025-11-24 13:54:02.833 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/medical - null null
+2025-11-24 13:54:02.838 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:54:02.838 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2025-11-24 13:54:02.840 +07:00 [INF] Executing ViewResult, running view Index.
+2025-11-24 13:54:02.847 +07:00 [INF] Executed ViewResult - view Index executed in 6.73ms.
+2025-11-24 13:54:02.847 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 8.5617ms
+2025-11-24 13:54:02.847 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:54:02.848 +07:00 [INF] HTTP GET /medical responded 200 in 11.3910 ms
+2025-11-24 13:54:02.849 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/medical - 200 null text/html; charset=utf-8 16.5406ms
+2025-11-24 13:54:02.911 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2025-11-24 13:54:02.914 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 13:54:02.916 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.8683ms
+2025-11-24 13:54:03.027 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 115.1836ms
+2025-11-24 13:54:12.346 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/medical - null null
+2025-11-24 13:54:12.352 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:54:12.352 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2025-11-24 13:54:12.352 +07:00 [INF] Executing ViewResult, running view Index.
+2025-11-24 13:54:12.354 +07:00 [INF] Executed ViewResult - view Index executed in 1.784ms.
+2025-11-24 13:54:12.354 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2.2083ms
+2025-11-24 13:54:12.355 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:54:12.355 +07:00 [INF] HTTP GET /medical responded 200 in 5.7955 ms
+2025-11-24 13:54:12.355 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/medical - 200 null text/html; charset=utf-8 8.7996ms
+2025-11-24 13:54:12.428 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2025-11-24 13:54:12.479 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 13:54:12.481 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 58.5348ms
+2025-11-24 13:54:12.518 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 90.1024ms
+2025-11-24 13:54:13.993 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/medical - null null
+2025-11-24 13:54:14.000 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:54:14.001 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2025-11-24 13:54:14.001 +07:00 [INF] Executing ViewResult, running view Index.
+2025-11-24 13:54:14.002 +07:00 [INF] Executed ViewResult - view Index executed in 0.7898ms.
+2025-11-24 13:54:14.002 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 1.0002ms
+2025-11-24 13:54:14.002 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 13:54:14.002 +07:00 [INF] HTTP GET /medical responded 200 in 1.4553 ms
+2025-11-24 13:54:14.002 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/medical - 200 null text/html; charset=utf-8 9.0479ms
+2025-11-24 13:54:14.052 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2025-11-24 13:54:14.060 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 13:54:14.062 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.8132ms
+2025-11-24 13:54:14.070 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.0737ms
+2025-11-24 13:54:15.424 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/medical/Products - null null
+2025-11-24 13:54:15.429 +07:00 [INF] HTTP GET /medical/Products responded 404 in 0.5992 ms
+2025-11-24 13:54:15.429 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/medical/Products - 404 null null 5.7453ms
+2025-11-24 13:54:15.430 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7248/medical/Products, Response status code: 404
+2025-11-24 13:54:17.325 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 13:54:17.327 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.6882ms
+2025-11-24 14:18:48.733 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-24 14:18:48.944 +07:00 [INF] Now listening on: https://localhost:7248
+2025-11-24 14:18:48.944 +07:00 [INF] Now listening on: http://localhost:5238
+2025-11-24 14:18:49.021 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-24 14:18:49.022 +07:00 [INF] Hosting environment: Development
+2025-11-24 14:18:49.022 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2025-11-24 14:18:49.627 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/ - null null
+2025-11-24 14:18:49.862 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 14:18:49.927 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index(System.String) on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2025-11-24 14:18:50.012 +07:00 [INF] Executing ViewResult, running view Index.
+2025-11-24 14:18:50.183 +07:00 [INF] Executed ViewResult - view Index executed in 177.2819ms.
+2025-11-24 14:18:50.193 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 264.9206ms
+2025-11-24 14:18:50.194 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2025-11-24 14:18:50.207 +07:00 [INF] HTTP GET / responded 200 in 401.2086 ms
+2025-11-24 14:18:50.237 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/ - 200 null text/html; charset=utf-8 629.461ms
+2025-11-24 14:18:50.243 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/images/logo1.png - null null
+2025-11-24 14:18:50.244 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-11-24 14:18:50.245 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/css/site.css?v=NCKxtBYe1it26gNZaFkNn1smzjDZq21KaSzsReG1Nug - null null
+2025-11-24 14:18:50.249 +07:00 [INF] The file /css/site.css was not modified
+2025-11-24 14:18:50.250 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/css/site.css?v=NCKxtBYe1it26gNZaFkNn1smzjDZq21KaSzsReG1Nug - 304 null text/css 4.9294ms
+2025-11-24 14:18:50.284 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - null null
+2025-11-24 14:18:50.390 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7248/_vs/browserLink - null null
+2025-11-24 14:18:50.439 +07:00 [INF] Sending file. Request path: '/images/logo1.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\logo1.png'
+2025-11-24 14:18:50.439 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/images/logo1.png - 200 15816 image/png 196.2851ms
+2025-11-24 14:18:50.540 +07:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\js\site.js'
+2025-11-24 14:18:50.563 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 318.6612ms
+2025-11-24 14:18:50.566 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 283.0429ms
+2025-11-24 14:18:50.641 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7248/_vs/browserLink - 200 null text/javascript; charset=UTF-8 251.4119ms

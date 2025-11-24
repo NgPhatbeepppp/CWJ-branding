@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Medical Solutions";
+    ViewData["IsTransparentHeader"] = true; // Vẫn dùng Header trong suốt
+}
+
+<partial name="_HeroBanner" model='new { 
+    Title = "Medical Equipment", 
+    Subtitle = "State-of-the-art diagnostic and surgical solutions.", 
+    ImageUrl = "https://placehold.co/1920x600/2094f3/FFFFFF?text=Medical+Banner",
+    HeightClass = "h-[500px]" 
+}' />
+
+<div class="container mx-auto px-4 py-12">
+    <div class="text-sm text-gray-500 mb-8">
+        <a href="/" class="hover:text-blue-900">Home</a> / <span class="text-gray-800 font-medium">Medical Solutions</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        @for(int i = 1; i <= 3; i++)
+        {
+            <div class="border rounded-lg overflow-hidden hover:shadow-lg transition group">
+                <div class="h-48 bg-gray-200 flex items-center justify-center text-gray-400">Product Image @i</div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg text-blue-900 group-hover:text-blue-600 transition">MRI Scanner Model X</h3>
+                    <p class="text-sm text-gray-600 mt-2">High performance imaging solution for modern hospitals.</p>
+                    <a href="#" class="inline-block mt-4 text-blue-600 font-medium text-sm hover:underline">View Details &rarr;</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
