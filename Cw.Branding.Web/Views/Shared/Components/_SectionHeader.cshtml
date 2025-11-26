@@ -1,0 +1,29 @@
+﻿@model Cw.Branding.Web.Models.Components.SectionHeaderViewModel
+
+@{
+    var titleClass = Model.IsDarkBackground ? "text-white" : "text-gray-900";
+    var subClass = Model.IsDarkBackground ? "text-blue-100" : "text-gray-600";
+    var lineClass = Model.IsDarkBackground ? "bg-white" : "bg-blue-600";
+}
+
+<div class="@Model.Alignment mb-10 md:mb-14">
+    @if (Model.Alignment == "text-center")
+    {
+        <span class="block w-12 h-1 @lineClass mx-auto mb-4 rounded-full"></span>
+    }
+    else
+    {
+        <span class="block w-12 h-1 @lineClass mb-4 rounded-full"></span>
+    }
+
+    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight @titleClass mb-3">
+        @Model.Title
+    </h2>
+
+    @if (!string.IsNullOrEmpty(Model.Subtitle))
+    {
+        <p class="text-lg md:text-xl @subClass max-w-2xl mx-auto leading-relaxed">
+            @Model.Subtitle
+        </p>
+    }
+</div>

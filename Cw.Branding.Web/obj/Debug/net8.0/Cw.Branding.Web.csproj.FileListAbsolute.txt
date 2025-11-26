@@ -158,7 +158,6 @@ C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\staticweba
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\swae.build.ex.cache
-C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\Cw.Brand.5CBD3E65.Up2Date
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\Cw.Branding.Web.dll
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\refint\Cw.Branding.Web.dll
@@ -168,3 +167,4 @@ C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\ref\Cw.Bra
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\bin\Debug\net8.0\package-lock.json
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\bin\Debug\net8.0\package.json
 C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\Cw.Branding.Web.sourcelink.json
+C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

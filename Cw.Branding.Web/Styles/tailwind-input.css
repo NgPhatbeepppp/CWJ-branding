@@ -25,14 +25,41 @@
 }
 
 @layer components {
+    /* === BUTTONS === */
+    .btn {
+        @apply inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+    }
+
+    /* Nút chính: Màu xanh thương hiệu, chữ trắng */
     .btn-primary {
-        @apply inline-flex items-center justify-center px-4 py-2 rounded-md bg-brand-primary text-white font-medium shadow-card hover:bg-blue-700 hover:shadow-card-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-primary transition-colors transition-shadow duration-150;
+        @apply border-transparent text-white bg-blue-900 hover:bg-blue-800 focus:ring-blue-900;
     }
 
+    /* Nút phụ: Nền trắng, viền xanh/xám, chữ đậm */
     .btn-secondary {
-        @apply inline-flex items-center justify-center px-4 py-2 rounded-md border border-blue-200 bg-white text-brand-primary font-medium shadow-card hover:bg-blue-50 hover:border-blue-300 hover:shadow-card-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-300 transition-colors transition-shadow duration-150;
+        @apply border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500;
     }
 
+    /* Nút Ghost: Trong suốt, dùng cho link text dạng nút */
+    .btn-ghost {
+        @apply border-transparent text-blue-900 bg-transparent hover:bg-blue-50 shadow-none;
+    }
+    /* === FORM CONTROLS (Dùng cho Contact & Admin) === */
+    .form-group {
+        @apply mb-4;
+    }
+
+    .form-label {
+        @apply block text-sm font-medium text-gray-700 mb-1;
+    }
+
+    .form-input, .form-select, .form-textarea {
+        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm py-2 px-3 border;
+    }
+
+    .text-danger {
+        @apply text-red-600 text-xs mt-1 ml-1;
+    }
     .card {
         @apply bg-white rounded-lg shadow-card p-6 hover:shadow-card-hover transition-shadow duration-150;
     }
@@ -47,5 +74,44 @@
 
     .section-subtitle {
         @apply text-base md:text-lg text-slate-600 mb-6;
+    }
+}
+@layer components {
+    /* === BUTTONS === */
+    .btn {
+        @apply inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200;
+    }
+
+    /* Nút chính: Xanh thương hiệu (hoặc blue-900 nếu chưa map màu custom) */
+    .btn-primary {
+        @apply border-transparent text-white bg-[#004F9F] hover:bg-blue-800 focus:ring-blue-500;
+    }
+
+    /* Nút phụ: Nền trắng, viền xám */
+    .btn-secondary {
+        @apply border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-blue-500;
+    }
+
+    /* Nút Ghost: Trong suốt (dùng cho link phụ) */
+    .btn-ghost {
+        @apply border-transparent text-[#004F9F] bg-transparent hover:bg-blue-50 shadow-none;
+    }
+
+    /* === FORM CONTROLS (Dùng cho Contact & Admin) === */
+    .form-group {
+        @apply mb-5;
+    }
+
+    .form-label {
+        @apply block text-sm font-semibold text-gray-700 mb-2;
+    }
+
+    /* Input chuẩn */
+    .form-control {
+        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm py-2.5 px-3 border;
+    }
+
+    .text-danger {
+        @apply text-red-600 text-xs mt-1 ml-1;
     }
 }
