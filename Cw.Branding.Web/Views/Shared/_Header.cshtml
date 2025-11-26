@@ -1,44 +1,75 @@
-﻿<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300 border-b border-gray-100/50">
-    <div class="container h-24 mx-auto flex items-center justify-between px-4 md:px-6 lg:px-8">
+﻿@using Microsoft.AspNetCore.Http
+@{
+    // Hàm helper nhỏ để check active menu
+    // Trả về class "text-brand-primary" nếu controller hiện tại trùng khớp
+    string IsActive(string controller, string action = null)
+    {
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+
+        if (string.Equals(currentController, controller, StringComparison.OrdinalIgnoreCase))
+        {
+            if (action == null || string.Equals(currentAction, action, StringComparison.OrdinalIgnoreCase))
+            {
+                return "text-brand-primary border-b-2 border-brand-primary pb-1"; // Active style
+            }
+        }
+        return "text-black hover:text-brand-primary"; // Default style
+    }
+}
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300 border-b border-gray-100/50">
+    <div class="w-[92%] max-w-[1600px] h-32 mx-auto flex items-center justify-between px-4 md:px-6">
 
         <a href="/" class="flex-shrink-0">
-            <img src="~/images/logo1.png" alt="Charles Wembley" class="h-12 w-auto object-contain" />
+            <img src="~/images/logo2.png" alt="Charles Wembley" class="h-[85px] w-auto object-contain brightness-0" />
         </a>
 
-        <nav class="hidden lg:flex items-center space-x-8">
-            <a href="/en/home" class="text-sm font-heading font-bold text-black hover:text-brand-primary transition-colors uppercase tracking-wide">
+        <nav class="hidden lg:flex items-center space-x-12">
+            <a href="/en/home" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
                 Home
             </a>
-            <a href="/en/about-us" class="text-sm font-heading font-bold text-black hover:text-brand-primary transition-colors uppercase tracking-wide">
+            <a href="/en/about-us" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
                 About Us
             </a>
-            <a href="/en/medical-solutions" class="text-sm font-heading font-bold text-black hover:text-brand-primary transition-colors uppercase tracking-wide">
+            <a href="/en/medical-solutions" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
                 Medical
             </a>
-            <a href="/en/fb-solutions" class="text-sm font-heading font-bold text-black hover:text-brand-primary transition-colors uppercase tracking-wide">
+            <a href="/en/fb-solutions" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
                 F&B
             </a>
-            <a href="/en/news" class="text-sm font-heading font-bold text-black hover:text-brand-primary transition-colors uppercase tracking-wide">
+            <a href="/en/news" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
                 News
             </a>
-            <a href="/en/contact" class="text-sm font-heading font-bold text-black hover:text-brand-primary transition-colors uppercase tracking-wide">
+            <a href="/en/contact" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
                 Contact
             </a>
         </nav>
 
-        <div class="flex items-center space-x-4">
-            <div class="flex items-center text-sm font-medium text-black divide-x divide-slate-300">
-                <a href="?lang=en" class="px-2 hover:text-brand-primary text-brand-primary font-bold">EN</a>
-                <a href="?lang=vi" class="px-2 hover:text-brand-primary">VI</a>
+        <div class="flex items-center space-x-6">
+            <div class="flex items-center text-lg font-medium text-black divide-x divide-slate-300">
+                <a href="?lang=en" class="px-3 hover:text-brand-primary text-brand-primary font-bold">EN</a>
+                <a href="?lang=vi" class="px-3 hover:text-brand-primary">VI</a>
             </div>
 
-            <button type="button" class="lg:hidden p-2 text-black hover:text-brand-primary">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-black hover:text-brand-primary focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
         </div>
     </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-32 left-0 w-full bg-white border-b border-gray-200 shadow-lg">
+        <div class="px-6 py-4 space-y-4">
+            <a href="/en/home" class="block text-lg font-heading font-bold uppercase @IsActive("Home")">Home</a>
+            <a href="/en/about-us" class="block text-lg font-heading font-bold uppercase @IsActive("About")">About Us</a>
+            <a href="/en/medical-solutions" class="block text-lg font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
+            <a href="/en/fb-solutions" class="block text-lg font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
+            <a href="/en/news" class="block text-lg font-heading font-bold uppercase @IsActive("News")">News</a>
+            <a href="/en/contact" class="block text-lg font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
+        </div>
+    </div>
 </header>
 
-<div class="h-24"></div>
+<div class="h-32"></div>
