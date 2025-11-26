@@ -12,5 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // (Optional) Tự động đóng menu khi click ra ngoài (nếu muốn nâng cao sau này)
+    // (Optional) Tự động đóng menu khi click ra ngoài
 });
