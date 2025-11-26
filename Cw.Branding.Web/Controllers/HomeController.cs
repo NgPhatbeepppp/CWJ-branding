@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Cw.Branding.Web.Controllers;
+using Cw.Branding.Web.Models;
 
-public class HomeController : Controller
+
+namespace Cw.Branding.Web.Controllers
 {
-    [HttpGet]
-    public IActionResult Index(string lang = "en")
+    public class HomeController : Controller
     {
-        ViewBag.Lang = lang;
-        ViewData["Title"] = lang == "vi" ? "Trang chủ" : "Home";
-        return View();
-    }// Trong HomeController.cs
-  
+        public IActionResult Index()
+        {
+            return View();
+        }
+    }
 }
