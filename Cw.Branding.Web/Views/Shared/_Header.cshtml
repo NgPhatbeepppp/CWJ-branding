@@ -1,28 +1,33 @@
 ﻿@using Microsoft.AspNetCore.Http
 @{
-    // Hàm helper nhỏ để check active menu
-    // Trả về class "text-brand-primary" nếu controller hiện tại trùng khớp
+    // Lấy thông tin Controller hiện tại để xử lý Active Menu và Spacer
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+
+    // Biến này chỉ dùng để ẩn/hiện Spacer (Khoảng trống) ở trang chủ
+    bool isHomePage = string.Equals(currentController, "Home", StringComparison.OrdinalIgnoreCase)
+                   && string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase);
+
+    // Helper: Active State cho Menu
     string IsActive(string controller, string action = null)
     {
-        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
-        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
-
         if (string.Equals(currentController, controller, StringComparison.OrdinalIgnoreCase))
         {
             if (action == null || string.Equals(currentAction, action, StringComparison.OrdinalIgnoreCase))
             {
-                return "text-brand-primary border-b-2 border-brand-primary pb-1"; // Active style
+                return "text-brand-primary border-b-2 border-brand-primary pb-1";
             }
         }
-        return "text-black hover:text-brand-primary"; // Default style
+        return "text-black hover:text-brand-primary";
     }
 }
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300 border-b border-gray-100/50">
+<header class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-[2px] transition-all duration-300">
+
     <div class="w-[92%] max-w-[1600px] h-32 mx-auto flex items-center justify-between px-4 md:px-6">
 
         <a href="/" class="flex-shrink-0">
-            <img src="~/images/logo2.png" alt="Charles Wembley" class="h-[85px] w-auto object-contain brightness-0" />
+            <img src="~/images/logo2.png" alt="Charles Wembley" class="h-[105px] w-auto object-contain brightness-0" />
         </a>
 
         <nav class="hidden lg:flex items-center space-x-12">
@@ -72,4 +77,4 @@
     </div>
 </header>
 
-<div class="h-32"></div>
+<div class="@(isHomePage ? "hidden" : "h-32")"></div>

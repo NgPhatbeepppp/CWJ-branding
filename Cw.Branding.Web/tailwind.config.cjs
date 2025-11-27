@@ -63,8 +63,10 @@ module.exports = {
             fontFamily: {
                 heading: ["Montserrat", "ui-sans-serif", "system-ui", "sans-serif"],
                 body: ["Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
-                brand: ['"Monsieur La Doulaise"', "cursive"],
-                sans: ["Roboto", "ui-sans-serif", "system-ui", "sans-serif"]
+                sans: ["Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
+                signature: ['"Monsieur La Doulaise"', 'cursive'],
+                classic: ['"Libre Caslon Text"', 'serif'],
+                narrative: ['"Montaga"', 'serif']
             },
 
             spacing: {
