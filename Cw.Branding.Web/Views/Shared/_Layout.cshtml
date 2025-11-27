@@ -3,25 +3,42 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @* 1. SEO Meta Tags mặc định (có thể override từ View con) *@
     <title>@ViewData["Title"] - Charles Wembley</title>
+    <meta name="description" content="@ViewData["MetaDescription"]" />
 
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+    @* 2. Fonts: Montserrat (Heading) & Roboto (Body) theo UXD-01 *@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-brand-bg text-slate-900 font-body antialiased flex flex-col min-h-screen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Monsieur+La+Doulaise&family=Montaga&family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    @* 3. Styles *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
+    @* Chừa chỗ cho các page con inject CSS riêng nếu cần *@
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="flex flex-col min-h-screen bg-white text-slate-700 font-body">
+
+    @* 4. Header Partial *@
     <partial name="_Header" />
 
+    @* 5. Main Content Area *@
+    @* flex-grow giúp đẩy footer xuống đáy nếu nội dung ngắn *@
     <main role="main" class="flex-grow w-full">
         @RenderBody()
     </main>
 
+    @* 6. Footer Partial *@
     <partial name="_Footer" />
 
+    @* 7. Scripts *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @* Chừa chỗ cho các page con inject JS riêng (VD: slider, map) *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

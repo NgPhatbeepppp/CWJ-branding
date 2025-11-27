@@ -1,4 +1,4 @@
-﻿using Cw.Branding.Web.Entities;
+﻿using Cw.Branding.Web.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Reflection.Emit;
