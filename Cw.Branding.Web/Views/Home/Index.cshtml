@@ -18,15 +18,15 @@
     </div>
 
     @* 3. Content Container *@
-    <div class="relative z-10 w-[92%] max-w-[1800px] mx-auto h-full flex flex-col justify-center pt-32 px-4 md:pl-32 md:pr-6">
+    <div class="relative z-10 w-[92%] max-w-[1800px] mx-auto h-full flex flex-col justify-center pt-32 px-4 md:pl-12 md:pr-3">
         <div class="max-w-5xl text-center md:text-left">
 
             @* Main Headline *@
-            <h1 class="font-heading font-bold text-slate-900 uppercase
-                       text-4xl md:text-5xl lg:text-[60px]
-                       leading-tight lg:leading-[70px]
-                       tracking-[0.05em]
-                       drop-shadow-sm mb-2">
+            <h1 class="font-heading font-bold text-blue-900 uppercase
+           text-4xl md:text-5xl lg:text-[60px]
+           leading-tight lg:leading-[70px]
+           tracking-[0.05em]
+           drop-shadow-sm mb-2">
                 Trusted Medical  <br />
                 Solutions For Modern
             </h1>
@@ -72,18 +72,18 @@
 <section class="relative w-full py-6 md:py-8 bg-center bg-no-repeat"
          style="background-image: url('/images/WebBR_1.png'); background-size: 100% 100%;">
          
-             <div class="container mx-auto px-4 relative z-10">
+    <div class="container mx-auto px-4 relative z-10">
         @* Giảm min-height xuống 300px, giảm gap để nội dung gần nhau hơn *@
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-[500px]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center min-h-[350px]">
 
             @* Cột Trái: Tên thương hiệu (Nằm cao - Left Top) *@
-            <div class="flex flex-col text-slate-900 text-center md:text-left self-start pt-4">
+            <div class="flex flex-col text-slate-900 text-center md:text-left self-start pt-6">
                 @* Font Monsieur La Doulaise *@
-                <h2 class="font-signature text-6xl md:text-8xl mb-2 text-slate-900 text-blue-600">
+                <h2 class="font-signature text-4xl md:text-6xl mb-2 text-slate-900 text-blue-600">
                     Charles Wembley
                 </h2>
                 @* Font Libre Caslon Text *@
-                <h3 class="font-classic font-medium text-xl md:text-2xl tracking-wide uppercase border-b-2 border-slate-900 pb-4 inline-block md:self-start">
+                <h3 class="font-classic font-medium text-xl md:text-2xl tracking-wide border-b-2 border-slate-900 pb-4 inline-block md:self-start">
                     Healthcare & Culinary Innovation
                 </h3>
             </div>
@@ -91,7 +91,7 @@
             @* Cột Phải: Nội dung & Button (Nằm thấp hơn - Right Bottom) *@
             <div class="flex flex-col justify-end items-center md:items-start md:pt-24 text-slate-800 text-center md:text-left">
                 @* Tăng font-size lên text-xl hoặc 2xl, font Montaga *@
-                <p class="font-narrative text-xl md:text-2xl leading-relaxed mb-8 font-medium">
+                <p class="font-narrative text-xl md:text-xl leading-relaxed mb-8 font-medium">
                     Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems. The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
                 </p>
 
@@ -107,6 +107,292 @@
             </div>
 
         </div>
+
+    </div>
+   
+</section>
+
+
+
+@* --- 3. OUR HEALTHCARE SOLUTIONS SECTION (Ken Burns Slider) --- *@
+<section class="relative w-full h-[800px] md:h-[800px] flex items-center justify-center overflow-hidden bg-gray-900">
+
+    @* --- BACKGROUND SLIDER WRAPPER --- *@
+    <div id="ken-burns-slider" class="absolute inset-0 z-0">
+        @* Danh sách 5 ảnh background *@
+      
+        <div class="slide absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-100 origin-center"
+             style="background-image: url('/images/healthcare-hero.png');"></div>
+
+        <div class="slide absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-100 origin-center"
+             style="background-image: url('/images/medical-bg-2.jpg');"></div>
+
+        <div class="slide absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-100 origin-center"
+             style="background-image: url('/images/medical-bg-3.jpg');"></div>
+
+        <div class="slide absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-100 origin-center"
+             style="background-image: url('/images/medical-bg-4.jpg');"></div>
+
+        <div class="slide absolute inset-0 bg-cover bg-center transition-all duration-[2000ms] ease-in-out opacity-0 scale-100 origin-center"
+             style="background-image: url('/images/medical-bg-5.jpg');"></div>
+
+    </div>
+
+    @* Lớp phủ tối nhẹ để làm nổi bật hộp trắng (Overlay) *@
+    <div class="absolute inset-0  z-0 pointer-events-none"></div>
+
+   
+    <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="inline-block bg-white/95 backdrop-blur-sm shadow-2xl px-6 py-10 md:px-16 md:py-20 max-w-5xl mx-auto">
+            <h2 class="font-heading font-bold text-5xl md:text-6xl lg:text-[80px] text-blue-800 mb-8"
+                style="line-height: 1.1; letter-spacing: 0.02em;">
+                Our Healthcare<br />Solutions
+            </h2>
+
+            <a href="/medical-solutions"
+               class="group inline-flex items-center gap-3 font-heading text-base md:text-lg font-bold text-[#004F9F] uppercase tracking-wider hover:text-blue-700 transition-colors duration-300">
+                <span class="border-b-2 border-[#004F9F] group-hover:border-blue-700 pb-1">Explore Categories</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+                     class="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+            </a>
+        </div>
     </div>
 </section>
 
+@* --- STYLE & SCRIPT --- *@
+@* Có thể tách ra file CSS/JS riêng, nhưng để test nhanh mình để inline *@
+<style>
+    /* Class kích hoạt trạng thái hiển thị + Zoom */
+    .slide.active {
+        opacity: 1;
+        transform: scale(1.1); /* Zoom nhẹ lên 110% */
+        transition-duration: 6000ms; /* Thời gian zoom khớp với thời gian chuyển slide */
+    }
+    /* Khi ẩn đi thì reset scale về 1 để lần sau zoom lại từ đầu */
+    .slide:not(.active) {
+        transform: scale(1.0);
+        transition-duration: 3000ms; /* Thời gian fade out */
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll('#ken-burns-slider .slide');
+        let currentSlide = 0;
+        const slideInterval = 6000; // 6 giây đổi ảnh 1 lần
+
+        // Khởi tạo slide đầu tiên
+        if(slides.length > 0) {
+            slides[0].classList.add('active');
+        }
+
+        setInterval(() => {
+            // Xóa class active ở slide hiện tại
+            slides[currentSlide].classList.remove('active');
+
+            // Chuyển sang slide tiếp theo (vòng tròn)
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            // Thêm class active cho slide mới
+            slides[currentSlide].classList.add('active');
+        }, slideInterval);
+    });
+</script>
+
+
+
+
+
+@* --- 4. OUR HEALTHCARE PARTNERS SECTION --- *@
+<section class="relative w-full min-h-[500px] md:min-h-[500px] flex items-center py-16 md:py-24 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/images/Partnerbg.png');">
+    @* Lưu ý check lại đuôi file nền *@
+
+    @* Lớp phủ màu trắng mờ *@
+    <div class="absolute inset-0 bg-white/10 z-0"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+
+        @* Tiêu đề Section *@
+        <div class="text-center mb-16">
+            <h3 class="font-heading font-extrabold text-3xl md:text-5xl text-[#004F9F] uppercase tracking-wide">
+                Our Healthcare Partners
+            </h3>
+        </div>
+
+        @* Khung viền màu xanh *@
+        <div class="border-2 border-[#004F9F] bg-white/90 py-10 px-6 md:px-12 rounded-md shadow-md max-w-7xl mx-auto">
+
+            @* Swiper Container *@
+            <div class="swiper partner-swiper">
+                <div class="swiper-wrapper items-center">
+
+                  
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <div class="swiper-slide flex justify-center items-center px-4">
+                            @* Cấu trúc src="~/images/p@(i).png" sẽ sinh ra: 
+                               ~/images/p1.png, ~/images/p2.png ... ~/images/p12.png 
+                            *@
+                            <img src="~/images/p@(i).png"
+                                 alt="Partner @i"
+                                 class="max-h-20 w-auto object-contain  hover:scale-110 transition-all duration-300  cursor-pointer" />
+                        </div>
+                    }                   
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@* --- CSS & JS Riêng cho phần này (Inject vào cuối trang) --- *@
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var swiper = new Swiper(".partner-swiper", {
+                slidesPerView: 2,      // Mobile hiện 2 logo
+                spaceBetween: 30,      // Khoảng cách giữa các logo
+                loop: true,            // Lặp vô tận
+                speed: 5000,           // Tốc độ trôi (càng cao càng chậm)
+                freeMode: true,        // Chế độ trôi tự do
+                allowTouchMove: true,  // Cho phép kéo thả
+                autoplay: {
+                    delay: 0,          // Không có độ trễ, chạy liên tục
+                    disableOnInteraction: false, // Tương tác xong vẫn chạy tiếp
+                    pauseOnMouseEnter: true, // (Tùy chọn) Chuột vào thì dừng trôi để xem kỹ
+                },
+                breakpoints: {
+                    640: { slidesPerView: 3, spaceBetween: 40 },
+                    768: { slidesPerView: 4, spaceBetween: 50 },
+                    1024: { slidesPerView: 5, spaceBetween: 60 },
+                }
+            });
+        });
+    </script>
+
+    @* Style override để animation trôi đều (linear) thay vì ease-in-out *@
+    <style>
+        .swiper-wrapper {
+            transition-timing-function: linear;
+        }
+    </style>
+}
+
+
+@* --- 5. F&B SOLUTIONS SECTION --- *@
+<section class="relative w-full h-[700px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/images/fnb-hero.png');">
+
+    @* Overlay *@
+    <div class="absolute inset-0  z-0"></div>
+
+  
+    <div class="w-full px-4 md:px-8 relative z-10 flex justify-center">
+
+       
+        <div class="border-[3px] border-[#FAF0BF] p-10 md:p-16 w-full max-w-7xl text-center backdrop-blur-sm mx-auto">
+
+            <h2 class="font-heading font-bold text-4xl md:text-5xl text-white uppercase mb-8 tracking-wider">
+                Our Food Service<br />Solutions
+            </h2>
+
+            @* Nội dung chữ *@
+            <p class="font-source-serif font-bold italic text-xl md:text-2xl text-white mb-10 w-full"
+               style="line-height: 28px; letter-spacing: 0.03em;">
+                Explore our extensive range of food & beverage equipment solutions that bring innovation and efficiency<br class="hidden lg:block" />
+                to your culinary operations, ensuring top-quality service and satisfaction.
+            </p>
+
+            <a href="https://globalhoreca.com" target="_blank" rel="noopener noreferrer"
+               class="inline-block bg-[#F9EDB3] hover:bg-yellow-400 text-[#5c563d] font-heading font-bold text-lg px-10 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                Visit globalhoreca.com
+            </a>
+
+        </div>
+    </div>
+</section>
+
+@* --- 6. LATEST NEWS SECTION --- *@
+<section class="w-full py-16 md:py-24 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+
+        @* --- Section Header --- *@
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div class="max-w-2xl">
+                <h4 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
+                    Keep Updated
+                </h4>
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-900 leading-tight">
+                    Latest News & Events
+                </h2>
+            </div>
+
+            @* Nút xem tất cả (Desktop) *@
+            <a href="/news" class="hidden md:inline-flex items-center font-bold text-blue-700 hover:text-blue-900 transition-colors group">
+                View all news
+                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
+
+        @* --- News Grid (Sử dụng _Card.cshtml) --- *@
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+            @{
+                // Giả lập dữ liệu (Sau này lấy từ Model.LatestNews)
+                var newsList = new List<Cw.Branding.Web.Models.Components.CardItemViewModel>
+                        {
+                        new Cw.Branding.Web.Models.Components.CardItemViewModel
+                        {
+                        Title = "Grand Opening of New Showroom in Ho Chi Minh City",
+                        Description = "We are thrilled to announce the opening of our state-of-the-art showroom featuring the latest medical imaging technologies.",
+                        ImageUrl = "/images/healthcare-hero.png", 
+                        LinkUrl = "/news/grand-opening",
+                        Category = "Events",
+                        Date = "Oct 24, 2025",
+                        LinkText = "Read Report"
+                        },
+                        new Cw.Branding.Web.Models.Components.CardItemViewModel
+                        {
+                        Title = "Advanced MRI Solutions Workshop 2025",
+                        Description = "Join our experts for an in-depth workshop on the new diagnostic capabilities of our MRI product line.",
+                        ImageUrl = "/images/medical-bg-2.jpg", 
+                        LinkUrl = "/news/mri-workshop",
+                        Category = "Technology",
+                        Date = "Nov 02, 2025",
+                        LinkText = "Learn More"
+                        },
+                        new Cw.Branding.Web.Models.Components.CardItemViewModel
+                        {
+                        Title = "Strategic Partnership with Global Horeca",
+                        Description = "Expanding our F&B solutions portfolio through a strategic alliance to better serve hotel and restaurant chains.",
+                        ImageUrl = "/images/news-opening.png", 
+                        LinkUrl = "/news/partnership",
+                        Category = "Partnership",
+                        Date = "Nov 15, 2025",
+                        LinkText = "View Details"
+                        }
+                        };
+            }
+
+            @* Loop render cards *@
+            @foreach (var item in newsList)
+            {
+               
+                <partial name="~/Views/Shared/Components/_Card.cshtml" model="item" />
+            }
+        </div>
+
+        @* Nút xem tất cả (Mobile only - hiện khi màn hình nhỏ) *@
+        <div class="mt-10 text-center md:hidden">
+            <a href="/news" class="inline-block border border-blue-600 text-blue-600 font-bold py-3 px-8 rounded hover:bg-blue-600 hover:text-white transition-colors">
+                View all news
+            </a>
+        </div>
+    </div>
+</section>

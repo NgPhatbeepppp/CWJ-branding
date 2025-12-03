@@ -30,29 +30,36 @@
             <img src="~/images/logo2.png" alt="Charles Wembley" class="h-[105px] w-auto object-contain brightness-0" />
         </a>
 
-        <nav class="hidden lg:flex items-center space-x-12">
-            <a href="/en/home" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
+        @* UPDATE: 
+           1. space-x-12 -> space-x-16 (Tăng khoảng cách menu) 
+        *@
+        <nav class="hidden lg:flex items-center space-x-16">
+            @* UPDATE: 
+               2. text-lg -> text-base (Giảm cỡ chữ xuống mức tiêu chuẩn) 
+            *@
+            <a href="/en/home" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
                 Home
             </a>
-            <a href="/en/about-us" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
+            <a href="/en/about-us" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
                 About Us
             </a>
-            <a href="/en/medical-solutions" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
+            <a href="/en/medical-solutions" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
                 Medical
             </a>
-            <a href="/en/fb-solutions" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
+            <a href="/en/fb-solutions" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
                 F&B
             </a>
-            <a href="/en/news" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
+            <a href="/en/news" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
                 News
             </a>
-            <a href="/en/contact" class="text-lg font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
+            <a href="/en/contact" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
                 Contact
             </a>
         </nav>
 
         <div class="flex items-center space-x-6">
-            <div class="flex items-center text-lg font-medium text-black divide-x divide-slate-300">
+            @* Cập nhật cỡ chữ cho phần switch ngôn ngữ luôn cho cân đối *@
+            <div class="flex items-center text-base font-medium text-black divide-x divide-slate-300">
                 <a href="?lang=en" class="px-3 hover:text-brand-primary text-brand-primary font-bold">EN</a>
                 <a href="?lang=vi" class="px-3 hover:text-brand-primary">VI</a>
             </div>
@@ -65,14 +72,15 @@
         </div>
     </div>
 
+    @* Mobile Menu *@
     <div id="mobile-menu" class="hidden lg:hidden absolute top-32 left-0 w-full bg-white border-b border-gray-200 shadow-lg">
         <div class="px-6 py-4 space-y-4">
-            <a href="/en/home" class="block text-lg font-heading font-bold uppercase @IsActive("Home")">Home</a>
-            <a href="/en/about-us" class="block text-lg font-heading font-bold uppercase @IsActive("About")">About Us</a>
-            <a href="/en/medical-solutions" class="block text-lg font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
-            <a href="/en/fb-solutions" class="block text-lg font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
-            <a href="/en/news" class="block text-lg font-heading font-bold uppercase @IsActive("News")">News</a>
-            <a href="/en/contact" class="block text-lg font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
+            <a href="/en/home" class="block text-base font-heading font-bold uppercase @IsActive("Home")">Home</a>
+            <a href="/en/about-us" class="block text-base font-heading font-bold uppercase @IsActive("About")">About Us</a>
+            <a href="/en/medical-solutions" class="block text-base font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
+            <a href="/en/fb-solutions" class="block text-base font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
+            <a href="/en/news" class="block text-base font-heading font-bold uppercase @IsActive("News")">News</a>
+            <a href="/en/contact" class="block text-base font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
         </div>
     </div>
 </header>

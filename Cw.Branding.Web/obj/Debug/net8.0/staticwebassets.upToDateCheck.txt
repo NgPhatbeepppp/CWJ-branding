@@ -1,7 +1,27 @@
 wwwroot\favicon.ico
+wwwroot\images\fnb-hero.png
+wwwroot\images\healthcare-hero.png
 wwwroot\images\Hero illstration.png
 wwwroot\images\logo1.png
 wwwroot\images\logo2.png
+wwwroot\images\medical-bg-2.jpg
+wwwroot\images\medical-bg-3.jpg
+wwwroot\images\medical-bg-4.jpg
+wwwroot\images\medical-bg-5.jpg
+wwwroot\images\news-opening.png
+wwwroot\images\p1.png
+wwwroot\images\p10.png
+wwwroot\images\p11.png
+wwwroot\images\p12.png
+wwwroot\images\p2.png
+wwwroot\images\p3.png
+wwwroot\images\p4.png
+wwwroot\images\p5.png
+wwwroot\images\p6.png
+wwwroot\images\p7.png
+wwwroot\images\p8.png
+wwwroot\images\p9.png
+wwwroot\images\Partnerbg.png
 wwwroot\images\WebBR_1.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

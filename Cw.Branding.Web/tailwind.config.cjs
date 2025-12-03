@@ -66,7 +66,9 @@ module.exports = {
                 sans: ["Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
                 signature: ['"Monsieur La Doulaise"', 'cursive'],
                 classic: ['"Libre Caslon Text"', 'serif'],
-                narrative: ['"Montaga"', 'serif']
+                narrative: ['"Montaga"', 'serif'],
+               'source-serif': ['"Source Serif 4"', 'serif']
+
             },
 
             spacing: {
