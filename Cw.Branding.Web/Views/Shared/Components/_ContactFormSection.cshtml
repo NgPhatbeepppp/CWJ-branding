@@ -1,0 +1,79 @@
+﻿@* File: Views/Shared/_ContactFormSection.cshtml *@
+@model Cw.Branding.Web.Models.ViewModels.ContactFormViewModel
+
+@* --- CẤU TRÚC OVERLAY --- *@
+@* 1. bg-transparent: Để lộ footer ở các góc bo tròn *@
+@* 2. relative z-20: Nằm đè lên trên Footer (z-0) *@
+@* 3. -mb-[80px]: Kéo Footer lên 80px để lấp vào khoảng trống *@
+<section class="w-full bg-transparent relative z-20 -mb-[80px]" id="contact-form">
+
+    @* --- KHỐI TRẮNG BO GÓC --- *@
+    @* rounded-b-[80px]: Bo tròn 2 góc dưới giống hình mẫu *@
+    @* shadow-xl: Đổ bóng để tách biệt lớp *@
+    <div class="w-full bg-white rounded-b-[80px] pt-16 pb-24 shadow-2xl">
+
+        <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+                @* --- Cột Trái: Text --- *@
+                <div class="pt-4">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold text-slate-900 leading-tight mb-4">
+                        INTERESTED IN OUR <br /> PRODUCT?
+                    </h2>
+                    <p class="text-3xl md:text-5xl font-heading font-bold text-[#004F9F] italic tracking-wide">
+                        CONTACT US
+                    </p>
+                </div>
+
+                @* --- Cột Phải: Form --- *@
+                <div class="w-full">
+                    <form asp-controller="Contact" asp-action="Submit" method="post" class="space-y-6">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="form-group">
+                                <label asp-for="Name" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">YOUR NAME</label>
+                                <input asp-for="Name" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200" placeholder="" />
+                                <span asp-validation-for="Name" class="text-red-500 text-xs mt-1"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Email" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">YOUR EMAIL</label>
+                                <input asp-for="Email" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200" placeholder="" />
+                                <span asp-validation-for="Email" class="text-red-500 text-xs mt-1"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="SelectedProduct" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">SELECT A PRODUCT</label>
+                            <div class="relative">
+                                <select asp-for="SelectedProduct" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm appearance-none transition-colors duration-200 cursor-pointer">
+                                    <option value="" disabled selected>Select a product...</option>
+                                    <option value="Medical Solutions">Medical Solutions</option>
+                                    <option value="F&B Solutions">F&B Solutions</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Message" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">HOW CAN WE HELP YOU?</label>
+                            <textarea asp-for="Message" rows="5" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200 resize-none"></textarea>
+                            <span asp-validation-for="Message" class="text-red-500 text-xs mt-1"></span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="bg-[#002B57] hover:bg-blue-900 text-white uppercase tracking-widest text-sm font-bold py-4 px-10 rounded-sm shadow-lg transition-all transform hover:-translate-y-1">
+                                SUBMIT
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
