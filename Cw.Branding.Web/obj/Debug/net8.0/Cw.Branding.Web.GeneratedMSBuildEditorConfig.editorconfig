@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0NhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/HP/source/repos/Cw.Branding/Cw.Branding.Web/Views/Shared/Components/_ContactFormSection.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0NvbnRhY3RGb3JtU2VjdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/HP/source/repos/Cw.Branding/Cw.Branding.Web/Views/Shared/Components/_SectionHeader.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX1NlY3Rpb25IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

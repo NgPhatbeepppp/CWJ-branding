@@ -43,7 +43,18 @@ namespace Cw.Branding.Web.Controllers
             return View(viewModel);
         }
 
-        
+        [HttpPost]
+        public IActionResult Submit(ContactFormViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // TODO: Lưu vào DB hoặc gửi Email ở đây
+                return RedirectToAction("Index", "Home"); // Tạm thời quay về trang chủ
+            }
+
+            // Nếu lỗi validation, quay lại trang trước (hoặc xử lý hiển thị lỗi)
+            return RedirectToAction("Index", "Home");
+        }
         public IActionResult Privacy() => View();
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
