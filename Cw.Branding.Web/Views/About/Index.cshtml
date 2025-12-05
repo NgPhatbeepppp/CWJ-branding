@@ -1,0 +1,77 @@
+﻿@model Cw.Branding.Web.Models.ViewModels.AboutViewModel
+@{
+    ViewData["Title"] = Model.MetaTitle ?? "About Us";
+    ViewData["MetaDescription"] = Model.MetaDescription;
+}
+
+@* ==========================================
+   SECTION 1: ABOUT INTRODUCTION (Zoomed & Compact Version)
+   ========================================== *@
+<section class="relative w-full -mt-24 pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+
+    @* --- 1. Background Layer --- *@
+    <div class="absolute inset-0 z-0">
+        <img src="~/images/about-bg-texture.png"
+             alt="Background Texture"
+             class="w-full h-full object-cover opacity-30" />
+    </div>
+
+    @* --- 2. MAIN CONTAINER --- 
+       Mở rộng tối đa: w-[96%] để lấy không gian cho chữ nằm ngang
+    *@
+    <div class="relative z-10 w-[96%] max-w-screen-3xl mx-auto px-2 md:px-0">
+
+        @* --- GRID --- 
+           Thay đổi tỷ lệ: 6 (Ảnh) - 6 (Chữ) để chữ có đủ đất nằm ngang.
+           gap-2: Khoảng cách cực nhỏ giữa 2 cột.
+        *@
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-2 items-center">
+
+            @* --- COL 1: ẢNH (Chiếm 6/12) --- *@
+            <div class="md:col-span-6 flex justify-center md:justify-end relative">
+                @* scale-125: Phóng to ảnh lên 125% so với khung.
+                   translate-x-6: Đẩy ảnh sang phải một chút để sát vào chữ hơn.
+                   origin-center: Phóng to từ tâm.
+                *@
+                <img src="~/images/about-collage.png"
+                     alt="Charles Wembley Medical & F&B"
+                     class="w-full object-contain drop-shadow-xl transform scale-125 md:translate-x-8 z-10" />
+            </div>
+
+            @* --- COL 2: CHỮ (Chiếm 6/12) --- *@
+            @* -ml-4: Margin âm để kéo chữ lấn nhẹ về phía ảnh, giảm thêm khoảng cách *@
+            <div class="text-center md:text-left md:col-span-6 md:-ml-4 z-20 pl-4">
+
+                @* TIÊU ĐỀ 1 HÀNG (Flex Layout) *@
+                <h1 class="flex flex-col md:flex-row items-center md:items-baseline gap-x-4 mb-6">
+
+                    @* Chữ 'About': Font thường *@
+                    <span class="text-4xl md:text-5xl lg:text-6xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap">
+                        About
+                    </span>
+
+                    @* Chữ 'Charles Wembley': Font chữ ký -> Nằm cùng hàng *@
+                    <span class="font-signature text-5xl md:text-6xl lg:text-7xl text-brand-primary whitespace-nowrap leading-none mt-2 md:mt-0">
+                        Charles Wembley
+                    </span>
+                </h1>
+
+                @* Nội dung *@
+                <div class="text-slate-800 text-base md:text-lg lg:text-xl font-['Montaga'] tracking-wide opacity-90 space-y-6 pr-4 md:pr-16"
+                     style="line-height: 1.6;">
+                    <p>
+                        A global leader in cutting-edge <span class="font-bold text-slate-900">medical solutions</span> and premium food & beverage systems.
+                    </p>
+                    <p>
+                        Advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+@* --- PLACEHOLDER CHO CÁC PHẦN TIẾP THEO --- *@
+@* <section id="our-story"> ... </section> *@
+@* <section id="our-journey"> ... </section> *@
+@* <section id="vision-values"> ... </section> *@

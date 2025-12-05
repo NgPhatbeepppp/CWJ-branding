@@ -321,10 +321,10 @@
 
 @* --- 6. LATEST NEWS SECTION --- *@
 <section class="w-full py-16 md:py-24 bg-gray-50">
-    <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+    <div class="container mx-auto px-4 md:px-8 max-w-[1400px]">
 
         @* --- Section Header --- *@
-        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-14">
             <div class="max-w-2xl">
                 <h4 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
                     Keep Updated
@@ -342,7 +342,7 @@
         </div>
 
         @* --- News Grid (Sử dụng _Card.cshtml) --- *@
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 gap-y-12">
             @{
                 // Giả lập dữ liệu (Sau này lấy từ Model.LatestNews)
                 var newsList = new List<Cw.Branding.Web.Models.Components.CardItemViewModel>

@@ -1,4 +1,6 @@
 wwwroot\favicon.ico
+wwwroot\images\about-bg-texture.png
+wwwroot\images\about-collage.png
 wwwroot\images\fnb-hero.png
 wwwroot\images\healthcare-hero.png
 wwwroot\images\Hero illstration.png
