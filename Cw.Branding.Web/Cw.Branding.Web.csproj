@@ -1376,7 +1376,6 @@
 	  <Folder Include="bin\Debug\net8.0\runtimes\win\lib\net8.0\" />
 	  <Folder Include="obj\Debug\net8.0\staticwebassets\" />
 	  <Folder Include="Services\Implementations\" />
-	  <Folder Include="ViewModels\" />
 	  <Folder Include="wwwroot\uploads\assets\" />
 	  <Folder Include="wwwroot\uploads\news\" />
 	  <Folder Include="wwwroot\uploads\products\" />
