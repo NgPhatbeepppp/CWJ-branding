@@ -40,30 +40,27 @@
 
             @* --- COL 2: CHỮ (Chiếm 6/12) --- *@
             @* -ml-4: Margin âm để kéo chữ lấn nhẹ về phía ảnh, giảm thêm khoảng cách *@
-            <div class="text-center md:text-left md:col-span-6 md:-ml-4 z-20 pl-4">
+            <div class="text-center md:text-left md:col-span-6 md:-ml-24 z-20 pl-4">
 
                 @* TIÊU ĐỀ 1 HÀNG (Flex Layout) *@
                 <h1 class="flex flex-col md:flex-row items-center md:items-baseline gap-x-4 mb-6">
 
                     @* Chữ 'About': Font thường *@
-                    <span class="text-4xl md:text-5xl lg:text-6xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap">
+                    <span class="text-2xl md:text-5xl lg:text-5xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap ">
                         About
                     </span>
 
                     @* Chữ 'Charles Wembley': Font chữ ký -> Nằm cùng hàng *@
-                    <span class="font-signature text-5xl md:text-6xl lg:text-7xl text-brand-primary whitespace-nowrap leading-none mt-2 md:mt-0">
+                    <span class="font-signature text-3xl md:text-7xl lg:text-7xl whitespace-nowrap leading-none mt-2 md:mt-0">
                         Charles Wembley
                     </span>
                 </h1>
 
                 @* Nội dung *@
-                <div class="text-slate-800 text-base md:text-lg lg:text-xl font-['Montaga'] tracking-wide opacity-90 space-y-6 pr-4 md:pr-16"
+                <div class="text-slate-800 text-base md:text-lg lg:text-xl font-narrative tracking-wide opacity-90 space-y-6 pr-4 md:pr-12 max-w-[800px]"
                      style="line-height: 1.6;">
-                    <p>
-                        A global leader in cutting-edge <span class="font-bold text-slate-900">medical solutions</span> and premium food & beverage systems.
-                    </p>
-                    <p>
-                        Advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide.
+                    <p class="font-narrative">
+                        Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems. The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
                     </p>
                 </div>
 
@@ -71,7 +68,325 @@
         </div>
     </div>
 </section>
-@* --- PLACEHOLDER CHO CÁC PHẦN TIẾP THEO --- *@
-@* <section id="our-story"> ... </section> *@
-@* <section id="our-journey"> ... </section> *@
-@* <section id="vision-values"> ... </section> *@
+
+@* ==========================================
+   SECTION TRANSITION: FULL WIDTH COVER IMAGE
+   ========================================== *@
+<div class="w-full h-[245px] relative overflow-hidden">
+
+    @* Background Image *@
+    @* - bg-fixed: Tạo hiệu ứng Parallax (ảnh đứng yên khi cuộn chuột) -> Nhìn rất chuyên nghiệp.
+       - Nếu không thích hiệu ứng trôi, bạn xóa 'bg-fixed' đi là được.
+    *@
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+         style="background-image: url('/images/fnb-hero.png');">
+
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-t from-white to-transparent"></div>
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-b from-white to-transparent"></div>
+        @* Lớp phủ mờ nhẹ (Optional) - giúp tách biệt với nội dung nếu ảnh quá sáng *@
+        <div class="absolute inset-0 bg-black/10"></div>
+    </div>
+
+</div>
+
+@* ==========================================
+   SECTION 2: OUR STORY
+   ========================================== *@
+<section id="our-story" class="relative w-full py-16 md:py-24 bg-[#FDFBF7] overflow-hidden">
+
+    @* --- 1. Background Layer --- *@
+    <div class="absolute inset-0 z-0">
+        <img src="~/images/about-bg-texture.png"
+             alt="Background Texture"
+             class="w-full h-full object-cover opacity-30" />
+    </div>
+
+    @* --- 2. Main Content Container --- *@
+    <div class="container mx-auto px-4 relative z-10">
+
+        <div class="max-w-4xl mx-auto text-center">
+
+            @* --- TITLE --- *@
+            <h2 class="text-4xl md:text-5xl text-[#002143] font-narrative mb-6 tracking-wide">
+                Our Story
+            </h2>
+
+            @* --- SEPARATOR LINE (Đường kẻ xanh) --- *@
+            <div class="w-[200px] md:w-[600px] h-[2px] bg-[#004F9F] mx-auto mb-10"></div>
+            @* Mẹo: Nếu muốn line dài như trong ảnh thiết kế (gần bằng chiều rộng chữ), 
+               bạn đổi w-24 thành w-[200px] hoặc w-full max-w-lg *@
+
+            @* --- BODY TEXT --- *@
+            <div class="[&_p]:font-narrative font-narrative text-slate-700 text-xl md:text-2xl leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
+                <p >
+                    Driven by a pioneering spirit, we at Charles Wembley (Tan Long) have grown to become one of the largest and most trusted medical equipment suppliers in Vietnam.
+                </p>
+                <p>
+                    With an extensive network across Vietnam and Cambodia, we specialize in essential solutions for Surgery, ICU & Emergency, Anesthesia, Neonatal, Urology, and Ophthalmology. Our mission is to deliver optimal solutions that perfectly balance quality and cost, backed by our deep industry experience.
+                </p>
+                <p>
+                    We are proud to be the official distributor for world-leading brands like Masimo, Johnson & Johnson, Seca, Fisher & Paykel, and Reichert. Above all, we are committed to being your trusted companion on every step of your journey.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+@* ==========================================
+   SECTION 3: JOURNEY - VISION - VALUES
+   ========================================== *@
+<section id="vision-values" class="w-full py-16 md:py-24 bg-white">
+    <div class="w-[75%] mx-auto max-w-none">
+
+        @* Grid Container: items-start để sticky hoạt động *@
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 lg:gap-32 items-start">
+
+            @* --- COL 1: LEFT - OUR JOURNEY (VIDEO STICKY & AUTOPLAY) --- *@
+            @* - pointer-events-none: Chặn người dùng click/pause video.
+               - sticky top-24: Dính video khi cuộn.
+            *@
+            <div class="relative w-full rounded-sm overflow-hidden shadow-2xl
+                        h-[600px] lg:h-[980px]
+                        lg:sticky lg:top-24 pointer-events-none">
+
+             
+              
+
+                @* Video Player:
+                   - autoplay: Tự chạy.
+                   - loop: Tự phát lại.
+                   - muted: Tắt tiếng (Bắt buộc để trình duyệt cho phép Autoplay).
+                   - playsinline: Hỗ trợ chạy trên iOS không bị bung full màn hình.
+                   - BỎ controls: Ẩn thanh điều khiển.
+                *@
+                <video autoplay loop muted playsinline class="w-full h-full object-cover" poster="/images/about/journey-poster.jpg">
+                    <source src="~/videos/cw-journey.mp4" type="video/mp4">
+                </video>
+
+             
+            </div>
+
+
+            @* --- COL 2: RIGHT - VISION & CORE VALUES (Cao ~1500px) --- *@
+            @* - min-h-[1500px]: Ép cột này cao 1500px (khoảng 2.5 màn hình).
+               - flex flex-col justify-between: Tự động đẩy các khối (Vision, Values...) ra xa nhau đều đặn.
+            *@
+            <div class="flex flex-col justify-between min-h-[1500px] py-10 [&_p]:font-['Montserrat']">
+
+                @* Block 1: HEADING & IMAGE --- *@
+                <div>
+                    <h2 class="text-[#004F9F] font-heading font-bold text-3xl md:text-4xl uppercase tracking-wide mb-8">
+                        Vision & Core Value
+                    </h2>
+                    <img src="~/images/vision-bg.png"
+                         alt="Charles Wembley Office"
+                         class="w-[85%] h-auto object-cover rounded-sm shadow-md" />
+                </div>
+
+                @* Block 2: OUR VISION --- *@
+                <div class="py-12 border-b border-slate-100">
+                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-6">
+                        Our Vision
+                    </h3>
+                    <p class="text-slate-800 leading-loose font-body text-lg md:text-xl">
+                        We aspire to set the benchmark for trustworthy Medical and F&B solutions—combining rigor, design, and service to help organizations work safer, faster, and smarter. By uniting proven expertise with practical innovation, we enable our partners to deliver better experiences and measurable results.
+                    </p>
+                </div>
+
+                @* Block 3: OUR VALUES (List) --- *@
+                <div>
+                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-12 mt-6 ">
+                        Our Values
+                    </h3>
+
+                    @* Tăng khoảng cách giữa các items lên space-y-12 (48px) *@
+                    <div class="space-y-12">
+
+                        @* Value 1 *@
+                        <div class="group">
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Integrity</h4>
+                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                                We speak plainly, deliver exactly what we promise, and back decisions with evidence.
+                            </p>
+                        </div>
+
+                        @* Value 2 *@
+                        <div class="group">
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Safety & Compliance</h4>
+                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                                People come first. We follow clinical and industry standards to protect patients, guests, and teams.
+                            </p>
+                        </div>
+
+                        @* Value 3 *@
+                        <div class="group">
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Practical Innovation</h4>
+                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                                We build useful improvements that scale—never complexity for its own sake.
+                            </p>
+                        </div>
+
+                        @* Value 4 *@
+                        <div class="group">
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Reliability & Accountability</h4>
+                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                                Clear commitments, on-time handoffs, and ownership of outcomes.
+                            </p>
+                        </div>
+
+                        @* Value 5 *@
+                        <div class="group">
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Partnership Mindset</h4>
+                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                                We succeed with our clients and suppliers, not just for them—through transparency and respect.
+                            </p>
+                        </div>
+
+                        @* Value 6 *@
+                        <div class="group">
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Continuous Improvement</h4>
+                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+                                Small, repeatable upgrades that compound over time.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* Spacer cuối cùng để dễ nhìn *@
+                <div class="h-20"></div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@* ==========================================
+   SECTION 4: GUIDED BY EXPERIENCE AND VISION (LEADERSHIP SLIDER)
+   ========================================== *@
+@* - bg-[#528AC4]: Màu xanh giống ảnh mẫu (hoặc đổi thành bg-[#004F9F] nếu muốn chuẩn brand).
+   - rounded-br-[100px] md:rounded-br-[200px]: Bo góc dưới bên phải cực lớn để tạo hiệu ứng "lộ footer".
+   - -mb-[80px]: Kéo section xuống đè lên footer (Negative Margin).
+   - relative z-20: Đảm bảo section này nằm TRÊN footer.
+*@
+<section id="leadership" class="relative z-20 -mb-[90px] bg-[#528AC4] text-white py-20 md:py-28 rounded-br-[80px] md:rounded-br-[40px] overflow-hidden">
+
+    <div class="container mx-auto px-4 max-w-[1500px]">
+
+        @* --- TITLE --- *@
+        <div class="text-center mb-16 md:mb-20">
+            <h2 class="font-heading text-white font-bold text-2xl md:text-4xl uppercase tracking-[0.1em]">
+                Guided by Experience and Vision
+            </h2>
+        </div>
+
+        @* --- SWIPER SLIDER --- *@
+        <div class="swiper leadership-swiper relative">
+            <div class="swiper-wrapper">
+
+                @* --- SLIDE 1: CEO / Founder --- *@
+                <div class="swiper-slide">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
+
+                        @* Cột Trái: Text (Chiếm 5 phần) *@
+                        @* Có đường kẻ dọc màu trắng bên trái *@
+                        <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
+                            <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
+                                "Charles Wembley is a leader in providing cutting-edge medical and food & beverage solutions, dedicated to advancing healthcare and enriching culinary experiences around the world."
+                            </blockquote>
+                            <div>
+                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Mr. Charles Wembley</h4>
+                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">Founder & CEO</p>
+                            </div>
+                        </div>
+
+                        @* Cột Phải: Ảnh (Chiếm 7 phần) *@
+                        <div class="md:col-span-7 flex justify-center md:justify-end">
+                            <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
+                                @* Ảnh chân dung lãnh đạo *@
+                                <img src="~/images/about/leader-1.jpg"
+                                     alt="Mr. Charles Wembley"
+                                     class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                @* --- SLIDE 2: CTO / Director (Ví dụ thêm slide 2) --- *@
+                <div class="swiper-slide">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
+                        <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
+                            <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
+                                "Our technology vision is simple: Practical innovation that solves real-world problems for hospitals and businesses across Southeast Asia."
+                            </blockquote>
+                            <div>
+                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Ms. Sarah Nguyen</h4>
+                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">Chief Technology Officer</p>
+                            </div>
+                        </div>
+                        <div class="md:col-span-7 flex justify-center md:justify-end">
+                            <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
+                                <img src="~/images/about/leader-2.jpg"
+                                     alt="Ms. Sarah Nguyen"
+                                     class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @* --- NAVIGATION ARROWS (Custom Style) --- *@
+            @* Đặt vị trí nút bấm ở góc dưới bên trái của cột Text (tương ứng layout ảnh) *@
+            <div class="flex gap-4 mt-10 md:mt-0 md:absolute md:bottom-0 md:left-8 z-30">
+                @* Nút Prev *@
+                <button class="swiper-button-prev-custom group">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+                @* Nút Next *@
+                <button class="swiper-button-next-custom group">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+@section Scripts {
+    @* Gọi lại Swiper nếu Layout chưa có *@
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Khởi tạo slider Leadership
+            var leaderSwiper = new Swiper(".leadership-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 50,
+                speed: 800, // Tốc độ chuyển slide mượt
+                loop: true,
+                effect: 'fade', // Hiệu ứng Fade mờ dần thay vì trượt ngang (sang trọng hơn)
+                fadeEffect: {
+                    crossFade: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next-custom",
+                    prevEl: ".swiper-button-prev-custom",
+                },
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                }
+            });
+        });
+    </script>
+}

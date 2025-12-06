@@ -1,4 +1,5 @@
 wwwroot\favicon.ico
+wwwroot\images\.png
 wwwroot\images\about-bg-texture.png
 wwwroot\images\about-collage.png
 wwwroot\images\fnb-hero.png
@@ -24,6 +25,7 @@ wwwroot\images\p7.png
 wwwroot\images\p8.png
 wwwroot\images\p9.png
 wwwroot\images\Partnerbg.png
+wwwroot\images\vision-bg.png
 wwwroot\images\WebBR_1.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -83,4 +85,5 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\videos\cw-journey.mp4
 wwwroot\css\site.css
