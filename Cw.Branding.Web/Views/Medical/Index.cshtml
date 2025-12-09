@@ -1,0 +1,167 @@
+﻿@model Cw.Branding.Web.Models.ViewModels.MedicalIndexViewModel
+
+@{
+    ViewData["Title"] = "Medical Solutions";
+}
+
+@section Styles {
+    <style>
+        @* Copy đoạn CSS Ken Burns ở trên vào đây nếu cần *@
+    </style>
+}
+
+<div class="relative w-full">
+
+    <div class="relative h-[400px] md:h-[500px] w-full overflow-hidden bg-slate-900">
+
+        <div id="hero-slider" class="absolute inset-0 h-full w-full animate-ken-burns">
+            <img src="/images/medical-bg-2.jpg" alt="Medical 1" class="slider-image active" />
+            <img src="/images/medical-bg-3.jpg" alt="Medical 2" class="slider-image" />
+            <img src="/images/medical-bg-4.jpg" alt="Medical 3" class="slider-image" />
+        </div>
+
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <div class="absolute inset-0 flex items-center justify-center">
+            <h1 class="font-brand text-6xl text-white italic tracking-wider md:text-8xl drop-shadow-md">
+                Medical solutions
+            </h1>
+        </div>
+    </div>
+
+    <div class="section-container bg-white text-center">
+        <div class="mx-auto max-w-4xl py-8 md:py-12">
+            <h2 class="mb-8 font-heading text-3xl font-bold uppercase tracking-widest text-brand-primary md:text-5xl">
+                HEALTHCARE DIVISION
+            </h2>
+            <hr class="mx-auto mb-5 w-102 border-t-2 border-slate-300 text-blue-800" />
+            <div class="space-y-4 [&>p]:font-heading [&>p]:tracking-wide text-base text-slate-600 md:text-lg leading-relaxed">
+                <p>
+                    Our Healthcare Division delivers trusted, compliant solutions for hospitals, clinics, and labs.
+                    We cover medical consumables, devices and equipment, infection prevention, clinical furniture,
+                    and facility solutions—validated with product dossiers, traceability, and alignment to local regulations.
+                </p>
+                <p>
+                    Through reliable supply, training, and aftercare, we help teams standardize SKUs, reduce risk,
+                    and improve operational efficiency, leading to safer care and better total value.
+                </p>
+                <p class="font-medium text-slate-800">
+                    Contact us to request a product list, book a needs assessment, or obtain compliance documentation.
+                </p>
+            </div>
+
+           
+        </div>
+    </div>
+
+</div>
+
+<div id="section-categories">
+    <div id="section-categories" class="bg-slate-50 py-12 md:py-16">
+        <div class="section-container">
+            <div class="mb-16 text-center">
+                <h2 class="font-heading text-4xl font-bold tracking-wide text-brand-primary md:text-5xl">
+                    Our Product Categories
+                </h2>
+                <div class="mx-auto mt-10 h-1 w-\[50\%\] bg-blue-900"></div>
+            </div>
+
+            @if (Model.Categories != null && Model.Categories.Any())
+            {
+                <div class="grid grid-cols-2 gap-7 sm:grid-cols-3 lg:grid-cols-4">
+                    @foreach (var cat in Model.Categories)
+                    {
+                        <div class="category-item group flex cursor-pointer flex-col items-center justify-center rounded-lg  p-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover border border-transparent hover:border-brand-primary/20"
+                             onclick="loadProducts(this, @cat.Id)">
+
+                            <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-400 text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
+                                @if (!string.IsNullOrEmpty(cat.IconPath))
+                                {
+                                    <img src="@cat.IconPath" alt="@cat.NameEn" class="h-8 w-8 object-contain" />
+                                }
+                                else
+                                {
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                                    </svg>
+                                }
+                            </div>
+
+                            <h3 class="font-heading text-sm font-bold uppercase text-slate-800 transition-colors group-hover:text-brand-primary md:text-base">
+                                @cat.NameEn
+                            </h3>
+
+                            <span class="mt-2 text-xs text-slate-400 group-hover:text-brand-secondary">
+                                View Details
+                            </span>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-center text-slate-500">Categories are being updated.</p>
+            }
+        </div>
+    </div>
+</div>
+<div id="section-products"></div>
+
+@section Scripts {
+    <script>
+        // Script đơn giản để auto-play slider (Crossfade)
+        document.addEventListener("DOMContentLoaded", function () {
+            const slides = document.querySelectorAll('.slider-image');
+            if(slides.length <= 1) return;
+
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 giây đổi ảnh
+
+            setInterval(() => {
+                // Ẩn slide hiện tại
+                slides[currentSlide].classList.remove('active');
+
+                // Chuyển sang slide kế tiếp
+                currentSlide = (currentSlide + 1) % slides.length;
+
+                // Hiện slide mới
+                slides[currentSlide].classList.add('active');
+            }, slideInterval);
+        });
+    </script>
+    <script>
+        function loadProducts(element, categoryId) {
+            // UI: Active styles (giữ nguyên code cũ)...
+            document.querySelectorAll('.category-item').forEach(el => {
+                el.classList.remove('ring-2', 'ring-brand-primary', 'bg-blue-50');
+            });
+            element.classList.add('ring-2', 'ring-brand-primary', 'bg-blue-50');
+
+            const productContainer = document.getElementById('section-products');
+
+            // Loading animation
+            productContainer.innerHTML = '<div class="flex justify-center py-12"><div class="h-8 w-8 animate-spin rounded-full border-4 border-brand-primary border-t-transparent"></div></div>';
+
+          
+            const url = '@Url.Action("FilterProducts", "Medical", new { area = "" })' + '?categoryId=' + categoryId;
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        // In lỗi ra console để biết 404 hay 500
+                        console.error('Server status:', response.status);
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    productContainer.innerHTML = html;
+                    const fadeElements = productContainer.querySelectorAll('.fade-in-up');
+                    fadeElements.forEach(el => el.classList.add('opacity-100', 'translate-y-0'));
+                })
+                .catch(error => {
+                    console.error('Error loading products:', error);
+                    productContainer.innerHTML = '<div class="text-center py-8 text-red-500">Failed to load products. Check Console (F12).</div>';
+                });
+        }
+    </script>
+}

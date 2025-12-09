@@ -115,3 +115,39 @@
         @apply text-red-600 text-xs mt-1 ml-1;
     }
 }
+/* Custom Ken Burns Effect */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1) translate(-1%, -1%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+    }
+}
+
+.animate-ken-burns {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+/* Fade transition cho slider images */
+.slider-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+    .slider-image.active {
+        opacity: 1;
+    }

@@ -22,7 +22,7 @@ namespace Cw.Branding.Web.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.Category", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,6 +39,10 @@ namespace Cw.Branding.Web.Data.Migrations
 
                     b.Property<int>("DisplayOrder")
                         .HasColumnType("int");
+
+                    b.Property<string>("IconPath")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -72,7 +76,7 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.ContactFormEntry", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.ContactFormEntry", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,7 +118,7 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.ToTable("ContactFormEntries");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.News", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.News", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -169,7 +173,7 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.ToTable("News");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.Product", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -236,7 +240,7 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.ProductImage", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.ProductImage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -270,9 +274,9 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.Product", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.Product", b =>
                 {
-                    b.HasOne("Cw.Branding.Web.Entities.Category", "Category")
+                    b.HasOne("Cw.Branding.Web.Models.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -281,9 +285,9 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.ProductImage", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.ProductImage", b =>
                 {
-                    b.HasOne("Cw.Branding.Web.Entities.Product", "Product")
+                    b.HasOne("Cw.Branding.Web.Models.Entities.Product", "Product")
                         .WithMany("Images")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -292,12 +296,12 @@ namespace Cw.Branding.Web.Data.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.Category", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.Category", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("Cw.Branding.Web.Entities.Product", b =>
+            modelBuilder.Entity("Cw.Branding.Web.Models.Entities.Product", b =>
                 {
                     b.Navigation("Images");
                 });

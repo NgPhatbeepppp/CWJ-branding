@@ -1,0 +1,50 @@
+﻿@using Cw.Branding.Web.Models.Entities
+@model IEnumerable<Product>
+@{
+    // 1. Lấy ngôn ngữ hiện tại từ Route (mặc định là 'en')
+    var lang = Context.GetRouteValue("lang")?.ToString() ?? "en";
+}
+<div class="section-container fade-in-up transition-all duration-500 ease-out opacity-0 translate-y-4">
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+            @foreach (var item in Model)
+            {
+                var firstImage = item.Images?.FirstOrDefault();
+                var imgSrc = (firstImage != null) ? firstImage.FilePath : "https://via.placeholder.com/300x300?text=No+Image";
+
+                <div class="h-full group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover cursor-pointer border border-slate-100">
+
+                    <div class="flex aspect-[5/4] items-center justify-center p-6 bg-white shrink-0">
+                        <img src="@imgSrc"
+                             alt="@item.NameEn"
+                             class="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-105" />
+                    </div>
+
+                    <div class="flex-1 w-full bg-blue-400 px-4 py-4 text-white flex flex-col">
+
+                        <h3 class="min-h-[3.5rem] mb-2 font-heading text-lg font-bold uppercase tracking-wide text-white line-clamp-2">
+                            @item.NameEn
+                        </h3>
+
+                        @if (!string.IsNullOrEmpty(item.ShortDescriptionEn))
+                        {
+                            <p class="font-body text-xs font-light leading-snug text-blue-100 opacity-90 line-clamp-3">
+                                @item.ShortDescriptionEn
+                            </p>
+                        }
+                    </div>
+
+                    <a href="/@lang/medical/product/@item.SlugEn" class="absolute inset-0 z-10" aria-label="View details of @item.NameEn"></a>
+                </div>
+            }
+        </div>
+
+        <div class="mt-8 flex justify-end gap-3">
+        </div>
+    }
+    else
+    {
+    }
+</div>

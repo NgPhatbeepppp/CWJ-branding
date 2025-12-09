@@ -1,46 +1,47 @@
 ﻿using Cw.Branding.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using Microsoft.EntityFrameworkCore.SqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Serilog
+// 1. Cấu hình Serilog (Logging)
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateLogger();
 
 builder.Host.UseSerilog();
 
-// Add services to the container.
+// 2. Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// DbContext
+// 3. DbContext (Kết nối SQL Server)
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-    
 });
 
-// Auth (chuẩn bị cho Admin)
+// 4. Auth (Cookie Authentication cho Admin)
 builder.Services.AddAuthentication("AdminCookie")
     .AddCookie("AdminCookie", options =>
     {
-        options.LoginPath = "/admin/account/login";
-        options.LogoutPath = "/admin/account/logout";
-        options.AccessDeniedPath = "/admin/account/access-denied";
+        options.Cookie.Name = "CwAdminAuth";
+        options.LoginPath = "/en/admin/auth/login"; // Đổi path login có /en/
+        options.LogoutPath = "/en/admin/auth/logout";
+        options.AccessDeniedPath = "/en/admin/auth/access-denied";
     });
 
 builder.Services.AddAuthorization();
 
-// TODO: Đăng ký các services (ICategoryService, IProductService, ...)
+// TODO: Đăng ký Services (ICategoryService, IProductService...) tại đây sau này
+// builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// 5. Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days.
     app.UseHsts();
 }
 
@@ -54,15 +55,21 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Routing có {lang}
+// =========================================================
+// 6. CẤU HÌNH ROUTING (QUAN TRỌNG: Thứ tự Admin -> Default)
+// =========================================================
+
+// 1. Route cho Admin Area (Phải dùng MapAreaControllerRoute)
+// Cấu trúc: /en/admin/dashboard
+app.MapAreaControllerRoute(
+    name: "admin",
+    areaName: "Admin", // Tên Area folder
+    pattern: "{lang=en}/admin/{controller=Dashboard}/{action=Index}/{id?}");
+
+// 2. Route cho Client (Mặc định)
+// Cấu trúc: /en/medical/index
 app.MapControllerRoute(
     name: "default",
     pattern: "{lang=en}/{controller=Home}/{action=Index}/{id?}");
-
-// Admin Area
-app.MapAreaControllerRoute(
-    name: "admin",
-    areaName: "Admin",
-    pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}");
 
 app.Run();
