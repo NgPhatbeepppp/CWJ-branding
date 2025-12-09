@@ -5,6 +5,14 @@ wwwroot\images\about-collage.png
 wwwroot\images\fnb-hero.png
 wwwroot\images\healthcare-hero.png
 wwwroot\images\Hero illstration.png
+wwwroot\images\icons\cardiology.png
+wwwroot\images\icons\Consumables.png
+wwwroot\images\icons\ENT.png
+wwwroot\images\icons\General Clinic.png
+wwwroot\images\icons\Obstetrics.png
+wwwroot\images\icons\Ophthalmology.png
+wwwroot\images\icons\Urology.png
+wwwroot\images\icons\UR_ICU.png
 wwwroot\images\logo1.png
 wwwroot\images\logo2.png
 wwwroot\images\medical-bg-2.jpg
@@ -85,5 +93,8 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\products\monitor-1.png
+wwwroot\uploads\products\monitor-2.png
+wwwroot\uploads\products\monitor-3.png
 wwwroot\videos\cw-journey.mp4
 wwwroot\css\site.css

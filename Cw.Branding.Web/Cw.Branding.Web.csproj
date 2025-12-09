@@ -1378,7 +1378,6 @@
 	  <Folder Include="Services\Implementations\" />
 	  <Folder Include="wwwroot\uploads\assets\" />
 	  <Folder Include="wwwroot\uploads\news\" />
-	  <Folder Include="wwwroot\uploads\products\" />
 	</ItemGroup>
 
 </Project>

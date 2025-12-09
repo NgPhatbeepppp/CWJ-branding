@@ -1,4 +1,7 @@
-﻿namespace Cw.Branding.Web.Models.Entities;
+﻿using System.ComponentModel.DataAnnotations; 
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Cw.Branding.Web.Models.Entities;
 
 public class Category
 {
@@ -11,6 +14,12 @@ public class Category
 
     public string? SlugVi { get; set; }
     public string? SlugEn { get; set; }
+
+   
+    // Đường dẫn ảnh icon (VD: /images/icons/cardiology.png)
+    [StringLength(255)]
+    public string? IconPath { get; set; }
+    // ----------------
 
     public bool IsActive { get; set; } = true;
     public int DisplayOrder { get; set; }
