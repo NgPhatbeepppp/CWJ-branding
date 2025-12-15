@@ -1,0 +1,137 @@
+﻿@model Cw.Branding.Web.Models.ViewModels.NewsListViewModel
+@{
+    var isEn = Model.CurrentLang == "en";
+
+    // Fallback ảnh banner nếu chưa có ảnh thật
+    var bannerImage = "/images/news-opening.png";
+}
+
+<section class="relative w-full h-[390px] bg-slate-900 overflow-hidden">
+    <img src="@bannerImage"
+         alt="News Banner"
+         class="absolute inset-0 w-full h-full object-cover opacity-80"
+         onerror="this.src='https://placehold.co/1920x600/002143/FFFFFF?text=CW+Banner'" />
+
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-blue-900/90 via-transparent to-black/20"></div>
+
+    <div class="absolute bottom-0 left-0 w-full pb-10">
+        <div class="container mx-auto px-4 md:px-8">
+            <h1 class="text-white leading-none">
+                <span class="block text-5xl md:text-6xl font-heading font-bold mb-2">
+                    @(isEn ? "News" : "Tin tức")
+                </span>
+                <span class="block text-3xl md:text-4xl text-blue-700 font-brand opacity-90">
+                    Charles Wembley journey
+                </span>
+            </h1>
+        </div>
+    </div>
+</section>
+
+<div class="bg-slate-50 border-b border-slate-200">
+    <div class="container mx-auto px-4 md:px-8 py-3">
+        <nav class="flex items-center text-sm font-body text-slate-500">
+            <a href="/@Model.CurrentLang" class="hover:text-brand-primary transition-colors flex items-center">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                @(isEn ? "Home" : "Trang chủ")
+            </a>
+
+            <span class="mx-2 text-slate-300">/</span>
+
+            <span class="text-brand-blue-700 font-medium cursor-default">
+                @(isEn ? "News & Updates" : "Tin tức & Sự kiện")
+            </span>
+        </nav>
+    </div>
+</div>
+
+<section class="py-16 bg-white min-h-[500px]">
+    <div class="container mx-auto px-4 md:px-8">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach (var item in Model.NewsItems)
+            {
+                var title = isEn ? item.TitleEn : item.TitleVi;
+                var summary = isEn ? item.SummaryEn : item.SummaryVi;
+                var date = item.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+                var link = $"/{Model.CurrentLang}/news/{(isEn ? item.SlugEn : item.SlugVi)}";
+
+                // Fallback image logic
+                var thumb = string.IsNullOrEmpty(item.ThumbnailPath)
+                ? "/images/news-placeholder.jpg"
+                : item.ThumbnailPath;
+
+                <article class="group bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col h-full overflow-hidden border border-slate-100">
+
+                    <a href="@link" class="relative block h-56 overflow-hidden bg-slate-100">
+                        <img src="@thumb"
+                             alt="@title"
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             onerror="this.src='https://placehold.co/600x400?text=No+Image'" />
+
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur text-brand-blue-900 text-xs font-bold px-3 py-1 rounded shadow-sm">
+                            @date
+                        </div>
+                    </a>
+
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="mb-3">
+                            <span class="text-xs font-bold text-brand-primary uppercase tracking-wider">
+                                @(isEn ? "Corporate" : "Hoạt động")
+                            </span>
+                        </div>
+
+                        <h3 class="text-lg font-heading font-bold text-slate-900 leading-snug mb-3 line-clamp-2 group-hover:text-brand-primary transition-colors">
+                            <a href="@link">@title</a>
+                        </h3>
+
+                        <p class="text-sm text-slate-600 mb-4 line-clamp-3 flex-grow font-body">
+                            @summary
+                        </p>
+
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <a href="@link" class="text-sm font-medium text-brand-primary hover:text-brand-blue-800 transition-colors inline-flex items-center group/btn">
+                                @(isEn ? "Read more" : "Xem chi tiết")
+                                <svg class="w-4 h-4 ml-1 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            }
+        </div>
+
+        @if (Model.TotalPages > 1)
+        {
+            <div class="mt-16 flex justify-center items-center space-x-2">
+                @if (Model.CurrentPage > 1)
+                {
+                    <a href="?page=@(Model.CurrentPage - 1)" class="w-10 h-10 flex items-center justify-center rounded-md border border-slate-200 text-slate-600 hover:border-brand-primary hover:text-brand-primary transition-colors">
+                        &larr;
+                    </a>
+                }
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    var activeClass = i == Model.CurrentPage
+                    ? "bg-brand-primary text-white border-brand-primary shadow-md"
+                    : "bg-white text-slate-600 border-slate-200 hover:border-brand-primary hover:text-brand-primary";
+
+                    <a href="?page=@i" class="w-10 h-10 flex items-center justify-center rounded-md border text-sm font-medium transition-all @activeClass">
+                        @i
+                    </a>
+                }
+
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <a href="?page=@(Model.CurrentPage + 1)" class="w-10 h-10 flex items-center justify-center rounded-md border border-slate-200 text-slate-600 hover:border-brand-primary hover:text-brand-primary transition-colors">
+                        &rarr;
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</section>

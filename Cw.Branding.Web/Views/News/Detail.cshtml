@@ -1,0 +1,158 @@
+﻿@model Cw.Branding.Web.Models.ViewModels.NewsDetailViewModel
+@{
+    var item = Model.CurrentNews;
+    var isEn = Model.CurrentLang == "en";
+
+    var title = isEn ? item.TitleEn : item.TitleVi;
+    var content = isEn ? item.ContentEn : item.ContentVi;
+    var date = item.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+
+    // Fallback ảnh nếu null
+    var bgImage = string.IsNullOrEmpty(item.ThumbnailPath) ? "/images/news-banner.jpg" : item.ThumbnailPath;
+}
+
+<section class="relative w-full h-[450px] bg-slate-900 overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="@bgImage"
+             alt="@title"
+             class="w-full h-full object-cover opacity-60 blur-[2px] scale-105"
+             onerror="this.src='https://placehold.co/1920x800/002143/FFFFFF?text=News'" />
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full pb-12">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex items-center text-white/70 text-sm mb-4 font-body">
+                <a href="/@Model.CurrentLang" class="hover:text-white transition-colors">@(isEn ? "Home" : "Trang chủ")</a>
+                <span class="mx-2">/</span>
+                <a href="/@Model.CurrentLang/news" class="hover:text-white transition-colors">@(isEn ? "News" : "Tin tức")</a>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-heading font-bold text-white leading-tight mb-4 max-w-4xl">
+                @title
+            </h1>
+
+            <div class="flex items-center text-white/80 text-sm md:text-base font-medium">
+                <span class="bg-brand-primary px-3 py-1 rounded text-white mr-4">
+                    @(isEn ? "News & Events" : "Tin tức & Sự kiện")
+                </span>
+                <span class="flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    @date
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="max-w-3xl mx-auto">
+            <div class="prose-content text-slate-700 leading-relaxed text-lg">
+                @Html.Raw(content)
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-slate-200 flex justify-between items-center">
+                <a href="/@Model.CurrentLang/news" class="inline-flex items-center text-brand-primary font-bold hover:underline">
+                    &larr; @(isEn ? "Back to News" : "Quay lại danh sách")
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.RelatedNews != null && Model.RelatedNews.Any())
+{
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-4 md:px-8">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-slate-900 mb-8">
+                @(isEn ? "Related News" : "Tin tức liên quan")
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+               
+                @foreach (var relatedItem in Model.RelatedNews)
+                {
+                    var rTitle = isEn ? relatedItem.TitleEn : relatedItem.TitleVi;
+                    var rLink = $"/{Model.CurrentLang}/news/{(isEn ? relatedItem.SlugEn : relatedItem.SlugVi)}";
+
+                    // Logic fallback ảnh
+                    var rThumb = string.IsNullOrEmpty(relatedItem.ThumbnailPath)
+                    ? "/images/news-placeholder.jpg"
+                    : relatedItem.ThumbnailPath;
+
+                    var rDate = relatedItem.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+
+                    <article class="bg-white rounded shadow-card hover:shadow-card-hover transition-all overflow-hidden group">
+                        <a href="@rLink" class="block h-48 overflow-hidden relative">
+                            <img src="@rThumb" alt="@rTitle" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                 onerror="this.src='https://placehold.co/600x400'" />
+                        </a>
+                        <div class="p-5">
+                            <div class="text-xs text-slate-500 mb-2">@rDate</div>
+                            <h3 class="text-lg font-heading font-bold text-slate-800 line-clamp-2 group-hover:text-brand-primary transition-colors">
+                                <a href="@rLink">@rTitle</a>
+                            </h3>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+@section Styles {
+    <style>
+        /* CUSTOM STYLES CHO RICH TEXT CONTENT
+                   (Vì nội dung là HTML thô, Tailwind class không tác động vào thẻ p, h2 bên trong trừ khi dùng plugin typography)
+                */
+        .prose-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1e293b; /* slate-800 */
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #334155; /* slate-700 */
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose-content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .prose-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .prose-content blockquote {
+            border-left: 4px solid #004F9F; /* brand-primary */
+            padding-left: 1rem;
+            font-style: italic;
+            color: #475569; /* slate-600 */
+            margin: 2rem 0;
+            background: #f8fafc;
+            padding: 1rem;
+        }
+
+        .prose-content img {
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+}

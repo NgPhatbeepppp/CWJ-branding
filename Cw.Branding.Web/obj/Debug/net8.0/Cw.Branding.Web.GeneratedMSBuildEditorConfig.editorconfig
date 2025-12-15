@@ -62,6 +62,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbFxfUHJvZHVjdExpc3RQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/HP/source/repos/Cw.Branding/Cw.Branding.Web/Views/News/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/source/repos/Cw.Branding/Cw.Branding.Web/Views/News/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/HP/source/repos/Cw.Branding/Cw.Branding.Web/Views/Shared/Components/_Card.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcX0NhcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
