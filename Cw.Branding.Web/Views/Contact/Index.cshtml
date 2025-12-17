@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="relative w-full h-64 md:h-[180px] bg-brand-primary flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-black/20 z-0"></div>
+    <h1 class="relative z-10 text-4xl md:text-5xl font-heading font-bold text-white uppercase tracking-wide">
+        Contact Us
+    </h1>
+</section>
+
+<partial name="~/Views/Shared/Components/_ContactFormSection.cshtml" model="new Cw.Branding.Web.Models.ViewModels.ContactFormViewModel()" />

@@ -4,63 +4,59 @@
     ViewData["MetaDescription"] = Model.MetaDescription;
 }
 
+@* --- THƯ VIỆN ANIMATION (AOS) --- *@
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 @* ==========================================
-   SECTION 1: ABOUT INTRODUCTION (Zoomed & Compact Version)
+   SECTION 1: ABOUT INTRODUCTION
    ========================================== *@
 <section class="relative w-full -mt-24 pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
 
-    @* --- 1. Background Layer --- *@
+    @* Background Layer *@
     <div class="absolute inset-0 z-0">
         <img src="~/images/about-bg-texture.png"
              alt="Background Texture"
              class="w-full h-full object-cover opacity-30" />
     </div>
 
-    @* --- 2. MAIN CONTAINER --- 
-       Mở rộng tối đa: w-[96%] để lấy không gian cho chữ nằm ngang
-    *@
+    @* MAIN CONTAINER *@
     <div class="relative z-10 w-[96%] max-w-screen-3xl mx-auto px-2 md:px-0">
 
-        @* --- GRID --- 
-           Thay đổi tỷ lệ: 6 (Ảnh) - 6 (Chữ) để chữ có đủ đất nằm ngang.
-           gap-2: Khoảng cách cực nhỏ giữa 2 cột.
-        *@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-2 items-center">
 
-            @* --- COL 1: ẢNH (Chiếm 6/12) --- *@
-            <div class="md:col-span-6 flex justify-center md:justify-end relative">
-                @* scale-125: Phóng to ảnh lên 125% so với khung.
-                   translate-x-6: Đẩy ảnh sang phải một chút để sát vào chữ hơn.
-                   origin-center: Phóng to từ tâm.
-                *@
+            @* --- COL 1: ẢNH (Trượt từ trái vào) --- *@
+            <div class="md:col-span-6 flex justify-center md:justify-end relative"
+                 data-aos="fade-right">
+                @* [UPDATE] Animation *@
+
                 <img src="~/images/about-collage.png"
                      alt="Charles Wembley Medical & F&B"
                      class="w-full object-contain drop-shadow-xl transform scale-125 md:translate-x-8 z-10" />
             </div>
 
-            @* --- COL 2: CHỮ (Chiếm 6/12) --- *@
-            @* -ml-4: Margin âm để kéo chữ lấn nhẹ về phía ảnh, giảm thêm khoảng cách *@
-            <div class="text-center md:text-left md:col-span-6 md:-ml-24 z-20 pl-4">
+            @* --- COL 2: CHỮ (Trượt từ phải vào) --- *@
+            <div class="text-center md:text-left md:col-span-6 md:-ml-24 z-20 pl-4"
+                 data-aos="fade-left">
+                @* [UPDATE] Animation *@
 
-                @* TIÊU ĐỀ 1 HÀNG (Flex Layout) *@
+                @* TIÊU ĐỀ *@
                 <h1 class="flex flex-col md:flex-row items-center md:items-baseline gap-x-4 mb-6">
-
-                    @* Chữ 'About': Font thường *@
                     <span class="text-2xl md:text-5xl lg:text-5xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap ">
                         About
                     </span>
-
-                    @* Chữ 'Charles Wembley': Font chữ ký -> Nằm cùng hàng *@
                     <span class="font-signature text-3xl md:text-7xl lg:text-7xl whitespace-nowrap leading-none mt-2 md:mt-0">
                         Charles Wembley
                     </span>
                 </h1>
 
-                @* Nội dung *@
+                @* Nội dung (Delay nhẹ để hiện sau tiêu đề) *@
                 <div class="text-slate-800 text-base md:text-lg lg:text-xl font-narrative tracking-wide opacity-90 space-y-6 pr-4 md:pr-12 max-w-[800px]"
-                     style="line-height: 1.6;">
+                     style="line-height: 1.6;"
+                     data-aos="fade-up" data-aos-delay="200">
+
                     <p class="font-narrative">
-                        Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems. The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
+                        Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems.
+                        The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
                     </p>
                 </div>
 
@@ -72,21 +68,13 @@
 @* ==========================================
    SECTION TRANSITION: FULL WIDTH COVER IMAGE
    ========================================== *@
-<div class="w-full h-[245px] relative overflow-hidden">
-
-    @* Background Image *@
-    @* - bg-fixed: Tạo hiệu ứng Parallax (ảnh đứng yên khi cuộn chuột) -> Nhìn rất chuyên nghiệp.
-       - Nếu không thích hiệu ứng trôi, bạn xóa 'bg-fixed' đi là được.
-    *@
+<div class="w-full h-[245px] relative overflow-hidden" data-aos="fade-in">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
          style="background-image: url('/images/fnb-hero.png');">
-
         <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-t from-white to-transparent"></div>
         <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-b from-white to-transparent"></div>
-        @* Lớp phủ mờ nhẹ (Optional) - giúp tách biệt với nội dung nếu ảnh quá sáng *@
         <div class="absolute inset-0 bg-black/10"></div>
     </div>
-
 </div>
 
 @* ==========================================
@@ -94,88 +82,72 @@
    ========================================== *@
 <section id="our-story" class="relative w-full py-16 md:py-24 bg-[#FDFBF7] overflow-hidden">
 
-    @* --- 1. Background Layer --- *@
     <div class="absolute inset-0 z-0">
-        <img src="~/images/about-bg-texture.png"
-             alt="Background Texture"
-             class="w-full h-full object-cover opacity-30" />
+        <img src="~/images/about-bg-texture.png" alt="Texture" class="w-full h-full object-cover opacity-30" />
     </div>
 
-    @* --- 2. Main Content Container --- *@
     <div class="container mx-auto px-4 relative z-10">
 
         <div class="max-w-4xl mx-auto text-center">
 
-            @* --- TITLE --- *@
-            <h2 class="text-4xl md:text-5xl text-[#002143] font-narrative mb-6 tracking-wide">
+            @* TITLE: Trượt lên *@
+            <h2 class="text-4xl md:text-5xl text-[#002143] font-narrative mb-6 tracking-wide"
+                data-aos="fade-up">
                 Our Story
             </h2>
 
-            @* --- SEPARATOR LINE (Đường kẻ xanh) --- *@
-            <div class="w-[200px] md:w-[600px] h-[2px] bg-[#004F9F] mx-auto mb-10"></div>
-            @* Mẹo: Nếu muốn line dài như trong ảnh thiết kế (gần bằng chiều rộng chữ), 
-               bạn đổi w-24 thành w-[200px] hoặc w-full max-w-lg *@
+            @* SEPARATOR LINE: Zoom ra từ giữa *@
+            <div class="w-[200px] md:w-[600px] h-[2px] bg-[#004F9F] mx-auto mb-10"
+                 data-aos="zoom-in" data-aos-delay="200"></div>
 
-            @* --- BODY TEXT --- *@
+            @* BODY TEXT: Xuất hiện kiểu bậc thang (Stagger) *@
             <div class="[&_p]:font-narrative font-narrative text-slate-700 text-xl md:text-2xl leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
-                <p >
+
+                <p data-aos="fade-up" data-aos-delay="300">
                     Driven by a pioneering spirit, we at Charles Wembley (Tan Long) have grown to become one of the largest and most trusted medical equipment suppliers in Vietnam.
                 </p>
-                <p>
-                    With an extensive network across Vietnam and Cambodia, we specialize in essential solutions for Surgery, ICU & Emergency, Anesthesia, Neonatal, Urology, and Ophthalmology. Our mission is to deliver optimal solutions that perfectly balance quality and cost, backed by our deep industry experience.
+
+                <p data-aos="fade-up" data-aos-delay="400">
+                    With an extensive network across Vietnam and Cambodia, we specialize in essential solutions for Surgery, ICU & Emergency, Anesthesia, Neonatal, Urology, and Ophthalmology.
+                    Our mission is to deliver optimal solutions that perfectly balance quality and cost, backed by our deep industry experience.
                 </p>
-                <p>
-                    We are proud to be the official distributor for world-leading brands like Masimo, Johnson & Johnson, Seca, Fisher & Paykel, and Reichert. Above all, we are committed to being your trusted companion on every step of your journey.
+
+                <p data-aos="fade-up" data-aos-delay="500">
+                    We are proud to be the official distributor for world-leading brands like Masimo, Johnson & Johnson, Seca, Fisher & Paykel, and Reichert.
+                    Above all, we are committed to being your trusted companion on every step of your journey.
                 </p>
             </div>
 
         </div>
     </div>
-
 </section>
+
 @* ==========================================
    SECTION 3: JOURNEY - VISION - VALUES
    ========================================== *@
 <section id="vision-values" class="w-full py-16 md:py-24 bg-white">
     <div class="w-[75%] mx-auto max-w-none">
 
-        @* Grid Container: items-start để sticky hoạt động *@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 lg:gap-32 items-start">
 
-            @* --- COL 1: LEFT - OUR JOURNEY (VIDEO STICKY & AUTOPLAY) --- *@
-            @* - pointer-events-none: Chặn người dùng click/pause video.
-               - sticky top-24: Dính video khi cuộn.
-            *@
+            @* --- COL 1: VIDEO (Sticky) --- *@
+            @* Video hiện nhẹ nhàng (Fade in) *@
             <div class="relative w-full rounded-sm overflow-hidden shadow-2xl
-                        h-[600px] lg:h-[980px]
-                        lg:sticky lg:top-24 pointer-events-none">
+                       aspect-[2/3]
+                        lg:sticky lg:top-24 pointer-events-none"
+                 data-aos="fade-in" data-aos-duration="2000">
 
-             
-              
-
-                @* Video Player:
-                   - autoplay: Tự chạy.
-                   - loop: Tự phát lại.
-                   - muted: Tắt tiếng (Bắt buộc để trình duyệt cho phép Autoplay).
-                   - playsinline: Hỗ trợ chạy trên iOS không bị bung full màn hình.
-                   - BỎ controls: Ẩn thanh điều khiển.
-                *@
                 <video autoplay loop muted playsinline class="w-full h-full object-cover" poster="/images/about/journey-poster.jpg">
                     <source src="~/videos/cw-journey.mp4" type="video/mp4">
                 </video>
-
-             
             </div>
 
 
-            @* --- COL 2: RIGHT - VISION & CORE VALUES (Cao ~1500px) --- *@
-            @* - min-h-[1500px]: Ép cột này cao 1500px (khoảng 2.5 màn hình).
-               - flex flex-col justify-between: Tự động đẩy các khối (Vision, Values...) ra xa nhau đều đặn.
-            *@
+            @* --- COL 2: RIGHT CONTENT --- *@
             <div class="flex flex-col justify-between min-h-[1500px] py-10 [&_p]:font-['Montserrat']">
 
-                @* Block 1: HEADING & IMAGE --- *@
-                <div>
+                @* Block 1: HEADING & IMAGE - Trượt từ phải *@
+                <div data-aos="fade-left">
                     <h2 class="text-[#004F9F] font-heading font-bold text-3xl md:text-4xl uppercase tracking-wide mb-8">
                         Vision & Core Value
                     </h2>
@@ -184,67 +156,64 @@
                          class="w-[85%] h-auto object-cover rounded-sm shadow-md" />
                 </div>
 
-                @* Block 2: OUR VISION --- *@
-                <div class="py-12 border-b border-slate-100">
+                @* Block 2: OUR VISION - Trượt lên *@
+                <div class="py-12 border-b border-slate-100" data-aos="fade-up">
                     <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-6">
                         Our Vision
                     </h3>
                     <p class="text-slate-800 leading-loose font-body text-lg md:text-xl">
-                        We aspire to set the benchmark for trustworthy Medical and F&B solutions—combining rigor, design, and service to help organizations work safer, faster, and smarter. By uniting proven expertise with practical innovation, we enable our partners to deliver better experiences and measurable results.
+                        We aspire to set the benchmark for trustworthy Medical and F&B solutions—combining rigor,
+                        design, and service to help organizations work safer, faster, and smarter.
+                        By uniting proven expertise with practical innovation, we enable our partners to deliver better experiences and measurable results.
                     </p>
                 </div>
 
-                @* Block 3: OUR VALUES (List) --- *@
+                @* Block 3: OUR VALUES (List) *@
                 <div>
-                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-12 mt-6 ">
+                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-12 mt-6 "
+                        data-aos="fade-up">
                         Our Values
                     </h3>
 
-                    @* Tăng khoảng cách giữa các items lên space-y-12 (48px) *@
                     <div class="space-y-12">
+                        @* Mỗi giá trị sẽ trượt lên khi cuộn tới nơi (không cần delay vì cuộn xa mới thấy) *@
 
-                        @* Value 1 *@
-                        <div class="group">
+                        <div class="group" data-aos="fade-up">
                             <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Integrity</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
                                 We speak plainly, deliver exactly what we promise, and back decisions with evidence.
                             </p>
                         </div>
 
-                        @* Value 2 *@
-                        <div class="group">
+                        <div class="group" data-aos="fade-up">
                             <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Safety & Compliance</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
                                 People come first. We follow clinical and industry standards to protect patients, guests, and teams.
                             </p>
                         </div>
 
-                        @* Value 3 *@
-                        <div class="group">
+                        <div class="group" data-aos="fade-up">
                             <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Practical Innovation</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
                                 We build useful improvements that scale—never complexity for its own sake.
                             </p>
                         </div>
 
-                        @* Value 4 *@
-                        <div class="group">
+                        <div class="group" data-aos="fade-up">
                             <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Reliability & Accountability</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
                                 Clear commitments, on-time handoffs, and ownership of outcomes.
                             </p>
                         </div>
 
-                        @* Value 5 *@
-                        <div class="group">
+                        <div class="group" data-aos="fade-up">
                             <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Partnership Mindset</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
                                 We succeed with our clients and suppliers, not just for them—through transparency and respect.
                             </p>
                         </div>
 
-                        @* Value 6 *@
-                        <div class="group">
+                        <div class="group" data-aos="fade-up">
                             <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Continuous Improvement</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
                                 Small, repeatable upgrades that compound over time.
@@ -254,44 +223,36 @@
                     </div>
                 </div>
 
-                @* Spacer cuối cùng để dễ nhìn *@
                 <div class="h-20"></div>
-
             </div>
-
         </div>
     </div>
 </section>
 
 @* ==========================================
-   SECTION 4: GUIDED BY EXPERIENCE AND VISION (LEADERSHIP SLIDER)
+   SECTION 4: LEADERSHIP SLIDER
    ========================================== *@
-@* - bg-[#528AC4]: Màu xanh giống ảnh mẫu (hoặc đổi thành bg-[#004F9F] nếu muốn chuẩn brand).
-   - rounded-br-[100px] md:rounded-br-[200px]: Bo góc dưới bên phải cực lớn để tạo hiệu ứng "lộ footer".
-   - -mb-[80px]: Kéo section xuống đè lên footer (Negative Margin).
-   - relative z-20: Đảm bảo section này nằm TRÊN footer.
-*@
-<section id="leadership" class="relative z-20 -mb-[90px] bg-[#528AC4] text-white py-20 md:py-28 rounded-br-[80px] md:rounded-br-[40px] overflow-hidden">
+@* Cả khối xanh trượt lên *@
+<section id="leadership"
+         class="relative z-20 -mb-[90px] bg-[#528AC4] text-white py-20 md:py-28 rounded-br-[80px] md:rounded-br-[40px] overflow-hidden"
+         data-aos="fade-up">
 
     <div class="container mx-auto px-4 max-w-[1500px]">
 
-        @* --- TITLE --- *@
         <div class="text-center mb-16 md:mb-20">
-            <h2 class="font-heading text-white font-bold text-2xl md:text-4xl uppercase tracking-[0.1em]">
+            <h2 class="font-heading text-white font-bold text-2xl md:text-4xl uppercase tracking-[0.1em]"
+                data-aos="fade-up" data-aos-delay="200">
                 Guided by Experience and Vision
             </h2>
         </div>
 
-        @* --- SWIPER SLIDER --- *@
-        <div class="swiper leadership-swiper relative">
+        @* SWIPER SLIDER (Nội dung bên trong do Swiper lo hiệu ứng fade) *@
+        <div class="swiper leadership-swiper relative" data-aos="fade-in" data-aos-delay="400">
             <div class="swiper-wrapper">
 
-                @* --- SLIDE 1: CEO / Founder --- *@
+                @* SLIDE 1 *@
                 <div class="swiper-slide">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
-
-                        @* Cột Trái: Text (Chiếm 5 phần) *@
-                        @* Có đường kẻ dọc màu trắng bên trái *@
                         <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
                             <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
                                 "Charles Wembley is a leader in providing cutting-edge medical and food & beverage solutions, dedicated to advancing healthcare and enriching culinary experiences around the world."
@@ -302,20 +263,17 @@
                             </div>
                         </div>
 
-                        @* Cột Phải: Ảnh (Chiếm 7 phần) *@
                         <div class="md:col-span-7 flex justify-center md:justify-end">
                             <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
-                                @* Ảnh chân dung lãnh đạo *@
                                 <img src="~/images/about/leader-1.jpg"
                                      alt="Mr. Charles Wembley"
                                      class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                @* --- SLIDE 2: CTO / Director (Ví dụ thêm slide 2) --- *@
+                @* SLIDE 2 *@
                 <div class="swiper-slide">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
                         <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
@@ -339,42 +297,49 @@
 
             </div>
 
-            @* --- NAVIGATION ARROWS (Custom Style) --- *@
-            @* Đặt vị trí nút bấm ở góc dưới bên trái của cột Text (tương ứng layout ảnh) *@
+            @* NAVIGATION ARROWS *@
             <div class="flex gap-4 mt-10 md:mt-0 md:absolute md:bottom-0 md:left-8 z-30">
-                @* Nút Prev *@
                 <button class="swiper-button-prev-custom group">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
                 </button>
-                @* Nút Next *@
                 <button class="swiper-button-next-custom group">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </button>
             </div>
-
         </div>
 
     </div>
 </section>
 
 @section Scripts {
-    @* Gọi lại Swiper nếu Layout chưa có *@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    @* SCRIPT ANIMATION AOS *@
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Khởi tạo slider Leadership
+
+            // 1. KHỞI TẠO AOS (Giống hệt trang chủ)
+            AOS.init({
+                duration: 1500,       // Chậm rãi
+                easing: 'ease-out-cubic',
+                once: true,           // Chỉ chạy 1 lần
+                offset: 250           // Cuộn sâu mới hiện
+            });
+
+            // 2. Swiper Leadership
             var leaderSwiper = new Swiper(".leadership-swiper", {
                 slidesPerView: 1,
                 spaceBetween: 50,
-                speed: 800, // Tốc độ chuyển slide mượt
+                speed: 800,
                 loop: true,
-                effect: 'fade', // Hiệu ứng Fade mờ dần thay vì trượt ngang (sang trọng hơn)
+                effect: 'fade',
                 fadeEffect: {
                     crossFade: true
                 },

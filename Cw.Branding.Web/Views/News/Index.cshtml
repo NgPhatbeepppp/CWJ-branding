@@ -1,22 +1,31 @@
 ﻿@model Cw.Branding.Web.Models.ViewModels.NewsListViewModel
 @{
+    ViewData["Title"] = (Model.CurrentLang == "en" ? "News & Updates" : "Tin tức & Sự kiện");
     var isEn = Model.CurrentLang == "en";
-
-    // Fallback ảnh banner nếu chưa có ảnh thật
     var bannerImage = "/images/news-opening.png";
 }
 
+@* --- THƯ VIỆN AOS --- *@
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+@* --- BANNER SECTION --- *@
 <section class="relative w-full h-[390px] bg-slate-900 overflow-hidden">
-    <img src="@bannerImage"
-         alt="News Banner"
-         class="absolute inset-0 w-full h-full object-cover opacity-80"
-         onerror="this.src='https://placehold.co/1920x600/002143/FFFFFF?text=CW+Banner'" />
+
+    @* Ảnh nền: Zoom nhẹ *@
+    <div class="absolute inset-0 w-full h-full"
+         data-aos="zoom-out" data-aos-duration="2000">
+        <img src="@bannerImage"
+             alt="News Banner"
+             class="w-full h-full object-cover opacity-80"
+             onerror="this.src='https://placehold.co/1920x600/002143/FFFFFF?text=CW+Banner'" />
+    </div>
 
     <div class="absolute inset-0 bg-gradient-to-t from-brand-blue-900/90 via-transparent to-black/20"></div>
 
+    @* Tiêu đề: Trượt lên *@
     <div class="absolute bottom-0 left-0 w-full pb-10">
         <div class="container mx-auto px-4 md:px-8">
-            <h1 class="text-white leading-none">
+            <h1 class="text-white leading-none" data-aos="fade-up" data-aos-delay="200">
                 <span class="block text-5xl md:text-6xl font-heading font-bold mb-2">
                     @(isEn ? "News" : "Tin tức")
                 </span>
@@ -28,7 +37,8 @@
     </div>
 </section>
 
-<div class="bg-slate-50 border-b border-slate-200">
+@* --- BREADCRUMB: Fade in --- *@
+<div class="bg-slate-50 border-b border-slate-200" data-aos="fade-in" data-aos-delay="400">
     <div class="container mx-auto px-4 md:px-8 py-3">
         <nav class="flex items-center text-sm font-body text-slate-500">
             <a href="/@Model.CurrentLang" class="hover:text-brand-primary transition-colors flex items-center">
@@ -37,9 +47,7 @@
                 </svg>
                 @(isEn ? "Home" : "Trang chủ")
             </a>
-
             <span class="mx-2 text-slate-300">/</span>
-
             <span class="text-brand-blue-700 font-medium cursor-default">
                 @(isEn ? "News & Updates" : "Tin tức & Sự kiện")
             </span>
@@ -47,23 +55,26 @@
     </div>
 </div>
 
+@* --- NEWS LIST SECTION --- *@
 <section class="py-16 bg-white min-h-[500px]">
     <div class="container mx-auto px-4 md:px-8">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @{
+                int delayCounter = 0; // Biến đếm delay
+            }
             @foreach (var item in Model.NewsItems)
             {
                 var title = isEn ? item.TitleEn : item.TitleVi;
                 var summary = isEn ? item.SummaryEn : item.SummaryVi;
                 var date = item.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
                 var link = $"/{Model.CurrentLang}/news/{(isEn ? item.SlugEn : item.SlugVi)}";
+                var thumb = string.IsNullOrEmpty(item.ThumbnailPath) ? "/images/news-placeholder.jpg" : item.ThumbnailPath;
 
-                // Fallback image logic
-                var thumb = string.IsNullOrEmpty(item.ThumbnailPath)
-                ? "/images/news-placeholder.jpg"
-                : item.ThumbnailPath;
-
-                <article class="group bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col h-full overflow-hidden border border-slate-100">
+                @* Áp dụng delay tăng dần cho từng card *@
+                <article class="group bg-white rounded-lg shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col h-full overflow-hidden border border-slate-100"
+                         data-aos="fade-up"
+                         data-aos-delay="@delayCounter">
 
                     <a href="@link" class="relative block h-56 overflow-hidden bg-slate-100">
                         <img src="@thumb"
@@ -101,12 +112,18 @@
                         </div>
                     </div>
                 </article>
+
+                // Tăng delay thêm 100ms cho item tiếp theo
+                delayCounter += 100;
             }
         </div>
 
+        @* PAGINATION: Hiện sau cùng *@
         @if (Model.TotalPages > 1)
         {
-            <div class="mt-16 flex justify-center items-center space-x-2">
+            <div class="mt-16 flex justify-center items-center space-x-2"
+                 data-aos="fade-up" data-aos-delay="200">
+
                 @if (Model.CurrentPage > 1)
                 {
                     <a href="?page=@(Model.CurrentPage - 1)" class="w-10 h-10 flex items-center justify-center rounded-md border border-slate-200 text-slate-600 hover:border-brand-primary hover:text-brand-primary transition-colors">
@@ -135,3 +152,17 @@
         }
     </div>
 </section>
+
+@section Scripts {
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({
+                duration: 1200,       // Tốc độ vừa phải cho trang tin tức
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 100           // Offset thấp để dễ thấy nội dung khi cuộn
+            });
+        });
+    </script>
+}

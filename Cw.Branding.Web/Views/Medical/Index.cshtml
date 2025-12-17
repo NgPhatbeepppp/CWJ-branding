@@ -4,11 +4,15 @@
     ViewData["Title"] = "Medical Solutions";
 }
 
+@* --- THƯ VIỆN ANIMATION (AOS) --- *@
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <div class="relative w-full">
 
+    @* --- HERO SECTION --- *@
     <div class="relative h-[400px] md:h-[500px] w-full overflow-hidden bg-slate-900">
 
+        @* Background Slider (Ken Burns) *@
         <div id="hero-slider" class="absolute inset-0 h-full w-full animate-ken-burns">
             <img src="/images/medical-bg-2.jpg" alt="Medical 1" class="slider-image active" />
             <img src="/images/medical-bg-3.jpg" alt="Medical 2" class="slider-image" />
@@ -17,57 +21,72 @@
 
         <div class="absolute inset-0 bg-black/30"></div>
 
-        <div class="absolute inset-0 flex items-center justify-center">
+        @* Hero Text: Trượt lên chậm rãi *@
+        <div class="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
             <h1 class="font-brand text-6xl text-white italic tracking-wider md:text-8xl drop-shadow-md">
                 Medical solutions
             </h1>
         </div>
     </div>
 
+    @* --- INTRO SECTION --- *@
     <div class="section-container bg-white text-center">
         <div class="mx-auto max-w-4xl py-8 md:py-12">
-            <h2 class="mb-8 font-heading text-3xl font-bold uppercase tracking-widest text-brand-primary md:text-5xl">
-                HEALTHCARE DIVISION
-            </h2>
-            <hr class="mx-auto mb-5 w-102 border-t-2 border-slate-300 text-blue-800" />
+
+            @* Tiêu đề & Gạch chân *@
+            <div data-aos="fade-up">
+                <h2 class="mb-8 font-heading text-3xl font-bold uppercase tracking-widest text-brand-primary md:text-5xl">
+                    HEALTHCARE DIVISION
+                </h2>
+                <hr class="mx-auto mb-5 w-102 border-t-2 border-slate-300 text-blue-800" />
+            </div>
+
+            @* Nội dung văn bản: Hiện lần lượt (Stagger) *@
             <div class="space-y-4 [&>p]:font-heading [&>p]:tracking-wide text-base text-slate-600 md:text-lg leading-relaxed">
-                <p>
+                <p data-aos="fade-up" data-aos-delay="100">
                     Our Healthcare Division delivers trusted, compliant solutions for hospitals, clinics, and labs.
                     We cover medical consumables, devices and equipment, infection prevention, clinical furniture,
                     and facility solutions—validated with product dossiers, traceability, and alignment to local regulations.
                 </p>
-                <p>
+                <p data-aos="fade-up" data-aos-delay="200">
                     Through reliable supply, training, and aftercare, we help teams standardize SKUs, reduce risk,
                     and improve operational efficiency, leading to safer care and better total value.
                 </p>
-                <p class="font-medium text-slate-800">
+                <p class="font-medium text-slate-800" data-aos="fade-up" data-aos-delay="300">
                     Contact us to request a product list, book a needs assessment, or obtain compliance documentation.
                 </p>
             </div>
-
-           
         </div>
     </div>
 
 </div>
 
+@* --- CATEGORIES SECTION --- *@
 <div id="section-categories">
     <div id="section-categories" class="bg-slate-50 py-12 md:py-16">
         <div class="section-container">
-            <div class="mb-16 text-center">
+
+            @* Header Danh mục *@
+            <div class="mb-16 text-center" data-aos="fade-up">
                 <h2 class="font-heading text-4xl font-bold tracking-wide text-brand-primary md:text-5xl">
                     Our Product Categories
                 </h2>
-                <div class="mx-auto mt-10 h-1 w-\[50\%\] bg-blue-900"></div>
+                <div class="mx-auto mt-10 h-1 w-[50%] bg-blue-900"></div>
             </div>
 
             @if (Model.Categories != null && Model.Categories.Any())
             {
                 <div class="grid grid-cols-2 gap-7 sm:grid-cols-3 lg:grid-cols-4">
+                    @{
+                        int delay = 0; // Biến đếm để tăng độ trễ cho từng item
+                    }
                     @foreach (var cat in Model.Categories)
                     {
+                        @* Mỗi item trễ hơn item trước 100ms *@
                         <div class="category-item group flex cursor-pointer flex-col items-center justify-center rounded-lg  p-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover border border-transparent hover:border-brand-primary/20"
-                             onclick="loadProducts(this, @cat.Id)">
+                             onclick="loadProducts(this, @cat.Id)"
+                             data-aos="fade-up"
+                             data-aos-delay="@delay">
 
                             <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-400 text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
                                 @if (!string.IsNullOrEmpty(cat.IconPath))
@@ -90,6 +109,8 @@
                                 View Details
                             </span>
                         </div>
+
+                        delay += 100; // Tăng delay cho vòng lặp sau
                     }
                 </div>
             }
@@ -100,33 +121,50 @@
         </div>
     </div>
 </div>
+
 <div id="section-products"></div>
 
 @section Scripts {
+
+    @* SCRIPT CỦA THƯ VIỆN AOS *@
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        // Script đơn giản để auto-play slider (Crossfade)
-        document.addEventListener("DOMContentLoaded", function () {
-            const slides = document.querySelectorAll('.slider-image');
-            if(slides.length <= 1) return;
+        // 1. HÀM HELPER: TỰ ĐỘNG CUỘN MƯỢT VỚI TỐC ĐỘ TÙY CHỈNH
+        // target: vị trí đích (px), duration: thời gian trượt (ms)
+        function customSmoothScroll(target, duration) {
+            const targetPosition = target;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
 
-            let currentSlide = 0;
-            const slideInterval = 5000; // 5 giây đổi ảnh
+            // Hàm Easing: easeOutCubic - Nhanh lúc đầu, chậm dần lúc cuối
+            function easeOutCubic(t, b, c, d) {
+                t /= d;
+                t--;
+                return c * (t * t * t + 1) + b;
+            }
 
-            setInterval(() => {
-                // Ẩn slide hiện tại
-                slides[currentSlide].classList.remove('active');
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
 
-                // Chuyển sang slide kế tiếp
-                currentSlide = (currentSlide + 1) % slides.length;
+                // Tính toán vị trí tiếp theo
+                const run = easeOutCubic(timeElapsed, startPosition, distance, duration);
 
-                // Hiện slide mới
-                slides[currentSlide].classList.add('active');
-            }, slideInterval);
-        });
-    </script>
-    <script>
+                window.scrollTo(0, run);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // 2. HÀM LOAD PRODUCTS (Đã cập nhật dùng customSmoothScroll)
         function loadProducts(element, categoryId) {
-            // UI: Active styles (giữ nguyên code cũ)...
+            // UI Active style
             document.querySelectorAll('.category-item').forEach(el => {
                 el.classList.remove('ring-2', 'ring-brand-primary', 'bg-blue-50');
             });
@@ -134,15 +172,23 @@
 
             const productContainer = document.getElementById('section-products');
 
-            // Loading animation
+            // --- TÍNH TOÁN VỊ TRÍ ---
+            const elementPosition = productContainer.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - 120; // Trừ Header
+
+            // --- GỌI HÀM CUỘN MỚI ---
+            // 1500ms = 1.5 giây (bạn có thể chỉnh số này để nhanh/chậm tùy ý)
+            customSmoothScroll(offsetPosition, 1500);
+
+            // Loading state
             productContainer.innerHTML = '<div class="flex justify-center py-12"><div class="h-8 w-8 animate-spin rounded-full border-4 border-brand-primary border-t-transparent"></div></div>';
 
-          
+            // Fetch Data
             const url = '@Url.Action("FilterProducts", "Medical", new { area = "" })' + '?categoryId=' + categoryId;
+
             fetch(url)
                 .then(response => {
                     if (!response.ok) {
-                        // In lỗi ra console để biết 404 hay 500
                         console.error('Server status:', response.status);
                         throw new Error('Network response was not ok');
                     }
@@ -150,13 +196,40 @@
                 })
                 .then(html => {
                     productContainer.innerHTML = html;
+
+                    // Animation thủ công cho nội dung Ajax
                     const fadeElements = productContainer.querySelectorAll('.fade-in-up');
-                    fadeElements.forEach(el => el.classList.add('opacity-100', 'translate-y-0'));
+                    setTimeout(() => {
+                        fadeElements.forEach(el => el.classList.remove('opacity-0', 'translate-y-4'));
+                    }, 50);
                 })
                 .catch(error => {
                     console.error('Error loading products:', error);
                     productContainer.innerHTML = '<div class="text-center py-8 text-red-500">Failed to load products. Check Console (F12).</div>';
                 });
         }
+
+        // 3. KHỞI TẠO CÁC SCRIPT KHÁC KHI LOAD TRANG
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Init AOS
+            AOS.init({
+                duration: 1500,       // 1.5 giây
+                easing: 'ease-out-cubic',
+                once: true,           // Chỉ chạy 1 lần
+                offset: 250           // Cuộn sâu mới hiện
+            });
+
+            // Logic Slider (Ken Burns)
+            const slides = document.querySelectorAll('.slider-image');
+            if(slides.length <= 1) return;
+            let currentSlide = 0;
+            const slideInterval = 5000;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, slideInterval);
+        });
     </script>
 }
