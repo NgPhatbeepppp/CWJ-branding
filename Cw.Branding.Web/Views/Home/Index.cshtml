@@ -1,355 +1,357 @@
-﻿@model Cw.Branding.Web.Models.ViewModels.AboutViewModel
+﻿@model Cw.Branding.Web.Models.ViewModels.HomeViewModel
 @{
-    ViewData["Title"] = Model.MetaTitle ?? "About Us";
+    ViewData["Title"] = Model.MetaTitle ?? "Home Page";
     ViewData["MetaDescription"] = Model.MetaDescription;
 }
 
 @* --- THƯ VIỆN ANIMATION (AOS) --- *@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-@* ==========================================
-   SECTION 1: ABOUT INTRODUCTION
-   ========================================== *@
-<section class="relative w-full -mt-24 pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+@* --- 1. HERO BANNER SECTION --- *@
+<section class="relative w-full h-screen min-h-[700px] flex items-center overflow-hidden">
 
-    @* Background Layer *@
+    @* Background Image *@
     <div class="absolute inset-0 z-0">
-        <img src="~/images/about-bg-texture.png"
-             alt="Background Texture"
-             class="w-full h-full object-cover opacity-30" />
+        <img src="~/images/Hero illstration.png"
+             alt="Charles Wembley Medical Solutions"
+             class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-white/20"></div>
     </div>
 
-    @* MAIN CONTAINER *@
-    <div class="relative z-10 w-[96%] max-w-screen-3xl mx-auto px-2 md:px-0">
+    @* Content Container *@
+    @* data-aos="fade-right": Trượt từ trái vào *@
+    <div class="relative z-10 w-[92%] max-w-[1800px] mx-auto h-full flex flex-col justify-center pt-32 px-4 md:pl-10 md:pr-3"
+         data-aos="fade-right">
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-2 items-center">
+        <div class="max-w-5xl text-center md:text-left">
+            @* Main Headline *@
+            <h1 class="font-heading font-bold text-blue-900
+                       text-4xl md:text-5xl lg:text-[60px]
+                       leading-tight lg:leading-[70px]
+                       tracking-[0.05em]
+                       drop-shadow-sm mb-2">
+                Trusted Medical <br />
+                Solutions For Modern
+            </h1>
 
-            @* --- COL 1: ẢNH (Trượt từ trái vào) --- *@
-            <div class="md:col-span-6 flex justify-center md:justify-end relative"
-                 data-aos="fade-right"> @* [UPDATE] Animation *@
-                
-                <img src="~/images/about-collage.png"
-                     alt="Charles Wembley Medical & F&B"
-                     class="w-full object-contain drop-shadow-xl transform scale-125 md:translate-x-8 z-10" />
-            </div>
+            @* Highlight Text *@
+            <h1 class="font-heading font-bold text-[#004F9F] uppercase
+                       text-4xl md:text-5xl lg:text-[60px]
+                       leading-tight lg:leading-[70px]
+                       tracking-[0.05em]">
+                Healthcare
+            </h1>
 
-            @* --- COL 2: CHỮ (Trượt từ phải vào) --- *@
-            <div class="text-center md:text-left md:col-span-6 md:-ml-24 z-20 pl-4"
-                 data-aos="fade-left"> @* [UPDATE] Animation *@
+            @* Sub-headline *@
+            <p class="font-body text-lg md:text-xl text-slate-800 mt-6 mb-10 max-w-2xl leading-relaxed font-medium">
+                Providing innovative and efficient solutions tailored to contemporary
+                medical needs.
+            </p>
 
-                @* TIÊU ĐỀ *@
-                <h1 class="flex flex-col md:flex-row items-center md:items-baseline gap-x-4 mb-6">
-                    <span class="text-2xl md:text-5xl lg:text-5xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap ">
-                        About
-                    </span>
-                    <span class="font-signature text-3xl md:text-7xl lg:text-7xl whitespace-nowrap leading-none mt-2 md:mt-0">
-                        Charles Wembley
-                    </span>
-                </h1>
-
-                @* Nội dung (Delay nhẹ để hiện sau tiêu đề) *@
-                <div class="text-slate-800 text-base md:text-lg lg:text-xl font-narrative tracking-wide opacity-90 space-y-6 pr-4 md:pr-12 max-w-[800px]"
-                     style="line-height: 1.6;"
-                     data-aos="fade-up" data-aos-delay="200"> 
-                    
-                    <p class="font-narrative">
-                        Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems.
-                        The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
-                    </p>
-                </div>
-
+            @* CTA Buttons *@
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
+                <a href="/en/medical-solutions"
+                   class="btn-primary rounded-md px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center">
+                    Explore Solutions
+                </a>
+                <a href="/en/contact"
+                   class="inline-flex items-center justify-center px-8 py-3 rounded-md border-2 border-[#004F9F] text-[#004F9F] font-bold hover:bg-[#004F9F] hover:text-white transition-all duration-300">
+                    Contact Us
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-@* ==========================================
-   SECTION TRANSITION: FULL WIDTH COVER IMAGE
-   ========================================== *@
-<div class="w-full h-[245px] relative overflow-hidden" data-aos="fade-in">
-    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-         style="background-image: url('/images/fnb-hero.png');">
-        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-t from-white to-transparent"></div>
-        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-b from-white to-transparent"></div>
-        <div class="absolute inset-0 bg-black/10"></div>
-    </div>
-</div>
+@* --- 2. ABOUT US SECTION --- *@
+<section class="relative w-full py-6 md:py-8 bg-center bg-no-repeat overflow-hidden"
+         style="background-image: url('/images/WebBR_1.png'); background-size: 100% 100%;">
 
-@* ==========================================
-   SECTION 2: OUR STORY
-   ========================================== *@
-<section id="our-story" class="relative w-full py-16 md:py-24 bg-[#FDFBF7] overflow-hidden">
+    <div class="container mx-auto px-6 md:px-20 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-2 items-center min-h-[350px]">
 
-    <div class="absolute inset-0 z-0">
-        <img src="~/images/about-bg-texture.png" alt="Texture" class="w-full h-full object-cover opacity-30" />
+            @* Cột Trái: Trượt từ trái vào (fade-right) *@
+            <div class="flex flex-col text-slate-900 text-center md:text-left self-start pt-6"
+                 data-aos="fade-right">
+                <h2 class="font-signature text-4xl md:text-6xl mb-2 text-slate-900 text-blue-600">
+                    Charles Wembley
+                </h2>
+                <h3 class="font-classic font-medium text-xl md:text-2xl tracking-wide border-b-2 border-slate-900 pb-4 inline-block md:self-start">
+                    Healthcare & Culinary Innovation
+                </h3>
+            </div>
+
+            @* Cột Phải: Trượt từ phải vào (fade-left) *@
+            <div class="flex flex-col justify-end items-center md:items-start md:pt-24 text-slate-800 text-center md:text-left"
+                 data-aos="fade-left">
+                <p class="font-narrative text-xl md:text-xl leading-relaxed mb-8 font-medium">
+                    Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems.
+                    The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
+                </p>
+
+                <a href="/en/about-us"
+                   class="group inline-flex items-center gap-2 font-heading text-lg font-bold tracking-[0.05em] uppercase py-3 text-[#004F9F] hover:text-blue-800 transition-all duration-300">
+                    About Us
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                         class="w-7 h-5 transition-transform duration-300 group-hover:translate-x-3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
+            </div>
+
+        </div>
     </div>
+</section>
+
+@* --- 3. OUR HEALTHCARE SOLUTIONS SECTION (Ken Burns Slider) --- *@
+<section class="relative w-full h-[800px] md:h-[800px] flex items-center justify-center overflow-hidden bg-gray-900">
+
+    @* BACKGROUND SLIDER *@
+    <div id="ken-burns-slider" class="absolute inset-0 z-0">
+        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/healthcare-hero.png');"></div>
+        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-2.jpg');"></div>
+        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-3.jpg');"></div>
+        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-4.jpg');"></div>
+        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-5.jpg');"></div>
+    </div>
+
+    <div class="absolute inset-0 z-0 pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center">
+        @* Hộp trắng: Trượt từ dưới lên (fade-up) *@
+        <div class="inline-block bg-white/95 backdrop-blur-sm shadow-2xl px-6 py-10 md:px-16 md:py-20 max-w-5xl mx-auto"
+             data-aos="fade-up">
+
+            <h2 class="font-heading font-bold text-5xl md:text-6xl lg:text-[80px] text-blue-800 mb-8"
+                style="line-height: 1.1; letter-spacing: 0.02em;">
+                Our Healthcare<br />Solutions
+            </h2>
+
+            <a href="/en/medical-solutions"
+               class="group inline-flex items-center gap-3 font-heading text-base md:text-lg font-bold text-[#004F9F] uppercase tracking-wider hover:text-blue-700 transition-colors duration-300">
+                <span class="border-b-2 border-[#004F9F] group-hover:border-blue-700 pb-1">Explore Categories</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
+                     class="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+@* --- 4. OUR HEALTHCARE PARTNERS SECTION --- *@
+<section class="relative w-full min-h-[500px] md:min-h-[500px] flex items-center py-16 md:py-24 bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/images/Partnerbg.png');">
+    <div class="absolute inset-0 bg-white/10 z-0"></div>
 
     <div class="container mx-auto px-4 relative z-10">
+        @* Title trượt lên *@
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h3 class="font-heading font-extrabold text-3xl md:text-5xl text-[#004F9F] uppercase tracking-wide">
+                Our Healthcare Partners
+            </h3>
+        </div>
 
-        <div class="max-w-4xl mx-auto text-center">
+        @* Khung viền trượt lên, trễ 100ms *@
+        <div class="border-2 border-[#004F9F] bg-white/90 py-10 px-6 md:px-12 rounded-md shadow-md max-w-7xl mx-auto"
+             data-aos="fade-up" data-aos-delay="100">
 
-            @* TITLE: Trượt lên *@
-            <h2 class="text-4xl md:text-5xl text-[#002143] font-narrative mb-6 tracking-wide"
-                data-aos="fade-up">
-                Our Story
+            <div class="swiper partner-swiper">
+                <div class="swiper-wrapper items-center">
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <div class="swiper-slide flex justify-center items-center px-4">
+                            <img src="~/images/p@(i).png"
+                                 alt="Partner @i"
+                                 class="max-h-20 w-auto object-contain hover:scale-110 transition-all duration-300 cursor-pointer" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* --- 5. F&B SOLUTIONS SECTION --- *@
+<section class="relative w-full h-[700px] flex items-center justify-center bg-cover bg-center bg-no-repeat"
+         style="background-image: url('/images/fnb-hero.png');">
+    <div class="absolute inset-0 z-0"></div>
+
+    <div class="w-full px-4 md:px-8 relative z-10 flex justify-center">
+        @* Cả khối trượt lên, nút không pulse *@
+        <div class="border-[3px] border-[#FAF0BF] p-10 md:p-16 w-full max-w-7xl text-center backdrop-blur-sm mx-auto"
+             data-aos="fade-up">
+
+            <h2 class="font-heading font-bold text-4xl md:text-5xl text-white uppercase mb-8 tracking-wider">
+                Our Food Service<br />Solutions
             </h2>
 
-            @* SEPARATOR LINE: Zoom ra từ giữa *@
-            <div class="w-[200px] md:w-[600px] h-[2px] bg-[#004F9F] mx-auto mb-10"
-                 data-aos="zoom-in" data-aos-delay="200"></div>
+            <p class="font-source-serif font-bold italic text-xl md:text-2xl text-white mb-10 w-full"
+               style="line-height: 28px; letter-spacing: 0.03em;">
+                Explore our extensive range of food & beverage equipment solutions that bring innovation and efficiency<br class="hidden lg:block" />
+                to your culinary operations, ensuring top-quality service and satisfaction.
+            </p>
 
-            @* BODY TEXT: Xuất hiện kiểu bậc thang (Stagger) *@
-            <div class="[&_p]:font-narrative font-narrative text-slate-700 text-xl md:text-2xl leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
-                
-                <p data-aos="fade-up" data-aos-delay="300">
-                    Driven by a pioneering spirit, we at Charles Wembley (Tan Long) have grown to become one of the largest and most trusted medical equipment suppliers in Vietnam.
-                </p>
-                
-                <p data-aos="fade-up" data-aos-delay="400">
-                    With an extensive network across Vietnam and Cambodia, we specialize in essential solutions for Surgery, ICU & Emergency, Anesthesia, Neonatal, Urology, and Ophthalmology.
-                    Our mission is to deliver optimal solutions that perfectly balance quality and cost, backed by our deep industry experience.
-                </p>
-                
-                <p data-aos="fade-up" data-aos-delay="500">
-                    We are proud to be the official distributor for world-leading brands like Masimo, Johnson & Johnson, Seca, Fisher & Paykel, and Reichert.
-                    Above all, we are committed to being your trusted companion on every step of your journey.
-                </p>
-            </div>
-
+            <a href="https://globalhoreca.com" target="_blank" rel="noopener noreferrer"
+               class="inline-block bg-[#F9EDB3] hover:bg-yellow-400 text-[#5c563d] font-heading font-bold text-lg px-10 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                Visit globalhoreca.com
+            </a>
         </div>
     </div>
 </section>
 
-@* ==========================================
-   SECTION 3: JOURNEY - VISION - VALUES
-   ========================================== *@
-<section id="vision-values" class="w-full py-16 md:py-24 bg-white">
-    <div class="w-[75%] mx-auto max-w-none">
+@* --- 6. LATEST NEWS SECTION --- *@
+<section class="w-full py-16 md:py-24 bg-gray-50 overflow-hidden">
+    <div class="container mx-auto px-4 md:px-8 max-w-[1400px]">
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 lg:gap-32 items-start">
-
-            @* --- COL 1: VIDEO (Sticky) --- *@
-            @* Video hiện nhẹ nhàng (Fade in) *@
-            <div class="relative w-full rounded-sm overflow-hidden shadow-2xl
-                        h-[600px] lg:h-[980px]
-                        lg:sticky lg:top-24 pointer-events-none"
-                 data-aos="fade-in" data-aos-duration="2000">
-
-                <video autoplay loop muted playsinline class="w-full h-full object-cover" poster="/images/about/journey-poster.jpg">
-                    <source src="~/videos/cw-journey.mp4" type="video/mp4">
-                </video>
+        @* Header trượt từ trái *@
+        <div class="flex flex-col md:flex-row justify-between items-end mb-14"
+             data-aos="fade-right">
+            <div class="max-w-2xl">
+                <h4 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
+                    Keep Updated
+                </h4>
+                <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-900 leading-tight">
+                    Latest News & Events
+                </h2>
             </div>
 
+            <a href="/en/news" class="hidden md:inline-flex items-center font-bold text-blue-700 hover:text-blue-900 transition-colors group">
+                View all news
+                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+        </div>
 
-            @* --- COL 2: RIGHT CONTENT --- *@
-            <div class="flex flex-col justify-between min-h-[1500px] py-10 [&_p]:font-['Montserrat']">
+        @* News Grid *@
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 gap-y-12">
+            @{
+                var newsList = new List<Cw.Branding.Web.Models.Components.CardItemViewModel>
+                        {
+                        new Cw.Branding.Web.Models.Components.CardItemViewModel {
+                        Title = "Grand Opening of New Showroom in Ho Chi Minh City",
+                        Description = "We are thrilled to announce the opening of our state-of-the-art showroom featuring the latest medical imaging technologies.",
+                        ImageUrl = "/images/healthcare-hero.png",
+                        LinkUrl = "/news/grand-opening",
+                        Category = "Events",
+                        Date = "Oct 24, 2025",
+                        LinkText = "Read Report"
+                        },
+                        new Cw.Branding.Web.Models.Components.CardItemViewModel {
+                        Title = "Advanced MRI Solutions Workshop 2025",
+                        Description = "Join our experts for an in-depth workshop on the new diagnostic capabilities of our MRI product line.",
+                        ImageUrl = "/images/medical-bg-2.jpg",
+                        LinkUrl = "/news/mri-workshop",
+                        Category = "Technology",
+                        Date = "Nov 02, 2025",
+                        LinkText = "Learn More"
+                        },
+                        new Cw.Branding.Web.Models.Components.CardItemViewModel {
+                        Title = "Strategic Partnership with Global Horeca",
+                        Description = "Expanding our F&B solutions portfolio through a strategic alliance to better serve hotel and restaurant chains.",
+                        ImageUrl = "/images/news-opening.png",
+                        LinkUrl = "/news/partnership",
+                        Category = "Partnership",
+                        Date = "Nov 15, 2025",
+                        LinkText = "View Details"
+                        }
+                        };
 
-                @* Block 1: HEADING & IMAGE - Trượt từ phải *@
-                <div data-aos="fade-left">
-                    <h2 class="text-[#004F9F] font-heading font-bold text-3xl md:text-4xl uppercase tracking-wide mb-8">
-                        Vision & Core Value
-                    </h2>
-                    <img src="~/images/vision-bg.png"
-                         alt="Charles Wembley Office"
-                         class="w-[85%] h-auto object-cover rounded-sm shadow-md" />
+                int delayCounter = 0;
+            }
+
+            @foreach (var item in newsList)
+            {
+                // Bọc partial trong div để gán animation
+                <div data-aos="fade-up" data-aos-delay="@delayCounter">
+                    <partial name="~/Views/Shared/Components/_Card.cshtml" model="item" />
                 </div>
 
-                @* Block 2: OUR VISION - Trượt lên *@
-                <div class="py-12 border-b border-slate-100" data-aos="fade-up">
-                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-6">
-                        Our Vision
-                    </h3>
-                    <p class="text-slate-800 leading-loose font-body text-lg md:text-xl">
-                        We aspire to set the benchmark for trustworthy Medical and F&B solutions—combining rigor, 
-                        design, and service to help organizations work safer, faster, and smarter.
-                        By uniting proven expertise with practical innovation, we enable our partners to deliver better experiences and measurable results.
-                    </p>
-                </div>
+                delayCounter += 150;
+            }
+        </div>
 
-                @* Block 3: OUR VALUES (List) *@
-                <div>
-                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-12 mt-6 "
-                        data-aos="fade-up">
-                        Our Values
-                    </h3>
-
-                    <div class="space-y-12">
-                        @* Mỗi giá trị sẽ trượt lên khi cuộn tới nơi (không cần delay vì cuộn xa mới thấy) *@
-                        
-                        <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Integrity</h4>
-                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                We speak plainly, deliver exactly what we promise, and back decisions with evidence.
-                            </p>
-                        </div>
-
-                        <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Safety & Compliance</h4>
-                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                People come first. We follow clinical and industry standards to protect patients, guests, and teams.
-                            </p>
-                        </div>
-
-                        <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Practical Innovation</h4>
-                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                We build useful improvements that scale—never complexity for its own sake.
-                            </p>
-                        </div>
-
-                        <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Reliability & Accountability</h4>
-                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                Clear commitments, on-time handoffs, and ownership of outcomes.
-                            </p>
-                        </div>
-
-                        <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Partnership Mindset</h4>
-                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                We succeed with our clients and suppliers, not just for them—through transparency and respect.
-                            </p>
-                        </div>
-
-                        <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Continuous Improvement</h4>
-                            <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                Small, repeatable upgrades that compound over time.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="h-20"></div>
-            </div>
+        <div class="mt-10 text-center md:hidden">
+            <a href="/news" class="inline-block border border-blue-600 text-blue-600 font-bold py-3 px-8 rounded hover:bg-blue-600 hover:text-white transition-colors">
+                View all news
+            </a>
         </div>
     </div>
 </section>
 
-@* ==========================================
-   SECTION 4: LEADERSHIP SLIDER
-   ========================================== *@
-@* Cả khối xanh trượt lên *@
-<section id="leadership" 
-         class="relative z-20 -mb-[90px] bg-[#528AC4] text-white py-20 md:py-28 rounded-br-[80px] md:rounded-br-[40px] overflow-hidden"
-         data-aos="fade-up"> 
+@* --- 7. CONTACT FORM SECTION --- *@
 
-    <div class="container mx-auto px-4 max-w-[1500px]">
-
-        <div class="text-center mb-16 md:mb-20">
-            <h2 class="font-heading text-white font-bold text-2xl md:text-4xl uppercase tracking-[0.1em]"
-                data-aos="fade-up" data-aos-delay="200">
-                Guided by Experience and Vision
-            </h2>
-        </div>
-
-        @* SWIPER SLIDER (Nội dung bên trong do Swiper lo hiệu ứng fade) *@
-        <div class="swiper leadership-swiper relative" data-aos="fade-in" data-aos-delay="400">
-            <div class="swiper-wrapper">
-
-                @* SLIDE 1 *@
-                <div class="swiper-slide">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
-                        <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
-                            <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
-                                "Charles Wembley is a leader in providing cutting-edge medical and food & beverage solutions, dedicated to advancing healthcare and enriching culinary experiences around the world."
-                            </blockquote>
-                            <div>
-                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Mr. Charles Wembley</h4>
-                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">Founder & CEO</p>
-                            </div>
-                        </div>
-
-                        <div class="md:col-span-7 flex justify-center md:justify-end">
-                            <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
-                                <img src="~/images/about/leader-1.jpg"
-                                     alt="Mr. Charles Wembley"
-                                     class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                @* SLIDE 2 *@
-                <div class="swiper-slide">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
-                        <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
-                            <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
-                                "Our technology vision is simple: Practical innovation that solves real-world problems for hospitals and businesses across Southeast Asia."
-                            </blockquote>
-                            <div>
-                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Ms. Sarah Nguyen</h4>
-                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">Chief Technology Officer</p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-7 flex justify-center md:justify-end">
-                            <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
-                                <img src="~/images/about/leader-2.jpg"
-                                     alt="Ms. Sarah Nguyen"
-                                     class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            @* NAVIGATION ARROWS *@
-            <div class="flex gap-4 mt-10 md:mt-0 md:absolute md:bottom-0 md:left-8 z-30">
-                <button class="swiper-button-prev-custom group">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                </button>
-                <button class="swiper-button-next-custom group">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-    </div>
+<section class="relative z-20 -mb-10 md:-mb-20 pb-10 md:pb-15 bg-white rounded-b-[10px] md:rounded-b-[30px]  overflow-hidden"
+         data-aos="fade-up">  
+        <partial name="~/Views/Shared/Components/_ContactFormSection.cshtml" model="new Cw.Branding.Web.Models.ViewModels.ContactFormViewModel()" />
 </section>
+
 
 @section Scripts {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    @* SCRIPT ANIMATION AOS *@
+
+    @* SCRIPT CỦA THƯ VIỆN AOS *@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            
-            // 1. KHỞI TẠO AOS (Giống hệt trang chủ)
+
+            // 1. KHỞI TẠO AOS VỚI CẤU HÌNH MỚI
             AOS.init({
-                duration: 1500,       // Chậm rãi
-                easing: 'ease-out-cubic', 
-                once: true,           // Chỉ chạy 1 lần
-                offset: 250           // Cuộn sâu mới hiện
+                duration: 1500,       // [ĐÃ SỬA] Tăng lên 1.5 giây để chuyển động chậm hơn
+                easing: 'ease-out-cubic',
+                once: true,
+                offset: 250           // [ĐÃ SỬA] Tăng lên 250px để cuộn sâu hơn mới hiện
             });
 
-            // 2. Swiper Leadership
-            var leaderSwiper = new Swiper(".leadership-swiper", {
-                slidesPerView: 1,
-                spaceBetween: 50,
-                speed: 800,
+            // 2. LOGIC CHO KEN BURNS SLIDER (Giữ nguyên)
+            const slides = document.querySelectorAll('#ken-burns-slider .slide');
+            let currentSlide = 0;
+            const slideInterval = 6000;
+            if(slides.length > 0) slides[0].classList.add('active');
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, slideInterval);
+
+            // 3. LOGIC CHO PARTNER SWIPER (Giữ nguyên)
+            var swiper = new Swiper(".partner-swiper", {
+                slidesPerView: 2,
+                spaceBetween: 30,
                 loop: true,
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next-custom",
-                    prevEl: ".swiper-button-prev-custom",
-                },
+                speed: 5000,
+                freeMode: true,
+                allowTouchMove: true,
                 autoplay: {
-                    delay: 6000,
+                    delay: 0,
                     disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 3, spaceBetween: 40 },
+                    768: { slidesPerView: 4, spaceBetween: 50 },
+                    1024: { slidesPerView: 5, spaceBetween: 60 },
                 }
             });
         });
     </script>
+
+    <style>
+        /* Slider Styles */
+        .slide.active {
+            opacity: 1;
+            transform: scale(1.1);
+            transition-duration: 6000ms;
+        }
+
+        .slide:not(.active) {
+            transform: scale(1.0);
+            transition-duration: 3000ms;
+        }
+        /* Swiper Linear Override */
+        .swiper-wrapper {
+            transition-timing-function: linear;
+        }
+    </style>
 }
