@@ -41,10 +41,27 @@ public class NewsController : Controller
             // Handle thumbnail upload
             if (thumbnail != null && thumbnail.Length > 0)
             {
+                // Validate file type
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".webp" };
+                var extension = Path.GetExtension(thumbnail.FileName).ToLowerInvariant();
+                
+                if (string.IsNullOrEmpty(extension) || !allowedExtensions.Contains(extension))
+                {
+                    ModelState.AddModelError("thumbnail", "Only image files (.jpg, .jpeg, .png, .gif, .webp) are allowed.");
+                    return View(news);
+                }
+                
+                // Validate file size (max 5MB)
+                if (thumbnail.Length > 5 * 1024 * 1024)
+                {
+                    ModelState.AddModelError("thumbnail", "File size must not exceed 5MB.");
+                    return View(news);
+                }
+                
                 var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads", "news");
                 Directory.CreateDirectory(uploadsFolder);
                 
-                var uniqueFileName = $"{Guid.NewGuid()}_{thumbnail.FileName}";
+                var uniqueFileName = $"{Guid.NewGuid()}{extension}";
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
@@ -89,10 +106,27 @@ public class NewsController : Controller
             // Handle thumbnail upload
             if (thumbnail != null && thumbnail.Length > 0)
             {
+                // Validate file type
+                var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".webp" };
+                var extension = Path.GetExtension(thumbnail.FileName).ToLowerInvariant();
+                
+                if (string.IsNullOrEmpty(extension) || !allowedExtensions.Contains(extension))
+                {
+                    ModelState.AddModelError("thumbnail", "Only image files (.jpg, .jpeg, .png, .gif, .webp) are allowed.");
+                    return View(news);
+                }
+                
+                // Validate file size (max 5MB)
+                if (thumbnail.Length > 5 * 1024 * 1024)
+                {
+                    ModelState.AddModelError("thumbnail", "File size must not exceed 5MB.");
+                    return View(news);
+                }
+                
                 var uploadsFolder = Path.Combine(_env.WebRootPath, "uploads", "news");
                 Directory.CreateDirectory(uploadsFolder);
                 
-                var uniqueFileName = $"{Guid.NewGuid()}_{thumbnail.FileName}";
+                var uniqueFileName = $"{Guid.NewGuid()}{extension}";
                 var filePath = Path.Combine(uploadsFolder, uniqueFileName);
                 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
