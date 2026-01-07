@@ -1,0 +1,244 @@
+@model Cw.Branding.Web.Models.Entities.News
+
+@{
+    ViewData["Title"] = "Edit News";
+}
+
+<div class="news-form">
+    <h2>Edit Article</h2>
+
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ThumbnailPath" />
+        <input type="hidden" asp-for="CreatedAt" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-section">
+            <h3>English Version</h3>
+            
+            <div class="form-group">
+                <label asp-for="TitleEn">Title (English)</label>
+                <input asp-for="TitleEn" class="form-control" required />
+                <span asp-validation-for="TitleEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SlugEn">Slug (English)</label>
+                <input asp-for="SlugEn" class="form-control" placeholder="news-title-here" />
+                <span asp-validation-for="SlugEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SummaryEn">Summary (English)</label>
+                <textarea asp-for="SummaryEn" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="SummaryEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContentEn">Content (English)</label>
+                <textarea asp-for="ContentEn" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="ContentEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MetaTitleEn">Meta Title (English)</label>
+                <input asp-for="MetaTitleEn" class="form-control" />
+                <span asp-validation-for="MetaTitleEn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MetaDescEn">Meta Description (English)</label>
+                <textarea asp-for="MetaDescEn" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="MetaDescEn" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Vietnamese Version</h3>
+            
+            <div class="form-group">
+                <label asp-for="TitleVi">Title (Vietnamese)</label>
+                <input asp-for="TitleVi" class="form-control" required />
+                <span asp-validation-for="TitleVi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SlugVi">Slug (Vietnamese)</label>
+                <input asp-for="SlugVi" class="form-control" placeholder="tin-tuc-o-day" />
+                <span asp-validation-for="SlugVi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SummaryVi">Summary (Vietnamese)</label>
+                <textarea asp-for="SummaryVi" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="SummaryVi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContentVi">Content (Vietnamese)</label>
+                <textarea asp-for="ContentVi" class="form-control" rows="10"></textarea>
+                <span asp-validation-for="ContentVi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MetaTitleVi">Meta Title (Vietnamese)</label>
+                <input asp-for="MetaTitleVi" class="form-control" />
+                <span asp-validation-for="MetaTitleVi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MetaDescVi">Meta Description (Vietnamese)</label>
+                <textarea asp-for="MetaDescVi" class="form-control" rows="2"></textarea>
+                <span asp-validation-for="MetaDescVi" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Media & Publishing</h3>
+            
+            @if (!string.IsNullOrEmpty(Model.ThumbnailPath))
+            {
+                <div class="current-thumbnail">
+                    <label>Current Thumbnail</label>
+                    <img src="@Model.ThumbnailPath" alt="Current thumbnail" style="max-width: 300px; display: block; margin: 10px 0;" />
+                </div>
+            }
+
+            <div class="form-group">
+                <label>New Thumbnail Image (leave empty to keep current)</label>
+                <input type="file" name="thumbnail" class="form-control" accept="image/*" />
+                <small class="form-text">Recommended size: 1200x800px</small>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IsPublished">
+                    <input asp-for="IsPublished" type="checkbox" /> Published
+                </label>
+                <span asp-validation-for="IsPublished" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PublishedAt">Published Date</label>
+                <input asp-for="PublishedAt" type="datetime-local" class="form-control" />
+                <span asp-validation-for="PublishedAt" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Update Article</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<style>
+    .news-form {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .form-section {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .form-section h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+
+    .form-text {
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+        color: #6c757d;
+    }
+
+    .text-danger {
+        color: #dc3545;
+        font-size: 12px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .current-thumbnail {
+        margin-bottom: 15px;
+    }
+
+    .current-thumbnail label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .form-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #545b62;
+    }
+</style>

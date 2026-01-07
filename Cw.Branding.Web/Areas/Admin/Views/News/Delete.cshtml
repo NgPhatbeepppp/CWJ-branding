@@ -1,0 +1,202 @@
+@model Cw.Branding.Web.Models.Entities.News
+
+@{
+    ViewData["Title"] = "Delete News";
+}
+
+<div class="delete-confirmation">
+    <h2>Delete Article</h2>
+
+    <div class="alert alert-warning">
+        <strong>Warning!</strong> Are you sure you want to delete this article? This action cannot be undone.
+    </div>
+
+    <div class="news-details">
+        <h3>Article Details</h3>
+        
+        @if (!string.IsNullOrEmpty(Model.ThumbnailPath))
+        {
+            <div class="detail-item">
+                <label>Thumbnail</label>
+                <img src="@Model.ThumbnailPath" alt="Thumbnail" style="max-width: 300px; display: block; margin: 10px 0;" />
+            </div>
+        }
+
+        <div class="detail-item">
+            <label>ID</label>
+            <span>@Model.Id</span>
+        </div>
+
+        <div class="detail-item">
+            <label>Title (English)</label>
+            <span>@Model.TitleEn</span>
+        </div>
+
+        <div class="detail-item">
+            <label>Title (Vietnamese)</label>
+            <span>@Model.TitleVi</span>
+        </div>
+
+        <div class="detail-item">
+            <label>Slug (English)</label>
+            <span>@Model.SlugEn</span>
+        </div>
+
+        <div class="detail-item">
+            <label>Slug (Vietnamese)</label>
+            <span>@Model.SlugVi</span>
+        </div>
+
+        <div class="detail-item">
+            <label>Status</label>
+            <span>
+                @if (Model.IsPublished)
+                {
+                    <span class="badge badge-success">Published</span>
+                }
+                else
+                {
+                    <span class="badge badge-secondary">Draft</span>
+                }
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <label>Published At</label>
+            <span>@(Model.PublishedAt?.ToString("yyyy-MM-dd HH:mm") ?? "Not published")</span>
+        </div>
+
+        <div class="detail-item">
+            <label>Created At</label>
+            <span>@Model.CreatedAt.ToString("yyyy-MM-dd HH:mm")</span>
+        </div>
+
+        @if (Model.UpdatedAt.HasValue)
+        {
+            <div class="detail-item">
+                <label>Updated At</label>
+                <span>@Model.UpdatedAt.Value.ToString("yyyy-MM-dd HH:mm")</span>
+            </div>
+        }
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-actions">
+            <button type="submit" class="btn btn-danger">Confirm Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<style>
+    .delete-confirmation {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+    }
+
+    .news-details {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .news-details h3 {
+        margin-top: 0;
+        margin-bottom: 20px;
+        color: #333;
+        border-bottom: 2px solid #dc3545;
+        padding-bottom: 10px;
+    }
+
+    .detail-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .detail-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .detail-item label {
+        display: block;
+        font-weight: 600;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .detail-item span {
+        display: block;
+        color: #333;
+    }
+
+    .badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        display: inline-block;
+    }
+
+    .badge-success {
+        background-color: #28a745;
+        color: white;
+    }
+
+    .badge-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .form-actions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 4px;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+
+    .btn-danger:hover {
+        background-color: #bd2130;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #545b62;
+    }
+</style>

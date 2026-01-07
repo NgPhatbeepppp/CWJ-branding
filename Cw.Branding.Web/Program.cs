@@ -32,8 +32,8 @@ builder.Services.AddAuthentication("AdminCookie")
 
 builder.Services.AddAuthorization();
 
-// TODO: Đăng ký Services (ICategoryService, IProductService...) tại đây sau này
-// builder.Services.AddScoped<ICategoryService, CategoryService>();
+// Register Services
+builder.Services.AddScoped<Cw.Branding.Web.Services.Interfaces.INewsService, Cw.Branding.Web.Services.Implementations.NewsService>();
 
 var app = builder.Build();
 
