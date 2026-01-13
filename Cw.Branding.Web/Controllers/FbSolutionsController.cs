@@ -20,7 +20,7 @@ namespace Cw.Branding.Web.Controllers
                 model.Title = "F&B SOLUTIONS DIVISION";
                 model.Description = "Explore our extensive range of food & beverage equipment solutions that bring innovation and efficiency to your culinary operations, ensuring top-quality service and satisfaction.";
                 model.ButtonText = "Visit globalhoreca.com";
-                model.TargetUrl = "https://globalhoreca.com"; // Link thực tế của client
+                model.TargetUrl = "https://globalhoreca.com"; 
             }
             else // Vietnamese
             {
@@ -30,7 +30,7 @@ namespace Cw.Branding.Web.Controllers
                 model.TargetUrl = "https://globalhoreca.com";
             }
 
-            // Đường dẫn ảnh banner (bạn nhớ chép ảnh vào wwwroot/images/)
+            // Đường dẫn ảnh banner ( wwwroot/images/)
             model.BackgroundImagePath = "/images/fnb-hero.png";
 
             return View(model);

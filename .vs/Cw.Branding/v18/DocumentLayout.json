@@ -3,24 +3,128 @@
   "WorkspaceRootPath": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\news\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\news\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\components\\_sectionheader.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\components\\_sectionheader.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\components\\_sectionheader.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\components\\_sectionheader.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\components\\_contactformsection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\components\\_contactformsection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\components\\_card.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\components\\_card.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\news\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\news\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\fbsolutions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\fbsolutions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\styles\\tailwind-input.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\styles\\tailwind-input.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\viewmodels\\medicalindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\viewmodels\\medicalindexviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\viewmodels\\newsdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\viewmodels\\newsdetailviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\viewmodels\\newslistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\viewmodels\\newslistviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\entities\\productimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\entities\\productimage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\viewmodels\\aboutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\viewmodels\\aboutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\entities\\news.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\entities\\contactformentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\entities\\contactformentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\components\\componentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\models\\components\\componentviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\uikitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\uikitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\medicalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,44 +135,20 @@
       "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\fbsolutionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\fbsolutionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\aboutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\news\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\fbsolutions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\fbsolutions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\controllers\\fbsolutionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\controllers\\fbsolutionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\medical\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\medical\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\about\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|solutionrelative:cw.branding.web\\views\\shared\\_header.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D110BCEE-67BD-4FF9-808B-C87D6BDAEFDA}|Cw.Branding.Web\\Cw.Branding.Web.csproj|c:\\users\\hp\\source\\repos\\cw.branding\\cw.branding.web\\models\\viewmodels\\fbsolutionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,23 +166,288 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-13T13:58:19.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-13T13:58:18.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Footer.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\_Footer.cshtml",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\_Footer.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\_Footer.cshtml",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\_Footer.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-13T13:58:10.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_SectionHeader.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:58:09.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_SectionHeader.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\Components\\_SectionHeader.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-13T13:58:05.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_ContactFormSection.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_ContactFormSection.cshtml",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\Components\\_ContactFormSection.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_ContactFormSection.cshtml",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\Components\\_ContactFormSection.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-13T13:57:58.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Card.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_Card.cshtml",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\Components\\_Card.cshtml",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Components\\_Card.cshtml",
+              "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\Components\\_Card.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-13T13:57:55.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "tailwind-input.css",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Styles\\tailwind-input.css",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Styles\\tailwind-input.css",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Styles\\tailwind-input.css",
+              "RelativeToolTip": "Cw.Branding.Web\\Styles\\tailwind-input.css",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-01-13T13:50:20.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MedicalIndexViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\MedicalIndexViewModel.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\ViewModels\\MedicalIndexViewModel.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\MedicalIndexViewModel.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\ViewModels\\MedicalIndexViewModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:50:18.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "NewsListViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\NewsListViewModel.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\ViewModels\\NewsListViewModel.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\NewsListViewModel.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\ViewModels\\NewsListViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:50:15.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "NewsDetailViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\NewsDetailViewModel.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\ViewModels\\NewsDetailViewModel.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\NewsDetailViewModel.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\ViewModels\\NewsDetailViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:50:14.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AboutViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\AboutViewModel.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\ViewModels\\AboutViewModel.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\AboutViewModel.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\ViewModels\\AboutViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:50:08.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\Entities\\Product.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\Product.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:49:22.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ProductImage.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\ProductImage.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\Entities\\ProductImage.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\ProductImage.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\Entities\\ProductImage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:49:21.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "News.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\News.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\Entities\\News.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\News.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\Entities\\News.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:49:05.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ContactFormEntry.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\ContactFormEntry.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\Entities\\ContactFormEntry.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\ContactFormEntry.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\Entities\\ContactFormEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:49:02.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Entities\\Category.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\Entities\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:48:55.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ComponentViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Components\\ComponentViewModel.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\Components\\ComponentViewModel.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\Components\\ComponentViewModel.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Models\\Components\\ComponentViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:48:44.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UiKitController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\UiKitController.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\UiKitController.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\UiKitController.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Controllers\\UiKitController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:48:34.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\NewsController.cs",
+              "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "Cw.Branding.Web\\Controllers\\NewsController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAowD8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T13:48:10.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\News\\Detail.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\News\\Detail.cshtml",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\News\\Detail.cshtml",
               "RelativeToolTip": "Cw.Branding.Web\\Views\\News\\Detail.cshtml",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T09:42:27.376Z"
+              "WhenOpened": "2025-12-17T09:42:27.376Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "_ValidationScriptsPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
@@ -110,59 +455,64 @@
               "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T09:42:22.998Z"
+              "WhenOpened": "2025-12-17T09:42:22.998Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 31,
               "Title": "MedicalController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\MedicalController.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\MedicalController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\MedicalController.cs",
               "RelativeToolTip": "Cw.Branding.Web\\Controllers\\MedicalController.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T09:42:18.124Z"
+              "WhenOpened": "2025-12-17T09:42:18.124Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 32,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Cw.Branding.Web\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T09:42:13.224Z"
+              "WhenOpened": "2025-12-17T09:42:13.224Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 34,
               "Title": "ContactController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\ContactController.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\ContactController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\ContactController.cs",
               "RelativeToolTip": "Cw.Branding.Web\\Controllers\\ContactController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T09:42:11.574Z"
+              "WhenOpened": "2025-12-17T09:42:11.574Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 33,
               "Title": "AboutController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\AboutController.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\AboutController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\AboutController.cs",
               "RelativeToolTip": "Cw.Branding.Web\\Controllers\\AboutController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T09:42:09.638Z"
+              "WhenOpened": "2025-12-17T09:42:09.638Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\_Layout.cshtml",
@@ -175,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml.css",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\_Layout.cshtml.css",
@@ -183,11 +533,12 @@
               "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\_Layout.cshtml.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-17T09:42:01.994Z"
+              "WhenOpened": "2025-12-17T09:42:01.994Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "Error.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\Error.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\Error.cshtml",
@@ -195,23 +546,25 @@
               "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\Error.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T09:42:00.702Z"
+              "WhenOpened": "2025-12-17T09:42:00.702Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\News\\Index.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\News\\Index.cshtml",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\News\\Index.cshtml",
               "RelativeToolTip": "Cw.Branding.Web\\Views\\News\\Index.cshtml",
-              "ViewState": "AgIAAIwAAAAAAAAAAAAmwKcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T09:38:09.514Z"
+              "WhenOpened": "2025-12-17T09:38:09.514Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 36,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Medical\\Index.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Medical\\Index.cshtml",
@@ -223,7 +576,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 6,
               "Title": "_Header.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Shared\\_Header.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Shared\\_Header.cshtml",
@@ -231,35 +584,38 @@
               "RelativeToolTip": "Cw.Branding.Web\\Views\\Shared\\_Header.cshtml",
               "ViewState": "AgIAAB0AAAAAAAAAAADwvyoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T07:10:40.098Z"
+              "WhenOpened": "2025-12-17T07:10:40.098Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\FbSolutions\\Index.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\FbSolutions\\Index.cshtml",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\FbSolutions\\Index.cshtml",
               "RelativeToolTip": "Cw.Branding.Web\\Views\\FbSolutions\\Index.cshtml",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADsAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T06:48:38.003Z"
+              "WhenOpened": "2025-12-17T06:48:38.003Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 35,
               "Title": "FbSolutionsController.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\FbSolutionsController.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Controllers\\FbSolutionsController.cs",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Controllers\\FbSolutionsController.cs",
               "RelativeToolTip": "Cw.Branding.Web\\Controllers\\FbSolutionsController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAgwCEAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-17T06:47:18.581Z"
+              "WhenOpened": "2025-12-17T06:47:18.581Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 37,
               "Title": "FbSolutionViewModel.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\FbSolutionViewModel.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\ViewModels\\FbSolutionViewModel.cs",
@@ -271,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 38,
               "Title": "HomeViewModel.cs",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Models\\ViewModels\\HomeViewModel.cs",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Models\\ViewModels\\HomeViewModel.cs",
@@ -283,37 +639,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\About\\Index.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\About\\Index.cshtml",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\About\\Index.cshtml",
               "RelativeToolTip": "Cw.Branding.Web\\Views\\About\\Index.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAIcAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAB4BAAAAAAAAAAAAAEsBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T04:42:36.37Z"
+              "WhenOpened": "2025-12-17T04:42:36.37Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Contact\\Index.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Contact\\Index.cshtml",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Contact\\Index.cshtml",
               "RelativeToolTip": "Cw.Branding.Web\\Views\\Contact\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAACMAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAACMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T04:41:33.92Z"
+              "WhenOpened": "2025-12-17T04:41:33.92Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 16,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Cw.Branding.Web\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\HP\\source\\repos\\Cw.Branding\\Cw.Branding.Web\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Cw.Branding.Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAA8BAAAAAAAAAAAQwB0BAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIBAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-12-17T07:12:57.943Z",
               "EditorCaption": ""

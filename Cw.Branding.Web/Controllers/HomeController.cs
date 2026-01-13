@@ -25,15 +25,14 @@ namespace Cw.Branding.Web.Controllers
 
             try
             {
-                // 1. Fetch Latest News (Giữ nguyên logic lấy 3 bài mới nhất)
+                // Fetch Latest News
                 viewModel.LatestNews = await _context.News
                     .Where(n => n.IsPublished && n.PublishedAt <= DateTime.Now)
                     .OrderByDescending(n => n.IsPublished)
                     .Take(3)
                     .ToListAsync();
 
-                // 2. Medical Categories: Đã bỏ fetch DB. 
-                // Ở View sẽ hardcode link dẫn tới trang /medical-solutions hoặc /categories
+              
             }
             catch (Exception ex)
             {
