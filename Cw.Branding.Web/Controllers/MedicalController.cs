@@ -15,10 +15,7 @@ namespace Cw.Branding.Web.Controllers
             _context = context;
         }
 
-        // =========================================================
-        // 1. ACTION INDEX (Trang chủ Medical)
-        // Mục tiêu: URL đẹp cho SEO (medical-solutions / giai-phap-y-te)
-        // =========================================================
+       
 
         [HttpGet("{lang}/medical-solutions")] // URL Tiếng Anh
         [HttpGet("{lang}/giai-phap-y-te")]    // URL Tiếng Việt
@@ -39,11 +36,7 @@ namespace Cw.Branding.Web.Controllers
             return View(viewModel);
         }
 
-        // =========================================================
-        // 2. ACTION API (AJAX gọi vào đây)
-        // Mục tiêu: Đường dẫn rõ ràng, kỹ thuật, dễ gọi
-        // URL: /en/Medical/FilterProducts?categoryId=...
-        // =========================================================
+       
 
         [HttpGet("{lang}/Medical/FilterProducts")]
         public async Task<IActionResult> FilterProducts(int categoryId)
@@ -58,15 +51,14 @@ namespace Cw.Branding.Web.Controllers
 
                 return PartialView("_ProductListPartial", products);
             }
-            catch
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                // Log the error for debugging
+                Console.WriteLine($"Error loading products: {ex.Message}");
+                return StatusCode(500, new { error = "Failed to load products" });
             }
         }
-        // =========================================================
-        // 3. CHI TIẾT SẢN PHẨM (DETAIL)
-        // URL: /en/medical/product/{slug} (Đây là cái bạn đang thiếu/sai)
-        // =========================================================
+       
         [HttpGet("{lang}/medical/product/{slug}")]
         public async Task<IActionResult> Detail(string slug)
         {
@@ -78,7 +70,7 @@ namespace Cw.Branding.Web.Controllers
                 .Include(p => p.Images)        // Load ảnh
                 .FirstOrDefaultAsync(p => p.SlugEn == slug || p.SlugVi == slug);
 
-            // Nếu không tìm thấy sản phẩm trong DB -> Trả về 404
+          
             if (product == null)
             {
                 return NotFound();

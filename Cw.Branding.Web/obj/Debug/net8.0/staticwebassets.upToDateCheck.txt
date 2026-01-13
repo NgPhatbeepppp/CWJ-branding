@@ -1,3 +1,4 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\.png
 wwwroot\images\about-bg-texture.png
@@ -97,4 +98,3 @@ wwwroot\uploads\products\monitor-1.png
 wwwroot\uploads\products\monitor-2.png
 wwwroot\uploads\products\monitor-3.png
 wwwroot\videos\cw-journey.mp4
-wwwroot\css\site.css

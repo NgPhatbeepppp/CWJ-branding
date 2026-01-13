@@ -7,7 +7,7 @@ public class ProductImage
     public int ProductId { get; set; }
     public Product Product { get; set; } = null!;
 
-    public string FilePath { get; set; } = null!;    // /uploads/products/xxx.jpg
+    public string FilePath { get; set; } = null!;    
     public string? AltVi { get; set; }
     public string? AltEn { get; set; }
 

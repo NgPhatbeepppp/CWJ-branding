@@ -50,11 +50,11 @@
 
             @* CTA Buttons *@
             <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
-                <a href="/en/medical-solutions"
+                <a asp-controller="Medical" asp-action="Index" asp-route-lang="en"
                    class="btn-primary rounded-md px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center">
                     Explore Solutions
                 </a>
-                <a href="/en/contact"
+                <a asp-controller="Contact" asp-action="Index" asp-route-lang="en"
                    class="inline-flex items-center justify-center px-8 py-3 rounded-md border-2 border-[#004F9F] text-[#004F9F] font-bold hover:bg-[#004F9F] hover:text-white transition-all duration-300">
                     Contact Us
                 </a>
@@ -89,7 +89,7 @@
                     The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
                 </p>
 
-                <a href="/en/about-us"
+                <a asp-controller="About" asp-action="Index" asp-route-lang="en"
                    class="group inline-flex items-center gap-2 font-heading text-lg font-bold tracking-[0.05em] uppercase py-3 text-[#004F9F] hover:text-blue-800 transition-all duration-300">
                     About Us
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
@@ -127,7 +127,7 @@
                 Our Healthcare<br />Solutions
             </h2>
 
-            <a href="/en/medical-solutions"
+            <a asp-controller="Medical" asp-action="Index" asp-route-lang="en"
                class="group inline-flex items-center gap-3 font-heading text-base md:text-lg font-bold text-[#004F9F] uppercase tracking-wider hover:text-blue-700 transition-colors duration-300">
                 <span class="border-b-2 border-[#004F9F] group-hover:border-blue-700 pb-1">Explore Categories</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
@@ -216,7 +216,7 @@
                 </h2>
             </div>
 
-            <a href="/en/news" class="hidden md:inline-flex items-center font-bold text-blue-700 hover:text-blue-900 transition-colors group">
+            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="hidden md:inline-flex items-center font-bold text-blue-700 hover:text-blue-900 transition-colors group">
                 View all news
                 <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
@@ -271,7 +271,7 @@
         </div>
 
         <div class="mt-10 text-center md:hidden">
-            <a href="/news" class="inline-block border border-blue-600 text-blue-600 font-bold py-3 px-8 rounded hover:bg-blue-600 hover:text-white transition-colors">
+            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="inline-block border border-blue-600 text-blue-600 font-bold py-3 px-8 rounded hover:bg-blue-600 hover:text-white transition-colors">
                 View all news
             </a>
         </div>
@@ -298,13 +298,13 @@
 
             // 1. KHỞI TẠO AOS VỚI CẤU HÌNH MỚI
             AOS.init({
-                duration: 1500,       // [ĐÃ SỬA] Tăng lên 1.5 giây để chuyển động chậm hơn
+                duration: 1500,      
                 easing: 'ease-out-cubic',
                 once: true,
-                offset: 250           // [ĐÃ SỬA] Tăng lên 250px để cuộn sâu hơn mới hiện
+                offset: 250           
             });
 
-            // 2. LOGIC CHO KEN BURNS SLIDER (Giữ nguyên)
+            // 2. LOGIC CHO KEN BURNS SLIDER 
             const slides = document.querySelectorAll('#ken-burns-slider .slide');
             let currentSlide = 0;
             const slideInterval = 6000;

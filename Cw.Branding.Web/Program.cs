@@ -32,8 +32,10 @@ builder.Services.AddAuthentication("AdminCookie")
 
 builder.Services.AddAuthorization();
 
-// TODO: Đăng ký Services (ICategoryService, IProductService...) tại đây sau này
-// builder.Services.AddScoped<ICategoryService, CategoryService>();
+// Service registration will be added here when business logic is extracted from controllers
+// Example: builder.Services.AddScoped<ICategoryService, CategoryService>();
+// Example: builder.Services.AddScoped<IProductService, ProductService>();
+// Example: builder.Services.AddScoped<INewsService, NewsService>();
 
 var app = builder.Build();
 
