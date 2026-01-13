@@ -58,9 +58,11 @@ namespace Cw.Branding.Web.Controllers
 
                 return PartialView("_ProductListPartial", products);
             }
-            catch
+            catch (Exception ex)
             {
-                return StatusCode(500);
+                // Log the error for debugging
+                Console.WriteLine($"Error loading products: {ex.Message}");
+                return StatusCode(500, new { error = "Failed to load products" });
             }
         }
         // =========================================================

@@ -44,15 +44,41 @@ namespace Cw.Branding.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Submit(ContactFormViewModel model)
+        public async Task<IActionResult> Submit(ContactFormViewModel model)
         {
             if (ModelState.IsValid)
             {
-                // TODO: Lưu vào DB hoặc gửi Email ở đây
-                return RedirectToAction("Index", "Home"); // Tạm thời quay về trang chủ
+                try
+                {
+                    // Save contact form entry to database
+                    var contactEntry = new ContactFormEntry
+                    {
+                        Name = model.Name,
+                        Company = null, // Not provided in the form
+                        Email = model.Email,
+                        Phone = null, // Not provided in the form
+                        Message = model.Message,
+                        CreatedAt = DateTime.UtcNow,
+                        IsHandled = false
+                    };
+
+                    _context.ContactFormEntries.Add(contactEntry);
+                    await _context.SaveChangesAsync();
+
+                    _logger.LogInformation("Contact form submitted successfully from {Email}", model.Email);
+                    
+                    // Redirect to home with success message
+                    TempData["SuccessMessage"] = "Thank you for contacting us! We will get back to you soon.";
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Error saving contact form entry");
+                    TempData["ErrorMessage"] = "There was an error submitting your form. Please try again.";
+                }
             }
 
-            // Nếu lỗi validation, quay lại trang trước (hoặc xử lý hiển thị lỗi)
+            // If validation fails or exception occurs, redirect back
             return RedirectToAction("Index", "Home");
         }
         public IActionResult Privacy() => View();
