@@ -1,4 +1,4 @@
-﻿using Cw.Branding.Web.Models.Entities;
+﻿ using Cw.Branding.Web.Models.Entities;
 
 namespace Cw.Branding.Web.Models.ViewModels;
 

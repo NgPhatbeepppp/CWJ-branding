@@ -1,0 +1,240 @@
+﻿@{
+    Layout = null;
+    var title = ViewData["Title"] as string ?? "Admin Panel";
+}
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="utf-8" />
+    <title>@title - Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Main site CSS (Tailwind-built) -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body class="h-full bg-brand-bg font-body text-slate-800">
+
+    <div class="min-h-screen flex">
+
+        <!-- Sidebar -->
+        <aside id="admin-sidebar"
+               class="hidden md:flex md:flex-col w-64 bg-brand-primary text-white flex-shrink-0">
+
+            <!-- Logo / Brand -->
+            <div class="h-16 flex items-center px-6 border-b border-white/10">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                   class="flex items-center gap-3">
+                    <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10">
+                        <!-- Heroicon: Shield Check -->
+                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M9 12.75 11.25 15 15 9.75m-3-6.356a11.959 11.959 0 0 0-7.5 2.772 0.75.75 0 0 0-.27.576v5.682a11.966 11.966 0 0 0 7.5 10.937 11.966 11.966 0 0 0 7.5-10.937V6.77a0.75 0.75 0 0 0-.27-.576 11.959 11.959 0 0 0-7.5-2.772z" />
+                        </svg>
+                    </span>
+                    <div>
+                        <div class="font-heading font-semibold tracking-wide text-sm uppercase">
+                            Admin Console
+                        </div>
+                        <div class="text-xs text-blue-100">
+                            Charles Wembley
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="flex-1 overflow-y-auto py-4">
+                <ul class="space-y-1 px-3 text-sm">
+                    <!-- Dashboard -->
+                    <li>
+                        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                            <!-- Heroicon: Home -->
+                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="m2.25 12 9.193-8.007a0.75 0.75 0 0 1 1.114 0L21.75 12M4.5 9.75V20.25A1.5 1.5 0 0 0 6 21.75h4.5v-6h3v6H18A1.5 1.5 0 0 0 19.5 20.25V9.75" />
+                            </svg>
+                            <span class="font-medium">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- News Manager -->
+                    <li>
+                        <a asp-area="Admin" asp-controller="News" asp-action="Index"
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                            <!-- Heroicon: Newspaper -->
+                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M12 7.5h3.75M12 10.5h3.75M4.5 13.5h11.25M4.5 16.5H12m-7.5-12h15A1.5 1.5 0 0 1 21 6v11.25A2.25 2.25 0 0 1 18.75 19.5H6A2.25 2.25 0 0 1 3.75 17.25V5.25A0.75 0.75 0 0 1 4.5 4.5z" />
+                            </svg>
+                            <span class="font-medium">News Manager</span>
+                        </a>
+                    </li>
+
+                    <!-- Categories (Medical) -->
+                    <li>
+                        <a asp-area="Admin" asp-controller="Categories" asp-action="Index"
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                            <!-- Heroicon: Squares 2x2 -->
+                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M4.5 4.5h6v6h-6v-6zm0 9h6v6h-6v-6zm9-9h6v6h-6v-6zm0 9h6v6h-6v-6z" />
+                            </svg>
+                            <span class="font-medium">Categories (Medical)</span>
+                        </a>
+                    </li>
+
+                    <!-- Products (Medical) -->
+                    <li>
+                        <a asp-area="Admin" asp-controller="Products" asp-action="Index"
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                            <!-- Heroicon: Beaker -->
+                            <svg class="w-5 h-5 text-blue-100" xmlns="http://://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M9.75 3v3.75L5.25 15a3.75 3.75 0 0 0 3.25 5.625h7A3.75 3.75 0 0 0 18.75 15L14.25 6.75V3M9 3h6" />
+                            </svg>
+                            <span class="font-medium">Products (Medical)</span>
+                        </a>
+                    </li>
+
+                    <!-- Contact -->
+                    <li>
+                        <a asp-area="Admin" asp-controller="Contact" asp-action="Index"
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
+                            <!-- Heroicon: Inbox -->
+                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M2.25 12.75 4.5 5.25h15l2.25 7.5M4.5 5.25 9 12h6l4.5-6.75M3 13.5h3.75L9 16.5h6l2.25-3H21" />
+                            </svg>
+                            <span class="font-medium">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Sidebar Footer / Logout -->
+            <div class="border-t border-white/10 px-4 py-3">
+                <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" class="w-full">
+                    <button type="submit"
+                            class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition">
+                        <!-- Heroicon: Arrow Right On Rectangle -->
+                        <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3H5.25A2.25 2.25 0 0 0 3 5.25v13.5A2.25 2.25 0 0 0 5.25 21h8.25a2.25 2.25 0 0 0 2.25-2.25V15M18 9l3 3m0 0-3 3m3-3H9" />
+                        </svg>
+                        <span>Logout</span>
+                    </button>
+                </form>
+            </div>
+        </aside>
+
+        <!-- Main content wrapper -->
+        <div class="flex-1 flex flex-col min-w-0">
+
+            <!-- Topbar -->
+            <header class="sticky top-0 z-30 bg-white shadow-card">
+                <div class="flex items-center justify-between px-4 md:px-6 py-3 gap-4">
+
+                    <!-- Left: Mobile menu + Breadcrumb -->
+                    <div class="flex items-center gap-3 min-w-0">
+                        <!-- Mobile hamburger -->
+                        <button type="button"
+                                class="inline-flex md:hidden items-center justify-center w-10 h-10 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50"
+                                aria-label="Toggle sidebar"
+                                onclick="toggleAdminSidebar()">
+                            <!-- Heroicon: Bars 3 -->
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M3.75 7.5h16.5M3.75 12h16.5M3.75 16.5h16.5" />
+                            </svg>
+                        </button>
+
+                        <!-- Breadcrumb -->
+                        <div class="truncate">
+                            <p class="text-xs uppercase tracking-[0.08em] text-slate-400 font-semibold">
+                                Admin
+                            </p>
+                            <h1 class="font-heading text-base md:text-lg font-semibold text-slate-800 truncate">
+                                @title
+                            </h1>
+                        </div>
+                    </div>
+
+                    <!-- Right: Profile dropdown (UI only) -->
+                    <div class="relative">
+                        <button type="button"
+                                class="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 transition text-sm">
+                            <span class="flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full bg-brand-primary text-white font-heading text-xs">
+                                AD
+                            </span>
+                            <span class="hidden sm:flex flex-col text-left">
+                                <span class="text-xs font-medium text-slate-700">Admin User</span>
+                                <span class="text-[11px] text-slate-400">System Administrator</span>
+                            </span>
+                            <!-- Heroicon: Chevron Down -->
+                            <svg class="w-4 h-4 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M19.5 8.25 12 15.75 4.5 8.25" />
+                            </svg>
+                        </button>
+                        <!--
+                            For MVP this is just a visual element.
+                            You can add an actual dropdown menu later (Profile, Settings, Logout).
+                        -->
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main content -->
+            <main class="flex-1">
+                <div class="px-4 md:px-6 py-4 md:py-6 max-w-7xl mx-auto w-full">
+                    @RenderBody()
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="border-t border-slate-200 bg-white">
+                <div class="px-4 md:px-6 py-3 text-xs text-slate-400 flex items-center justify-between">
+                    <span>© @DateTime.UtcNow.Year Charles Wembley. All rights reserved.</span>
+                    <span class="hidden sm:inline">Admin Console · v1.0</span>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Mobile overlay sidebar (optional simple behavior) -->
+    <script>
+        function toggleAdminSidebar() {
+            const sidebar = document.getElementById('admin-sidebar');
+
+            // On mobile we use 'hidden' to show/hide; on md+ it should always be visible.
+            if (window.innerWidth < 768) {
+                sidebar.classList.toggle('hidden');
+            }
+        }
+
+        // Ensure sidebar visible when resizing back to desktop
+        window.addEventListener('resize', function () {
+            const sidebar = document.getElementById('admin-sidebar');
+            if (window.innerWidth >= 768) {
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('flex');
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -61,9 +61,11 @@ app.UseAuthorization();
 
 // 1. Route cho Admin Area (Phải dùng MapAreaControllerRoute)
 // Cấu trúc: /en/admin/dashboard
+// Đặt đoạn này TRƯỚC app.MapControllerRoute("default", ...)
+
 app.MapAreaControllerRoute(
-    name: "admin",
-    areaName: "Admin", // Tên Area folder
+    name: "MyAreaAdmin",
+    areaName: "Admin",
     pattern: "{lang=en}/admin/{controller=Dashboard}/{action=Index}/{id?}");
 
 // 2. Route cho Client (Mặc định)

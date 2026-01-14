@@ -1505,6 +1505,10 @@ small, .caption {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1515,6 +1519,10 @@ small, .caption {
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .inset-0 {
@@ -1716,6 +1724,10 @@ small, .caption {
   margin-top: auto;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -1885,6 +1897,10 @@ small, .caption {
   height: 100vh;
 }
 
+.h-9 {
+  height: 2.25rem;
+}
+
 .max-h-20 {
   max-height: 5rem;
 }
@@ -1983,6 +1999,18 @@ small, .caption {
 
 .w-full {
   width: 100%;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-9 {
+  width: 2.25rem;
+}
+
+.min-w-0 {
+  min-width: 0px;
 }
 
 .max-w-2xl {
@@ -2122,6 +2150,10 @@ small, .caption {
 
 .resize-none {
   resize: none;
+}
+
+.resize {
+  resize: both;
 }
 
 .appearance-none {
@@ -2288,6 +2320,12 @@ small, .caption {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+
 .divide-x > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-x-reverse: 0;
   border-right-width: calc(1px * var(--tw-divide-x-reverse));
@@ -2307,8 +2345,18 @@ small, .caption {
   overflow: hidden;
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .whitespace-nowrap {
@@ -2339,24 +2387,19 @@ small, .caption {
   border-radius: 0.75rem;
 }
 
+.rounded-b-\[10px\] {
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
 .rounded-b-\[30px\] {
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
-.rounded-b-\[40px\] {
-  border-bottom-right-radius: 40px;
-  border-bottom-left-radius: 40px;
-}
-
 .rounded-b-\[80px\] {
   border-bottom-right-radius: 80px;
   border-bottom-left-radius: 80px;
-}
-
-.rounded-b-\[10px\] {
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .rounded-br-\[80px\] {
@@ -2590,6 +2633,11 @@ small, .caption {
   background-color: rgb(255 255 255 / 0.95);
 }
 
+.bg-brand-bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -2757,6 +2805,16 @@ small, .caption {
   padding-bottom: 2rem;
 }
 
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -2799,10 +2857,6 @@ small, .caption {
 
 .pt-1 {
   padding-top: 0.25rem;
-}
-
-.pt-10 {
-  padding-top: 2.5rem;
 }
 
 .pt-24 {
@@ -3001,6 +3055,10 @@ small, .caption {
 
 .tracking-widest {
   letter-spacing: 0.1em;
+}
+
+.tracking-\[0\.08em\] {
+  letter-spacing: 0.08em;
 }
 
 .text-\[\#002143\] {
@@ -3404,6 +3462,19 @@ small, .caption {
   background-color: rgb(255 212 59 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-slate-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-white\/10:hover {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.hover\:bg-white\/20:hover {
+  background-color: rgb(255 255 255 / 0.2);
+}
+
 .hover\:text-\[\#002B57\]:hover {
   --tw-text-opacity: 1;
   color: rgb(0 43 87 / var(--tw-text-opacity));
@@ -3555,6 +3626,14 @@ small, .caption {
 }
 
 @media (min-width: 640px) {
+  .sm\:inline {
+    display: inline;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:w-auto {
     width: auto;
   }
@@ -3625,6 +3704,10 @@ small, .caption {
     margin-top: 0px;
   }
 
+  .md\:flex {
+    display: flex;
+  }
+
   .md\:inline-flex {
     display: inline-flex;
   }
@@ -3678,6 +3761,10 @@ small, .caption {
     flex-direction: row;
   }
 
+  .md\:flex-col {
+    flex-direction: column;
+  }
+
   .md\:items-start {
     align-items: flex-start;
   }
@@ -3702,11 +3789,6 @@ small, .caption {
 
   .md\:self-start {
     align-self: flex-start;
-  }
-
-  .md\:rounded-b-\[80px\] {
-    border-bottom-right-radius: 80px;
-    border-bottom-left-radius: 80px;
   }
 
   .md\:rounded-b-\[30px\] {
@@ -3782,8 +3864,9 @@ small, .caption {
     padding-bottom: 2rem;
   }
 
-  .md\:pb-20 {
-    padding-bottom: 5rem;
+  .md\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .md\:pb-24 {
