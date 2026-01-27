@@ -1,36 +1,57 @@
-﻿namespace Cw.Branding.Web.Models.Entities;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class News
+namespace Cw.Branding.Web.Models.Entities
 {
-    public int Id { get; set; }
+    public class News
+    {
+        public int Id { get; set; }
 
-    // --- Thông tin chính (Song ngữ) ---
-    public string TitleVi { get; set; } = null!;
-    public string TitleEn { get; set; } = null!;
+        // --- Content (Bilingual) ---
+        [MaxLength(255)]
+        [Required(ErrorMessage = "Tiêu đề tiếng Việt là bắt buộc")]
+        public string TitleVi { get; set; }
 
-    public string? SummaryVi { get; set; }
-    public string? SummaryEn { get; set; }
+        [MaxLength(255)]
+        [Required(ErrorMessage = "English Title is required")]
+        public string TitleEn { get; set; }
 
-    public string? ContentVi { get; set; }    // HTML từ editor
-    public string? ContentEn { get; set; }
+        [MaxLength(500)]
+        public string? SummaryVi { get; set; }
 
-    public string? SlugVi { get; set; }
-    public string? SlugEn { get; set; }
+        [MaxLength(500)]
+        public string? SummaryEn { get; set; }
 
-    // --- Media ---
-    public string? ThumbnailPath { get; set; } // Đường dẫn ảnh đại diện
+        // HTML Content (Output từ TinyMCE) - Allow null for draft
+        public string? ContentVi { get; set; }
+        public string? ContentEn { get; set; }
 
-    // --- SEO Meta Tags (Quan trọng cho Branding) ---
-    public string? MetaTitleVi { get; set; }
-    public string? MetaTitleEn { get; set; }
-    public string? MetaDescVi { get; set; }
-    public string? MetaDescEn { get; set; }
+        // --- Media & SEO ---
+        [MaxLength(255)]
+        public string? ThumbnailPath { get; set; } // Ảnh đại diện list
 
-    // --- Trạng thái bài viết ---
-    public bool IsPublished { get; set; } = false;
-    public DateTime? PublishedAt { get; set; }
+        [MaxLength(255)]
+        public string? SlugVi { get; set; } // Index Unique
 
-    // --- Audit ---
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-    public DateTime? UpdatedAt { get; set; }
+        [MaxLength(255)]
+        public string? SlugEn { get; set; } // Index Unique
+
+        [MaxLength(255)]
+        public string? MetaTitleVi { get; set; }
+
+        [MaxLength(255)]
+        public string? MetaTitleEn { get; set; }
+
+        [MaxLength(500)]
+        public string? MetaDescVi { get; set; }
+
+        [MaxLength(500)]
+        public string? MetaDescEn { get; set; }
+
+        // --- System ---
+        public DateTime PublishedAt { get; set; }
+        public bool IsActive { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime? UpdatedAt { get; set; }
+    }
 }

@@ -67,7 +67,7 @@
             {
                 var title = isEn ? item.TitleEn : item.TitleVi;
                 var summary = isEn ? item.SummaryEn : item.SummaryVi;
-                var date = item.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+                var date = item.PublishedAt.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
                 var link = $"/{Model.CurrentLang}/news/{(isEn ? item.SlugEn : item.SlugVi)}";
                 var thumb = string.IsNullOrEmpty(item.ThumbnailPath) ? "/images/news-placeholder.jpg" : item.ThumbnailPath;
 
@@ -158,10 +158,10 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             AOS.init({
-                duration: 1200,       // Tốc độ vừa phải cho trang tin tức
+                duration: 1200,       
                 easing: 'ease-out-cubic',
                 once: true,
-                offset: 100           // Offset thấp để dễ thấy nội dung khi cuộn
+                offset: 100          
             });
         });
     </script>

@@ -26,7 +26,7 @@ public class NewsController : Controller
                 SummaryEn = "Explore our latest innovations in diagnostic imaging and how we are transforming healthcare standards.",
                 SummaryVi = "Khám phá những cải tiến mới nhất của chúng tôi trong chẩn đoán hình ảnh và cách nâng cao tiêu chuẩn chăm sóc sức khỏe.",
                 PublishedAt = DateTime.Now.AddDays(-i),
-                ThumbnailPath = "/images/news-opening.png", // Đảm bảo có ảnh này hoặc đổi link
+                ThumbnailPath = "/images/news-opening.png", 
                 SlugEn = $"news-series-{i}",
                 SlugVi = $"tin-tuc-dot-{i}"
             });

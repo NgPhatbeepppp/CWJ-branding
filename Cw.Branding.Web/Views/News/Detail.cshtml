@@ -5,7 +5,7 @@
 
     var title = isEn ? item.TitleEn : item.TitleVi;
     var content = isEn ? item.ContentEn : item.ContentVi;
-    var date = item.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+    var date = item.PublishedAt.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
 
     // Fallback ảnh nếu null
     var bgImage = string.IsNullOrEmpty(item.ThumbnailPath) ? "/images/news-banner.jpg" : item.ThumbnailPath;
@@ -81,7 +81,7 @@
                     ? "/images/news-placeholder.jpg"
                     : relatedItem.ThumbnailPath;
 
-                    var rDate = relatedItem.PublishedAt?.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+                    var rDate = relatedItem.PublishedAt.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
 
                     <article class="bg-white rounded shadow-card hover:shadow-card-hover transition-all overflow-hidden group">
                         <a href="@rLink" class="block h-48 overflow-hidden relative">

@@ -94,6 +94,12 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\news-content\52ccbb6f-8246-43c3-b936-cc375ff69103_639051205090669733.jpg
+wwwroot\uploads\news-content\5a09d552-b1b2-43cc-bb15-b467d8766259_639051197979057088.jpg
+wwwroot\uploads\news-content\72ed2522-3982-4369-bea1-c034fa064908_639051205659077562.jpg
+wwwroot\uploads\news-content\7511e4c9-267a-46ad-b013-6c09e5b5072b_639051205044739839.jpg
+wwwroot\uploads\news-content\bcb597e5-588b-416d-a32a-0db2ce29b98b_639051204629814686.jpg
+wwwroot\uploads\news-thumbnails\69d33813-f81c-4e1f-8f55-8c0a5ec1ad8d.jpg
 wwwroot\uploads\products\monitor-1.png
 wwwroot\uploads\products\monitor-2.png
 wwwroot\uploads\products\monitor-3.png

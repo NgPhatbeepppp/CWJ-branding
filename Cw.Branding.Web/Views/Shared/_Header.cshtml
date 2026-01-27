@@ -26,7 +26,7 @@
 
     <div class="w-[92%] max-w-[1600px] h-32 mx-auto flex items-center justify-between px-4 md:px-6">
 
-        <a href="/" class="flex-shrink-0">
+        <a asp-controller="Home" asp-action="Index" asp-route-lang="en" class="flex-shrink-0">
             <img src="~/images/logo2.png" alt="Charles Wembley" class="h-[105px] w-auto object-contain brightness-0" />
         </a>
 
@@ -37,22 +37,22 @@
             @* UPDATE: 
                2. text-lg -> text-base (Giảm cỡ chữ xuống mức tiêu chuẩn) 
             *@
-            <a href="/en/home" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
+            <a asp-controller="Home" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
                 Home
             </a>
-            <a href="/en/about-us" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
+            <a asp-controller="About" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
                 About Us
             </a>
-            <a href="/en/medical-solutions" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
+            <a asp-controller="Medical" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
                 Medical
             </a>
-            <a href="/en/fb-solutions" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
+            <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
                 F&B
             </a>
-            <a href="/en/news" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
+            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
                 News
             </a>
-            <a href="/en/contact" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
+            <a asp-controller="Contact" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
                 Contact
             </a>
         </nav>
@@ -75,12 +75,12 @@
     @* Mobile Menu *@
     <div id="mobile-menu" class="hidden lg:hidden absolute top-32 left-0 w-full bg-white border-b border-gray-200 shadow-lg">
         <div class="px-6 py-4 space-y-4">
-            <a href="/en/home" class="block text-base font-heading font-bold uppercase @IsActive("Home")">Home</a>
-            <a href="/en/about-us" class="block text-base font-heading font-bold uppercase @IsActive("About")">About Us</a>
-            <a href="/en/medical-solutions" class="block text-base font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
-            <a href="/en/fb-solutions" class="block text-base font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
-            <a href="/en/news" class="block text-base font-heading font-bold uppercase @IsActive("News")">News</a>
-            <a href="/en/contact" class="block text-base font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("Home")">Home</a>
+            <a asp-controller="About" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("About")">About Us</a>
+            <a asp-controller="Medical" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
+            <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
+            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("News")">News</a>
+            <a asp-controller="Contact" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
         </div>
     </div>
 </header>

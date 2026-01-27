@@ -1,0 +1,19 @@
+﻿@model Cw.Branding.Web.Models.Entities.News
+
+@{
+    ViewData["Title"] = "Chỉnh sửa bài viết";
+}
+
+<div class="mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">Chỉnh sửa bài viết</h1>
+    <p class="text-gray-500 text-sm">Cập nhật nội dung cho bài viết: <strong>@Model.TitleVi</strong></p>
+</div>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <partial name="_Form" model="Model" />
+</form>
+
+@section Scripts {
+    <partial name="_NewsEditorScripts" />
+}

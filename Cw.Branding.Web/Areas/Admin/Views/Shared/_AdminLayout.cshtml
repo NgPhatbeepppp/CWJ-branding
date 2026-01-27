@@ -66,14 +66,12 @@
                     <!-- News Manager -->
                     <li>
                         <a asp-area="Admin" asp-controller="News" asp-action="Index"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
-                            <!-- Heroicon: Newspaper -->
-                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M12 7.5h3.75M12 10.5h3.75M4.5 13.5h11.25M4.5 16.5H12m-7.5-12h15A1.5 1.5 0 0 1 21 6v11.25A2.25 2.25 0 0 1 18.75 19.5H6A2.25 2.25 0 0 1 3.75 17.25V5.25A0.75 0.75 0 0 1 4.5 4.5z" />
+                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "News" ? "bg-white/10 text-white" : "text-blue-100")">
+
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h3.75M12 10.5h3.75M4.5 13.5h11.25M4.5 16.5H12m-7.5-12h15A1.5 1.5 0 0 1 21 6v11.25A2.25 2.25 0 0 1 18.75 19.5H6A2.25 2.25 0 0 1 3.75 17.25V5.25A0.75 0.75 0 0 1 4.5 4.5z" />
                             </svg>
-                            <span class="font-medium">News Manager</span>
+                            <span class="font-medium">Quản lý Tin tức</span>
                         </a>
                     </li>
 

@@ -1,0 +1,163 @@
+﻿<script src="https://cdn.tiny.cloud/1/dl99a4afekhkasmei0sgcju4swck5lwhiy19phre0afu889m/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // --- 1. CONFIG TINYMCE ---
+        tinymce.init({
+            selector: '.tinymce-editor', // Áp dụng cho class này
+            height: 500,
+            plugins: 'image link lists media table code help wordcount',
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | bullist numlist | link image | removeformat | code',
+            menubar: false,
+            branding: false,
+
+            // Branding Control: Chỉ cho phép các Heading nhất định
+            block_formats: 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Quote=blockquote',
+
+            // Image Upload Handler (Gọi API Task 3)
+            images_upload_url: '/Admin/Upload/Image',
+            automatic_uploads: true,
+            images_upload_handler: (blobInfo, progress) => new Promise((resolve, reject) => {
+                const formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+                fetch('/Admin/Upload/Image', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Upload failed');
+                    }
+                    return response.json();
+                })
+                .then(json => {
+                    if (!json || typeof json.location != 'string') {
+                        reject('Invalid JSON: ' + JSON.stringify(json));
+                        return;
+                    }
+                    resolve(json.location); // Trả về URL ảnh cho Editor
+                })
+                .catch(err => {
+                    reject('Upload failed: ' + err);
+                });
+            })
+        });
+
+        // --- 2. TAB SWITCHER LOGIC ---
+        window.switchTab = function(lang) {
+            // Ẩn tất cả tab content
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Reset style nút
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('border-blue-500', 'text-blue-600');
+                el.classList.add('border-transparent', 'text-gray-500');
+            });
+
+            // Hiện tab được chọn
+            document.getElementById('tab-' + lang).classList.remove('hidden');
+
+            // Active style nút được chọn
+            const btn = document.getElementById('btn-tab-' + lang);
+            btn.classList.remove('border-transparent', 'text-gray-500');
+            btn.classList.add('border-blue-500', 'text-blue-600');
+        };
+
+        // --- 3. THUMBNAIL PREVIEW ---
+        window.previewThumbnail = function(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.getElementById('thumb-preview');
+                    img.src = e.target.result;
+                    img.classList.remove('hidden');
+                    document.getElementById('thumb-placeholder').classList.add('hidden');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        };
+
+        // --- 4. AUTO SLUG GENERATOR ---
+        window.generateSlug = function(lang) {
+            const titleId = lang === 'vi' ? 'title-vi' : 'title-en';
+            const slugId = lang === 'vi' ? 'slug-vi' : 'slug-en';
+
+            const title = document.getElementById(titleId).value;
+            const slug = toSlug(title);
+
+            document.getElementById(slugId).value = slug;
+        };
+
+        function toSlug(str) {
+            str = str.toLowerCase();
+            str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Xóa dấu
+            str = str.replace(/[đĐ]/g, "d");
+            str = str.replace(/([^0-9a-z-\s])/g, ''); // Xóa ký tự đặc biệt
+            str = str.replace(/(\s+)/g, '-'); // Thay khoảng trắng bằng gạch ngang
+            str = str.replace(/^-+|-+$/g, ''); // Xóa gạch ngang đầu cuối
+            return str;
+        }
+    });
+           // --- 5. VALIDATION CHECK ON BUTTON CLICK (FIXED) ---
+            const btnSave = document.getElementById('btn-save-news');
+
+            if (btnSave) {
+                btnSave.addEventListener('click', function (e) {
+                    e.preventDefault(); // Chặn mọi hành động mặc định trước
+
+                    // 1. Đồng bộ TinyMCE vào textarea
+                    if (typeof tinyMCE !== 'undefined') {
+                        tinyMCE.triggerSave();
+                    }
+
+                    // 2. Lấy Form và Input
+                    const form = document.querySelector('form');
+                    const titleViInput = document.getElementById('title-vi');
+                    const titleEnInput = document.getElementById('title-en');
+
+                    const titleVi = titleViInput.value.trim();
+                    const titleEn = titleEnInput.value.trim();
+
+                    // 3. Logic Kiểm Tra (Ưu tiên từ trên xuống)
+
+                    // --- Kiểm tra Tiếng Việt ---
+                    if (!titleVi) {
+                        alert("⚠️ Cảnh báo: Vui lòng nhập Tiêu đề Tiếng Việt!");
+                        switchTab('vi'); // Chuyển Tab ngay lập tức
+
+                        // Focus và highlight
+                        setTimeout(() => {
+                            titleViInput.focus();
+                            titleViInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+                        }, 100);
+                        return; // Dừng lại, không submit
+                    }
+                    else {
+                        titleViInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+                    }
+
+                    // --- Kiểm tra Tiếng Anh (Đây là chỗ hay bị lỗi ẩn) ---
+                    if (!titleEn) {
+                        alert("⚠️ Cảnh báo: Vui lòng nhập Tiêu đề Tiếng Anh (English Title)!");
+
+                        // BẮT BUỘC: Chuyển sang Tab EN để user thấy chỗ nhập
+                        switchTab('en');
+
+                        setTimeout(() => {
+                            titleEnInput.focus();
+                            titleEnInput.classList.add('border-red-500', 'ring-1', 'ring-red-500');
+                        }, 100);
+                        return; // Dừng lại, không submit
+                    }
+                    else {
+                        titleEnInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
+                    }
+
+                    // 4. Nếu vượt qua mọi bài kiểm tra -> Submit Form thủ công
+                    // Lúc này dữ liệu đã đủ, jQuery Validation sẽ không chặn nữa
+                    form.submit();
+                });
+            }
+</script>
