@@ -113,7 +113,7 @@
                     }
 
                     // 2. Lấy Form và Input
-                    const form = document.querySelector('form');
+                    const form = document.getElementById('news-form');
                     const titleViInput = document.getElementById('title-vi');
                     const titleEnInput = document.getElementById('title-en');
 
@@ -154,10 +154,14 @@
                     else {
                         titleEnInput.classList.remove('border-red-500', 'ring-1', 'ring-red-500');
                     }
-
+                    if (form) {
+                         form.submit();
+                    } else {
+                         console.error("Không tìm thấy form news!");
+                    }
                     // 4. Nếu vượt qua mọi bài kiểm tra -> Submit Form thủ công
                     // Lúc này dữ liệu đã đủ, jQuery Validation sẽ không chặn nữa
-                    form.submit();
+                    
                 });
             }
 </script>

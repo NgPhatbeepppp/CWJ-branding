@@ -99,7 +99,11 @@ wwwroot\uploads\news-content\5a09d552-b1b2-43cc-bb15-b467d8766259_63905119797905
 wwwroot\uploads\news-content\72ed2522-3982-4369-bea1-c034fa064908_639051205659077562.jpg
 wwwroot\uploads\news-content\7511e4c9-267a-46ad-b013-6c09e5b5072b_639051205044739839.jpg
 wwwroot\uploads\news-content\bcb597e5-588b-416d-a32a-0db2ce29b98b_639051204629814686.jpg
+wwwroot\uploads\news-thumbnails\0e7f4e42-5105-413f-945d-5b6a800c9428.jpg
+wwwroot\uploads\news-thumbnails\5b6f95e8-8810-40ca-ae62-7e7e1bf39b65.jpg
 wwwroot\uploads\news-thumbnails\69d33813-f81c-4e1f-8f55-8c0a5ec1ad8d.jpg
+wwwroot\uploads\news-thumbnails\bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg
+wwwroot\uploads\news-thumbnails\d9e368d8-3a0c-4709-8afb-e86a4cc98f9e.jpg
 wwwroot\uploads\products\monitor-1.png
 wwwroot\uploads\products\monitor-2.png
 wwwroot\uploads\products\monitor-3.png

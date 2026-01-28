@@ -159,5 +159,51 @@ namespace Cw.Branding.Web.Services.Implementations
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
+        // Thêm vào class NewsService
+        public async Task<(IEnumerable<News> Items, int TotalCount)> GetPagedNewsAsync(int page, int pageSize)
+        {
+            // 1. Query cơ bản: Chỉ lấy Active và Đã đến ngày publish
+            var query = _context.News
+                .Where(n => n.IsActive && n.PublishedAt <= DateTime.Now);
+
+            // 2. Đếm tổng số record (để tính TotalPages)
+            var totalCount = await query.CountAsync();
+
+            // 3. Lấy dữ liệu phân trang
+            var items = await query
+                .OrderByDescending(n => n.PublishedAt) // Mới nhất lên đầu
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return (items, totalCount);
+        }
+        public async Task<News?> GetBySlugAsync(string slug, string lang)
+{
+        // Chỉ lấy bài Active và đã Publish
+            var query = _context.News.Where(n => n.IsActive && n.PublishedAt <= DateTime.Now);
+
+            // Tìm theo Slug tương ứng với ngôn ngữ
+            if (lang == "en")
+            {
+                return await query.FirstOrDefaultAsync(n => n.SlugEn == slug);
+            }
+            else
+            {
+                return await query.FirstOrDefaultAsync(n => n.SlugVi == slug);
+            }
+        }
+
+        public async Task<IEnumerable<News>> GetRelatedNewsAsync(int currentId, int count)
+        {
+            return await _context.News
+                .Where(n => n.IsActive 
+                            && n.PublishedAt <= DateTime.Now 
+                            && n.Id != currentId) // Loại trừ bài hiện tại
+                .OrderByDescending(n => n.PublishedAt)
+                .Take(count)
+                .ToListAsync();
+        }
     }
+
 }

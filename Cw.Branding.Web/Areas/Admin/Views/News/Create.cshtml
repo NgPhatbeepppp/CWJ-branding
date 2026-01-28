@@ -9,10 +9,10 @@
     <p class="text-gray-500 text-sm">Điền thông tin bên dưới để tạo bài viết mới.</p>
 </div>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+<form id="news-form" asp-action="Create" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
     <partial name="_Form" model="Model" />
 </form>
-
 @section Scripts {
     <partial name="_NewsEditorScripts" />
 }

@@ -3,6 +3,11 @@
     ViewData["Title"] = Model.MetaTitle ?? "Home Page";
     ViewData["MetaDescription"] = Model.MetaDescription;
 }
+@{
+    // 1. Xác định ngôn ngữ hiện tại từ Route (vì HomeViewModel có thể chưa có property CurrentLang)
+    var currentLang = Context.GetRouteValue("lang") as string ?? "en";
+    var isEn = currentLang == "en";
+}
 
 @* --- THƯ VIỆN ANIMATION (AOS) --- *@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -204,75 +209,91 @@
 <section class="w-full py-16 md:py-24 bg-gray-50 overflow-hidden">
     <div class="container mx-auto px-4 md:px-8 max-w-[1400px]">
 
-        @* Header trượt từ trái *@
-        <div class="flex flex-col md:flex-row justify-between items-end mb-14"
-             data-aos="fade-right">
+        @* Header Section *@
+        <div class="flex flex-col md:flex-row justify-between items-end mb-14" data-aos="fade-right">
             <div class="max-w-2xl">
                 <h4 class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">
-                    Keep Updated
+                    @(isEn ? "Keep Updated" : "Cập nhật mới nhất")
                 </h4>
                 <h2 class="font-heading font-bold text-3xl md:text-4xl text-gray-900 leading-tight">
-                    Latest News & Events
+                    @(isEn ? "Latest News & Events" : "Tin tức & Sự kiện")
                 </h2>
             </div>
 
-            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="hidden md:inline-flex items-center font-bold text-blue-700 hover:text-blue-900 transition-colors group">
-                View all news
-                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            <a asp-controller="News" asp-action="Index" asp-route-lang="@currentLang"
+               class="hidden md:inline-flex items-center font-bold text-blue-700 hover:text-blue-900 transition-colors group">
+                @(isEn ? "View all news" : "Xem tất cả")
+                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
             </a>
         </div>
 
         @* News Grid *@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 gap-y-12">
-            @{
-                var newsList = new List<Cw.Branding.Web.Models.Components.CardItemViewModel>
-                        {
-                        new Cw.Branding.Web.Models.Components.CardItemViewModel {
-                        Title = "Grand Opening of New Showroom in Ho Chi Minh City",
-                        Description = "We are thrilled to announce the opening of our state-of-the-art showroom featuring the latest medical imaging technologies.",
-                        ImageUrl = "/images/healthcare-hero.png",
-                        LinkUrl = "/news/grand-opening",
-                        Category = "Events",
-                        Date = "Oct 24, 2025",
-                        LinkText = "Read Report"
-                        },
-                        new Cw.Branding.Web.Models.Components.CardItemViewModel {
-                        Title = "Advanced MRI Solutions Workshop 2025",
-                        Description = "Join our experts for an in-depth workshop on the new diagnostic capabilities of our MRI product line.",
-                        ImageUrl = "/images/medical-bg-2.jpg",
-                        LinkUrl = "/news/mri-workshop",
-                        Category = "Technology",
-                        Date = "Nov 02, 2025",
-                        LinkText = "Learn More"
-                        },
-                        new Cw.Branding.Web.Models.Components.CardItemViewModel {
-                        Title = "Strategic Partnership with Global Horeca",
-                        Description = "Expanding our F&B solutions portfolio through a strategic alliance to better serve hotel and restaurant chains.",
-                        ImageUrl = "/images/news-opening.png",
-                        LinkUrl = "/news/partnership",
-                        Category = "Partnership",
-                        Date = "Nov 15, 2025",
-                        LinkText = "View Details"
-                        }
-                        };
 
-                int delayCounter = 0;
-            }
-
-            @foreach (var item in newsList)
+            @* Kiểm tra xem có dữ liệu từ DB không *@
+            @if (Model.LatestNews != null && Model.LatestNews.Any())
             {
-                // Bọc partial trong div để gán animation
-                <div data-aos="fade-up" data-aos-delay="@delayCounter">
-                    <partial name="~/Views/Shared/Components/_Card.cshtml" model="item" />
-                </div>
+                int delayCounter = 0;
 
-                delayCounter += 150;
+                foreach (var item in Model.LatestNews)
+                {
+                    // --- LOGIC MAPPING DATA TỪ ENTITY SANG CARD VIEWMODEL ---
+
+                    // 1. Xử lý fallback ngôn ngữ (Nếu tiếng Anh rỗng -> lấy tiếng Việt và ngược lại)
+                    var title = isEn
+                    ? (!string.IsNullOrEmpty(item.TitleEn) ? item.TitleEn : item.TitleVi)
+                    : (!string.IsNullOrEmpty(item.TitleVi) ? item.TitleVi : item.TitleEn);
+
+                    var summary = isEn
+                    ? (!string.IsNullOrEmpty(item.SummaryEn) ? item.SummaryEn : item.SummaryVi)
+                    : (!string.IsNullOrEmpty(item.SummaryVi) ? item.SummaryVi : item.SummaryEn);
+
+                    // 2. Xử lý ảnh (Fallback nếu null)
+                    var thumb = string.IsNullOrEmpty(item.ThumbnailPath)
+                    ? "/images/news-placeholder.jpg"
+                    : item.ThumbnailPath;
+
+                    // 3. Xử lý Link & Date
+                    var slug = isEn ? item.SlugEn : item.SlugVi;
+                    var linkUrl = $"/{currentLang}/news/{slug}";
+                    var dateStr = item.PublishedAt.ToString(isEn ? "MMM dd, yyyy" : "dd/MM/yyyy");
+
+                    // 4. Tạo ViewModel cho Partial _Card
+                    var cardModel = new Cw.Branding.Web.Models.Components.CardItemViewModel
+                    {
+                        Title = title,
+                        Description = summary, // Card sẽ tự cắt ngắn nếu dài
+                        ImageUrl = thumb,
+                        LinkUrl = linkUrl,
+                        Category = isEn ? "News" : "Tin tức", // Có thể thay bằng category thật nếu sau này có
+                        Date = dateStr,
+                        LinkText = isEn ? "Read More" : "Xem chi tiết"
+                    };
+
+                    // --- RENDER CARD ---
+                    <div data-aos="fade-up" data-aos-delay="@delayCounter">
+                        <partial name="~/Views/Shared/Components/_Card.cshtml" model="cardModel" />
+                    </div>
+
+                    delayCounter += 150;
+                }
+            }
+            else
+            {
+                // Fallback khi chưa có bài viết nào trong DB
+                <div class="col-span-3 text-center py-10 text-gray-500">
+                    @(isEn ? "No news available at the moment." : "Hiện chưa có tin tức nào.")
+                </div>
             }
         </div>
 
+        @* Mobile Button *@
         <div class="mt-10 text-center md:hidden">
-            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="inline-block border border-blue-600 text-blue-600 font-bold py-3 px-8 rounded hover:bg-blue-600 hover:text-white transition-colors">
-                View all news
+            <a asp-controller="News" asp-action="Index" asp-route-lang="@currentLang"
+               class="inline-block border border-blue-600 text-blue-600 font-bold py-3 px-8 rounded hover:bg-blue-600 hover:text-white transition-colors">
+                @(isEn ? "View all news" : "Xem tất cả")
             </a>
         </div>
     </div>

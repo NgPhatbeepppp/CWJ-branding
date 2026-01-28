@@ -1,0 +1,1315 @@
+2026-01-28 10:56:17.521 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 10:56:17.944 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 10:56:18.029 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 10:56:18.032 +07:00 [INF] Hosting environment: Development
+2026-01-28 10:56:18.032 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 10:56:19.054 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 10:56:19.131 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 10:56:22.226 +07:00 [INF] Executed DbCommand (131ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 10:56:22.286 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 10:56:22.695 +07:00 [INF] Executed ViewResult - view Index executed in 419.5295ms.
+2026-01-28 10:56:22.702 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 3569.7173ms
+2026-01-28 10:56:22.703 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 10:56:22.708 +07:00 [INF] HTTP GET / responded 200 in 3745.3658 ms
+2026-01-28 10:56:22.774 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 4844.431ms
+2026-01-28 10:56:22.919 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 10:56:22.929 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 10:56:22.958 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 21.3772ms
+2026-01-28 10:56:23.067 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 148.9529ms
+2026-01-28 11:00:51.234 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-01-28 11:00:51.283 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:00:51.286 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-01-28 11:00:51.290 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:00:51.337 +07:00 [INF] Executed ViewResult - view Index executed in 49.0158ms.
+2026-01-28 11:00:51.337 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 50.7384ms
+2026-01-28 11:00:51.337 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:00:51.338 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 65.9227 ms
+2026-01-28 11:00:51.339 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 108.3277ms
+2026-01-28 11:00:51.450 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:00:51.455 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:00:51.459 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.31ms
+2026-01-28 11:00:51.493 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 42.7038ms
+2026-01-28 11:01:09.942 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:01:09.956 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:01:09.964 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:01:10.379 +07:00 [INF] Executed DbCommand (339ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:01:10.383 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:01:10.405 +07:00 [INF] Executed ViewResult - view Index executed in 22.7307ms.
+2026-01-28 11:01:10.405 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 441.2251ms
+2026-01-28 11:01:10.405 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:01:10.405 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 454.4086 ms
+2026-01-28 11:01:10.406 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 464.2751ms
+2026-01-28 11:01:10.714 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:01:10.750 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 35.8666ms
+2026-01-28 11:01:10.760 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:01:10.813 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 53.6266ms
+2026-01-28 11:01:12.221 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:01:12.245 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:01:12.248 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:01:12.252 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:01:12.313 +07:00 [INF] Executed ViewResult - view Create executed in 62.2991ms.
+2026-01-28 11:01:12.313 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 64.4562ms
+2026-01-28 11:01:12.313 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:01:12.313 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 76.8259 ms
+2026-01-28 11:01:12.314 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 92.0838ms
+2026-01-28 11:01:12.361 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:01:12.371 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:01:12.381 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 9.923ms
+2026-01-28 11:01:12.381 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:01:12.382 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:01:12.382 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:01:12.388 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:01:12.388 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.3416ms
+2026-01-28 11:01:12.401 +07:00 [INF] Executed ViewResult - view Create executed in 13.7927ms.
+2026-01-28 11:01:12.401 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 19.3786ms
+2026-01-28 11:01:12.402 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:01:12.402 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 20.0479 ms
+2026-01-28 11:01:12.408 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 26.1829ms
+2026-01-28 11:03:01.985 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/Account/Logout - application/x-www-form-urlencoded 182
+2026-01-28 11:03:02.022 +07:00 [INF] HTTP POST /en/Account/Logout responded 404 in 8.5520 ms
+2026-01-28 11:03:02.025 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/Account/Logout - 404 null null 41.3017ms
+2026-01-28 11:03:02.026 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:44338/en/Account/Logout, Response status code: 404
+2026-01-28 11:03:10.056 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:03:10.059 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:03:10.059 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:03:10.060 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:03:10.069 +07:00 [INF] Executed ViewResult - view Create executed in 9.046ms.
+2026-01-28 11:03:10.069 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 9.4893ms
+2026-01-28 11:03:10.069 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:03:10.069 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 10.6482 ms
+2026-01-28 11:03:10.071 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 14.8563ms
+2026-01-28 11:03:10.136 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:03:10.138 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.4424ms
+2026-01-28 11:03:10.209 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:03:10.210 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:03:10.210 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:03:10.211 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:03:10.222 +07:00 [INF] Executed ViewResult - view Create executed in 10.8722ms.
+2026-01-28 11:03:10.223 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 12.2569ms
+2026-01-28 11:03:10.223 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:03:10.223 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 13.6561 ms
+2026-01-28 11:03:10.224 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 15.4492ms
+2026-01-28 11:03:25.272 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/Account/Logout - application/x-www-form-urlencoded 182
+2026-01-28 11:03:25.283 +07:00 [INF] HTTP POST /en/Account/Logout responded 404 in 0.4438 ms
+2026-01-28 11:03:25.285 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/Account/Logout - 404 null null 13.4495ms
+2026-01-28 11:03:25.286 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:44338/en/Account/Logout, Response status code: 404
+2026-01-28 11:04:35.680 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:04:35.689 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:04:35.689 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:04:35.690 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:04:35.693 +07:00 [INF] Executed ViewResult - view Create executed in 3.258ms.
+2026-01-28 11:04:35.693 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 3.6862ms
+2026-01-28 11:04:35.693 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:04:35.693 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 4.1475 ms
+2026-01-28 11:04:35.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 13.8516ms
+2026-01-28 11:04:35.792 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:04:35.793 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0368ms
+2026-01-28 11:04:35.881 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:04:35.881 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:04:35.882 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:04:35.882 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:04:35.884 +07:00 [INF] Executed ViewResult - view Create executed in 2.4426ms.
+2026-01-28 11:04:35.884 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 2.7489ms
+2026-01-28 11:04:35.884 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:04:35.884 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 3.2013 ms
+2026-01-28 11:04:35.888 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 6.4566ms
+2026-01-28 11:05:26.722 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/Account/Logout - application/x-www-form-urlencoded 182
+2026-01-28 11:05:26.733 +07:00 [INF] HTTP POST /en/Account/Logout responded 404 in 0.2029 ms
+2026-01-28 11:05:26.742 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/Account/Logout - 404 null null 20.1163ms
+2026-01-28 11:05:26.742 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST https://localhost:44338/en/Account/Logout, Response status code: 404
+2026-01-28 11:16:48.788 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-01-28 11:16:48.806 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:16:48.818 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-01-28 11:16:48.820 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:16:48.828 +07:00 [INF] Executed ViewResult - view Index executed in 9.6798ms.
+2026-01-28 11:16:48.828 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 9.8855ms
+2026-01-28 11:16:48.828 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:16:48.828 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 22.5483 ms
+2026-01-28 11:16:48.829 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 40.3553ms
+2026-01-28 11:16:48.971 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:16:48.973 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:16:48.975 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.0252ms
+2026-01-28 11:16:49.012 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.578ms
+2026-01-28 11:16:50.963 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:16:50.967 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:16:50.974 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:16:51.038 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:16:51.040 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:16:51.045 +07:00 [INF] Executed ViewResult - view Index executed in 6.2077ms.
+2026-01-28 11:16:51.045 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 71.6201ms
+2026-01-28 11:16:51.045 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:16:51.046 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 80.3243 ms
+2026-01-28 11:16:51.046 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 83.3235ms
+2026-01-28 11:16:51.248 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:16:51.248 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:16:51.249 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9622ms
+2026-01-28 11:16:51.258 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.4771ms
+2026-01-28 11:16:52.917 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:16:52.923 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:16:52.926 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:16:52.930 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:16:52.962 +07:00 [INF] Executed ViewResult - view Create executed in 34.9011ms.
+2026-01-28 11:16:52.962 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 35.3453ms
+2026-01-28 11:16:52.962 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:16:52.962 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 42.2461 ms
+2026-01-28 11:16:52.963 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 45.7046ms
+2026-01-28 11:16:53.051 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:16:53.069 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:16:53.070 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.494ms
+2026-01-28 11:16:53.070 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:16:53.071 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:16:53.071 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:16:53.071 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:16:53.081 +07:00 [INF] Executed ViewResult - view Create executed in 9.813ms.
+2026-01-28 11:16:53.081 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 10.1688ms
+2026-01-28 11:16:53.081 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:16:53.082 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 11.2059 ms
+2026-01-28 11:16:53.088 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 18.0509ms
+2026-01-28 11:16:53.099 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.7977ms
+2026-01-28 11:17:27.999 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/Admin/News/Edit - multipart/form-data; boundary=----WebKitFormBoundaryJT6iGmkAdOcZT0mZ 1323141
+2026-01-28 11:17:28.010 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 11:17:28.037 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, Cw.Branding.Web.Models.Entities.News, Microsoft.AspNetCore.Http.IFormFile) on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:17:28.598 +07:00 [INF] Executed DbCommand (66ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__p_0
+2026-01-28 11:17:28.601 +07:00 [INF] Executing RedirectResult, redirecting to /Admin/News/Index.
+2026-01-28 11:17:28.608 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web) in 570.9855ms
+2026-01-28 11:17:28.608 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 11:17:28.608 +07:00 [INF] HTTP POST /Admin/News/Edit responded 302 in 598.6050 ms
+2026-01-28 11:17:28.611 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/Admin/News/Edit - 302 null null 612.2903ms
+2026-01-28 11:17:28.614 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:17:28.638 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:17:28.638 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:17:28.648 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:17:28.649 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:17:28.656 +07:00 [INF] Executed ViewResult - view Index executed in 7.3547ms.
+2026-01-28 11:17:28.656 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 17.9899ms
+2026-01-28 11:17:28.656 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:17:28.656 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 18.4749 ms
+2026-01-28 11:17:28.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 42.1384ms
+2026-01-28 11:17:28.917 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:17:28.971 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 53.7403ms
+2026-01-28 11:17:28.979 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:17:29.045 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.3569ms
+2026-01-28 11:17:39.379 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:17:39.383 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:17:39.383 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:17:39.392 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:17:39.392 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:17:39.394 +07:00 [INF] Executed ViewResult - view Index executed in 1.1648ms.
+2026-01-28 11:17:39.394 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 10.7864ms
+2026-01-28 11:17:39.394 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:17:39.394 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 11.2699 ms
+2026-01-28 11:17:39.394 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 14.7241ms
+2026-01-28 11:17:39.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:17:39.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:17:39.457 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.1466ms
+2026-01-28 11:17:39.473 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.514ms
+2026-01-28 11:22:47.469 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 11:22:47.765 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 11:22:47.841 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 11:22:47.842 +07:00 [INF] Hosting environment: Development
+2026-01-28 11:22:47.842 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 11:22:48.012 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 11:22:48.069 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 11:22:49.918 +07:00 [INF] Executed DbCommand (61ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 11:22:49.969 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:22:50.402 +07:00 [INF] Executed ViewResult - view Index executed in 396.2713ms.
+2026-01-28 11:22:50.412 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2341.8097ms
+2026-01-28 11:22:50.413 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 11:22:50.419 +07:00 [INF] HTTP GET / responded 200 in 2486.0600 ms
+2026-01-28 11:22:50.531 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 2779.0133ms
+2026-01-28 11:22:50.778 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:22:50.797 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:22:50.809 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 23.5704ms
+2026-01-28 11:22:50.857 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.5282ms
+2026-01-28 11:23:18.426 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-01-28 11:23:18.453 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:23:18.468 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-01-28 11:23:18.471 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:23:18.506 +07:00 [INF] Executed ViewResult - view Index executed in 37.1048ms.
+2026-01-28 11:23:18.506 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 38.547ms
+2026-01-28 11:23:18.506 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:23:18.506 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 60.8325 ms
+2026-01-28 11:23:18.507 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 81.6361ms
+2026-01-28 11:23:18.566 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:23:18.596 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:23:18.598 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.7055ms
+2026-01-28 11:23:18.642 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.6287ms
+2026-01-28 11:23:21.006 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:23:21.015 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:23:21.020 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:23:21.089 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:23:21.093 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:23:21.115 +07:00 [INF] Executed ViewResult - view Index executed in 22.7619ms.
+2026-01-28 11:23:21.115 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 94.0014ms
+2026-01-28 11:23:21.115 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:23:21.115 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 105.2636 ms
+2026-01-28 11:23:21.116 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 110.0621ms
+2026-01-28 11:23:21.168 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:23:21.176 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:23:21.178 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.5424ms
+2026-01-28 11:23:21.211 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.4636ms
+2026-01-28 11:23:22.925 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:23:22.932 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:23:22.935 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:23:22.941 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:23:23.074 +07:00 [INF] Executed ViewResult - view Create executed in 137.4597ms.
+2026-01-28 11:23:23.074 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 139.0344ms
+2026-01-28 11:23:23.074 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:23:23.074 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 146.0011 ms
+2026-01-28 11:23:23.075 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 150.4024ms
+2026-01-28 11:23:23.463 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:23:23.464 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:23:23.464 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:23:23.467 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:23:23.503 +07:00 [INF] Executed ViewResult - view Create executed in 35.8557ms.
+2026-01-28 11:23:23.503 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 38.7433ms
+2026-01-28 11:23:23.503 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:23:23.503 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 39.3607 ms
+2026-01-28 11:23:23.619 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:23:23.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 37.6859ms
+2026-01-28 11:23:23.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 193.9512ms
+2026-01-28 11:23:23.658 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:23:23.858 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 200.7125ms
+2026-01-28 11:23:54.348 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/Admin/News/Edit - multipart/form-data; boundary=----WebKitFormBoundarywRzZB5fDjRwzNqYd 923790
+2026-01-28 11:23:54.362 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 11:23:54.378 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, Cw.Branding.Web.Models.Entities.News, Microsoft.AspNetCore.Http.IFormFile) on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:23:54.593 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__p_0
+2026-01-28 11:23:54.595 +07:00 [INF] Executing RedirectResult, redirecting to /Admin/News/Index.
+2026-01-28 11:23:54.599 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web) in 220.2168ms
+2026-01-28 11:23:54.599 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 11:23:54.599 +07:00 [INF] HTTP POST /Admin/News/Edit responded 302 in 239.7442 ms
+2026-01-28 11:23:54.601 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/Admin/News/Edit - 302 null null 253.8509ms
+2026-01-28 11:23:54.606 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:23:54.608 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:23:54.609 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:23:54.614 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:23:54.615 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:23:54.620 +07:00 [INF] Executed ViewResult - view Index executed in 4.8874ms.
+2026-01-28 11:23:54.620 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 11.1384ms
+2026-01-28 11:23:54.620 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:23:54.620 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 11.5653 ms
+2026-01-28 11:23:54.620 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 14.3949ms
+2026-01-28 11:23:54.679 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:23:54.687 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.5877ms
+2026-01-28 11:23:54.693 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:23:54.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.2639ms
+2026-01-28 11:25:16.935 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 11:25:17.213 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 11:25:17.312 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 11:25:17.313 +07:00 [INF] Hosting environment: Development
+2026-01-28 11:25:17.313 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 11:25:17.576 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 11:25:17.648 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 11:25:19.923 +07:00 [INF] Executed DbCommand (68ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 11:25:19.967 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:25:20.275 +07:00 [INF] Executed ViewResult - view Index executed in 309.6274ms.
+2026-01-28 11:25:20.281 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2631.1884ms
+2026-01-28 11:25:20.282 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 11:25:20.288 +07:00 [INF] HTTP GET / responded 200 in 2790.7520 ms
+2026-01-28 11:25:20.384 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 3181.8273ms
+2026-01-28 11:25:20.409 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:25:20.415 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 7.5194ms
+2026-01-28 11:25:20.411 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:25:20.532 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 119.6574ms
+2026-01-28 11:25:27.927 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-01-28 11:25:27.950 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:25:27.957 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-01-28 11:25:27.959 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:25:27.986 +07:00 [INF] Executed ViewResult - view Index executed in 27.7367ms.
+2026-01-28 11:25:27.986 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 28.6981ms
+2026-01-28 11:25:27.986 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:25:27.986 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 47.6892 ms
+2026-01-28 11:25:27.987 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 60.4328ms
+2026-01-28 11:25:28.049 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:25:28.069 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:25:28.070 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.1234ms
+2026-01-28 11:25:28.102 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.7114ms
+2026-01-28 11:25:31.033 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:25:31.147 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:25:31.160 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:25:31.305 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:25:31.337 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:25:31.355 +07:00 [INF] Executed ViewResult - view Index executed in 49.2725ms.
+2026-01-28 11:25:31.355 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 194.7887ms
+2026-01-28 11:25:31.355 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:25:31.355 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 212.7745 ms
+2026-01-28 11:25:31.356 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 323.1396ms
+2026-01-28 11:25:31.572 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:25:31.577 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 5.9012ms
+2026-01-28 11:25:31.589 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:25:31.616 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.331ms
+2026-01-28 11:25:33.013 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:25:33.132 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:25:33.138 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:25:33.142 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:25:33.326 +07:00 [INF] Executed ViewResult - view Create executed in 185.2978ms.
+2026-01-28 11:25:33.326 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 187.256ms
+2026-01-28 11:25:33.327 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:25:33.328 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 202.0966 ms
+2026-01-28 11:25:33.334 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 321.1599ms
+2026-01-28 11:25:33.850 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:25:33.850 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:25:33.850 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:25:33.853 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:25:33.912 +07:00 [INF] Executed ViewResult - view Create executed in 59.4069ms.
+2026-01-28 11:25:33.912 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 62.0938ms
+2026-01-28 11:25:33.912 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:25:33.912 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 62.6383 ms
+2026-01-28 11:25:33.998 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:25:34.071 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:25:34.072 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.333ms
+2026-01-28 11:25:34.082 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 232.1464ms
+2026-01-28 11:25:34.288 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 289.6492ms
+2026-01-28 11:26:04.581 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/Admin/News/Edit - multipart/form-data; boundary=----WebKitFormBoundaryAd2aw1wbkB6SVmvt 2675090
+2026-01-28 11:26:04.603 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 11:26:04.623 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32, Cw.Branding.Web.Models.Entities.News, Microsoft.AspNetCore.Http.IFormFile) on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:26:04.854 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__p_0
+2026-01-28 11:26:04.856 +07:00 [INF] Executing RedirectResult, redirecting to /Admin/News/Index.
+2026-01-28 11:26:04.860 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web) in 236.8061ms
+2026-01-28 11:26:04.860 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 11:26:04.860 +07:00 [INF] HTTP POST /Admin/News/Edit responded 302 in 257.4553 ms
+2026-01-28 11:26:04.863 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/Admin/News/Edit - 302 null null 282.9375ms
+2026-01-28 11:26:04.868 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:26:04.871 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:26:04.871 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:26:04.877 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:26:04.877 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:26:04.887 +07:00 [INF] Executed ViewResult - view Index executed in 10.4884ms.
+2026-01-28 11:26:04.888 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 16.6467ms
+2026-01-28 11:26:04.888 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:26:04.888 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 17.1259 ms
+2026-01-28 11:26:04.888 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 20.3727ms
+2026-01-28 11:26:04.964 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:26:04.972 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:26:04.976 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.3395ms
+2026-01-28 11:26:05.083 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 119.546ms
+2026-01-28 11:30:21.660 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:30:21.672 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:30:21.676 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:30:21.683 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:30:21.686 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:30:21.694 +07:00 [INF] Executed ViewResult - view Index executed in 10.0031ms.
+2026-01-28 11:30:21.694 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 18.1834ms
+2026-01-28 11:30:21.694 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:30:21.694 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 22.7691 ms
+2026-01-28 11:30:21.695 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 35.2674ms
+2026-01-28 11:30:21.775 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:30:21.775 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:30:21.777 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.2948ms
+2026-01-28 11:30:21.848 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.8977ms
+2026-01-28 11:30:32.405 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:30:32.411 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:30:32.413 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:30:32.414 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:30:32.444 +07:00 [INF] Executed ViewResult - view Create executed in 31.3331ms.
+2026-01-28 11:30:32.445 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 31.7366ms
+2026-01-28 11:30:32.445 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:30:32.445 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 36.8119 ms
+2026-01-28 11:30:32.445 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 40.1111ms
+2026-01-28 11:30:32.513 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:30:32.513 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.8604ms
+2026-01-28 11:30:32.514 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:30:32.514 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Create - null null
+2026-01-28 11:30:32.514 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:30:32.514 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:30:32.516 +07:00 [INF] Executing ViewResult, running view Create.
+2026-01-28 11:30:32.523 +07:00 [INF] Executed ViewResult - view Create executed in 6.2878ms.
+2026-01-28 11:30:32.523 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 8.7008ms
+2026-01-28 11:30:32.523 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:30:32.523 +07:00 [INF] HTTP GET /Admin/News/Create responded 200 in 9.1669 ms
+2026-01-28 11:30:32.526 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Create - 200 null text/html; charset=utf-8 12.3398ms
+2026-01-28 11:30:32.528 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.2358ms
+2026-01-28 11:31:02.673 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/Admin/News/Create - multipart/form-data; boundary=----WebKitFormBoundaryb0oi0B0evymNuALt 2675169
+2026-01-28 11:31:02.688 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:31:02.699 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.News, Microsoft.AspNetCore.Http.IFormFile) on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:06.438 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 500), @p5='?' (Size = 500), @p6='?' (Size = 255), @p7='?' (Size = 255), @p8='?' (DbType = DateTime2), @p9='?' (Size = 255), @p10='?' (Size = 255), @p11='?' (Size = 500), @p12='?' (Size = 500), @p13='?' (Size = 255), @p14='?' (Size = 255), @p15='?' (Size = 255), @p16='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [News] ([ContentEn], [ContentVi], [CreatedAt], [IsActive], [MetaDescEn], [MetaDescVi], [MetaTitleEn], [MetaTitleVi], [PublishedAt], [SlugEn], [SlugVi], [SummaryEn], [SummaryVi], [ThumbnailPath], [TitleEn], [TitleVi], [UpdatedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2026-01-28 11:31:06.474 +07:00 [INF] Executing RedirectResult, redirecting to /Admin/News/Index.
+2026-01-28 11:31:06.474 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web) in 3775.0533ms
+2026-01-28 11:31:06.475 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Create (Cw.Branding.Web)'
+2026-01-28 11:31:06.475 +07:00 [INF] HTTP POST /Admin/News/Create responded 302 in 3787.2229 ms
+2026-01-28 11:31:06.476 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/Admin/News/Create - 302 null null 3803.8974ms
+2026-01-28 11:31:06.487 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 11:31:06.490 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:06.490 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:06.493 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 11:31:06.503 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:06.514 +07:00 [INF] Executed ViewResult - view Index executed in 10.7407ms.
+2026-01-28 11:31:06.514 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 24.2372ms
+2026-01-28 11:31:06.514 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:06.514 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 24.5948 ms
+2026-01-28 11:31:06.515 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 30.7528ms
+2026-01-28 11:31:06.579 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:31:06.811 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:06.811 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9014ms
+2026-01-28 11:31:06.812 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:06.924 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.5696ms
+2026-01-28 11:31:06.932 +07:00 [INF] Sending file. Request path: '/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\uploads\news-thumbnails\bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg'
+2026-01-28 11:31:06.957 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 200 2672392 image/jpeg 377.1096ms
+2026-01-28 11:31:18.411 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-01-28 11:31:18.415 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:18.417 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-01-28 11:31:18.417 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:18.421 +07:00 [INF] Executed ViewResult - view Index executed in 4.1257ms.
+2026-01-28 11:31:18.421 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 4.3507ms
+2026-01-28 11:31:18.421 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:18.421 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 6.5368 ms
+2026-01-28 11:31:18.421 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 10.82ms
+2026-01-28 11:31:18.566 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:18.620 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:18.621 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.2426ms
+2026-01-28 11:31:18.627 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 61.0437ms
+2026-01-28 11:31:21.591 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 11:31:21.594 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:21.602 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 11:31:21.616 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 11:31:21.617 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:21.626 +07:00 [INF] Executed ViewResult - view Index executed in 9.333ms.
+2026-01-28 11:31:21.626 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 24.7752ms
+2026-01-28 11:31:21.627 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:21.627 +07:00 [INF] HTTP GET / responded 200 in 32.4454 ms
+2026-01-28 11:31:21.627 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 36.0958ms
+2026-01-28 11:31:21.750 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:21.808 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 58.4444ms
+2026-01-28 11:31:21.845 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:21.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.5504ms
+2026-01-28 11:31:24.156 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 11:31:24.164 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:24.175 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:24.211 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:31:24.231 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:31:24.234 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:24.241 +07:00 [INF] Executed ViewResult - view Index executed in 8.129ms.
+2026-01-28 11:31:24.241 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 66.2425ms
+2026-01-28 11:31:24.241 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:24.242 +07:00 [INF] HTTP GET /en/news responded 200 in 82.4100 ms
+2026-01-28 11:31:24.242 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 85.6665ms
+2026-01-28 11:31:24.297 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:31:24.299 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:31:24.300 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 3.0506ms
+2026-01-28 11:31:24.314 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:24.314 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:24.314 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.968ms
+2026-01-28 11:31:24.345 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.2212ms
+2026-01-28 11:31:30.083 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 11:31:30.086 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:30.086 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:30.090 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:31:30.094 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:31:30.095 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:30.101 +07:00 [INF] Executed ViewResult - view Index executed in 6.2383ms.
+2026-01-28 11:31:30.101 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 15.1572ms
+2026-01-28 11:31:30.101 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:30.101 +07:00 [INF] HTTP GET /en/news responded 200 in 15.7852 ms
+2026-01-28 11:31:30.101 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 18.73ms
+2026-01-28 11:31:30.162 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:31:30.163 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:31:30.163 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 1.2415ms
+2026-01-28 11:31:30.176 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:30.177 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9759ms
+2026-01-28 11:31:30.177 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:30.199 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.1895ms
+2026-01-28 11:31:30.711 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/favicon.ico?v=2 - null null
+2026-01-28 11:31:30.741 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\favicon.ico'
+2026-01-28 11:31:30.742 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/favicon.ico?v=2 - 200 15086 image/x-icon 31.1637ms
+2026-01-28 11:31:35.709 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news?lang=vi - null null
+2026-01-28 11:31:35.713 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:35.713 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:35.724 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:31:35.726 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:31:35.727 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:35.731 +07:00 [INF] Executed ViewResult - view Index executed in 3.9834ms.
+2026-01-28 11:31:35.731 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 17.645ms
+2026-01-28 11:31:35.731 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:35.731 +07:00 [INF] HTTP GET /en/news responded 200 in 18.2644 ms
+2026-01-28 11:31:35.732 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news?lang=vi - 200 null text/html; charset=utf-8 23.5878ms
+2026-01-28 11:31:35.784 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:31:35.784 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:31:35.784 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 0.5417ms
+2026-01-28 11:31:35.937 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:35.959 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 21.4969ms
+2026-01-28 11:31:35.966 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:36.090 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 124.4101ms
+2026-01-28 11:31:45.008 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news?lang=en - null null
+2026-01-28 11:31:45.010 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:45.011 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:45.016 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:31:45.020 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:31:45.021 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:45.022 +07:00 [INF] Executed ViewResult - view Index executed in 1.746ms.
+2026-01-28 11:31:45.022 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 11.7561ms
+2026-01-28 11:31:45.023 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:45.023 +07:00 [INF] HTTP GET /en/news responded 200 in 12.6039 ms
+2026-01-28 11:31:45.025 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news?lang=en - 200 null text/html; charset=utf-8 16.2975ms
+2026-01-28 11:31:45.082 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:31:45.083 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:31:45.083 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 0.5992ms
+2026-01-28 11:31:45.098 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:45.098 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:45.099 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.8438ms
+2026-01-28 11:31:45.210 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.4021ms
+2026-01-28 11:31:48.076 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 11:31:48.080 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:48.080 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:48.084 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:31:48.088 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:31:48.089 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:48.092 +07:00 [INF] Executed ViewResult - view Index executed in 2.8688ms.
+2026-01-28 11:31:48.092 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 11.3333ms
+2026-01-28 11:31:48.092 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:48.092 +07:00 [INF] HTTP GET /en/news responded 200 in 11.7415 ms
+2026-01-28 11:31:48.092 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 16.2381ms
+2026-01-28 11:31:48.163 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:48.173 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:48.175 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.7964ms
+2026-01-28 11:31:48.258 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 94.7291ms
+2026-01-28 11:31:52.166 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vn/news - null null
+2026-01-28 11:31:52.169 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:52.169 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:31:52.172 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:31:52.175 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:31:52.175 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:31:52.177 +07:00 [INF] Executed ViewResult - view Index executed in 1.5612ms.
+2026-01-28 11:31:52.178 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 8.4642ms
+2026-01-28 11:31:52.178 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:31:52.178 +07:00 [INF] HTTP GET /vn/news responded 200 in 9.4618 ms
+2026-01-28 11:31:52.180 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vn/news - 200 null text/html; charset=utf-8 13.2543ms
+2026-01-28 11:31:52.344 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:31:52.347 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.5577ms
+2026-01-28 11:31:52.347 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:31:52.352 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:31:52.362 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:31:52.362 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 9.9397ms
+2026-01-28 11:31:52.369 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.1042ms
+2026-01-28 11:32:03.002 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vn/news/test-news-1st - null null
+2026-01-28 11:32:03.007 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 11:32:03.013 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:32:03.017 +07:00 [INF] Executing RedirectResult, redirecting to /en/news.
+2026-01-28 11:32:03.017 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 3.712ms
+2026-01-28 11:32:03.017 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 11:32:03.017 +07:00 [INF] HTTP GET /vn/news/test-news-1st responded 302 in 11.0857 ms
+2026-01-28 11:32:03.018 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vn/news/test-news-1st - 302 null null 15.522ms
+2026-01-28 11:32:03.024 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 11:32:03.026 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:32:03.026 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:32:03.030 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:32:03.034 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:32:03.034 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:32:03.035 +07:00 [INF] Executed ViewResult - view Index executed in 1ms.
+2026-01-28 11:32:03.035 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 8.9339ms
+2026-01-28 11:32:03.035 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:32:03.035 +07:00 [INF] HTTP GET /en/news responded 200 in 9.4189 ms
+2026-01-28 11:32:03.035 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 11.0452ms
+2026-01-28 11:32:03.098 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:32:03.098 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:32:03.099 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 0.9893ms
+2026-01-28 11:32:03.103 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:32:03.104 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.5791ms
+2026-01-28 11:32:03.104 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:32:03.156 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.6389ms
+2026-01-28 11:32:37.196 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 11:32:37.226 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 11:32:37.226 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:32:37.228 +07:00 [INF] Executing RedirectResult, redirecting to /en/news.
+2026-01-28 11:32:37.228 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 1.9642ms
+2026-01-28 11:32:37.228 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 11:32:37.228 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 302 in 2.5406 ms
+2026-01-28 11:32:37.233 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 302 null null 39.1726ms
+2026-01-28 11:32:37.297 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 11:32:37.301 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:32:37.301 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 11:32:37.307 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 11:32:37.317 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 11:32:37.318 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 11:32:37.322 +07:00 [INF] Executed ViewResult - view Index executed in 3.7379ms.
+2026-01-28 11:32:37.322 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 21.0745ms
+2026-01-28 11:32:37.322 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 11:32:37.322 +07:00 [INF] HTTP GET /en/news responded 200 in 22.0791 ms
+2026-01-28 11:32:37.324 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 26.9453ms
+2026-01-28 11:32:37.719 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 11:32:37.721 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.3342ms
+2026-01-28 11:32:37.721 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 11:32:37.722 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 11:32:37.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 0.535ms
+2026-01-28 11:32:37.722 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 11:32:38.087 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 364.9486ms
+2026-01-28 13:46:32.936 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 13:46:33.172 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 13:46:33.259 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 13:46:33.259 +07:00 [INF] Hosting environment: Development
+2026-01-28 13:46:33.259 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 13:46:34.001 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:34.047 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 13:46:35.869 +07:00 [INF] Executed DbCommand (80ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 13:46:36.003 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:46:36.325 +07:00 [INF] Executed ViewResult - view Index executed in 320.4177ms.
+2026-01-28 13:46:36.332 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2284.1692ms
+2026-01-28 13:46:36.332 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:36.336 +07:00 [INF] HTTP GET / responded 200 in 2425.2115 ms
+2026-01-28 13:46:36.400 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 3242.4117ms
+2026-01-28 13:46:36.556 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:46:36.560 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:46:36.568 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 7.0783ms
+2026-01-28 13:46:36.633 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 79.894ms
+2026-01-28 13:46:48.315 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 13:46:48.336 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:48.350 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:46:48.477 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 13:46:48.499 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 13:46:48.503 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:46:48.526 +07:00 [INF] Executed ViewResult - view Index executed in 23.7876ms.
+2026-01-28 13:46:48.526 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 175.8379ms
+2026-01-28 13:46:48.526 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:48.526 +07:00 [INF] HTTP GET /en/news responded 200 in 201.4973 ms
+2026-01-28 13:46:48.527 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 211.8953ms
+2026-01-28 13:46:48.598 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 13:46:48.613 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:46:48.614 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:46:48.614 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.1842ms
+2026-01-28 13:46:48.684 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 13:46:48.711 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 113.8643ms
+2026-01-28 13:46:48.769 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 155.4196ms
+2026-01-28 13:46:51.868 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 13:46:51.880 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 13:46:51.884 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:46:51.891 +07:00 [INF] Executing RedirectResult, redirecting to /en/news.
+2026-01-28 13:46:51.891 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 7.269ms
+2026-01-28 13:46:51.891 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 13:46:51.891 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 302 in 18.4027 ms
+2026-01-28 13:46:51.892 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 302 null null 24.0958ms
+2026-01-28 13:46:51.897 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 13:46:51.900 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:51.900 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:46:51.921 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 13:46:51.924 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 13:46:51.925 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:46:51.929 +07:00 [INF] Executed ViewResult - view Index executed in 3.7994ms.
+2026-01-28 13:46:51.929 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 28.4127ms
+2026-01-28 13:46:51.929 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:51.929 +07:00 [INF] HTTP GET /en/news responded 200 in 29.4825 ms
+2026-01-28 13:46:51.929 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 32.5334ms
+2026-01-28 13:46:51.981 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:46:51.996 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:46:51.998 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.429ms
+2026-01-28 13:46:52.107 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 125.948ms
+2026-01-28 13:46:55.094 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 13:46:55.326 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 13:46:55.326 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:46:55.329 +07:00 [INF] Executing RedirectResult, redirecting to /en/news.
+2026-01-28 13:46:55.329 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 2.8513ms
+2026-01-28 13:46:55.330 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 13:46:55.330 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 302 in 3.4989 ms
+2026-01-28 13:46:55.333 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 302 null null 239.6614ms
+2026-01-28 13:46:55.343 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 13:46:55.345 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:55.345 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:46:55.349 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 13:46:55.351 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 13:46:55.352 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:46:55.355 +07:00 [INF] Executed ViewResult - view Index executed in 3.4901ms.
+2026-01-28 13:46:55.355 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 10.125ms
+2026-01-28 13:46:55.355 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:46:55.356 +07:00 [INF] HTTP GET /en/news responded 200 in 10.7613 ms
+2026-01-28 13:46:55.356 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 13.3979ms
+2026-01-28 13:46:55.691 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:46:55.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.8716ms
+2026-01-28 13:46:55.699 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:46:55.731 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.5631ms
+2026-01-28 13:49:59.583 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 13:49:59.880 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 13:49:59.965 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 13:49:59.966 +07:00 [INF] Hosting environment: Development
+2026-01-28 13:49:59.966 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 13:50:00.185 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:00.235 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 13:50:02.280 +07:00 [INF] Executed DbCommand (78ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 13:50:02.400 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:50:02.713 +07:00 [INF] Executed ViewResult - view Index executed in 304.6953ms.
+2026-01-28 13:50:02.723 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2486.2932ms
+2026-01-28 13:50:02.724 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:02.732 +07:00 [INF] HTTP GET / responded 200 in 2617.9982 ms
+2026-01-28 13:50:02.776 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 2909.2345ms
+2026-01-28 13:50:02.832 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:50:02.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:02.876 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 39.2553ms
+2026-01-28 13:50:02.950 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 119.3765ms
+2026-01-28 13:50:06.407 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 13:50:06.423 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:06.446 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:50:06.770 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 13:50:06.820 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 13:50:06.831 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:50:06.867 +07:00 [INF] Executed ViewResult - view Index executed in 37.1858ms.
+2026-01-28 13:50:06.867 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 420.9603ms
+2026-01-28 13:50:06.867 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:06.867 +07:00 [INF] HTTP GET /en/news responded 200 in 449.0736 ms
+2026-01-28 13:50:06.868 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 461.7767ms
+2026-01-28 13:50:07.162 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:07.194 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 31.3291ms
+2026-01-28 13:50:07.207 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:50:07.837 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 630.4747ms
+2026-01-28 13:50:11.671 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 13:50:11.686 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 13:50:11.695 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:50:12.342 +07:00 [INF] Executed DbCommand (494ms) [Parameters=[@__slug_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[SlugEn] = @__slug_0
+2026-01-28 13:50:12.367 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__p_1='?' (DbType = Int32), @__currentId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[Id] <> @__currentId_0
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 13:50:12.399 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-01-28 13:50:12.413 +07:00 [INF] Executed ViewResult - view Detail executed in 43.9423ms.
+2026-01-28 13:50:12.413 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 717.7155ms
+2026-01-28 13:50:12.413 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 13:50:12.413 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 200 in 734.3707 ms
+2026-01-28 13:50:12.414 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 200 null text/html; charset=utf-8 742.8703ms
+2026-01-28 13:50:12.739 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:50:12.773 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:12.777 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 4.081ms
+2026-01-28 13:50:12.794 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.5017ms
+2026-01-28 13:50:31.218 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:31.374 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 155.9152ms
+2026-01-28 13:50:38.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-01-28 13:50:38.221 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:38.227 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-01-28 13:50:38.229 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:50:38.278 +07:00 [INF] Executed ViewResult - view Index executed in 50.3338ms.
+2026-01-28 13:50:38.279 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 51.3498ms
+2026-01-28 13:50:38.279 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:38.279 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 59.0058 ms
+2026-01-28 13:50:38.280 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 65.8179ms
+2026-01-28 13:50:38.350 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:50:38.368 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:38.490 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 140.6839ms
+2026-01-28 13:50:38.491 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 123.1942ms
+2026-01-28 13:50:39.961 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Index - null null
+2026-01-28 13:50:39.965 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:39.971 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:50:40.001 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+ORDER BY [n].[CreatedAt] DESC
+2026-01-28 13:50:40.010 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 13:50:40.031 +07:00 [INF] Executed ViewResult - view Index executed in 25.2244ms.
+2026-01-28 13:50:40.032 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web) in 60.7354ms
+2026-01-28 13:50:40.032 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 13:50:40.032 +07:00 [INF] HTTP GET /Admin/News/Index responded 200 in 66.9188 ms
+2026-01-28 13:50:40.032 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Index - 200 null text/html; charset=utf-8 71.0561ms
+2026-01-28 13:50:40.164 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:50:40.280 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:40.314 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 33.9351ms
+2026-01-28 13:50:40.328 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 163.7789ms
+2026-01-28 13:50:42.181 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/News/Edit/2 - null null
+2026-01-28 13:50:42.186 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 13:50:42.193 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "News"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 13:50:42.234 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[Id] = @__p_0
+2026-01-28 13:50:42.236 +07:00 [INF] Executing ViewResult, running view Edit.
+2026-01-28 13:50:42.336 +07:00 [INF] Executed ViewResult - view Edit executed in 101ms.
+2026-01-28 13:50:42.337 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web) in 143.6675ms
+2026-01-28 13:50:42.337 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.NewsController.Edit (Cw.Branding.Web)'
+2026-01-28 13:50:42.337 +07:00 [INF] HTTP GET /Admin/News/Edit/2 responded 200 in 154.4442 ms
+2026-01-28 13:50:42.348 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/News/Edit/2 - 200 null text/html; charset=utf-8 167.0354ms
+2026-01-28 13:50:42.428 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 13:50:42.504 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 13:50:42.505 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9868ms
+2026-01-28 13:50:42.594 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 166.3205ms
+2026-01-28 14:29:50.025 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 14:29:50.228 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 14:29:50.228 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 14:29:50.291 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 14:29:50.291 +07:00 [INF] Hosting environment: Development
+2026-01-28 14:29:50.291 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 14:29:50.418 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:29:50.418 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:29:50.454 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:29:50.454 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 14:29:51.949 +07:00 [INF] Executed DbCommand (90ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:29:51.949 +07:00 [INF] Executed DbCommand (90ms) [Parameters=[@__slug_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[SlugEn] = @__slug_0
+2026-01-28 14:29:52.068 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_1='?' (DbType = Int32), @__currentId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[Id] <> @__currentId_0
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:29:52.069 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:29:52.072 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-01-28 14:29:52.231 +07:00 [INF] Executed ViewResult - view Detail executed in 153.5502ms.
+2026-01-28 14:29:52.235 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 1780.097ms
+2026-01-28 14:29:52.236 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:29:52.243 +07:00 [INF] Executed ViewResult - view Index executed in 184.492ms.
+2026-01-28 14:29:52.244 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 1788.8187ms
+2026-01-28 14:29:52.244 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:29:52.244 +07:00 [INF] HTTP GET / responded 200 in 1875.6199 ms
+2026-01-28 14:29:52.242 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 200 in 1869.9492 ms
+2026-01-28 14:29:52.725 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 200 null text/html; charset=utf-8 2507.4689ms
+2026-01-28 14:29:52.726 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 2508.5012ms
+2026-01-28 14:29:52.732 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - null null
+2026-01-28 14:29:52.733 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:29:52.765 +07:00 [INF] The file /uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg was not modified
+2026-01-28 14:29:52.769 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/news-thumbnails/bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg - 304 null image/jpeg 36.9374ms
+2026-01-28 14:29:52.791 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:29:52.799 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 6.6057ms
+2026-01-28 14:29:52.886 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:29:52.888 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.4136ms
+2026-01-28 14:29:52.901 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:29:52.901 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 168.0344ms
+2026-01-28 14:29:52.938 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.0223ms
+2026-01-28 14:29:55.665 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 14:29:55.683 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:29:55.690 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:29:55.887 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 14:29:55.916 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 14:29:55.938 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:29:55.954 +07:00 [INF] Executed ViewResult - view Index executed in 31.7921ms.
+2026-01-28 14:29:55.954 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 263.7981ms
+2026-01-28 14:29:55.954 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:29:55.954 +07:00 [INF] HTTP GET /en/news responded 200 in 278.8937 ms
+2026-01-28 14:29:55.955 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 289.8313ms
+2026-01-28 14:29:56.170 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:29:56.182 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 11.8734ms
+2026-01-28 14:29:56.182 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:29:56.258 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.4364ms
+2026-01-28 14:30:03.774 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vn/news - null null
+2026-01-28 14:30:03.778 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:30:03.779 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:30:03.795 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 14:30:03.801 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 14:30:03.802 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:30:03.816 +07:00 [INF] Executed ViewResult - view Index executed in 13.2813ms.
+2026-01-28 14:30:03.816 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 37.1127ms
+2026-01-28 14:30:03.816 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:30:03.816 +07:00 [INF] HTTP GET /vn/news responded 200 in 37.9765 ms
+2026-01-28 14:30:03.816 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vn/news - 200 null text/html; charset=utf-8 42.0147ms
+2026-01-28 14:30:03.886 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:30:03.892 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:30:03.895 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.9551ms
+2026-01-28 14:30:03.900 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.2091ms
+2026-01-28 14:30:10.964 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vn/news/test-news-1st - null null
+2026-01-28 14:30:10.968 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:30:10.968 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:30:10.990 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__slug_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[SlugVi] = @__slug_0
+2026-01-28 14:30:10.997 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_1='?' (DbType = Int32), @__currentId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[Id] <> @__currentId_0
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:30:10.997 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-01-28 14:30:10.999 +07:00 [INF] Executed ViewResult - view Detail executed in 1.9766ms.
+2026-01-28 14:30:10.999 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 31.5023ms
+2026-01-28 14:30:10.999 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:30:10.999 +07:00 [INF] HTTP GET /vn/news/test-news-1st responded 200 in 32.0279 ms
+2026-01-28 14:30:11.000 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vn/news/test-news-1st - 200 null text/html; charset=utf-8 36.0253ms
+2026-01-28 14:30:11.054 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:30:11.064 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:30:11.064 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9919ms
+2026-01-28 14:30:11.076 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.4658ms
+2026-01-28 14:30:17.334 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vn/news - null null
+2026-01-28 14:30:17.338 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:30:17.338 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:30:17.345 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 14:30:17.354 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 14:30:17.355 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:30:17.362 +07:00 [INF] Executed ViewResult - view Index executed in 7.5716ms.
+2026-01-28 14:30:17.363 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 24.5583ms
+2026-01-28 14:30:17.363 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:30:17.363 +07:00 [INF] HTTP GET /vn/news responded 200 in 25.5666 ms
+2026-01-28 14:30:17.363 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vn/news - 200 null text/html; charset=utf-8 29.3724ms
+2026-01-28 14:30:17.436 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:30:17.437 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:30:17.437 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0644ms
+2026-01-28 14:30:17.464 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.8765ms
+2026-01-28 14:35:45.727 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-28 14:35:45.937 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 14:35:46.025 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-28 14:35:46.026 +07:00 [INF] Hosting environment: Development
+2026-01-28 14:35:46.027 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-01-28 14:35:46.200 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:35:46.246 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 14:35:48.040 +07:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:35:48.171 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:35:48.439 +07:00 [INF] Executed ViewResult - view Index executed in 268.3352ms.
+2026-01-28 14:35:48.446 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2199.4244ms
+2026-01-28 14:35:48.447 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:35:48.450 +07:00 [INF] HTTP GET / responded 200 in 2308.6755 ms
+2026-01-28 14:35:48.501 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 2577.324ms
+2026-01-28 14:35:48.595 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:35:48.598 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:35:48.613 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 9.7277ms
+2026-01-28 14:35:48.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 107.0886ms
+2026-01-28 14:35:54.466 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 14:35:54.504 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:35:54.532 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:35:54.934 +07:00 [INF] Executed DbCommand (64ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 14:35:54.997 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 14:35:55.004 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:35:55.037 +07:00 [INF] Executed ViewResult - view Index executed in 34.885ms.
+2026-01-28 14:35:55.037 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 505.1545ms
+2026-01-28 14:35:55.037 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:35:55.038 +07:00 [INF] HTTP GET /en/news responded 200 in 548.1822 ms
+2026-01-28 14:35:55.038 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 572.9606ms
+2026-01-28 14:35:55.167 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:35:55.480 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:35:55.482 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.0231ms
+2026-01-28 14:35:56.049 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 882.1446ms
+2026-01-28 14:36:02.442 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 14:36:02.448 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:02.449 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 14:36:02.473 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:36:02.475 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:36:02.483 +07:00 [INF] Executed ViewResult - view Index executed in 8.8621ms.
+2026-01-28 14:36:02.484 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 34.766ms
+2026-01-28 14:36:02.484 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:02.484 +07:00 [INF] HTTP GET / responded 200 in 38.2342 ms
+2026-01-28 14:36:02.487 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 44.1026ms
+2026-01-28 14:36:02.546 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:36:02.559 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:02.563 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.589ms
+2026-01-28 14:36:02.577 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.3344ms
+2026-01-28 14:36:22.371 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 14:36:22.386 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:36:22.395 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:36:22.424 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__slug_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[SlugEn] = @__slug_0
+2026-01-28 14:36:22.445 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_1='?' (DbType = Int32), @__currentId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[Id] <> @__currentId_0
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:36:22.446 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-01-28 14:36:22.451 +07:00 [INF] Executed ViewResult - view Detail executed in 5.5671ms.
+2026-01-28 14:36:22.451 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 56.3077ms
+2026-01-28 14:36:22.451 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:36:22.452 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 200 in 73.2403 ms
+2026-01-28 14:36:22.452 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 200 null text/html; charset=utf-8 81.1239ms
+2026-01-28 14:36:22.509 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:36:22.519 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:22.519 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.8477ms
+2026-01-28 14:36:22.525 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 15.6724ms
+2026-01-28 14:36:28.879 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vn/news/test-news-1st - null null
+2026-01-28 14:36:28.882 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:36:28.882 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:36:28.903 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__slug_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[SlugVi] = @__slug_0
+2026-01-28 14:36:28.905 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__currentId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[Id] <> @__currentId_0
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:36:28.907 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-01-28 14:36:28.911 +07:00 [INF] Executed ViewResult - view Detail executed in 3.411ms.
+2026-01-28 14:36:28.911 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 29.2774ms
+2026-01-28 14:36:28.911 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:36:28.911 +07:00 [INF] HTTP GET /vn/news/test-news-1st responded 200 in 29.7310 ms
+2026-01-28 14:36:28.912 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vn/news/test-news-1st - 200 null text/html; charset=utf-8 32.7622ms
+2026-01-28 14:36:28.964 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:36:28.973 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:29.015 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 45.1046ms
+2026-01-28 14:36:29.015 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.1737ms
+2026-01-28 14:36:32.350 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:32.351 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.2343ms
+2026-01-28 14:36:34.653 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-01-28 14:36:34.657 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:34.657 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-01-28 14:36:34.661 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:36:34.661 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:36:34.668 +07:00 [INF] Executed ViewResult - view Index executed in 6.6631ms.
+2026-01-28 14:36:34.668 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 11.1666ms
+2026-01-28 14:36:34.668 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:34.668 +07:00 [INF] HTTP GET / responded 200 in 11.8288 ms
+2026-01-28 14:36:34.669 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 15.8709ms
+2026-01-28 14:36:34.763 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:34.764 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.2283ms
+2026-01-28 14:36:40.021 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 14:36:40.052 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:40.052 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:36:40.068 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 14:36:40.074 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 14:36:40.074 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:36:40.077 +07:00 [INF] Executed ViewResult - view Index executed in 2.6695ms.
+2026-01-28 14:36:40.077 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 24.8275ms
+2026-01-28 14:36:40.077 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:40.077 +07:00 [INF] HTTP GET /en/news responded 200 in 25.3342 ms
+2026-01-28 14:36:40.078 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 56.7705ms
+2026-01-28 14:36:40.800 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:36:40.982 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:40.986 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 4.0281ms
+2026-01-28 14:36:41.210 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 410.5768ms
+2026-01-28 14:36:45.188 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news/test-news-1st - null null
+2026-01-28 14:36:45.191 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:36:45.192 +07:00 [INF] Route matched with {action = "Detail", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:36:45.196 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__slug_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[SlugEn] = @__slug_0
+2026-01-28 14:36:45.201 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_1='?' (DbType = Int32), @__currentId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_1) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE() AND [n].[Id] <> @__currentId_0
+ORDER BY [n].[PublishedAt] DESC
+2026-01-28 14:36:45.202 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-01-28 14:36:45.204 +07:00 [INF] Executed ViewResult - view Detail executed in 2.2842ms.
+2026-01-28 14:36:45.204 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web) in 12.462ms
+2026-01-28 14:36:45.204 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Detail (Cw.Branding.Web)'
+2026-01-28 14:36:45.204 +07:00 [INF] HTTP GET /en/news/test-news-1st responded 200 in 13.0826 ms
+2026-01-28 14:36:45.204 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news/test-news-1st - 200 null text/html; charset=utf-8 17.0269ms
+2026-01-28 14:36:45.284 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:36:45.429 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:45.431 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.793ms
+2026-01-28 14:36:45.445 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 161.4132ms
+2026-01-28 14:36:50.619 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/news - null null
+2026-01-28 14:36:50.624 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:50.624 +07:00 [INF] Route matched with {action = "Index", controller = "News", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, Int32) on controller Cw.Branding.Web.Controllers.NewsController (Cw.Branding.Web).
+2026-01-28 14:36:50.630 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+2026-01-28 14:36:50.635 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-01-28 14:36:50.636 +07:00 [INF] Executing ViewResult, running view Index.
+2026-01-28 14:36:50.642 +07:00 [INF] Executed ViewResult - view Index executed in 6.2204ms.
+2026-01-28 14:36:50.642 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web) in 18.22ms
+2026-01-28 14:36:50.642 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.NewsController.Index (Cw.Branding.Web)'
+2026-01-28 14:36:50.642 +07:00 [INF] HTTP GET /en/news responded 200 in 18.7173 ms
+2026-01-28 14:36:50.643 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/news - 200 null text/html; charset=utf-8 23.259ms
+2026-01-28 14:36:50.840 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-01-28 14:36:50.848 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-28 14:36:50.849 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0524ms
+2026-01-28 14:36:50.864 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.8786ms

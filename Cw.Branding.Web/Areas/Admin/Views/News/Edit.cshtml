@@ -9,7 +9,7 @@
     <p class="text-gray-500 text-sm">Cập nhật nội dung cho bài viết: <strong>@Model.TitleVi</strong></p>
 </div>
 
-<form asp-action="Edit" method="post" enctype="multipart/form-data">
+<form id="news-form" asp-action="Edit" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Id" />
     <partial name="_Form" model="Model" />
 </form>
