@@ -33,6 +33,14 @@
 
 <div class="border-b border-slate-200 bg-white">
     <div class="section-container py-3">
+        @* --- NÚT BACK --- *@
+        <div class="mb-2">
+            <a href="javascript:history.back()" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-brand-primary transition-colors">
+                <svg class="mr-1 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                @(isEn ? "Back" : "Quay lại")
+            </a>
+        </div>
+
         <nav class="flex text-sm text-slate-500" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
@@ -43,7 +51,7 @@
                     <a href="/@lang/medical-solutions" class="hover:text-brand-primary">Medical</a>
                 </li>
                 <li>/</li>
-                <li>
+                <li class="inline-flex items-center">
                     <span class="text-slate-700">@Model.Category.NameEn</span>
                 </li>
                 <li>/</li>
@@ -112,3 +120,46 @@
         </div>
     </div>
 </div>
+
+@* --- RELATED PRODUCTS SECTION --- *@
+@{
+    var relatedProducts = ViewBag.RelatedProducts as List<Cw.Branding.Web.Models.Entities.Product>;
+}
+
+@if (relatedProducts != null && relatedProducts.Any())
+{
+    @* Thêm section-container để có khoảng cách biên (padding x) *@
+    <div class="section-container pb-20">
+        <div class="border-t border-slate-100 pt-20">
+            @* Giữ nguyên h3 canh lề trái *@
+            <h3 class=" mt-8 mb-8  font-heading text-2xl font-bold uppercase text-slate-900 tracking-tight">
+                @(isEn ? "Related Products" : "Sản phẩm liên quan")
+            </h3>
+
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                @foreach (var item in relatedProducts)
+                {
+                    var rName = isEn ? item.NameEn : item.NameVi;
+                    var rSlug = isEn ? item.SlugEn : item.SlugVi;
+                    var rImage = item.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault()?.FilePath
+                    ?? "https://via.placeholder.com/400x400?text=No+Image";
+
+                    <a href="/@lang/medical/product/@rSlug" class="group block overflow-hidden">
+                        <div class="aspect-square w-full overflow-hidden bg-slate-100 rounded-sm">
+                            <img src="@rImage" alt="@rName"
+                                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-heading text-sm font-bold uppercase text-slate-800 transition-colors group-hover:text-brand-primary">
+                                @rName
+                            </h4>
+                            <p class="text-xs text-slate-500 mt-1 uppercase tracking-wider">
+                                @(isEn? item.Category?.NameEn : item.Category?.NameVi)
+                            </p>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+}

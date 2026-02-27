@@ -58,23 +58,30 @@ namespace Cw.Branding.Web.Controllers
                 return StatusCode(500, new { error = "Failed to load products" });
             }
         }
-       
+
         [HttpGet("{lang}/medical/product/{slug}")]
-        public async Task<IActionResult> Detail(string slug)
+        public async Task<IActionResult> Detail(string lang, string slug)
         {
             if (string.IsNullOrEmpty(slug)) return NotFound();
 
-            // Tìm sản phẩm theo Slug (Chấp nhận cả SlugEn và SlugVi)
+            // 1. Tìm sản phẩm hiện tại
             var product = await _context.Products
-                .Include(p => p.Category)      // Load danh mục để làm Breadcrumb
-                .Include(p => p.Images)        // Load ảnh
+                .Include(p => p.Category)
+                .Include(p => p.Images)
                 .FirstOrDefaultAsync(p => p.SlugEn == slug || p.SlugVi == slug);
 
-          
-            if (product == null)
-            {
-                return NotFound();
-            }
+            if (product == null) return NotFound();
+
+            // 2. Lấy 3 sản phẩm liên quan (cùng CategoryId, khác Id hiện tại)
+            var relatedProducts = await _context.Products
+                .Include(p => p.Images)
+                .Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id && p.IsActive)
+                .OrderByDescending(p => p.DisplayOrder) // Hoặc dùng Guid.NewGuid() để lấy ngẫu nhiên
+                .Take(3)
+                .ToListAsync();
+
+            // Gán vào ViewBag để View sử dụng cho gọn, không cần tạo thêm ViewModel phức tạp
+            ViewBag.RelatedProducts = relatedProducts;
 
             return View(product);
         }
