@@ -1,0 +1,56 @@
+2026-03-05 16:17:40.409 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-03-05 16:17:40.468 +07:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-03-05 16:17:40.470 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-03-05 16:17:40.471 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-03-05 16:17:40.497 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-03-05 16:17:40.524 +07:00 [INF] Applying migration '20260305091727_UpdateProductFilterAndSpecs'.
+2026-03-05 16:17:40.590 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [BrandId] int NULL;
+2026-03-05 16:17:40.591 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [DatasheetPath] nvarchar(max) NULL;
+2026-03-05 16:17:40.594 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [MachineTypeId] int NULL;
+2026-03-05 16:17:40.595 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [TechnicalSpecsEn] nvarchar(max) NULL;
+2026-03-05 16:17:40.595 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD [TechnicalSpecsVi] nvarchar(max) NULL;
+2026-03-05 16:17:40.601 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Brand] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(100) NOT NULL,
+    [Slug] nvarchar(max) NULL,
+    [LogoPath] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [DisplayOrder] int NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Brand] PRIMARY KEY ([Id])
+);
+2026-03-05 16:17:40.602 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [MachineType] (
+    [Id] int NOT NULL IDENTITY,
+    [NameVi] nvarchar(200) NOT NULL,
+    [NameEn] nvarchar(200) NOT NULL,
+    [SlugVi] nvarchar(max) NULL,
+    [SlugEn] nvarchar(max) NULL,
+    [IsActive] bit NOT NULL,
+    [DisplayOrder] int NOT NULL,
+    CONSTRAINT [PK_MachineType] PRIMARY KEY ([Id])
+);
+2026-03-05 16:17:40.610 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_BrandId] ON [Products] ([BrandId]);
+2026-03-05 16:17:40.612 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_MachineTypeId] ON [Products] ([MachineTypeId]);
+2026-03-05 16:17:40.616 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD CONSTRAINT [FK_Products_Brand_BrandId] FOREIGN KEY ([BrandId]) REFERENCES [Brand] ([Id]) ON DELETE SET NULL;
+2026-03-05 16:17:40.619 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] ADD CONSTRAINT [FK_Products_MachineType_MachineTypeId] FOREIGN KEY ([MachineTypeId]) REFERENCES [MachineType] ([Id]) ON DELETE SET NULL;
+2026-03-05 16:17:40.620 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260305091727_UpdateProductFilterAndSpecs', N'8.0.22');

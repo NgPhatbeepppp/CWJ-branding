@@ -28,4 +28,18 @@ public class Product
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
+
+    // Bổ sung Foreign Keys cho Filter
+    public int? BrandId { get; set; }
+    public Brand? Brand { get; set; }
+
+    public int? MachineTypeId { get; set; }
+    public MachineType? MachineType { get; set; }
+
+    // Thông số kỹ thuật (Rich Text) - Như anh yêu cầu
+    public string? TechnicalSpecsVi { get; set; }
+    public string? TechnicalSpecsEn { get; set; }
+
+    // PDF Datasheet (Path)
+    public string? DatasheetPath { get; set; }
 }

@@ -64,5 +64,17 @@ public class AppDbContext : DbContext
         {
             entity.HasIndex(x => x.CreatedAt);
         });
+        // Cấu hình quan hệ nếu cần (EF Core tự nhận diện đa số trường hợp 1-n)
+        modelBuilder.Entity<Product>()
+            .HasOne(p => p.Brand)
+            .WithMany(b => b.Products)
+            .HasForeignKey(p => p.BrandId)
+            .OnDelete(DeleteBehavior.SetNull);
+
+        modelBuilder.Entity<Product>()
+            .HasOne(p => p.MachineType)
+            .WithMany(m => m.Products)
+            .HasForeignKey(p => p.MachineTypeId)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }
