@@ -1,0 +1,48 @@
+﻿@model Cw.Branding.Web.Models.Entities.MachineType
+@{
+    ViewData["Title"] = "Sửa Loại Máy";
+    Layout = "_AdminLayout";
+}
+
+<div class="p-6 bg-white rounded-lg shadow-md">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800 font-heading">Sửa Loại Máy</h2>
+        <a asp-action="Index" class="text-gray-400 hover:text-blue-600 text-sm italic">Quay lại</a>
+    </div>
+
+    <form asp-action="Edit" method="post" class="space-y-6">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-4 bg-blue-50/50 border border-blue-100 rounded-lg">
+                <h3 class="text-xs font-bold text-blue-800 uppercase mb-4 tracking-tighter">Bản tiếng Việt</h3>
+                <label class="block text-sm font-medium text-gray-700">Tên loại máy (VN)</label>
+                <input asp-for="NameVi" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-blue-500" />
+            </div>
+
+            <div class="p-4 bg-yellow-50/50 border border-yellow-100 rounded-lg">
+                <h3 class="text-xs font-bold text-yellow-800 uppercase mb-4 tracking-tighter">English Version</h3>
+                <label class="block text-sm font-medium text-gray-700">Machine Type Name (EN)</label>
+                <input asp-for="NameEn" class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring-yellow-500" />
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-8">
+            <div class="w-32">
+                <label class="block text-sm font-medium text-gray-700">Thứ tự</label>
+                <input asp-for="DisplayOrder" type="number" class="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+            </div>
+            <div class="flex items-center pt-5">
+                <input asp-for="IsActive" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded" />
+                <label class="ml-2 text-sm font-medium text-gray-800">Hiển thị công khai</label>
+            </div>
+        </div>
+
+        <div class="pt-6 border-t flex gap-3">
+            <button type="submit" class="bg-[#004F9F] text-white px-8 py-2 rounded-md hover:bg-blue-800 transition font-bold shadow-lg">
+                Cập nhật dữ liệu
+            </button>
+            <a asp-action="Index" class="bg-gray-100 text-gray-600 px-8 py-2 rounded-md hover:bg-gray-200 transition">Hủy bỏ</a>
+        </div>
+    </form>
+</div>

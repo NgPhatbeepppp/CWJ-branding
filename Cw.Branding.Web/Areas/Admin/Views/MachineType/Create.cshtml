@@ -1,0 +1,52 @@
+﻿@model Cw.Branding.Web.Models.Entities.MachineType
+@{
+    ViewData["Title"] = "Thêm Loại Máy";
+    Layout = "_AdminLayout";
+}
+
+<div class="p-6 bg-white rounded-lg shadow-md">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Thêm Loại Máy Mới</h2>
+        <a asp-action="Index" class="text-gray-600 hover:text-blue-600 flex items-center">
+            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Quay lại
+        </a>
+    </div>
+
+    <form asp-action="Create" method="post" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            @* Tiếng Việt *@
+            <div class="p-4 border border-gray-100 bg-gray-50 rounded-md">
+                <h3 class="text-sm font-bold text-blue-700 mb-3 uppercase tracking-wider">Tiếng Việt (VN)</h3>
+                <label class="block text-sm font-medium text-gray-700">Tên loại máy (VN)</label>
+                <input asp-for="NameVi" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500" placeholder="VD: Máy siêu âm" />
+                <span asp-validation-for="NameVi" class="text-red-500 text-xs"></span>
+            </div>
+
+            @* Tiếng Anh *@
+            <div class="p-4 border border-gray-100 bg-gray-50 rounded-md">
+                <h3 class="text-sm font-bold text-yellow-600 mb-3 uppercase tracking-wider">Tiếng Anh (EN)</h3>
+                <label class="block text-sm font-medium text-gray-700">Machine Type Name (EN)</label>
+                <input asp-for="NameEn" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500" placeholder="VD: Ultrasound Machine" />
+                <span asp-validation-for="NameEn" class="text-red-500 text-xs"></span>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-10">
+            <div class="w-32">
+                <label class="block text-sm font-medium text-gray-700">Thứ tự</label>
+                <input asp-for="DisplayOrder" type="number" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" value="0" />
+            </div>
+            <div class="flex items-center pt-5">
+                <input asp-for="IsActive" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded" checked />
+                <label class="ml-2 block text-sm text-gray-900 font-medium">Kích hoạt hiển thị</label>
+            </div>
+        </div>
+
+        <div class="pt-6 border-t">
+            <button type="submit" class="bg-[#004F9F] hover:bg-blue-800 text-white font-bold py-2 px-8 rounded-md transition duration-200 shadow-lg">
+                Xác nhận thêm mới
+            </button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿@model Cw.Branding.Web.Models.Entities.Brand
+@{
+    ViewData["Title"] = "Thêm Hãng Sản Xuất";
+    Layout = "_AdminLayout"; // Hoặc layout admin của anh
+}
+
+<div class="p-6 bg-white rounded-lg shadow-md">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Thêm Hãng Sản Xuất Mới</h2>
+        <a asp-action="Index" class="text-gray-600 hover:text-blue-600 flex items-center">
+            <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Quay lại danh sách
+        </a>
+    </div>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data" class="space-y-4">
+        <div asp-validation-summary="ModelOnly" class="text-red-500 text-sm"></div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Tên Hãng (Ví dụ: GE Healthcare)</label>
+            <input asp-for="Name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Nhập tên hãng..." />
+            <span asp-validation-for="Name" class="text-red-500 text-xs"></span>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700">Logo Hãng</label>
+            <input type="file" name="logoFile" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+            <p class="mt-1 text-xs text-gray-500">Định dạng: JPG, PNG. Dung lượng tối đa: 2MB.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Thứ tự hiển thị</label>
+                <input asp-for="DisplayOrder" type="number" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" value="0" />
+            </div>
+            <div class="flex items-center mt-6">
+                <input asp-for="IsActive" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" checked />
+                <label asp-for="IsActive" class="ml-2 block text-sm text-gray-900">Kích hoạt (Hiển thị lên site)</label>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-gray-200">
+            <button type="submit" class="bg-[#004F9F] hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-md transition duration-200">
+                Lưu dữ liệu
+            </button>
+        </div>
+    </form>
+</div>

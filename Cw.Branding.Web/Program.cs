@@ -40,7 +40,9 @@ builder.Services.AddAuthorization();
 
 // Register Services
 builder.Services.AddScoped<INewsService, NewsService>();
-
+// Đăng ký Services
+builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<IMachineTypeService, MachineTypeService>();
 
 var app = builder.Build();
 
@@ -75,10 +77,18 @@ app.MapAreaControllerRoute(
     areaName: "Admin",
     pattern: "{lang=en}/admin/{controller=Dashboard}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{lang=vi}/{controller=Home}/{action=Index}/{id?}");
 // 2. Route cho Client (Mặc định)
 // Cấu trúc: /en/medical/index
 app.MapControllerRoute(
     name: "default",
     pattern: "{lang=en}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "MyAreas",
+    pattern: "{lang=vi}/{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+
 
 app.Run();

@@ -17,6 +17,8 @@ public class AppDbContext : DbContext
     public DbSet<ProductImage> ProductImages => Set<ProductImage>();
     public DbSet<News> News => Set<News>();
     public DbSet<ContactFormEntry> ContactFormEntries => Set<ContactFormEntry>();
+    public DbSet<Brand> Brands { get; set; }
+    public DbSet<MachineType> MachineTypes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -58,7 +60,9 @@ public class AppDbContext : DbContext
             entity.HasIndex(x => x.SlugVi);
             entity.HasIndex(x => x.SlugEn);
         });
+        modelBuilder.Entity<Brand>().ToTable("Brand");
 
+        modelBuilder.Entity<MachineType>().ToTable("MachineType");
         // ContactFormEntry
         modelBuilder.Entity<ContactFormEntry>(entity =>
         {
