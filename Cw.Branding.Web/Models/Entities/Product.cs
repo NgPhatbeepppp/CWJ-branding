@@ -42,4 +42,6 @@ public class Product
 
     // PDF Datasheet (Path)
     public string? DatasheetPath { get; set; }
+
+    public bool IsFeatured { get; set; } = false; // Sản phẩm nổi bật (hiển thị trang chủ)
 }

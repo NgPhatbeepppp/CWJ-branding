@@ -1,4 +1,5 @@
 ﻿using Cw.Branding.Web.Data;
+using Cw.Branding.Web.Services;
 using Cw.Branding.Web.Services.Implementations;
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +44,8 @@ builder.Services.AddScoped<INewsService, NewsService>();
 // Đăng ký Services
 builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IMachineTypeService, MachineTypeService>();
-
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 var app = builder.Build();
 
 // 5. Configure the HTTP request pipeline.

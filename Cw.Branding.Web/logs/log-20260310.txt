@@ -1,0 +1,448 @@
+2026-03-10 11:56:29.099 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 11:56:29.135 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 11:56:29.376 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 11:56:29.377 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 11:56:43.612 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 11:56:43.639 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 11:56:44.169 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-03-10 11:56:44.188 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-03-10 11:56:44.190 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-03-10 11:56:44.191 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-03-10 11:56:44.211 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-03-10 11:56:44.223 +07:00 [INF] Applying migration '20260310045630_UpdateProductWithFeaturedAndRelations'.
+2026-03-10 11:56:44.283 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ProductImages] DROP CONSTRAINT [FK_ProductImages_Products_ProductId];
+2026-03-10 11:56:44.285 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] DROP CONSTRAINT [FK_Products_Brand_BrandId];
+2026-03-10 11:56:44.287 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] DROP CONSTRAINT [FK_Products_Categories_CategoryId];
+2026-03-10 11:56:44.288 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] DROP CONSTRAINT [FK_Products_MachineType_MachineTypeId];
+2026-03-10 11:56:44.307 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Products] DROP CONSTRAINT [PK_Products];
+2026-03-10 11:56:44.312 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ProductImages] DROP CONSTRAINT [PK_ProductImages];
+2026-03-10 11:56:44.314 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ContactFormEntries] DROP CONSTRAINT [PK_ContactFormEntries];
+2026-03-10 11:56:44.324 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Categories] DROP CONSTRAINT [PK_Categories];
+2026-03-10 11:56:44.601 +07:00 [INF] Executed DbCommand (276ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Products]', N'Product';
+2026-03-10 11:56:44.602 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[ProductImages]', N'ProductImage';
+2026-03-10 11:56:44.604 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[ContactFormEntries]', N'ContactFormEntry';
+2026-03-10 11:56:44.605 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Categories]', N'Category';
+2026-03-10 11:56:44.607 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Product].[IX_Products_SlugVi]', N'IX_Product_SlugVi', N'INDEX';
+2026-03-10 11:56:44.609 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Product].[IX_Products_SlugEn]', N'IX_Product_SlugEn', N'INDEX';
+2026-03-10 11:56:44.610 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Product].[IX_Products_MachineTypeId]', N'IX_Product_MachineTypeId', N'INDEX';
+2026-03-10 11:56:44.612 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Product].[IX_Products_Code]', N'IX_Product_Code', N'INDEX';
+2026-03-10 11:56:44.613 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Product].[IX_Products_CategoryId]', N'IX_Product_CategoryId', N'INDEX';
+2026-03-10 11:56:44.614 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Product].[IX_Products_BrandId]', N'IX_Product_BrandId', N'INDEX';
+2026-03-10 11:56:44.615 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[ProductImage].[IX_ProductImages_ProductId]', N'IX_ProductImage_ProductId', N'INDEX';
+2026-03-10 11:56:44.617 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[ContactFormEntry].[IX_ContactFormEntries_CreatedAt]', N'IX_ContactFormEntry_CreatedAt', N'INDEX';
+2026-03-10 11:56:44.618 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Category].[IX_Categories_SlugVi]', N'IX_Category_SlugVi', N'INDEX';
+2026-03-10 11:56:44.619 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Category].[IX_Categories_SlugEn]', N'IX_Category_SlugEn', N'INDEX';
+2026-03-10 11:56:44.620 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Category].[IX_Categories_Code]', N'IX_Category_Code', N'INDEX';
+2026-03-10 11:56:44.621 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD [BrandId1] int NULL;
+2026-03-10 11:56:44.623 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD [IsFeatured] bit NOT NULL DEFAULT CAST(0 AS bit);
+2026-03-10 11:56:44.624 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD [MachineTypeId1] int NULL;
+2026-03-10 11:56:44.638 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD CONSTRAINT [PK_Product] PRIMARY KEY ([Id]);
+2026-03-10 11:56:44.644 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ProductImage] ADD CONSTRAINT [PK_ProductImage] PRIMARY KEY ([Id]);
+2026-03-10 11:56:44.646 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ContactFormEntry] ADD CONSTRAINT [PK_ContactFormEntry] PRIMARY KEY ([Id]);
+2026-03-10 11:56:44.654 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Category] ADD CONSTRAINT [PK_Category] PRIMARY KEY ([Id]);
+2026-03-10 11:56:44.656 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Product_BrandId1] ON [Product] ([BrandId1]);
+2026-03-10 11:56:44.662 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Product_MachineTypeId1] ON [Product] ([MachineTypeId1]);
+2026-03-10 11:56:44.665 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD CONSTRAINT [FK_Product_Brand_BrandId] FOREIGN KEY ([BrandId]) REFERENCES [Brand] ([Id]) ON DELETE SET NULL;
+2026-03-10 11:56:44.668 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD CONSTRAINT [FK_Product_Brand_BrandId1] FOREIGN KEY ([BrandId1]) REFERENCES [Brand] ([Id]);
+2026-03-10 11:56:44.671 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD CONSTRAINT [FK_Product_Category_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Category] ([Id]) ON DELETE NO ACTION;
+2026-03-10 11:56:44.675 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD CONSTRAINT [FK_Product_MachineType_MachineTypeId] FOREIGN KEY ([MachineTypeId]) REFERENCES [MachineType] ([Id]) ON DELETE SET NULL;
+2026-03-10 11:56:44.678 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Product] ADD CONSTRAINT [FK_Product_MachineType_MachineTypeId1] FOREIGN KEY ([MachineTypeId1]) REFERENCES [MachineType] ([Id]);
+2026-03-10 11:56:44.681 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ProductImage] ADD CONSTRAINT [FK_ProductImage_Product_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [Product] ([Id]) ON DELETE CASCADE;
+2026-03-10 11:56:44.683 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260310045630_UpdateProductWithFeaturedAndRelations', N'8.0.22');
+2026-03-10 14:59:11.124 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-10 14:59:11.952 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-03-10 14:59:12.030 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-10 14:59:12.030 +07:00 [INF] Hosting environment: Development
+2026-03-10 14:59:12.030 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-03-10 14:59:12.813 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-03-10 14:59:12.892 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-03-10 14:59:13.969 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 14:59:13.969 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 14:59:15.312 +07:00 [INF] Executed DbCommand (138ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-03-10 14:59:15.493 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 14:59:15.834 +07:00 [INF] Executed ViewResult - view Index executed in 341.2312ms.
+2026-03-10 14:59:15.838 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2944.7781ms
+2026-03-10 14:59:15.839 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-03-10 14:59:15.844 +07:00 [INF] HTTP GET / responded 200 in 3090.2532 ms
+2026-03-10 14:59:15.867 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/css/site.css?v=4szuwc3QmEsjbQPr0aaruiP2NDrjcaDRg8BSV62ICI8 - null null
+2026-03-10 14:59:15.875 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 3937.4997ms
+2026-03-10 14:59:15.899 +07:00 [INF] The file /css/site.css was not modified
+2026-03-10 14:59:15.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/css/site.css?v=4szuwc3QmEsjbQPr0aaruiP2NDrjcaDRg8BSV62ICI8 - 304 null text/css 37.0165ms
+2026-03-10 14:59:16.013 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 14:59:16.018 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 14:59:16.028 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 9.5532ms
+2026-03-10 14:59:16.127 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 113.2972ms
+2026-03-10 14:59:37.978 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-03-10 14:59:38.018 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-03-10 14:59:38.021 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-03-10 14:59:38.025 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 14:59:38.064 +07:00 [INF] Executed ViewResult - view Index executed in 41.2748ms.
+2026-03-10 14:59:38.065 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 43.4922ms
+2026-03-10 14:59:38.065 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-03-10 14:59:38.065 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 64.3855 ms
+2026-03-10 14:59:38.065 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 87.3396ms
+2026-03-10 14:59:38.125 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 14:59:38.129 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 14:59:38.134 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 5.1311ms
+2026-03-10 14:59:38.148 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 23.0004ms
+2026-03-10 14:59:42.675 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/admin/Products - null null
+2026-03-10 14:59:42.687 +07:00 [INF] HTTP GET /en/admin/Products responded 404 in 9.2646 ms
+2026-03-10 14:59:42.691 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/admin/Products - 404 null null 15.4818ms
+2026-03-10 14:59:42.692 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/en/admin/Products, Response status code: 404
+2026-03-10 14:59:44.228 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-03-10 14:59:44.231 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-03-10 14:59:44.231 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-03-10 14:59:44.232 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 14:59:44.235 +07:00 [INF] Executed ViewResult - view Index executed in 3.2142ms.
+2026-03-10 14:59:44.235 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 3.4338ms
+2026-03-10 14:59:44.235 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-03-10 14:59:44.235 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 4.0909 ms
+2026-03-10 14:59:44.235 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 7.19ms
+2026-03-10 14:59:44.300 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 14:59:44.301 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9888ms
+2026-03-10 15:01:12.751 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-10 15:01:12.944 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-03-10 15:01:13.008 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-10 15:01:13.008 +07:00 [INF] Hosting environment: Development
+2026-03-10 15:01:13.008 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-03-10 15:01:13.117 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-03-10 15:01:13.155 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-03-10 15:01:14.008 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 15:01:14.009 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-03-10 15:01:15.003 +07:00 [INF] Executed DbCommand (93ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit) AND [n].[PublishedAt] <= GETDATE()
+ORDER BY [n].[PublishedAt] DESC
+2026-03-10 15:01:15.123 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 15:01:15.379 +07:00 [INF] Executed ViewResult - view Index executed in 253.3435ms.
+2026-03-10 15:01:15.386 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2229.9608ms
+2026-03-10 15:01:15.387 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-03-10 15:01:15.391 +07:00 [INF] HTTP GET / responded 200 in 2317.4078 ms
+2026-03-10 15:01:15.439 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 200 null text/html; charset=utf-8 2502.3625ms
+2026-03-10 15:01:15.538 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:01:15.538 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:01:15.544 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 4.8043ms
+2026-03-10 15:01:15.619 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 81.9863ms
+2026-03-10 15:01:19.502 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-03-10 15:01:19.528 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-03-10 15:01:19.533 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-03-10 15:01:19.536 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 15:01:19.586 +07:00 [INF] Executed ViewResult - view Index executed in 50.9377ms.
+2026-03-10 15:01:19.586 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 53.1481ms
+2026-03-10 15:01:19.586 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-03-10 15:01:19.586 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 200 in 63.5033 ms
+2026-03-10 15:01:19.587 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 200 null text/html; charset=utf-8 84.9318ms
+2026-03-10 15:01:19.666 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:01:19.670 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:01:19.670 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 5.7196ms
+2026-03-10 15:01:19.703 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.1272ms
+2026-03-10 15:02:08.268 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/admin/Product - null null
+2026-03-10 15:02:08.293 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-03-10 15:02:08.299 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:02:08.491 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+ORDER BY [p].[CreatedAt] DESC
+2026-03-10 15:02:08.501 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 15:02:08.514 +07:00 [INF] Executed ViewResult - view Index executed in 14.0385ms.
+2026-03-10 15:02:08.515 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 215.0999ms
+2026-03-10 15:02:08.515 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-03-10 15:02:08.515 +07:00 [INF] HTTP GET /en/admin/Product responded 200 in 228.3847 ms
+2026-03-10 15:02:08.516 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/admin/Product - 200 null text/html; charset=utf-8 248.0457ms
+2026-03-10 15:02:08.569 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:02:08.588 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:02:08.600 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 12.0381ms
+2026-03-10 15:02:08.705 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 135.7471ms
+2026-03-10 15:10:21.566 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/admin/Product/Create - null null
+2026-03-10 15:10:21.589 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:10:21.595 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:10:21.648 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:10:21.686 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:10:21.711 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:10:21.774 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:10:21.862 +07:00 [INF] Executed ViewResult - view Create executed in 88.7018ms.
+2026-03-10 15:10:21.862 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 267.3285ms
+2026-03-10 15:10:21.862 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:10:21.863 +07:00 [INF] HTTP GET /en/admin/Product/Create responded 200 in 274.1902 ms
+2026-03-10 15:10:21.864 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 297.9053ms
+2026-03-10 15:10:21.922 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:10:21.922 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2026-03-10 15:10:21.924 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2026-03-10 15:10:21.924 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.3873ms
+2026-03-10 15:10:21.924 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:10:21.957 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.9285ms
+2026-03-10 15:10:22.191 +07:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+2026-03-10 15:10:22.191 +07:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+2026-03-10 15:10:22.191 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 269.8763ms
+2026-03-10 15:10:22.195 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 272.2313ms
+2026-03-10 15:11:10.795 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/admin/Product/Create - application/x-www-form-urlencoded 420
+2026-03-10 15:11:10.803 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:11:10.895 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.Product) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:11:10.956 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:11:10.959 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:11:10.961 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:11:10.961 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:11:10.966 +07:00 [INF] Executed ViewResult - view Create executed in 4.9509ms.
+2026-03-10 15:11:10.966 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 71.4849ms
+2026-03-10 15:11:10.967 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:11:10.967 +07:00 [INF] HTTP POST /en/admin/Product/Create responded 200 in 166.5751 ms
+2026-03-10 15:11:10.968 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 174.0001ms
+2026-03-10 15:11:11.114 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:11:11.242 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:11:11.250 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 7.786ms
+2026-03-10 15:11:11.326 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 212.7876ms
+2026-03-10 15:11:21.017 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/admin/Product/Create - application/x-www-form-urlencoded 420
+2026-03-10 15:11:21.020 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:11:21.021 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.Product) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:11:21.027 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:11:21.030 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:11:21.031 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:11:21.032 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:11:21.037 +07:00 [INF] Executed ViewResult - view Create executed in 5.0458ms.
+2026-03-10 15:11:21.037 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 15.788ms
+2026-03-10 15:11:21.037 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:11:21.037 +07:00 [INF] HTTP POST /en/admin/Product/Create responded 200 in 16.6523 ms
+2026-03-10 15:11:21.038 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 20.9135ms
+2026-03-10 15:11:21.096 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:11:21.109 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.5592ms
+2026-03-10 15:11:21.122 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:11:21.123 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9313ms
+2026-03-10 15:11:24.596 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/admin/Product - null null
+2026-03-10 15:11:24.602 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-03-10 15:11:24.603 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:11:24.627 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+ORDER BY [p].[CreatedAt] DESC
+2026-03-10 15:11:24.628 +07:00 [INF] Executing ViewResult, running view Index.
+2026-03-10 15:11:24.631 +07:00 [INF] Executed ViewResult - view Index executed in 2.8295ms.
+2026-03-10 15:11:24.631 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 28.5087ms
+2026-03-10 15:11:24.631 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-03-10 15:11:24.631 +07:00 [INF] HTTP GET /en/admin/Product responded 200 in 31.7540 ms
+2026-03-10 15:11:24.632 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/admin/Product - 200 null text/html; charset=utf-8 36.1088ms
+2026-03-10 15:11:24.679 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:11:24.696 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:11:24.697 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.5306ms
+2026-03-10 15:11:24.699 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.15ms
+2026-03-10 15:12:02.945 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/admin/Product/Create - null null
+2026-03-10 15:12:02.954 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:12:02.955 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:12:02.961 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:12:02.964 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:12:02.970 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:12:02.970 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:12:02.973 +07:00 [INF] Executed ViewResult - view Create executed in 2.4515ms.
+2026-03-10 15:12:02.973 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 15.8551ms
+2026-03-10 15:12:02.973 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:12:02.973 +07:00 [INF] HTTP GET /en/admin/Product/Create responded 200 in 22.5503 ms
+2026-03-10 15:12:02.973 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 28.1155ms
+2026-03-10 15:12:03.040 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:12:03.040 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:12:03.042 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.5657ms
+2026-03-10 15:12:03.214 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 173.7934ms
+2026-03-10 15:12:30.785 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-03-10 15:12:30.788 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 1.3278 ms
+2026-03-10 15:12:30.790 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - 404 null null 4.7576ms
+2026-03-10 15:12:30.791 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-03-10 15:12:37.892 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/admin/Product/Create - application/x-www-form-urlencoded 456
+2026-03-10 15:12:37.899 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:12:37.899 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.Product) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:12:37.906 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:12:37.908 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:12:37.911 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:12:37.911 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:12:37.921 +07:00 [INF] Executed ViewResult - view Create executed in 10.0078ms.
+2026-03-10 15:12:37.921 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 21.9876ms
+2026-03-10 15:12:37.921 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:12:37.922 +07:00 [INF] HTTP POST /en/admin/Product/Create responded 200 in 22.6994 ms
+2026-03-10 15:12:37.922 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 30.1199ms
+2026-03-10 15:12:38.062 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:12:38.357 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-03-10 15:12:38.357 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:12:38.357 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 295.3866ms
+2026-03-10 15:12:38.404 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.1707 ms
+2026-03-10 15:12:38.419 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - 404 null null 61.8726ms
+2026-03-10 15:12:38.419 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-03-10 15:12:38.434 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 77.5033ms
+2026-03-10 15:13:19.382 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/admin/Product/Create - application/x-www-form-urlencoded 456
+2026-03-10 15:13:19.401 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:13:19.405 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.Product) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:13:19.426 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:13:19.437 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:13:19.442 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:13:19.443 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:13:19.450 +07:00 [INF] Executed ViewResult - view Create executed in 6.8501ms.
+2026-03-10 15:13:19.451 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 45.6744ms
+2026-03-10 15:13:19.451 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:13:19.451 +07:00 [INF] HTTP POST /en/admin/Product/Create responded 200 in 49.8112 ms
+2026-03-10 15:13:19.452 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 69.4113ms
+2026-03-10 15:13:19.830 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-03-10 15:13:19.830 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.1329 ms
+2026-03-10 15:13:19.888 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:13:20.014 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - 404 null null 184.2798ms
+2026-03-10 15:13:20.015 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-03-10 15:13:20.015 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:13:20.016 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9402ms
+2026-03-10 15:13:20.040 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 152.8822ms
+2026-03-10 15:13:21.797 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/admin/Product/Create - application/x-www-form-urlencoded 456
+2026-03-10 15:13:21.800 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:13:21.800 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.Product) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:13:21.875 +07:00 [INF] Executed DbCommand (73ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:13:21.886 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:13:21.891 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:13:21.892 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:13:21.898 +07:00 [INF] Executed ViewResult - view Create executed in 5.9206ms.
+2026-03-10 15:13:21.898 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 97.8088ms
+2026-03-10 15:13:21.898 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:13:21.898 +07:00 [INF] HTTP POST /en/admin/Product/Create responded 200 in 98.2501 ms
+2026-03-10 15:13:21.898 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 101.1247ms
+2026-03-10 15:13:21.994 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/en/admin/Product/Create - application/x-www-form-urlencoded 456
+2026-03-10 15:13:21.997 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:13:21.998 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(Cw.Branding.Web.Models.Entities.Product) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-03-10 15:13:22.010 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-03-10 15:13:22.014 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-03-10 15:13:22.016 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-03-10 15:13:22.016 +07:00 [INF] Executing ViewResult, running view Create.
+2026-03-10 15:13:22.021 +07:00 [INF] Executed ViewResult - view Create executed in 5.1498ms.
+2026-03-10 15:13:22.022 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 23.9581ms
+2026-03-10 15:13:22.022 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-03-10 15:13:22.022 +07:00 [INF] HTTP POST /en/admin/Product/Create responded 200 in 24.3690 ms
+2026-03-10 15:13:22.022 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/en/admin/Product/Create - 200 null text/html; charset=utf-8 29.0533ms
+2026-03-10 15:13:22.103 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-03-10 15:13:22.106 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.7646ms
+2026-03-10 15:13:22.106 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-03-10 15:13:22.119 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-03-10 15:13:22.120 +07:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.1416 ms
+2026-03-10 15:13:22.120 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json - 404 null null 5.678ms
+2026-03-10 15:13:22.121 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-03-10 15:13:22.122 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.4494ms

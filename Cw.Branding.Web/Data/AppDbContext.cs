@@ -1,7 +1,5 @@
 ﻿using Cw.Branding.Web.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace Cw.Branding.Web.Data;
 
@@ -17,14 +15,23 @@ public class AppDbContext : DbContext
     public DbSet<ProductImage> ProductImages => Set<ProductImage>();
     public DbSet<News> News => Set<News>();
     public DbSet<ContactFormEntry> ContactFormEntries => Set<ContactFormEntry>();
-    public DbSet<Brand> Brands { get; set; }
-    public DbSet<MachineType> MachineTypes { get; set; }
+    public DbSet<Brand> Brands => Set<Brand>();
+    public DbSet<MachineType> MachineTypes => Set<MachineType>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        // Category
+        // --- 1. MAPPING ---
+        modelBuilder.Entity<Category>().ToTable("Category");
+        modelBuilder.Entity<Product>().ToTable("Product");
+        modelBuilder.Entity<Brand>().ToTable("Brand");
+        modelBuilder.Entity<MachineType>().ToTable("MachineType");
+        modelBuilder.Entity<News>().ToTable("News");
+        modelBuilder.Entity<ContactFormEntry>().ToTable("ContactFormEntry");
+        modelBuilder.Entity<ProductImage>().ToTable("ProductImage");
+
+        // --- 2. CẤU HÌNH CATEGORY ---
         modelBuilder.Entity<Category>(entity =>
         {
             entity.HasIndex(x => x.Code).IsUnique();
@@ -32,20 +39,33 @@ public class AppDbContext : DbContext
             entity.HasIndex(x => x.SlugEn);
         });
 
-        // Product
+        // --- 3. CẤU HÌNH PRODUCT (Gộp chung các quan hệ) ---
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasIndex(x => x.Code).IsUnique();
             entity.HasIndex(x => x.SlugVi);
             entity.HasIndex(x => x.SlugEn);
 
+            // Quan hệ với Category (Bắt buộc - Không cho xóa Category nếu còn Product)
             entity.HasOne(p => p.Category)
                   .WithMany(c => c.Products)
                   .HasForeignKey(p => p.CategoryId)
                   .OnDelete(DeleteBehavior.Restrict);
+
+            // Quan hệ với Brand (Tùy chọn - Set Null khi xóa Brand)
+            entity.HasOne(p => p.Brand)
+                  .WithMany()
+                  .HasForeignKey(p => p.BrandId)
+                  .OnDelete(DeleteBehavior.SetNull);
+
+            // Quan hệ với MachineType (Tùy chọn - Set Null khi xóa MachineType)
+            entity.HasOne(p => p.MachineType)
+                  .WithMany()
+                  .HasForeignKey(p => p.MachineTypeId)
+                  .OnDelete(DeleteBehavior.SetNull);
         });
 
-        // ProductImage
+        // --- 4. CẤU HÌNH PRODUCT IMAGE (Xóa Product thì xóa luôn ảnh) ---
         modelBuilder.Entity<ProductImage>(entity =>
         {
             entity.HasOne(pi => pi.Product)
@@ -54,31 +74,16 @@ public class AppDbContext : DbContext
                   .OnDelete(DeleteBehavior.Cascade);
         });
 
-        // News
+        // --- 5. CẤU HÌNH NEWS & CONTACT ---
         modelBuilder.Entity<News>(entity =>
         {
             entity.HasIndex(x => x.SlugVi);
             entity.HasIndex(x => x.SlugEn);
         });
-        modelBuilder.Entity<Brand>().ToTable("Brand");
 
-        modelBuilder.Entity<MachineType>().ToTable("MachineType");
-        // ContactFormEntry
         modelBuilder.Entity<ContactFormEntry>(entity =>
         {
             entity.HasIndex(x => x.CreatedAt);
         });
-        // Cấu hình quan hệ nếu cần (EF Core tự nhận diện đa số trường hợp 1-n)
-        modelBuilder.Entity<Product>()
-            .HasOne(p => p.Brand)
-            .WithMany(b => b.Products)
-            .HasForeignKey(p => p.BrandId)
-            .OnDelete(DeleteBehavior.SetNull);
-
-        modelBuilder.Entity<Product>()
-            .HasOne(p => p.MachineType)
-            .WithMany(m => m.Products)
-            .HasForeignKey(p => p.MachineTypeId)
-            .OnDelete(DeleteBehavior.SetNull);
     }
 }
