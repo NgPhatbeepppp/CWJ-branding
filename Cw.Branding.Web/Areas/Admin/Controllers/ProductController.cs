@@ -79,7 +79,73 @@ public class ProductController : Controller
         await LoadDropdownDataAsync();
         return View(product);
     }
+    // 3. EDIT (GET): Hiển thị Form sửa với dữ liệu cũ
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
+    {
+        // Giả định trong IProductService anh đã có hàm GetByIdAsync
+        var product = await _productService.GetByIdAsync(id);
+        if (product == null)
+        {
+            return NotFound();
+        }
 
+        await LoadDropdownDataAsync();
+        return View(product);
+    }
+
+    // 4. EDIT (POST): Lưu dữ liệu cập nhật
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, Product model)
+    {
+        if (id != model.Id)
+        {
+            return BadRequest();
+        }
+
+        if (ModelState.IsValid)
+        {
+            // Giả định IProductService có hàm UpdateAsync
+            await _productService.UpdateAsync(model);
+
+            // Có thể thêm TempData["Success"] = "Cập nhật thành công"; ở đây
+            return RedirectToAction(nameof(Index));
+        }
+
+        // Nếu có lỗi validation, load lại dropdown và trả về form
+        await LoadDropdownDataAsync();
+        return View(model);
+    }
+    [HttpPost]
+    [Route("Admin/Product/UploadEditorImage")]
+    public async Task<IActionResult> UploadEditorImage(IFormFile file, [FromServices] IWebHostEnvironment env)
+    {
+        if (file == null || file.Length == 0)
+        {
+            return BadRequest("Invalid file.");
+        }
+
+        // Đảm bảo thư mục tồn tại
+        var uploadsFolder = Path.Combine(env.WebRootPath, "uploads", "products");
+        if (!Directory.Exists(uploadsFolder))
+        {
+            Directory.CreateDirectory(uploadsFolder);
+        }
+
+        // Tạo tên file an toàn
+        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(file.FileName);
+        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+        using (var stream = new FileStream(filePath, FileMode.Create))
+        {
+            await file.CopyToAsync(stream);
+        }
+
+        // Trả về URL ảnh để TinyMCE hiển thị
+        var fileUrl = $"/uploads/products/{uniqueFileName}";
+        return Json(new { location = fileUrl });
+    }
     // --- Helper function để tái sử dụng ---
     private async Task LoadDropdownDataAsync()
     {

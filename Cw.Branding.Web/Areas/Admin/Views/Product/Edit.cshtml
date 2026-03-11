@@ -1,15 +1,17 @@
 ﻿@model Cw.Branding.Web.Models.Entities.Product
 @{
-    ViewData["Title"] = "Thêm mới Sản phẩm";
+    ViewData["Title"] = "Cập nhật Sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="mb-6">
     <a asp-action="Index" class="text-sm text-gray-500 hover:text-[#004F9F]">← Quay lại danh sách</a>
-    <h1 class="mt-2 text-2xl font-bold text-gray-800">Thêm mới Sản phẩm</h1>
+    <h1 class="mt-2 text-2xl font-bold text-gray-800">Cập nhật Sản phẩm: @Model.NameVi</h1>
 </div>
 
-<form asp-action="Create" method="post" class="space-y-6">
+<form asp-action="Edit" method="post" class="space-y-6">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="CreatedAt" />
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
 
@@ -102,8 +104,8 @@
             </div>
 
             <div class="pt-4">
-                <button type="submit" class="w-full justify-center rounded-md border border-transparent bg-[#004F9F] py-3 px-4 text-sm font-bold text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-[#004F9F] focus:ring-offset-2">
-                    Lưu Sản phẩm
+                <button type="submit" class="w-full justify-center rounded-md border border-transparent bg-green-600 py-3 px-4 text-sm font-bold text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    Lưu Thay Đổi
                 </button>
             </div>
         </div>
@@ -153,8 +155,7 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
-    @* CDN TinyMCE *@
-    <script src="https://cdn.tiny.cloud/1/dl99a4afekhkasmei0sgcju4swck5lwhiy19phre0afu889m/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/dl99a4afekhkasmei0sgcju4swck5lwhiy19phre0afu889m/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
         const AdminTools = {
@@ -199,6 +200,10 @@
         document.addEventListener("DOMContentLoaded", function () {
              AdminTools.initRichEditor('.rich-editor', '/Admin/Product/UploadEditorImage');
 
+             // Lưu ý: Đối với trang Edit, thường người ta sẽ không tự động đổi Slug khi sửa Tên
+             // để tránh làm hỏng link SEO cũ. Nếu anh vẫn muốn auto-slug khi Edit, hãy bỏ comment đoạn dưới.
+
+             /*
              const nameViInput = document.getElementById('NameVi');
              const slugViInput = document.getElementById('SlugVi');
              if(nameViInput && slugViInput) {
@@ -214,6 +219,7 @@
                      slugEnInput.value = AdminTools.generateSlug(this.value);
                  });
              }
+             */
          });
     </script>
 }

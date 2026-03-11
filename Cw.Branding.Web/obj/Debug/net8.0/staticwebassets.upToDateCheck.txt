@@ -36,6 +36,7 @@ wwwroot\images\p9.png
 wwwroot\images\Partnerbg.png
 wwwroot\images\vision-bg.png
 wwwroot\images\WebBR_1.png
+wwwroot\js\admin-tools.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
