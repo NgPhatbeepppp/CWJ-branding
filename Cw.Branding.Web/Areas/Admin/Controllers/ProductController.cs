@@ -42,33 +42,46 @@ public class ProductController : Controller
         return View(new Product { IsActive = true, DisplayOrder = 1 });
     }
 
-    // 3. CREATE (POST): Xử lý lưu DB
+    // 3. CREATE (POST): Xử lý lưu DB có kèm ảnh và chọn ảnh bìa
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(Product product)
+    public async Task<IActionResult> Create(Product product, List<IFormFile> uploadImages, string? mainImageName)
     {
-        // 1. Bỏ qua việc validate các object quan hệ (Vì form chỉ gửi Id)
         ModelState.Remove(nameof(product.Category));
         ModelState.Remove(nameof(product.Brand));
         ModelState.Remove(nameof(product.MachineType));
         ModelState.Remove(nameof(product.Images));
 
-        // 2. Kiểm tra lại dữ liệu
+        // Validation: Cảnh báo nếu upload file không đúng định dạng ảnh
+        if (uploadImages != null && uploadImages.Count > 0)
+        {
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".webp" };
+            foreach (var file in uploadImages)
+            {
+                var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
+                if (string.IsNullOrEmpty(ext) || !allowedExtensions.Contains(ext))
+                {
+                    ModelState.AddModelError("", $"File '{file.FileName}' không hợp lệ. Hệ thống chỉ chấp nhận JPG, PNG, WEBP.");
+                    await LoadDropdownDataAsync();
+                    return View(product);
+                }
+            }
+        }
+
         if (!ModelState.IsValid)
         {
-            await LoadDropdownDataAsync(); // Load lại dropdown nếu form lỗi
+            await LoadDropdownDataAsync();
             return View(product);
         }
 
-        // 3. Tự tạo URL SEO thân thiện
-        // Lưu ý: Đảm bảo bạn đã using Cw.Branding.Web.Helpers; (chứa SlugHelper) ở đầu file
         product.SlugVi = SlugHelper.GenerateSlug(product.NameVi);
         product.SlugEn = string.IsNullOrEmpty(product.NameEn)
             ? product.SlugVi
             : SlugHelper.GenerateSlug(product.NameEn);
 
-        // 4. Lưu vào DB
-        var isSuccess = await _productService.CreateAsync(product);
+        // Gọi hàm CreateWithImagesAsync truyền thêm mainImageName vào
+        var isSuccess = await _productService.CreateWithImagesAsync(product, uploadImages, mainImageName);
+
         if (isSuccess)
         {
             TempData["SuccessMessage"] = "Thêm sản phẩm thành công!";
@@ -79,43 +92,71 @@ public class ProductController : Controller
         await LoadDropdownDataAsync();
         return View(product);
     }
-    // 3. EDIT (GET): Hiển thị Form sửa với dữ liệu cũ
+
+    // 4. EDIT (GET): Load data lên form
     [HttpGet]
     public async Task<IActionResult> Edit(int id)
     {
-        // Giả định trong IProductService anh đã có hàm GetByIdAsync
         var product = await _productService.GetByIdAsync(id);
-        if (product == null)
-        {
-            return NotFound();
-        }
+        if (product == null) return NotFound();
 
         await LoadDropdownDataAsync();
         return View(product);
     }
 
-    // 4. EDIT (POST): Lưu dữ liệu cập nhật
+    // 5. EDIT (POST): Xử lý cập nhật
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, Product model)
+    public async Task<IActionResult> Edit(int id, Product product, List<IFormFile> uploadImages, List<int> deletedImageIds, int? mainImageId, string? mainImageName)
     {
-        if (id != model.Id)
+        if (id != product.Id) return BadRequest();
+
+        ModelState.Remove(nameof(product.Category));
+        ModelState.Remove(nameof(product.Brand));
+        ModelState.Remove(nameof(product.MachineType));
+        ModelState.Remove(nameof(product.Images));
+
+        if (!ModelState.IsValid)
         {
-            return BadRequest();
+            await LoadDropdownDataAsync();
+            var existingProduct = await _productService.GetByIdAsync(id);
+            product.Images = existingProduct?.Images ?? new List<ProductImage>();
+            return View(product);
         }
 
-        if (ModelState.IsValid)
-        {
-            // Giả định IProductService có hàm UpdateAsync
-            await _productService.UpdateAsync(model);
+        product.SlugVi = SlugHelper.GenerateSlug(product.NameVi);
+        product.SlugEn = string.IsNullOrEmpty(product.NameEn) ? product.SlugVi : SlugHelper.GenerateSlug(product.NameEn);
 
-            // Có thể thêm TempData["Success"] = "Cập nhật thành công"; ở đây
+        // Truyền cả ID ảnh cũ và Tên ảnh mới xuống Service
+        var isSuccess = await _productService.UpdateProductWithImagesAsync(product, uploadImages, deletedImageIds, mainImageId, mainImageName);
+
+        if (isSuccess)
+        {
+            TempData["SuccessMessage"] = "Cập nhật sản phẩm thành công!";
             return RedirectToAction(nameof(Index));
         }
 
-        // Nếu có lỗi validation, load lại dropdown và trả về form
+        ModelState.AddModelError("", "Lỗi khi lưu Database.");
         await LoadDropdownDataAsync();
-        return View(model);
+        return View(product);
+    }
+    // 6. DELETE (POST): Xóa sản phẩm và dọn dẹp file
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var isSuccess = await _productService.DeleteAsync(id);
+
+        if (isSuccess)
+        {
+            TempData["SuccessMessage"] = "Đã xóa sản phẩm và toàn bộ hình ảnh liên quan thành công!";
+        }
+        else
+        {
+            TempData["ErrorMessage"] = "Không tìm thấy sản phẩm hoặc có lỗi xảy ra khi xóa.";
+        }
+
+        return RedirectToAction(nameof(Index));
     }
     [HttpPost]
     [Route("Admin/Product/UploadEditorImage")]
@@ -158,4 +199,5 @@ public class ProductController : Controller
         ViewBag.Brands = new SelectList(brands, "Id", "Name");
         ViewBag.MachineTypes = new SelectList(machineTypes, "Id", "NameVi");
     }
+
 }

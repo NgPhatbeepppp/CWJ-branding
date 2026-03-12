@@ -9,151 +9,159 @@
     <h1 class="mt-2 text-2xl font-bold text-gray-800">Thêm mới Sản phẩm</h1>
 </div>
 
-<form asp-action="Create" method="post" class="space-y-6">
+<form asp-action="Create" method="post" enctype="multipart/form-data" class="space-y-6">
 
-    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
 
-        <div class="col-span-2 space-y-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-semibold text-gray-700 border-b pb-2">Thông tin chung</h2>
-            <div asp-validation-summary="All" class="text-sm text-red-600"></div>
+        <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm flex flex-col h-full">
+            <h2 class="text-base font-bold text-[#004F9F] border-b pb-3 uppercase tracking-wider mb-4">1. Thông tin chung</h2>
 
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label asp-for="Code" class="block text-sm font-medium text-gray-700">Mã sản phẩm *</label>
-                    <input asp-for="Code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" required />
-                    <span asp-validation-for="Code" class="text-xs text-red-500"></span>
+            <div class="space-y-4 flex flex-col flex-1">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label asp-for="Code" class="block text-xs font-semibold text-gray-700">Mã sản phẩm *</label>
+                        <input asp-for="Code" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" required />
+                    </div>
+                    <div>
+                        <label asp-for="DisplayOrder" class="block text-xs font-semibold text-gray-700">Thứ tự</label>
+                        <input asp-for="DisplayOrder" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" />
+                    </div>
                 </div>
-                <div>
-                    <label asp-for="DisplayOrder" class="block text-sm font-medium text-gray-700">Thứ tự hiển thị</label>
-                    <input asp-for="DisplayOrder" type="number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" />
-                </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label asp-for="NameVi" class="block text-sm font-medium text-gray-700">Tên sản phẩm (VN) *</label>
+                    <label asp-for="NameVi" class="block text-xs font-semibold text-gray-700">Tên sản phẩm (VN) *</label>
                     <input asp-for="NameVi" id="NameVi" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" required />
-                    <span asp-validation-for="NameVi" class="text-xs text-red-500"></span>
+                    <input asp-for="SlugVi" id="SlugVi" class="mt-1 block w-full border-none bg-gray-50 text-[10px] text-gray-400 focus:ring-0 italic" readonly placeholder="slug-auto-gen" />
                 </div>
-                <div>
-                    <label asp-for="SlugVi" class="block text-sm font-medium text-gray-700">Slug (VN)</label>
-                    <input asp-for="SlugVi" id="SlugVi" class="mt-1 block w-full rounded-md border-gray-300 bg-gray-50 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" readonly />
-                </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label asp-for="NameEn" class="block text-sm font-medium text-gray-700">Tên sản phẩm (EN)</label>
+                    <label asp-for="NameEn" class="block text-xs font-semibold text-gray-700">Tên sản phẩm (EN)</label>
                     <input asp-for="NameEn" id="NameEn" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" />
+                    <input asp-for="SlugEn" id="SlugEn" class="mt-1 block w-full border-none bg-gray-50 text-[10px] text-gray-400 focus:ring-0 italic" readonly placeholder="slug-auto-gen" />
                 </div>
-                <div>
-                    <label asp-for="SlugEn" class="block text-sm font-medium text-gray-700">Slug (EN)</label>
-                    <input asp-for="SlugEn" id="SlugEn" class="mt-1 block w-full rounded-md border-gray-300 bg-gray-50 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm" readonly />
-                </div>
-            </div>
 
-            <div class="grid grid-cols-2 gap-4">
-                <div>
-                    <label asp-for="ShortDescriptionVi" class="block text-sm font-medium text-gray-700">Mô tả ngắn (VN)</label>
-                    <textarea asp-for="ShortDescriptionVi" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm"></textarea>
-                </div>
-                <div>
-                    <label asp-for="ShortDescriptionEn" class="block text-sm font-medium text-gray-700">Mô tả ngắn (EN)</label>
-                    <textarea asp-for="ShortDescriptionEn" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm"></textarea>
+                <div class="flex flex-col flex-1 min-h-[120px]">
+                    <label asp-for="ShortDescriptionVi" class="block text-xs font-semibold text-gray-700 mb-2">Mô tả ngắn (VN)</label>
+                    <textarea asp-for="ShortDescriptionVi"
+                              class="flex-1 w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm resize-none overflow-y-auto p-3 bg-gray-50/30"
+                              placeholder="Nhập tóm tắt sản phẩm..."></textarea>
                 </div>
             </div>
         </div>
 
-        <div class="space-y-6 rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-semibold text-gray-700 border-b pb-2">Phân loại & Trạng thái</h2>
+        <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm space-y-7 flex flex-col h-full">
+            <h2 class="text-base font-bold text-[#004F9F] border-b pb-3 uppercase tracking-wider">2. Phân loại & Trạng thái</h2>
 
-            <div>
-                <label asp-for="CategoryId" class="block text-sm font-medium text-gray-700">Chuyên khoa *</label>
-                <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm">
-                    <option value="">-- Chọn chuyên khoa --</option>
-                </select>
-                <span asp-validation-for="CategoryId" class="text-xs text-red-500"></span>
+            <div class="space-y-6 flex-1">
+                <div>
+                    <label asp-for="CategoryId" class="block text-xs font-semibold text-gray-700 mb-2">Chuyên khoa *</label>
+                    <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] py-2.5 sm:text-sm">
+                        <option value="">-- Chọn chuyên khoa --</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label asp-for="BrandId" class="block text-xs font-semibold text-gray-700 mb-2">Hãng sản xuất</label>
+                    <select asp-for="BrandId" asp-items="ViewBag.Brands" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] py-2.5 sm:text-sm">
+                        <option value="">-- Chọn hãng --</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label asp-for="MachineTypeId" class="block text-xs font-semibold text-gray-700 mb-2">Loại máy</label>
+                    <select asp-for="MachineTypeId" asp-items="ViewBag.MachineTypes" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] py-2.5 sm:text-sm">
+                        <option value="">-- Chọn loại máy --</option>
+                    </select>
+                </div>
             </div>
 
-            <div>
-                <label asp-for="BrandId" class="block text-sm font-medium text-gray-700">Hãng sản xuất</label>
-                <select asp-for="BrandId" asp-items="ViewBag.Brands" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm">
-                    <option value="">-- Chọn hãng --</option>
-                </select>
+            <div class="pt-6 flex flex-col gap-4 border-t border-gray-100">
+                <div class="flex items-center">
+                    <input asp-for="IsActive" type="checkbox" class="h-5 w-5 rounded border-gray-300 text-[#004F9F] focus:ring-[#004F9F]" />
+                    <label asp-for="IsActive" class="ml-3 block text-sm text-gray-900 font-medium cursor-pointer">Hiển thị trên Website</label>
+                </div>
+                <div class="flex items-center">
+                    <input asp-for="IsFeatured" type="checkbox" class="h-5 w-5 rounded border-gray-300 text-yellow-500 focus:ring-yellow-500" />
+                    <label asp-for="IsFeatured" class="ml-3 block text-sm text-gray-900 font-medium cursor-pointer">Sản phẩm nổi bật (Trang chủ)</label>
+                </div>
             </div>
 
-            <div>
-                <label asp-for="MachineTypeId" class="block text-sm font-medium text-gray-700">Loại máy</label>
-                <select asp-for="MachineTypeId" asp-items="ViewBag.MachineTypes" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#004F9F] focus:ring-[#004F9F] sm:text-sm">
-                    <option value="">-- Chọn loại máy --</option>
-                </select>
-            </div>
-
-            <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 pt-4">Cấu hình hiển thị</h2>
-
-            <div class="flex items-center">
-                <input asp-for="IsActive" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-[#004F9F] focus:ring-[#004F9F]" />
-                <label asp-for="IsActive" class="ml-2 block text-sm text-gray-900">Hiển thị (Active)</label>
-            </div>
-
-            <div class="flex items-center">
-                <input asp-for="IsFeatured" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-yellow-500 focus:ring-yellow-500" />
-                <label asp-for="IsFeatured" class="ml-2 block text-sm text-gray-900">Sản phẩm nổi bật (Trang chủ)</label>
-            </div>
-
-            <div class="pt-4">
-                <button type="submit" class="w-full justify-center rounded-md border border-transparent bg-[#004F9F] py-3 px-4 text-sm font-bold text-white shadow-sm hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-[#004F9F] focus:ring-offset-2">
-                    Lưu Sản phẩm
+            <div class="pt-2">
+                <button type="submit" class="w-full bg-[#004F9F] py-4 text-white font-bold rounded-md hover:bg-blue-800 transition-all uppercase tracking-widest shadow-lg active:scale-[0.99]">
+                    Lưu Thông Tin Sản Phẩm
                 </button>
             </div>
         </div>
     </div>
 
     <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 class="text-lg font-semibold text-gray-700 border-b pb-2 mb-6">Nội dung chi tiết & Thông số kỹ thuật</h2>
+        <h2 class="text-base font-bold text-[#004F9F] border-b pb-3 uppercase tracking-wider mb-6">3. Gallery Ảnh sản phẩm</h2>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="space-y-6">
-                <div class="bg-blue-50 p-3 rounded-md border border-blue-100 mb-4">
-                    <h3 class="font-bold text-blue-800">🇻🇳 Ngôn ngữ: Tiếng Việt</h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1 border-r border-dashed pr-6">
+                <label class="block text-xs font-bold text-gray-700 mb-4 italic">Tải lên hình ảnh *</label>
+                <div class="relative group cursor-pointer border-2 border-dashed border-gray-300 rounded-lg p-4 hover:border-[#004F9F] transition-colors bg-gray-50">
+                    <input type="file" name="uploadImages" id="uploadImages" multiple accept=".jpg,.jpeg,.png,.webp"
+                           class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+                    <input type="hidden" id="MainImageName" name="MainImageName" value="" />
+                    <div class="text-center">
+                        <svg class="mx-auto h-10 w-10 text-gray-400 group-hover:text-[#004F9F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <p class="mt-2 text-xs text-gray-500 font-medium">Nhấn hoặc kéo thả ảnh vào đây</p>
+                    </div>
                 </div>
-
-                <div>
-                    <label asp-for="DescriptionVi" class="block text-sm font-medium text-gray-700 mb-2">Mô tả chi tiết</label>
-                    <textarea asp-for="DescriptionVi" class="rich-editor block w-full"></textarea>
-                </div>
-
-                <div>
-                    <label asp-for="TechnicalSpecsVi" class="block text-sm font-medium text-gray-700 mb-2">Thông số kỹ thuật</label>
-                    <textarea asp-for="TechnicalSpecsVi" class="rich-editor block w-full"></textarea>
-                </div>
+                <ul class="mt-6 space-y-2 text-[10px] text-gray-400 italic list-disc pl-4">
+                    <li>Ảnh đầu tiên mặc định làm Thumbnail.</li>
+                    <li>Nên dùng ảnh tỉ lệ 1:1 hoặc 4:3.</li>
+                    <li>Dung lượng tối đa 2MB/ảnh.</li>
+                </ul>
             </div>
 
-            <div class="space-y-6">
-                <div class="bg-gray-50 p-3 rounded-md border border-gray-200 mb-4">
-                    <h3 class="font-bold text-gray-700">🇬🇧 Ngôn ngữ: Tiếng Anh</h3>
+            <div class="md:col-span-3">
+                <div id="imagePreviewContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 min-h-[250px] p-2 bg-gray-50/50 rounded-lg">
+                    <div class="col-span-full flex items-center justify-center text-gray-300 italic text-sm">
+                        Chưa có ảnh nào được chọn...
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold text-gray-700 border-b pb-3 mb-8 uppercase">Nội dung chi tiết & Thông số kỹ thuật</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="space-y-8">
+                <div class="bg-blue-50 p-3 rounded-md border-l-4 border-blue-500"><h3 class="font-bold text-blue-800">🇻🇳 PHẦN TIẾNG VIỆT</h3></div>
                 <div>
-                    <label asp-for="DescriptionEn" class="block text-sm font-medium text-gray-700 mb-2">Mô tả chi tiết</label>
-                    <textarea asp-for="DescriptionEn" class="rich-editor block w-full"></textarea>
+                    <label class="block text-xs font-bold text-gray-600 mb-3 uppercase italic">Mô tả chi tiết sản phẩm</label>
+                    <textarea asp-for="DescriptionVi" class="rich-editor"></textarea>
                 </div>
-
                 <div>
-                    <label asp-for="TechnicalSpecsEn" class="block text-sm font-medium text-gray-700 mb-2">Thông số kỹ thuật</label>
-                    <textarea asp-for="TechnicalSpecsEn" class="rich-editor block w-full"></textarea>
+                    <label class="block text-xs font-bold text-gray-600 mb-3 uppercase italic">Thông số kỹ thuật</label>
+                    <textarea asp-for="TechnicalSpecsVi" class="rich-editor"></textarea>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <div class="bg-gray-50 p-3 rounded-md border-l-4 border-gray-400"><h3 class="font-bold text-gray-700">🇬🇧 ENGLISH SECTION</h3></div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-3 uppercase italic">Detailed Description</label>
+                    <textarea asp-for="DescriptionEn" class="rich-editor"></textarea>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 mb-3 uppercase italic">Technical Specifications</label>
+                    <textarea asp-for="TechnicalSpecsEn" class="rich-editor"></textarea>
                 </div>
             </div>
         </div>
     </div>
 </form>
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 
-    @* CDN TinyMCE *@
+    @* TinyMCE *@
     <script src="https://cdn.tiny.cloud/1/dl99a4afekhkasmei0sgcju4swck5lwhiy19phre0afu889m/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
 
     <script>
@@ -183,10 +191,7 @@
                     images_upload_url: uploadUrl,
                     automatic_uploads: true,
                     images_upload_credentials: true,
-                    file_picker_types: 'image',
-                    valid_elements: '*[*]',
-                    entity_encoding: "raw",
-                    height: 400,
+                    height: 350,
                     setup: function (editor) {
                         editor.on('change', function () {
                             tinymce.triggerSave();
@@ -199,21 +204,82 @@
         document.addEventListener("DOMContentLoaded", function () {
              AdminTools.initRichEditor('.rich-editor', '/Admin/Product/UploadEditorImage');
 
-             const nameViInput = document.getElementById('NameVi');
-             const slugViInput = document.getElementById('SlugVi');
-             if(nameViInput && slugViInput) {
-                 nameViInput.addEventListener('keyup', function () {
-                     slugViInput.value = AdminTools.generateSlug(this.value);
-                 });
-             }
+             // Slug Auto-generation
+             const bindSlug = (sourceId, targetId) => {
+                 const source = document.getElementById(sourceId);
+                 const target = document.getElementById(targetId);
+                 if(source && target) {
+                     source.addEventListener('keyup', () => {
+                         target.value = AdminTools.generateSlug(source.value);
+                     });
+                 }
+             };
 
-             const nameEnInput = document.getElementById('NameEn');
-             const slugEnInput = document.getElementById('SlugEn');
-             if(nameEnInput && slugEnInput) {
-                 nameEnInput.addEventListener('keyup', function () {
-                     slugEnInput.value = AdminTools.generateSlug(this.value);
-                 });
-             }
-         });
+             bindSlug('NameVi', 'SlugVi');
+             bindSlug('NameEn', 'SlugEn');
+
+             // Image Preview Logic
+           // THÊM MỚI: Xử lý hiển thị Preview Image & Chọn ảnh bìa
+            const uploadInput = document.getElementById('uploadImages');
+            const previewContainer = document.getElementById('imagePreviewContainer');
+            const mainImageNameInput = document.getElementById('MainImageName');
+
+            if (uploadInput && previewContainer) {
+                uploadInput.addEventListener('change', function(event) {
+                    previewContainer.innerHTML = '';
+                    const files = event.target.files;
+
+                    if (files.length > 0) {
+                        // Mặc định chọn ảnh đầu tiên làm bìa
+                        mainImageNameInput.value = files[0].name;
+                    }
+
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                // Container cho mỗi ảnh
+                                const div = document.createElement('div');
+                                div.className = "relative group cursor-pointer w-24 h-24";
+
+                                // Tạo ảnh
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.className = `w-full h-full object-cover rounded-md border-2 shadow-sm transition-all ${file.name === mainImageNameInput.value ? 'border-[#004F9F]' : 'border-gray-200'}`;
+
+                                // Nút/Label hiển thị "Ảnh bìa"
+                                const badge = document.createElement('div');
+                                badge.className = `absolute bottom-0 left-0 right-0 text-center text-[10px] py-1 font-bold text-white rounded-b-md ${file.name === mainImageNameInput.value ? 'bg-[#004F9F]' : 'bg-gray-800/60 hidden group-hover:block'}`;
+                                badge.innerText = file.name === mainImageNameInput.value ? 'Ảnh bìa' : 'Đặt làm bìa';
+
+                                // Click vào ảnh để chọn làm bìa
+                                div.addEventListener('click', function() {
+                                    mainImageNameInput.value = file.name;
+                                    // Reset UI: bỏ viền xanh và ẩn badge các ảnh khác
+                                    Array.from(previewContainer.children).forEach(child => {
+                                        child.querySelector('img').classList.replace('border-[#004F9F]', 'border-gray-200');
+                                        const b = child.querySelector('div');
+                                        b.innerText = 'Đặt làm bìa';
+                                        b.classList.replace('bg-[#004F9F]', 'bg-gray-800/60');
+                                        b.classList.add('hidden', 'group-hover:block');
+                                    });
+                                    // Active UI cho ảnh hiện tại
+                                    img.classList.replace('border-gray-200', 'border-[#004F9F]');
+                                    badge.innerText = 'Ảnh bìa';
+                                    badge.classList.replace('bg-gray-800/60', 'bg-[#004F9F]');
+                                    badge.classList.remove('hidden', 'group-hover:block');
+                                });
+
+                                div.appendChild(img);
+                                div.appendChild(badge);
+                                previewContainer.appendChild(div);
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                });
+            }
+        });
     </script>
 }

@@ -1,17 +1,26 @@
 ﻿using Cw.Branding.Web.Data;
 using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Cw.Branding.Web.Services;
 
 public class ProductService : IProductService
 {
     private readonly AppDbContext _context;
+    private readonly IWebHostEnvironment _env; // Thêm env để xử lý file vật lý
 
-    public ProductService(AppDbContext context)
+    public ProductService(AppDbContext context, IWebHostEnvironment env)
     {
         _context = context;
+        _env = env;
     }
 
     // Lấy tất cả cho Admin, kèm theo thông tin quan hệ để hiển thị lên bảng
@@ -21,6 +30,7 @@ public class ProductService : IProductService
             .Include(p => p.Category)
             .Include(p => p.Brand)
             .Include(p => p.MachineType)
+            .Include(p => p.Images) // Load thêm ảnh để hiển thị Thumbnail
             .OrderByDescending(p => p.CreatedAt)
             .AsNoTracking()
             .ToListAsync();
@@ -93,6 +103,7 @@ public class ProductService : IProductService
         }
     }
 
+    // CẬP NHẬT: Hàm Update Cũ (Giữ lại nếu anh có xài chỗ khác không liên quan đến ảnh)
     public async Task<bool> UpdateAsync(Product product)
     {
         try
@@ -100,7 +111,6 @@ public class ProductService : IProductService
             var existing = await _context.Products.FindAsync(product.Id);
             if (existing == null) return false;
 
-            // Mapping data (Có thể dùng AutoMapper, nhưng MVP mình map tay cho gọn và kiểm soát tốt)
             existing.Code = product.Code;
             existing.NameVi = product.NameVi;
             existing.NameEn = product.NameEn;
@@ -115,12 +125,9 @@ public class ProductService : IProductService
             existing.IsFeatured = product.IsFeatured;
             existing.IsActive = product.IsActive;
             existing.DisplayOrder = product.DisplayOrder;
-
-            // Cập nhật FK
             existing.CategoryId = product.CategoryId;
             existing.BrandId = product.BrandId;
             existing.MachineTypeId = product.MachineTypeId;
-
             existing.UpdatedAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
@@ -131,14 +138,214 @@ public class ProductService : IProductService
             return false;
         }
     }
+    // Cập nhật signature
+    public async Task<bool> CreateWithImagesAsync(Product product, List<IFormFile> newImages, string? mainImageName = null)
+    {
+        try
+        {
+            product.CreatedAt = DateTime.UtcNow;
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
 
+            if (newImages != null && newImages.Count > 0)
+            {
+                var productFolder = Path.Combine(_env.WebRootPath, "uploads", "products", product.Id.ToString());
+                if (!Directory.Exists(productFolder)) Directory.CreateDirectory(productFolder);
+
+                int displayOrder = 1;
+                // Biến cờ để đảm bảo ít nhất có 1 ảnh làm Main nếu mainImageName bị lỗi
+                bool hasMainImage = false;
+
+                foreach (var file in newImages)
+                {
+                    if (file.Length > 0)
+                    {
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(file.FileName);
+                        var physicalPath = Path.Combine(productFolder, uniqueFileName);
+
+                        using (var stream = new FileStream(physicalPath, FileMode.Create))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+
+                        // LOGIC MỚI: Kiểm tra tên file để set IsMain
+                        bool isMain = false;
+                        if (!string.IsNullOrEmpty(mainImageName) && file.FileName == mainImageName && !hasMainImage)
+                        {
+                            isMain = true;
+                            hasMainImage = true;
+                        }
+                        // Fallback: Nếu duyệt đến ảnh cuối mà vẫn chưa có ảnh bìa, lấy đại ảnh đầu
+                        else if (string.IsNullOrEmpty(mainImageName) && displayOrder == 1)
+                        {
+                            isMain = true;
+                            hasMainImage = true;
+                        }
+
+                        product.Images.Add(new ProductImage
+                        {
+                            FilePath = $"/uploads/products/{product.Id}/{uniqueFileName}",
+                            IsMain = isMain,
+                            DisplayOrder = displayOrder
+                        });
+
+                        displayOrder++;
+                    }
+                }
+
+                // Fallback lần 2: Lỡ mainImageName gửi lên không khớp file nào thì set file đầu tiên
+                if (!hasMainImage && product.Images.Any())
+                {
+                    product.Images.First().IsMain = true;
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+    // CẬP NHẬT: Xử lý Edit Product (Task 2.2.2)
+    public async Task<bool> UpdateProductWithImagesAsync(Product product, List<IFormFile> newImages, List<int> deletedImageIds, int? mainImageId = null, string? mainImageName = null)
+    {
+        try
+        {
+            var existingProduct = await _context.Products.Include(p => p.Images).FirstOrDefaultAsync(p => p.Id == product.Id);
+            if (existingProduct == null) return false;
+
+            // 1. Mapping data text
+            existingProduct.Code = product.Code;
+            existingProduct.NameVi = product.NameVi;
+            existingProduct.NameEn = product.NameEn;
+            existingProduct.SlugVi = product.SlugVi;
+            existingProduct.SlugEn = product.SlugEn;
+            existingProduct.ShortDescriptionVi = product.ShortDescriptionVi;
+            existingProduct.ShortDescriptionEn = product.ShortDescriptionEn;
+            existingProduct.DescriptionVi = product.DescriptionVi;
+            existingProduct.DescriptionEn = product.DescriptionEn;
+            existingProduct.CategoryId = product.CategoryId;
+            existingProduct.BrandId = product.BrandId;
+            existingProduct.MachineTypeId = product.MachineTypeId;
+            existingProduct.IsActive = product.IsActive;
+            existingProduct.IsFeatured = product.IsFeatured;
+            existingProduct.DisplayOrder = product.DisplayOrder;
+
+            // 2. Xóa ảnh cũ & File vật lý
+            if (deletedImageIds != null && deletedImageIds.Any())
+            {
+                var imagesToDelete = existingProduct.Images.Where(i => deletedImageIds.Contains(i.Id)).ToList();
+                foreach (var img in imagesToDelete)
+                {
+                    var filePath = Path.Combine(_env.WebRootPath, img.FilePath.TrimStart('/'));
+                    if (System.IO.File.Exists(filePath)) System.IO.File.Delete(filePath);
+                    existingProduct.Images.Remove(img);
+                    _context.ProductImages.Remove(img);
+                }
+            }
+
+            // 3. Logic: Đang chọn ảnh cũ hay ảnh mới làm bìa?
+            bool isNewImageMain = !string.IsNullOrEmpty(mainImageName);
+            bool hasMainImage = false;
+
+            // 4. Duyệt danh sách ảnh cũ để set bìa
+            foreach (var img in existingProduct.Images)
+            {
+                // Nếu KHÔNG chọn ảnh mới làm bìa, VÀ id trùng khớp thì nó là bìa
+                if (!isNewImageMain && mainImageId.HasValue && img.Id == mainImageId.Value)
+                {
+                    img.IsMain = true;
+                    hasMainImage = true;
+                }
+                else
+                {
+                    img.IsMain = false;
+                }
+            }
+
+            // 5. Thêm ảnh mới
+            if (newImages != null && newImages.Count > 0)
+            {
+                var productFolder = Path.Combine(_env.WebRootPath, "uploads", "products", product.Id.ToString());
+                if (!Directory.Exists(productFolder)) Directory.CreateDirectory(productFolder);
+
+                int maxOrder = existingProduct.Images.Any() ? existingProduct.Images.Max(i => i.DisplayOrder) : 0;
+
+                foreach (var file in newImages)
+                {
+                    if (file.Length > 0)
+                    {
+                        var uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(file.FileName);
+                        var physicalPath = Path.Combine(productFolder, uniqueFileName);
+
+                        using (var stream = new FileStream(physicalPath, FileMode.Create))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
+
+                        // Nếu chọn đúng ảnh tải lên này làm bìa
+                        bool isMainForThisNewFile = false;
+                        if (isNewImageMain && file.FileName == mainImageName && !hasMainImage)
+                        {
+                            isMainForThisNewFile = true;
+                            hasMainImage = true;
+                        }
+
+                        maxOrder++;
+                        existingProduct.Images.Add(new ProductImage
+                        {
+                            FilePath = $"/uploads/products/{product.Id}/{uniqueFileName}",
+                            IsMain = isMainForThisNewFile,
+                            DisplayOrder = maxOrder
+                        });
+                    }
+                }
+            }
+
+            // 6. Fallback: Nếu không có ai làm bìa, lấy ảnh số 1
+            if (!hasMainImage && existingProduct.Images.Any())
+            {
+                existingProduct.Images.OrderBy(i => i.DisplayOrder).First().IsMain = true;
+            }
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
+    // CẬP NHẬT: Logic Delete Product & Folder Purge (Task 2.2.3)
     public async Task<bool> DeleteAsync(int id)
     {
-        var product = await _context.Products.FindAsync(id);
-        if (product == null) return false;
+        try
+        {
+            // 1. Tìm sản phẩm
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return false;
 
-        _context.Products.Remove(product);
-        await _context.SaveChangesAsync();
-        return true;
+            // 2. LOGIC FOLDER PURGE: Xóa toàn bộ thư mục /uploads/products/{id}/
+            var productFolder = Path.Combine(_env.WebRootPath, "uploads", "products", id.ToString());
+            if (Directory.Exists(productFolder))
+            {
+                // Tham số 'true' ở đây là để xóa đệ quy (xóa luôn cả các file bên trong folder)
+                Directory.Delete(productFolder, true);
+            }
+
+            // 3. XÓA DATABASE (EF Core sẽ tự động Cascade Delete các record trong bảng ProductImages)
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 }

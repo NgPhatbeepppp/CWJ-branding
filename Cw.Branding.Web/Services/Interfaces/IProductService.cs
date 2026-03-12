@@ -1,5 +1,5 @@
 ﻿using Cw.Branding.Web.Models.Entities;
-
+using Microsoft.AspNetCore.Http;
 namespace Cw.Branding.Web.Services.Interfaces;
 
 public interface IProductService
@@ -10,7 +10,8 @@ public interface IProductService
     Task<bool> CreateAsync(Product product);
     Task<bool> UpdateAsync(Product product);
     Task<bool> DeleteAsync(int id);
-
+    Task<bool> UpdateProductWithImagesAsync(Product product, List<IFormFile> newImages, List<int> deletedImageIds, int? mainImageId = null, string? mainImageName = null);
+    Task<bool> CreateWithImagesAsync(Product product, List<IFormFile> newImages, string? mainImageName = null);
     // --- CLIENT ---
     Task<List<Product>> GetFeaturedProductsAsync(int limit = 8); // Cho trang chủ
     Task<List<Product>> GetActiveByCategoryAsync(int categoryId); // Lọc theo chuyên khoa
