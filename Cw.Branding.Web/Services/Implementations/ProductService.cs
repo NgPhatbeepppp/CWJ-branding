@@ -22,16 +22,46 @@ public class ProductService : IProductService
         _context = context;
         _env = env;
     }
-
-    // Lấy tất cả cho Admin, kèm theo thông tin quan hệ để hiển thị lên bảng
-    public async Task<List<Product>> GetAllForAdminAsync()
+    public async Task<bool> IsCodeExistsAsync(string code)
     {
-        return await _context.Products
+        // Kiểm tra không phân biệt hoa thường
+        return await _context.Products.AnyAsync(p => p.Code.ToLower() == code.ToLower());
+    }
+    // Lấy tất cả cho Admin, kèm theo thông tin quan hệ để hiển thị lên bảng
+    // Services/Implementations/ProductService.cs
+    public async Task<List<Product>> GetAllForAdminAsync(string? searchTerm = null, int? categoryId = null, int? brandId = null, bool? isActive = null)
+    {
+        var query = _context.Products
             .Include(p => p.Category)
             .Include(p => p.Brand)
-            .Include(p => p.MachineType)
-            .Include(p => p.Images) // Load thêm ảnh để hiển thị Thumbnail
-            .OrderByDescending(p => p.CreatedAt)
+            .Include(p => p.MachineType) // Giữ lại để hiện tên loại máy trên bảng
+            .Include(p => p.Images)      // <--- DÒNG NÀY QUAN TRỌNG NHẤT: Để hiện Thumbnail
+            .AsQueryable();
+
+        // 1. Lọc theo từ khóa
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            searchTerm = searchTerm.ToLower().Trim();
+            query = query.Where(p => p.NameVi.ToLower().Contains(searchTerm)
+                                  || p.NameEn.ToLower().Contains(searchTerm)
+                                  || p.Code.ToLower().Contains(searchTerm));
+        }
+
+        // 2. Lọc theo Chuyên khoa
+        if (categoryId.HasValue)
+            query = query.Where(p => p.CategoryId == categoryId.Value);
+
+        // 3. Lọc theo Hãng
+        if (brandId.HasValue)
+            query = query.Where(p => p.BrandId == brandId.Value);
+
+        // 4. Lọc theo Trạng thái
+        if (isActive.HasValue)
+            query = query.Where(p => p.IsActive == isActive.Value);
+
+        return await query
+            .OrderBy(p => p.DisplayOrder)
+            .ThenByDescending(p => p.CreatedAt)
             .AsNoTracking()
             .ToListAsync();
     }
@@ -102,7 +132,18 @@ public class ProductService : IProductService
             return false;
         }
     }
+    // Services/Implementations/ProductService.cs
+    public async Task<bool> UpdateDisplayOrderAsync(int id, int displayOrder)
+    {
+        var product = await _context.Products.FindAsync(id);
+        if (product == null) return false;
 
+        product.DisplayOrder = displayOrder;
+        product.UpdatedAt = DateTime.UtcNow;
+
+        _context.Products.Update(product);
+        return await _context.SaveChangesAsync() > 0; // Trả về true nếu có ít nhất 1 dòng bị thay đổi
+    }
     // CẬP NHẬT: Hàm Update Cũ (Giữ lại nếu anh có xài chỗ khác không liên quan đến ảnh)
     public async Task<bool> UpdateAsync(Product product)
     {

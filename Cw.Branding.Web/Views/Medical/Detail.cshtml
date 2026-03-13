@@ -2,19 +2,16 @@
 @{
     var lang = Context.GetRouteValue("lang")?.ToString() ?? "en";
     var isEn = lang == "en";
-
     var name = isEn ? Model.NameEn : Model.NameVi;
-    // Ưu tiên Description (HTML), nếu null thì fallback về ShortDescription, rồi mới đến text tĩnh
+    var categoryName = isEn ? Model.Category.NameEn : Model.Category.NameVi;
+
+    // Dữ liệu nội dung chính
     var dbDescription = isEn ? Model.DescriptionEn : Model.DescriptionVi;
     var shortDesc = isEn ? Model.ShortDescriptionEn : Model.ShortDescriptionVi;
+    var mainContent = !string.IsNullOrEmpty(dbDescription) ? dbDescription : shortDesc;
 
-    var content = !string.IsNullOrEmpty(dbDescription) ? dbDescription : shortDesc;
-
-    // Nếu cả 2 đều null (trường hợp hiếm), hiện thông báo placeholder để user biết
-    if (string.IsNullOrEmpty(content))
-    {
-        content = "<p class='text-slate-400 italic'>Content is being updated...</p>";
-    }
+    // Dữ liệu thông số kỹ thuật (Rich Text)
+    var techSpecs = isEn ? Model.TechnicalSpecsEn : Model.TechnicalSpecsVi;
 
     var mainImage = Model.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault()?.FilePath
                     ?? "https://via.placeholder.com/500x500?text=No+Image";
@@ -22,38 +19,32 @@
     ViewData["Title"] = name;
 }
 
+@* --- BANNER --- *@
 <div class="relative h-[200px] w-full overflow-hidden bg-slate-900">
     <img src="/images/medical-bg-4.jpg" alt="Banner" class="h-full w-full object-cover opacity-60" />
     <div class="absolute inset-0 flex items-center justify-center">
         <h1 class="font-heading text-3xl font-bold uppercase tracking-widest text-white md:text-4xl drop-shadow-md">
-            @Model.Category.NameEn
+            @categoryName
         </h1>
     </div>
 </div>
 
+@* --- BREADCRUMB --- *@
 <div class="border-b border-slate-200 bg-white">
     <div class="section-container py-3">
-        @* --- NÚT BACK --- *@
         <div class="mb-2">
             <a href="javascript:history.back()" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-brand-primary transition-colors">
                 <svg class="mr-1 h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 @(isEn ? "Back" : "Quay lại")
             </a>
         </div>
-
         <nav class="flex text-sm text-slate-500" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="/@lang" class="hover:text-brand-primary">Home</a>
-                </li>
+                <li><a href="/@lang" class="hover:text-brand-primary">Home</a></li>
                 <li>/</li>
-                <li class="inline-flex items-center">
-                    <a href="/@lang/medical-solutions" class="hover:text-brand-primary">Medical</a>
-                </li>
+                <li><a href="/@lang/medical-solutions" class="hover:text-brand-primary">Medical</a></li>
                 <li>/</li>
-                <li class="inline-flex items-center">
-                    <span class="text-slate-700">@Model.Category.NameEn</span>
-                </li>
+                <li><span class="text-slate-700">@categoryName</span></li>
                 <li>/</li>
                 <li aria-current="page">
                     <span class="font-medium text-brand-primary line-clamp-1 max-w-[200px]">@name</span>
@@ -65,33 +56,38 @@
 
 <div class="section-container py-12 md:py-16">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
-
-        <div class="lg:col-span-5 flex flex-col gap-16">
-            <div class="rounded-lg bg-white p-4 ">
+        @* --- CỘT TRÁI: ẢNH & THÔNG SỐ KỸ THUẬT --- *@
+        <div class="lg:col-span-5 flex flex-col gap-10">
+            <div class="rounded-lg bg-white p-4 border border-slate-100 shadow-sm">
                 <img src="@mainImage" alt="@name" class="h-auto w-full object-contain" />
             </div>
 
-            <div class="bg-blue-100/60 p-6 rounded-sm border-l-4 border-brand-primary">
+            <div class="bg-blue-50/80 p-6 rounded-sm border-l-4 border-brand-primary">
                 <h3 class="mb-4 font-heading text-lg font-bold uppercase text-brand-primary">
-                    TECHNICAL INFORMATION
+                    @(isEn ? "TECHNICAL INFORMATION" : "THÔNG SỐ KỸ THUẬT")
                 </h3>
-                <div class="font-body text-sm text-slate-700 space-y-2">
-                    @if (!string.IsNullOrEmpty(shortDesc))
+                <div class="font-body text-sm text-slate-700 prose prose-sm max-w-none">
+                    @if (!string.IsNullOrEmpty(techSpecs))
+                    {
+                        @Html.Raw(techSpecs) @* Đổ HTML từ Rich Text Editor *@
+                    }
+                    else if (!string.IsNullOrEmpty(shortDesc))
                     {
                         <p>@shortDesc</p>
                     }
                     else
                     {
-                        <p>Contact us for detailed technical specifications.</p>
+                        <p class="italic">@(isEn ? "Contact us for detailed specifications." : "Liên hệ để biết thêm chi tiết.")</p>
                     }
                 </div>
             </div>
         </div>
 
+        @* --- CỘT PHẢI: THÔNG TIN CHI TIẾT --- *@
         <div class="lg:col-span-7 lg:border-l lg:border-slate-200 lg:pl-20">
-
             <div class="mb-2 text-right">
-                <span class="font-heading text-xl font-bold text-slate-900">Masimo</span>
+                @* ĐỔ TÊN HÃNG THẬT *@
+                <span class="font-heading text-xl font-bold text-slate-900 uppercase">@(Model.Brand?.Name ?? "")</span>
             </div>
 
             <div class="mb-6 text-right border-b border-slate-200 pb-6">
@@ -99,67 +95,35 @@
                     @name
                 </h1>
                 <p class="mt-2 text-lg text-slate-500 font-light">
-                    Patient Monitoring and Connectivity Platform
+                    Mã sản phẩm: <span class="font-medium">@Model.Code</span>
                 </p>
             </div>
 
             <h2 class="mb-4 font-heading text-lg font-bold uppercase text-brand-primary">
-                PRODUCT INFORMATION
+                @(isEn ? "PRODUCT INFORMATION" : "THÔNG TIN SẢN PHẨM")
             </h2>
 
             <div class="prose prose-slate max-w-none font-body text-slate-600 leading-relaxed mb-8">
-                @Html.Raw(content)
+                @if (!string.IsNullOrEmpty(mainContent))
+                {
+                    @Html.Raw(mainContent)
+                }
+                else
+                {
+                    <p class="text-slate-400 italic">@(isEn ? "Content is being updated..." : "Nội dung đang được cập nhật...")</p>
+                }
             </div>
 
-            <div class="mt-8">
-                <a href="#" class="inline-flex items-center justify-center bg-brand-primary px-8 py-3 text-base font-bold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg rounded-sm uppercase tracking-wide w-full sm:w-auto">
-                    <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.5l5 5v2m0 0h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"></path></svg>
-                    Download PDF
-                </a>
-            </div>
+            @* --- NÚT TẢI PDF --- *@
+            @if (!string.IsNullOrEmpty(Model.DatasheetPath))
+            {
+                <div class="mt-8">
+                    <a href="@Model.DatasheetPath" target="_blank" class="inline-flex items-center justify-center bg-brand-primary px-8 py-3 text-base font-bold text-white shadow-md transition-all hover:bg-blue-700 hover:shadow-lg rounded-sm uppercase tracking-wide w-full sm:w-auto">
+                        <svg class="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.5l5 5v2m0 0h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"></path></svg>
+                        @(isEn ? "Download PDF Datasheet" : "Tải tài liệu PDF")
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </div>
-
-@* --- RELATED PRODUCTS SECTION --- *@
-@{
-    var relatedProducts = ViewBag.RelatedProducts as List<Cw.Branding.Web.Models.Entities.Product>;
-}
-
-@if (relatedProducts != null && relatedProducts.Any())
-{
-    @* Thêm section-container để có khoảng cách biên (padding x) *@
-    <div class="section-container pb-20">
-        <div class="border-t border-slate-100 pt-20">
-            @* Giữ nguyên h3 canh lề trái *@
-            <h3 class=" mt-8 mb-8  font-heading text-2xl font-bold uppercase text-slate-900 tracking-tight">
-                @(isEn ? "Related Products" : "Sản phẩm liên quan")
-            </h3>
-
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach (var item in relatedProducts)
-                {
-                    var rName = isEn ? item.NameEn : item.NameVi;
-                    var rSlug = isEn ? item.SlugEn : item.SlugVi;
-                    var rImage = item.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault()?.FilePath
-                    ?? "https://via.placeholder.com/400x400?text=No+Image";
-
-                    <a href="/@lang/medical/product/@rSlug" class="group block overflow-hidden">
-                        <div class="aspect-square w-full overflow-hidden bg-slate-100 rounded-sm">
-                            <img src="@rImage" alt="@rName"
-                                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                        </div>
-                        <div class="mt-4">
-                            <h4 class="font-heading text-sm font-bold uppercase text-slate-800 transition-colors group-hover:text-brand-primary">
-                                @rName
-                            </h4>
-                            <p class="text-xs text-slate-500 mt-1 uppercase tracking-wider">
-                                @(isEn? item.Category?.NameEn : item.Category?.NameVi)
-                            </p>
-                        </div>
-                    </a>
-                }
-            </div>
-        </div>
-    </div>
-}

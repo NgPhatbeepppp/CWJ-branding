@@ -28,12 +28,27 @@ public class ProductController : Controller
     }
 
     // 1. INDEX: Danh sách sản phẩm
-    public async Task<IActionResult> Index()
+    // Areas/Admin/Controllers/ProductController.cs
+    public async Task<IActionResult> Index(string? searchTerm, int? categoryId, int? brandId, bool? isActive)
     {
-        var products = await _productService.GetAllForAdminAsync();
+        // 1. Lấy danh sách sản phẩm theo tất cả điều kiện lọc
+        var products = await _productService.GetAllForAdminAsync(searchTerm, categoryId, brandId, isActive);
+
+        // 2. Load lại Dropdown nhưng phải truyền kèm "Selected Value"
+        var categories = await _categoryService.GetAllAsync();
+        var brands = await _brandService.GetAllAsync();
+        var machineTypes = await _machineTypeService.GetAllAsync();
+
+        // Tham số thứ 4 là giá trị đang được chọn
+        ViewBag.Categories = new SelectList(categories, "Id", "NameVi", categoryId);
+        ViewBag.Brands = new SelectList(brands, "Id", "Name", brandId);
+
+        // Lưu lại searchTerm và isActive để hiển thị lại trên View
+        ViewBag.SearchTerm = searchTerm;
+        ViewBag.IsActive = isActive;
+
         return View(products);
     }
-
     // 2. CREATE (GET): Hiển thị Form thêm mới kèm Dropdown
     [HttpGet]
     public async Task<IActionResult> Create()
@@ -67,7 +82,11 @@ public class ProductController : Controller
                 }
             }
         }
-
+        // 1. Kiểm tra trùng mã ngay lập tức
+        if (await _productService.IsCodeExistsAsync(product.Code))
+        {
+            ModelState.AddModelError("Code", "Mã sản phẩm này đã tồn tại trên hệ thống. Vui lòng nhập mã khác.");
+        }
         if (!ModelState.IsValid)
         {
             await LoadDropdownDataAsync();
@@ -188,16 +207,26 @@ public class ProductController : Controller
         return Json(new { location = fileUrl });
     }
     // --- Helper function để tái sử dụng ---
-    private async Task LoadDropdownDataAsync()
+    private async Task LoadDropdownDataAsync(Product? product = null)
     {
-        // Giả định IBrandService và IMachineTypeService có hàm GetAllAsync() (Dựa theo Ngày 2)
         var categories = await _categoryService.GetAllAsync();
         var brands = await _brandService.GetAllAsync();
         var machineTypes = await _machineTypeService.GetAllAsync();
 
-        ViewBag.Categories = new SelectList(categories, "Id", "NameVi");
-        ViewBag.Brands = new SelectList(brands, "Id", "Name");
-        ViewBag.MachineTypes = new SelectList(machineTypes, "Id", "NameVi");
+        // Truyền thêm product.Id vào tham số thứ 4 để SelectList biết cái nào đang được chọn
+        ViewBag.Categories = new SelectList(categories, "Id", "NameVi", product?.CategoryId);
+        ViewBag.Brands = new SelectList(brands, "Id", "Name", product?.BrandId);
+        ViewBag.MachineTypes = new SelectList(machineTypes, "Id", "NameVi", product?.MachineTypeId);
     }
 
+    [HttpPost]
+    public async Task<IActionResult> UpdateOrder(int id, int order)
+    {
+        var result = await _productService.UpdateDisplayOrderAsync(id, order);
+        if (result)
+        {
+            return Json(new { success = true });
+        }
+        return Json(new { success = false, message = "Lỗi lưu DB" });
+    }
 }
