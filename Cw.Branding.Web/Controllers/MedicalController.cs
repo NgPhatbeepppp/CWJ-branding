@@ -38,25 +38,7 @@ namespace Cw.Branding.Web.Controllers
 
             return View(viewModel);
         }
-
-
-
-        [HttpGet("{lang}/Medical/FilterProducts")]
-        public async Task<IActionResult> FilterProducts(int categoryId)
-        {
-            try
-            {
-                // Gọi Service giúp code gọn và đảm bảo logic OrderBy(p => p.DisplayOrder) đồng nhất
-                var products = await _productService.GetActiveByCategoryAsync(categoryId);
-
-                return PartialView("_ProductListPartial", products);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading products: {ex.Message}");
-                return StatusCode(500, new { error = "Failed to load products" });
-            }
-        }
+       
         [HttpGet("{lang}/medical/product/{slug}")]
         public async Task<IActionResult> Detail(string lang, string slug)
         {
@@ -82,6 +64,42 @@ namespace Cw.Branding.Web.Controllers
             ViewBag.RelatedProducts = relatedProducts;
             return View(product);
         }
+        [HttpGet("{lang}/Medical/FilterProducts")]
+        public async Task<IActionResult> FilterProducts(string lang, int? categoryId, int? brandId, int? machineTypeId, string? searchTerm)
+        {
+            try
+            {
+                // 1. Lấy danh sách sản phẩm theo bộ lọc
+                var products = await _productService.GetFilteredProductsClientAsync(searchTerm, categoryId, brandId, machineTypeId);
 
+                // 2. Lấy dữ liệu mồi cho Dropdowns
+                // Brand: Chỉ có .Name
+                ViewBag.Brands = await _context.Brands
+                    .Where(b => b.IsActive)
+                    .OrderBy(b => b.Name)
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                // MachineType: Có NameVi/NameEn
+                var machineTypesQuery = _context.MachineTypes.Where(m => m.IsActive).AsNoTracking();
+                ViewBag.MachineTypes = lang == "vi"
+                    ? await machineTypesQuery.OrderBy(m => m.NameVi).ToListAsync()
+                    : await machineTypesQuery.OrderBy(m => m.NameEn).ToListAsync();
+
+                // 3. Giữ trạng thái filter
+                ViewBag.CurrentCategoryId = categoryId;
+                ViewBag.CurrentBrandId = brandId;
+                ViewBag.CurrentMachineTypeId = machineTypeId;
+                ViewBag.CurrentSearch = searchTerm;
+                ViewBag.CurrentLang = lang;
+
+                return PartialView("_ProductListPartial", products);
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "Error filtering products");
+            }
+        }
     }
+
 }

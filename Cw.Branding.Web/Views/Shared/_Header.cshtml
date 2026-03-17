@@ -63,7 +63,18 @@
                 <a href="?lang=en" class="px-3 hover:text-brand-primary text-brand-primary font-bold">EN</a>
                 <a href="?lang=vi" class="px-3 hover:text-brand-primary">VI</a>
             </div>
-
+            @* Search Bar trong Header *@
+            <div class="relative hidden xl:block">
+                <form action="/@ViewContext.RouteData.Values["lang"]/medical-solutions" method="GET" class="relative">
+                    <input type="text" name="searchTerm" placeholder="Search products..."
+                           class="w-48 rounded-full border border-slate-300 bg-white/50 py-1.5 pl-4 pr-10 text-sm focus:border-brand-primary focus:outline-none focus:ring-1 focus:ring-brand-primary transition-all" />
+                    <button type="submit" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-brand-primary">
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
             <button type="button" id="mobile-menu-btn" class="lg:hidden p-2 text-black hover:text-brand-primary focus:outline-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>

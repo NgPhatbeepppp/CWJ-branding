@@ -35,7 +35,7 @@ public class ProductService : IProductService
             .Include(p => p.Category)
             .Include(p => p.Brand)
             .Include(p => p.MachineType) // Giữ lại để hiện tên loại máy trên bảng
-            .Include(p => p.Images)      // <--- DÒNG NÀY QUAN TRỌNG NHẤT: Để hiện Thumbnail
+            .Include(p => p.Images)      
             .AsQueryable();
 
         // 1. Lọc theo từ khóa
@@ -388,5 +388,41 @@ public class ProductService : IProductService
         {
             return false;
         }
+    }
+    // Thêm vào ProductService.cs
+    public async Task<List<Product>> GetFilteredProductsClientAsync(string? searchTerm, int? categoryId, int? brandId, int? machineTypeId)
+    {
+        var query = _context.Products
+            .Include(p => p.Images)
+            .Include(p => p.Brand)
+            .Include(p => p.Category)
+            .Where(p => p.IsActive) // Chỉ lấy hàng Active cho Client
+            .AsQueryable();
+
+        // Lọc theo từ khóa (Search)
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            searchTerm = searchTerm.ToLower().Trim();
+            query = query.Where(p => p.NameVi.ToLower().Contains(searchTerm)
+                                  || p.NameEn.ToLower().Contains(searchTerm)
+                                  || p.Code.ToLower().Contains(searchTerm));
+        }
+
+        // Lọc theo Chuyên khoa
+        if (categoryId.HasValue && categoryId > 0)
+            query = query.Where(p => p.CategoryId == categoryId.Value);
+
+        // Lọc theo Hãng
+        if (brandId.HasValue && brandId > 0)
+            query = query.Where(p => p.BrandId == brandId.Value);
+
+        // Lọc theo Loại máy
+        if (machineTypeId.HasValue && machineTypeId > 0)
+            query = query.Where(p => p.MachineTypeId == machineTypeId.Value);
+
+        return await query
+            .OrderBy(p => p.DisplayOrder)
+            .AsNoTracking()
+            .ToListAsync();
     }
 }

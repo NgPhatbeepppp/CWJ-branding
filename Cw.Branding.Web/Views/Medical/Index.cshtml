@@ -126,110 +126,147 @@
 
 @section Scripts {
 
-    @* SCRIPT CỦA THƯ VIỆN AOS *@
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <script>
-        // 1. HÀM HELPER: TỰ ĐỘNG CUỘN MƯỢT VỚI TỐC ĐỘ TÙY CHỈNH
-        // target: vị trí đích (px), duration: thời gian trượt (ms)
-        function customSmoothScroll(target, duration) {
-            const targetPosition = target;
-            const startPosition = window.scrollY;
-            const distance = targetPosition - startPosition;
-            let startTime = null;
+<script>
+    // --- 0. BIẾN TOÀN CỤC ---
+    window.currentCategoryId = 0;
 
-            // Hàm Easing: easeOutCubic - Nhanh lúc đầu, chậm dần lúc cuối
-            function easeOutCubic(t, b, c, d) {
-                t /= d;
-                t--;
-                return c * (t * t * t + 1) + b;
-            }
+    // --- 1. HÀM HELPER: CUỘN MƯỢT ---
+    function customSmoothScroll(targetY, duration) {
+        const startPosition = window.scrollY;
+        const distance = targetY - startPosition;
+        let startTime = null;
 
-            function animation(currentTime) {
-                if (startTime === null) startTime = currentTime;
-                const timeElapsed = currentTime - startTime;
-
-                // Tính toán vị trí tiếp theo
-                const run = easeOutCubic(timeElapsed, startPosition, distance, duration);
-
-                window.scrollTo(0, run);
-
-                if (timeElapsed < duration) {
-                    requestAnimationFrame(animation);
-                }
-            }
-
-            requestAnimationFrame(animation);
+        function easeOutCubic(t, b, c, d) {
+            t /= d; t--;
+            return c * (t * t * t + 1) + b;
         }
 
-        // 2. HÀM LOAD PRODUCTS (Đã cập nhật dùng customSmoothScroll)
-        function loadProducts(element, categoryId) {
-            // UI Active style
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const run = easeOutCubic(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+        requestAnimationFrame(animation);
+    }
+
+    // --- 2. HÀM LỌC (GỌI TỪ NÚT "LỌC") ---
+    function applyFilters() {
+        // Nếu chưa chọn Category nào, có thể thông báo hoặc mặc định lọc trên toàn bộ (tùy anh)
+        const brandId = document.getElementById('filter-brand')?.value || '';
+        const mTypeId = document.getElementById('filter-machineType')?.value || '';
+        const search = document.getElementById('filter-search')?.value || '';
+
+        loadProducts(null, window.currentCategoryId, brandId, mTypeId, search);
+    }
+
+    // --- 3. HÀM BỎ LỌC ---
+    function clearFilters() {
+        if(document.getElementById('filter-brand')) document.getElementById('filter-brand').value = "";
+        if(document.getElementById('filter-machineType')) document.getElementById('filter-machineType').value = "";
+        if(document.getElementById('filter-search')) document.getElementById('filter-search').value = "";
+
+        loadProducts(null, window.currentCategoryId, '', '', '');
+    }
+
+    // --- 4. HÀM LOAD PRODUCTS CHÍNH ---
+    function loadProducts(element, categoryId, brandId = '', machineTypeId = '', searchTerm = '') {
+        window.currentCategoryId = categoryId;
+
+        // Update UI Active cho Category Icons
+        if (element) {
             document.querySelectorAll('.category-item').forEach(el => {
                 el.classList.remove('ring-2', 'ring-brand-primary', 'bg-blue-50');
             });
             element.classList.add('ring-2', 'ring-brand-primary', 'bg-blue-50');
-
-            const productContainer = document.getElementById('section-products');
-
-            // --- TÍNH TOÁN VỊ TRÍ ---
-            const elementPosition = productContainer.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.scrollY - 120; // Trừ Header
-
-            // --- GỌI HÀM CUỘN MỚI ---
-            // 1500ms = 1.5 giây (bạn có thể chỉnh số này để nhanh/chậm tùy ý)
-            customSmoothScroll(offsetPosition, 1500);
-
-            // Loading state
-            productContainer.innerHTML = '<div class="flex justify-center py-12"><div class="h-8 w-8 animate-spin rounded-full border-4 border-brand-primary border-t-transparent"></div></div>';
-
-            // Fetch Data
-            const url = '@Url.Action("FilterProducts", "Medical", new { area = "" })' + '?categoryId=' + categoryId;
-
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        console.error('Server status:', response.status);
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    productContainer.innerHTML = html;
-
-                    // Animation thủ công cho nội dung Ajax
-                    const fadeElements = productContainer.querySelectorAll('.fade-in-up');
-                    setTimeout(() => {
-                        fadeElements.forEach(el => el.classList.remove('opacity-0', 'translate-y-4'));
-                    }, 50);
-                })
-                .catch(error => {
-                    console.error('Error loading products:', error);
-                    productContainer.innerHTML = '<div class="text-center py-8 text-red-500">Failed to load products. Check Console (F12).</div>';
-                });
         }
 
-        // 3. KHỞI TẠO CÁC SCRIPT KHÁC KHI LOAD TRANG
-        document.addEventListener("DOMContentLoaded", function () {
+        const productContainer = document.getElementById('section-products');
+        const lang = '@ViewContext.RouteData.Values["lang"]' || 'en';
 
-            // Init AOS
-            AOS.init({
-                duration: 1500,       // 1.5 giây
-                easing: 'ease-out-cubic',
-                once: true,           // Chỉ chạy 1 lần
-                offset: 250           // Cuộn sâu mới hiện
+        // Chỉ thực hiện load nếu có categoryId hoặc có từ khóa tìm kiếm
+        // Nếu categoryId = 0 và không có search, chúng ta có thể chọn hiện "Tất cả" hoặc hiện "Placeholder"
+        // Theo yêu cầu của anh: Chỉ load khi chọn danh mục.
+        if (categoryId === 0 && searchTerm === '' && brandId === '' && machineTypeId === '') {
+            renderPlaceholder();
+            return;
+        }
+
+        // Hiệu ứng cuộn
+        const elementPosition = productContainer.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - 120;
+        customSmoothScroll(offsetPosition, 1200);
+
+        productContainer.style.opacity = '0.5';
+        productContainer.innerHTML = '<div class="flex justify-center py-20"><div class="h-10 w-10 animate-spin rounded-full border-4 border-brand-primary border-t-transparent"></div></div>';
+
+        const url = `/${lang}/Medical/FilterProducts?categoryId=${categoryId}&brandId=${brandId}&machineTypeId=${machineTypeId}&searchTerm=${encodeURIComponent(searchTerm)}`;
+
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                productContainer.innerHTML = html;
+                productContainer.style.opacity = '1';
+                if (typeof AOS !== 'undefined') AOS.refreshHard();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                productContainer.style.opacity = '1';
             });
+    }
 
-            // Logic Slider (Ken Burns)
-            const slides = document.querySelectorAll('.slider-image');
-            if(slides.length <= 1) return;
+    // Hàm render trạng thái chờ khi chưa chọn danh mục
+    function renderPlaceholder() {
+        const productContainer = document.getElementById('section-products');
+        const lang = '@ViewContext.RouteData.Values["lang"]' || 'en';
+        const message = lang === 'vi'
+            ? "Vui lòng chọn một chuyên khoa phía trên để xem danh sách sản phẩm."
+            : "Please select a medical category above to view products.";
+
+        productContainer.innerHTML = `
+            <div class="py-32 text-center border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50" data-aos="fade-up">
+                <div class="mb-4 flex justify-center">
+                    <div class="p-4 bg-white rounded-full shadow-sm">
+                        <svg class="w-12 h-12 text-brand-primary/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                </div>
+                <p class="text-slate-400 font-medium">${message}</p>
+            </div>
+        `;
+        productContainer.style.opacity = '1';
+    }
+
+    // --- 5. KHỞI TẠO ---
+    document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({ duration: 1000, once: true });
+
+        // Slider logic...
+        const slides = document.querySelectorAll('.slider-image');
+        if(slides.length > 1) {
             let currentSlide = 0;
-            const slideInterval = 5000;
             setInterval(() => {
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
-            }, slideInterval);
-        });
-    </script>
+            }, 5000);
+        }
+
+        // KIỂM TRA TRẠNG THÁI BAN ĐẦU
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchFromUrl = urlParams.get('searchTerm') || '';
+
+        if (searchFromUrl) {
+            // Nếu người dùng search từ Header, load ngay kết quả search
+            loadProducts(null, 0, '', '', searchFromUrl);
+        } else {
+            // Nếu không, chỉ hiện Placeholder, KHÔNG load sản phẩm
+            renderPlaceholder();
+        }
+    });
+</script>
 }
