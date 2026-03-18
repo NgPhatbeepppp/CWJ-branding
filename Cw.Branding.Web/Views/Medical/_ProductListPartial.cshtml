@@ -72,8 +72,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
                 @foreach (var item in Model)
                 {
-                    var firstImage = item.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault();
-                    var imgSrc = (firstImage != null) ? firstImage.FilePath : "https://via.placeholder.com/400x400?text=No+Image";
+                    var mainImage = item.Images?.FirstOrDefault(i => i.IsMain) ?? item.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault();
+                    var imgSrc = (mainImage != null) ? mainImage.FilePath : "https://via.placeholder.com/400x400?text=No+Image";
                     var displayName = lang == "vi" ? item.NameVi : item.NameEn;
                     var displayDesc = lang == "vi" ? item.ShortDescriptionVi : item.ShortDescriptionEn;
                     var displaySlug = lang == "vi" ? item.SlugVi : item.SlugEn;
@@ -96,32 +96,71 @@
                 }
             </div>
         }
+@* --- ĐOẠN UI PHÂN TRANG (PAGINATION) --- *@
+        @if (ViewBag.TotalPages != null && ViewBag.TotalPages > 1)
+        {
+            <div class="mt-10 flex items-center justify-center gap-2">
+                @* Nút Lùi *@
+                <button onclick="goToPage(@(ViewBag.CurrentPage - 1))" disabled="@(ViewBag.CurrentPage <= 1)"
+                        class="px-3 py-2 rounded-lg border border-slate-300 bg-white text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+
+                @* Vòng lặp in số trang *@
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {
+                        <button class="px-4 py-2 rounded-lg font-bold bg-[#004F9F] text-white shadow-sm pointer-events-none">@i</button>
+                    }
+                    else
+                    {
+                        <button onclick="goToPage(@i)" class="px-4 py-2 rounded-lg font-medium border border-slate-300 bg-white text-slate-600 hover:bg-slate-50 transition-all">@i</button>
+                    }
+                }
+
+                @* Nút Tiến *@
+                <button onclick="goToPage(@(ViewBag.CurrentPage + 1))" disabled="@(ViewBag.CurrentPage >= ViewBag.TotalPages)"
+                        class="px-3 py-2 rounded-lg border border-slate-300 bg-white text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        }
     </div>
 </div>
 @* --- 3. SCRIPT LOGIC --- *@
 <script>
-    // Hàm thực hiện lọc
-    function applyFilters() {
+    // Hàm áp dụng lọc, mặc định khi đổi bộ lọc sẽ quay về trang 1
+    function applyFilters(page = 1) {
         const brandId = document.getElementById('filter-brand').value;
         const machineTypeId = document.getElementById('filter-machineType').value;
         const searchTerm = document.getElementById('filter-search').value;
 
-        // Gọi hàm load từ trang cha (Index.cshtml)
-        // window.currentCategoryId được trang cha quản lý khi bấm vào icon chuyên khoa
         if (typeof window.loadProducts === 'function') {
-            window.loadProducts(window.currentCategoryId, brandId, machineTypeId, searchTerm);
+            window.loadProducts(window.currentCategoryId, brandId, machineTypeId, searchTerm, page);
         }
     }
 
-    // Hàm bỏ lọc: Reset tất cả các ô về trống và load lại
+    // Nút chuyển trang chuyên biệt
+    function goToPage(page) {
+        applyFilters(page);
+
+        // (Tùy chọn) Cuộn nhẹ màn hình lên đầu danh sách sản phẩm
+        const container = document.getElementById('product-list-container');
+        if(container) {
+            const y = container.getBoundingClientRect().top + window.scrollY - 100;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    }
+
+    // Xóa bộ lọc
     function clearFilters() {
         document.getElementById('filter-brand').value = "";
         document.getElementById('filter-machineType').value = "";
         document.getElementById('filter-search').value = "";
 
-        // Load lại với các tham số trống
         if (typeof window.loadProducts === 'function') {
-            window.loadProducts(window.currentCategoryId, '', '', '');
+            window.loadProducts(window.currentCategoryId, '', '', '', 1);
         }
     }
-</script> 
+</script>

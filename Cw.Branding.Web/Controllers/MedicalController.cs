@@ -65,35 +65,36 @@ namespace Cw.Branding.Web.Controllers
             return View(product);
         }
         [HttpGet("{lang}/Medical/FilterProducts")]
-        public async Task<IActionResult> FilterProducts(string lang, int? categoryId, int? brandId, int? machineTypeId, string? searchTerm)
+        public async Task<IActionResult> FilterProducts(string lang, int? categoryId, int? brandId, int? machineTypeId, string? searchTerm, int page = 1)
         {
             try
             {
-                // 1. Lấy danh sách sản phẩm theo bộ lọc
-                var products = await _productService.GetFilteredProductsClientAsync(searchTerm, categoryId, brandId, machineTypeId);
+                int pageSize = 8; // Fix 8 sản phẩm/trang theo yêu cầu
 
-                // 2. Lấy dữ liệu mồi cho Dropdowns
-                // Brand: Chỉ có .Name
-                ViewBag.Brands = await _context.Brands
-                    .Where(b => b.IsActive)
-                    .OrderBy(b => b.Name)
-                    .AsNoTracking()
-                    .ToListAsync();
+                // Gọi hàm phân trang mới
+                var result = await _productService.GetFilteredProductsPaginatedAsync(searchTerm, categoryId, brandId, machineTypeId, page, pageSize);
 
-                // MachineType: Có NameVi/NameEn
+                // Giữ nguyên logic lấy Dropdowns như cũ
+                ViewBag.Brands = await _context.Brands.Where(b => b.IsActive).OrderBy(b => b.Name).AsNoTracking().ToListAsync();
                 var machineTypesQuery = _context.MachineTypes.Where(m => m.IsActive).AsNoTracking();
                 ViewBag.MachineTypes = lang == "vi"
                     ? await machineTypesQuery.OrderBy(m => m.NameVi).ToListAsync()
                     : await machineTypesQuery.OrderBy(m => m.NameEn).ToListAsync();
 
-                // 3. Giữ trạng thái filter
+                // Đẩy trạng thái xuống View
                 ViewBag.CurrentCategoryId = categoryId;
                 ViewBag.CurrentBrandId = brandId;
                 ViewBag.CurrentMachineTypeId = machineTypeId;
                 ViewBag.CurrentSearch = searchTerm;
                 ViewBag.CurrentLang = lang;
 
-                return PartialView("_ProductListPartial", products);
+                // PAGING DATA
+                ViewBag.CurrentPage = page;
+                ViewBag.TotalPages = (int)Math.Ceiling((double)result.TotalCount / pageSize);
+                ViewBag.TotalCount = result.TotalCount;
+
+                // Trả về Items thay vì biến products cũ
+                return PartialView("_ProductListPartial", result.Items);
             }
             catch (Exception)
             {

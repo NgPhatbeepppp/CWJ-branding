@@ -425,4 +425,45 @@ public class ProductService : IProductService
             .AsNoTracking()
             .ToListAsync();
     }
+    public async Task<(List<Product> Items, int TotalCount)> GetFilteredProductsPaginatedAsync(
+    string? searchTerm, int? categoryId, int? brandId, int? machineTypeId, int page = 1, int pageSize = 8)
+    {
+        var query = _context.Products
+            .Include(p => p.Images)
+            .Include(p => p.Brand)
+            .Include(p => p.Category)
+            .Where(p => p.IsActive)
+            .AsQueryable();
+
+        // Lọc theo từ khóa
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            searchTerm = searchTerm.ToLower().Trim();
+            query = query.Where(p => p.NameVi.ToLower().Contains(searchTerm)
+                                  || p.NameEn.ToLower().Contains(searchTerm)
+                                  || p.Code.ToLower().Contains(searchTerm));
+        }
+
+        // Lọc theo các dropdown
+        if (categoryId.HasValue && categoryId > 0)
+            query = query.Where(p => p.CategoryId == categoryId.Value);
+        if (brandId.HasValue && brandId > 0)
+            query = query.Where(p => p.BrandId == brandId.Value);
+        if (machineTypeId.HasValue && machineTypeId > 0)
+            query = query.Where(p => p.MachineTypeId == machineTypeId.Value);
+
+        // Đếm tổng số record thỏa mãn điều kiện
+        int totalCount = await query.CountAsync();
+
+        // Cắt lấy 8 sản phẩm của trang hiện tại
+        var items = await query
+            .OrderByDescending(p => p.Id) // Sắp xếp mới nhất lên đầu
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .AsNoTracking()
+            .ToListAsync();
+
+        return (items, totalCount);
+    }
+
 }

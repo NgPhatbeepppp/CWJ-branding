@@ -17,6 +17,9 @@
                     ?? "https://via.placeholder.com/500x500?text=No+Image";
 
     ViewData["Title"] = name;
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 }
 
 @* --- BANNER --- *@
@@ -56,28 +59,63 @@
 
 <div class="section-container py-12 md:py-16">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
-        @* --- CỘT TRÁI: ẢNH & THÔNG SỐ KỸ THUẬT --- *@
-        <div class="lg:col-span-5 flex flex-col gap-10">
-            <div class="rounded-lg bg-white p-4 border border-slate-100 shadow-sm">
-                <img src="@mainImage" alt="@name" class="h-auto w-full object-contain" />
+        <div class="lg:col-span-5 flex flex-col gap-4">
+            @* --- 1. ẢNH LỚN (MAIN DISPLAY) --- *@
+            <div class="relative group overflow-hidden rounded-lg border border-slate-100 bg-white p-4 shadow-sm aspect-square flex items-center justify-center">
+                @{
+                    var allImages = Model.Images?.OrderBy(i => i.DisplayOrder).ToList() ?? new List<Cw.Branding.Web.Models.Entities.ProductImage>();
+                    var displayImage = allImages.FirstOrDefault(i => i.IsMain)?.FilePath ?? allImages.FirstOrDefault()?.FilePath ?? "https://via.placeholder.com/500x500?text=No+Image";
+                }
+                <img id="main-product-image" src="@displayImage" alt="@name" class="h-full w-full object-contain transition-opacity duration-300" />
+
+                @* Mũi tên điều hướng trên ảnh lớn (Optional) *@
+                <button onclick="prevImage()" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
+                <button onclick="nextImage()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
             </div>
 
-            <div class="bg-blue-50/80 p-6 rounded-sm border-l-4 border-brand-primary">
-                <h3 class="mb-4 font-heading text-lg font-bold uppercase text-brand-primary">
+            @* --- 2. THUMBNAIL SLIDER (SWIPER) --- *@
+            @if (allImages.Count > 1)
+            {
+                <div class="relative px-8">
+                    @* Thêm padding để lộ mũi tên *@
+                    <div class="swiper thumbSwiper overflow-hidden">
+                        <div class="swiper-wrapper">
+                            @for (int i = 0; i < allImages.Count; i++)
+                            {
+                                <div class="swiper-slide cursor-pointer">
+                                    <div class="thumbnail-item rounded border-2 @(allImages[i].FilePath == displayImage ? "border-brand-primary" : "border-transparent") transition-all aspect-square bg-white p-1 overflow-hidden"
+                                         onclick="switchProductImage(this, '@allImages[i].FilePath', @i)">
+                                        <img src="@allImages[i].FilePath" alt="thumbnail" class="h-full w-full object-cover" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    @* Nút điều hướng của Swiper *@
+                    <div class="swiper-button-prev !text-brand-primary !after:text-sm !-left-2"></div>
+                    <div class="swiper-button-next !text-brand-primary !after:text-sm !-right-2"></div>
+                </div>
+            }
+
+            @* --- 3. THÔNG SỐ KỸ THUẬT (GIỮ NGUYÊN) --- *@
+            <div class="bg-blue-50/80 p-6 rounded-sm border-l-4 border-brand-primary shadow-sm mt-4" data-aos="fade-up">
+                <h3 class="mb-4 font-heading text-lg font-bold uppercase text-brand-primary flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.5l5 5v2m0 0h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"></path></svg>
                     @(isEn ? "TECHNICAL INFORMATION" : "THÔNG SỐ KỸ THUẬT")
                 </h3>
                 <div class="font-body text-sm text-slate-700 prose prose-sm max-w-none">
                     @if (!string.IsNullOrEmpty(techSpecs))
                     {
-                        @Html.Raw(techSpecs) @* Đổ HTML từ Rich Text Editor *@
-                    }
-                    else if (!string.IsNullOrEmpty(shortDesc))
-                    {
-                        <p>@shortDesc</p>
+                        @Html.Raw(techSpecs)
                     }
                     else
                     {
-                        <p class="italic">@(isEn ? "Contact us for detailed specifications." : "Liên hệ để biết thêm chi tiết.")</p>
+
+                        <p class="italic">@(isEn ? "Updating..." : "Đang cập nhật...")</p>
                     }
                 </div>
             </div>
@@ -127,3 +165,55 @@
         </div>
     </div>
 </div>
+<script>
+    let currentIndex = 0;
+    const images = @Html.Raw(Json.Serialize(allImages.Select(i => i.FilePath)));
+
+    // Khởi tạo Swiper cho thumbnails
+    const swiper = new Swiper(".thumbSwiper", {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            640: { slidesPerView: 5 },
+        }
+    });
+
+    function switchProductImage(element, src, index) {
+        currentIndex = index;
+        const mainImg = document.getElementById('main-product-image');
+        mainImg.style.opacity = '0.3';
+
+        setTimeout(() => {
+            mainImg.src = src;
+            mainImg.style.opacity = '1';
+
+            // Update border
+            document.querySelectorAll('.thumbnail-item').forEach(item => {
+                item.classList.remove('border-brand-primary');
+                item.classList.add('border-transparent');
+            });
+            element.classList.remove('border-transparent');
+            element.classList.add('border-brand-primary');
+        }, 150);
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateMainImageFromIndex();
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateMainImageFromIndex();
+    }
+
+    function updateMainImageFromIndex() {
+        const targetThumb = document.querySelectorAll('.thumbnail-item')[currentIndex];
+        if (targetThumb) targetThumb.click();
+        swiper.slideTo(currentIndex);
+    }
+</script>                                                                                    

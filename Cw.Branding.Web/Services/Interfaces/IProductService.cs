@@ -18,6 +18,6 @@ public interface IProductService
     Task<List<Product>> GetActiveByCategoryAsync(int categoryId); // Lọc theo chuyên khoa
     Task<Product?> GetBySlugAsync(string slug, string lang); // Chi tiết sản phẩm
     Task<List<Product>> GetFilteredProductsClientAsync(string? searchTerm, int? categoryId, int? brandId, int? machineTypeId);
-    Task<bool> UpdateDisplayOrderAsync(int id, int displayOrder); 
-
+    Task<bool> UpdateDisplayOrderAsync(int id, int displayOrder);
+    Task<(List<Product> Items, int TotalCount)> GetFilteredProductsPaginatedAsync(string? searchTerm, int? categoryId, int? brandId, int? machineTypeId, int page = 1, int pageSize = 8);
 }
