@@ -4,9 +4,7 @@ namespace Cw.Branding.Web.Models.ViewModels
 {
     public class HomeViewModel
     {
-       
-
-       
+             
         public List<News> LatestNews { get; set; } = new List<News>();
 
         // SEO Meta

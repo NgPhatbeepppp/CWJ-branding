@@ -44,24 +44,50 @@ namespace Cw.Branding.Web.Controllers
         {
             if (string.IsNullOrEmpty(slug)) return NotFound();
 
+            // 1. Lấy sản phẩm (Eager Loading đầy đủ để hiện Detail và Gallery)
             var product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Images)
-                .Include(p => p.Brand) // BỔ SUNG DÒNG NÀY ĐỂ HIỆN TÊN HÃNG
-                .FirstOrDefaultAsync(p => p.SlugEn == slug || p.SlugVi == slug);
+                .Include(p => p.Brand)
+                .AsNoTracking() // Thêm AsNoTracking để tối ưu tốc độ load trang client
+                .FirstOrDefaultAsync(p => (p.SlugEn == slug || p.SlugVi == slug) && p.IsActive);
 
             if (product == null) return NotFound();
 
-            // Lấy 3 sản phẩm liên quan
+            // --- BẮT ĐẦU: SEO AUTOMATION LOGIC ---
+            var isEn = lang == "en";
+
+            // Tự động lấy Meta Description từ ShortDescription, nếu trống thì lấy tên SP
+            string metaDesc = isEn
+                ? (product.ShortDescriptionEn ?? product.NameEn)
+                : (product.ShortDescriptionVi ?? product.NameVi);
+
+            // Lấy ảnh chính từ Gallery để làm ảnh preview khi share link (OpenGraph Image)
+            string? ogImage = product.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault()?.FilePath;
+
+            ViewBag.SeoData = new Cw.Branding.Web.Models.ViewModels.SeoViewModel
+            {
+                Title = $"{(isEn ? product.NameEn : product.NameVi)} | Charles Wembley Medical",
+                Description = metaDesc,
+                ImageUrl = ogImage,
+                Type = "product",
+                CanonicalUrl = $"{Request.Scheme}://{Request.Host}{Request.Path}"
+            };
+            // --- KẾT THÚC: SEO AUTOMATION LOGIC ---
+
+            // 2. Lấy 3 sản phẩm liên quan
             var relatedProducts = await _context.Products
                 .Include(p => p.Images)
-                .Include(p => p.Category) // Thêm để hiện category ở dưới card
+                .Include(p => p.Category)
                 .Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id && p.IsActive)
                 .OrderBy(p => p.DisplayOrder)
                 .Take(3)
+                .AsNoTracking()
                 .ToListAsync();
 
             ViewBag.RelatedProducts = relatedProducts;
+            ViewBag.CurrentLang = lang; // Truyền xuống để view xử lý logic ngôn ngữ nếu cần
+
             return View(product);
         }
         [HttpGet("{lang}/Medical/FilterProducts")]

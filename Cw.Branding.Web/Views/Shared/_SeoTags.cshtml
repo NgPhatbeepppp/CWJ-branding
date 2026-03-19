@@ -1,0 +1,16 @@
+﻿@model Cw.Branding.Web.Models.ViewModels.SeoViewModel
+
+<title>@Model.Title</title>
+<meta name="description" content="@Model.Description">
+
+<meta property="og:type" content="@Model.Type">
+<meta property="og:title" content="@Model.Title">
+<meta property="og:description" content="@Model.Description">
+@if (!string.IsNullOrEmpty(Model.ImageUrl))
+{
+    <meta property="og:image" content="@Model.ImageUrl">
+}
+@if (!string.IsNullOrEmpty(Model.CanonicalUrl))
+{
+    <link rel="canonical" href="@Model.CanonicalUrl">
+}
