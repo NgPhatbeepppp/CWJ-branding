@@ -117,6 +117,9 @@ namespace Cw.Branding.Web.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AdminNotes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
@@ -127,10 +130,7 @@ namespace Cw.Branding.Web.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("HandledAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsHandled")
+                    b.Property<bool>("IsRead")
                         .HasColumnType("bit");
 
                     b.Property<string>("Message")
@@ -142,6 +142,21 @@ namespace Cw.Branding.Web.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProcessingStatus")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ReadAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ReadByAdminId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Region")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SelectedProduct")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

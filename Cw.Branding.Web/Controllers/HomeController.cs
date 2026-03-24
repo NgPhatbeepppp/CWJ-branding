@@ -5,6 +5,7 @@ using Cw.Branding.Web.Models.ViewModels;
 using Cw.Branding.Web.Models;
 using Cw.Branding.Web.Models.Entities;
 using System.Diagnostics;
+using Cw.Branding.Web.Models.Enums;
 
 namespace Cw.Branding.Web.Controllers
 {
@@ -44,43 +45,49 @@ namespace Cw.Branding.Web.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Submit(ContactFormViewModel model)
+        [HttpPost("{lang}/Home/Submit")] // Thêm {lang} để bắt đúng ngôn ngữ từ form
+        public async Task<IActionResult> Submit(string lang, ContactFormViewModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    // Save contact form entry to database
                     var contactEntry = new ContactFormEntry
                     {
                         Name = model.Name,
-                        Company = null, // Not provided in the form
+                        Company = model.Company,        // Lưu công ty
                         Email = model.Email,
-                        Phone = null, // Not provided in the form
+                        Phone = model.Phone,            // Lưu số điện thoại
+                        SelectedProduct = model.SelectedProduct,
+                        Region = model.Region,          // Lưu khu vực (Bắc/Trung/Nam)
                         Message = model.Message,
                         CreatedAt = DateTime.UtcNow,
-                        IsHandled = false
+
+                        // Các trường quản trị mới (Ticket CWJ-501)
+                        IsRead = false,
+                        ProcessingStatus = ContactStatus.New
                     };
 
                     _context.ContactFormEntries.Add(contactEntry);
                     await _context.SaveChangesAsync();
 
-                    _logger.LogInformation("Contact form submitted successfully from {Email}", model.Email);
-                    
-                    // Redirect to home with success message
-                    TempData["SuccessMessage"] = "Thank you for contacting us! We will get back to you soon.";
-                    return RedirectToAction("Index", "Home");
+                    _logger.LogInformation("Contact from {Email} in {Region}", model.Email, model.Region);
+
+                    // Phản hồi đa ngôn ngữ [cite: 83]
+                    TempData["SuccessMessage"] = (lang == "vi")
+                        ? "Cảm ơn bạn! Thông tin của bạn đã được gửi đến chi nhánh phù hợp."
+                        : "Thank you! Your inquiry has been sent to the relevant regional office.";
+
+                    return RedirectToAction("Index", "Home", new { lang = lang });
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Error saving contact form entry");
-                    TempData["ErrorMessage"] = "There was an error submitting your form. Please try again.";
+                    _logger.LogError(ex, "Error saving contact form");
+                    TempData["ErrorMessage"] = "Error! Please try again.";
                 }
             }
 
-            // If validation fails or exception occurs, redirect back
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", new { lang = lang });
         }
         public IActionResult Privacy() => View();
 

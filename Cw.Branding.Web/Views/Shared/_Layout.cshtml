@@ -48,7 +48,35 @@
     @* 7. Scripts *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var successMsg = '@TempData["SuccessMessage"]';
+            var errorMsg = '@TempData["ErrorMessage"]';
 
+            if (successMsg) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: successMsg,
+                    timer: 3000,
+                    showConfirmButton: false,
+                    toast: true,
+                    position: 'top-end'
+                });
+            }
+
+            if (errorMsg) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: errorMsg,
+                    toast: true,
+                    position: 'top-end'
+                });
+            }
+        });
+    </script>
     @* Chừa chỗ cho các page con inject JS riêng (VD: slider, map) *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
