@@ -1,12 +1,9 @@
-﻿@model Cw.Branding.Web.Models.ViewModels.HomeViewModel
+﻿@using System.Globalization
+@model Cw.Branding.Web.Models.ViewModels.HomeViewModel
 @{
-    ViewData["Title"] = Model.MetaTitle ?? "Home Page";
-    ViewData["MetaDescription"] = Model.MetaDescription;
-}
-@{
-    // 1. Xác định ngôn ngữ hiện tại từ Route (vì HomeViewModel có thể chưa có property CurrentLang)
-    var currentLang = Context.GetRouteValue("lang") as string ?? "en";
+    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     var isEn = currentLang == "en";
+    ViewData["Title"] = Model.MetaTitle;
 }
 
 @* --- THƯ VIỆN ANIMATION (AOS) --- *@

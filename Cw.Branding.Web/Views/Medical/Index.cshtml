@@ -196,7 +196,7 @@
         }
 
         const lang = '@ViewContext.RouteData.Values["lang"]' || 'en';
-        let url = `/${lang}/Medical/FilterProducts?categoryId=${window.currentCategoryId || ''}&brandId=${brandId || ''}&machineTypeId=${machineTypeId || ''}&searchTerm=${encodeURIComponent(searchTerm || '')}&page=${page}`;
+         let url = `/${lang}/medical/filter?categoryId=${window.currentCategoryId || ''}&brandId=${brandId || ''}&machineTypeId=${machineTypeId || ''}&searchTerm=${encodeURIComponent(searchTerm || '')}&page=${page}`;
 
         const container = document.getElementById('section-products');
 

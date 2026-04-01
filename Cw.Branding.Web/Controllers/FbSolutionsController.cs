@@ -3,9 +3,11 @@ using Cw.Branding.Web.Models.ViewModels;
 
 namespace Cw.Branding.Web.Controllers
 {
-    [Route("{lang}/fb-solutions")]
+    [Route("{lang:regex(^(en|vi)$)}")]
     public class FbSolutionsController : Controller
     {
+        [HttpGet("fb-solutions")]
+        [HttpGet("giai-phap-fb")]
         public IActionResult Index(string lang = "en")
         {
             // Set ngôn ngữ cho Layout (để header/footer hiển thị đúng)

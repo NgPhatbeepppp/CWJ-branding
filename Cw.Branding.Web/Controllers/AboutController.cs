@@ -3,11 +3,12 @@ using Cw.Branding.Web.Models.ViewModels;
 
 namespace Cw.Branding.Web.Controllers
 {
+    [Route("{lang:regex(^(en|vi)$)}")]
     public class AboutController : Controller
     {
-       
-        [Route("{lang}/about-us")]
-        [Route("{lang}/ve-chung-toi")]
+
+        [HttpGet("about-us")]
+        [HttpGet("ve-chung-toi")]
         public IActionResult Index(string lang) 
         {
             

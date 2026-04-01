@@ -3,17 +3,17 @@ using Cw.Branding.Web.Models.ViewModels;
 
 namespace Cw.Branding.Web.Controllers
 {
+    [Route("{lang:regex(^(en|vi)$)}")]
     public class ContactController : Controller
     {
-        [Route("{lang}/contact")]
-        [Route("contact")] // Fallback
+        [Route("contact")]
+        [Route("lien-he")]
         public IActionResult Index()
         {
-            // Set SEO Title
-            ViewData["Title"] = "Contact Us";
+            var lang = RouteData.Values["lang"]?.ToString();
+            ViewData["Title"] = lang == "vi" ? "Liên hệ" : "Contact Us";
             return View();
         }
-
-        // Action xử lý Submit form sẽ làm ở bước sau (POST)
+       
     }
 }

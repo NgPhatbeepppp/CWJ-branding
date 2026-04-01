@@ -1,7 +1,8 @@
-﻿@model Cw.Branding.Web.Models.Entities.Product
+﻿@using System.Globalization
+@model Cw.Branding.Web.Models.Entities.Product
 @{
-    var lang = Context.GetRouteValue("lang")?.ToString() ?? "en";
-    var isEn = lang == "en";
+    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var isEn = currentLang == "en";
     var name = isEn ? Model.NameEn : Model.NameVi;
     var categoryName = isEn ? Model.Category.NameEn : Model.Category.NameVi;
 
@@ -44,12 +45,11 @@
         </div>
         <nav class="flex text-sm text-slate-500" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li><a href="/@lang" class="hover:text-brand-primary">Home</a></li>
+                <li><a href="/@currentLang" class="hover:text-brand-primary">Home</a></li>
                 <li>/</li>
-                <li><a href="/@lang/medical-solutions" class="hover:text-brand-primary">Medical</a></li>
+                <li><a href="/@currentLang/@(isEn ? "medical-solutions" : "giai-phap-y-te")" class="hover:text-brand-primary">@(isEn ? "Medical" : "Y tế")</a></li>
                 <li>/</li>
-                <li><span class="text-slate-700">@categoryName</span></li>
-                <li>/</li>
+                <li class="font-medium text-brand-primary">@name</li>
                 <li aria-current="page">
                     <span class="font-medium text-brand-primary line-clamp-1 max-w-[200px]">@name</span>
                 </li>

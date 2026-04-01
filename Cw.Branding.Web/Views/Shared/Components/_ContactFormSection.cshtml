@@ -1,8 +1,10 @@
 ﻿@* File: Views/Shared/_ContactFormSection.cshtml *@
 @using Cw.Branding.Web.Models.Enums
+@using System.Globalization
 @model Cw.Branding.Web.Models.ViewModels.ContactFormViewModel
 @{
-    var currentLang = ViewContext.RouteData.Values["lang"]?.ToString() ?? "en";
+    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var isEn = currentLang == "en";
 }
 
 <section class="w-full bg-transparent relative z-20 -mb-[80px]" id="contact-form">

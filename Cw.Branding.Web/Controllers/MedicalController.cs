@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Cw.Branding.Web.Controllers
 {
+    [Route("{lang:regex(^(en|vi)$)}")]
     public class MedicalController : Controller
     {
         private readonly AppDbContext _context;
@@ -20,8 +21,8 @@ namespace Cw.Branding.Web.Controllers
 
 
 
-        [HttpGet("{lang}/medical-solutions")] // URL Tiếng Anh
-        [HttpGet("{lang}/giai-phap-y-te")]    // URL Tiếng Việt
+        [HttpGet("medical-solutions")]
+        [HttpGet("giai-phap-y-te")]
         public async Task<IActionResult> Index()
         {
             // Lấy danh mục
@@ -38,8 +39,8 @@ namespace Cw.Branding.Web.Controllers
 
             return View(viewModel);
         }
-       
-        [HttpGet("{lang}/medical/product/{slug}")]
+
+        [HttpGet("medical/product/{slug}")]
         public async Task<IActionResult> Detail(string lang, string slug)
         {
             if (string.IsNullOrEmpty(slug)) return NotFound();
@@ -90,7 +91,8 @@ namespace Cw.Branding.Web.Controllers
 
             return View(product);
         }
-        [HttpGet("{lang}/Medical/FilterProducts")]
+        // --- AJAX FILTER ---
+        [HttpGet("medical/filter")]
         public async Task<IActionResult> FilterProducts(string lang, int? categoryId, int? brandId, int? machineTypeId, string? searchTerm, int page = 1)
         {
             try

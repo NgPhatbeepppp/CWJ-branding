@@ -1,13 +1,25 @@
 ﻿@using Microsoft.AspNetCore.Http
+@using System.Globalization
 @{
-    // Lấy thông tin Controller hiện tại để xử lý Active Menu và Spacer
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
 
+    // Lấy ngôn ngữ hiện tại chuẩn từ CultureInfo
+    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var isEn = currentLang == "en";
     // Biến này chỉ dùng để ẩn/hiện Spacer (Khoảng trống) ở trang chủ
     bool isHomePage = string.Equals(currentController, "Home", StringComparison.OrdinalIgnoreCase)
                    && string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase);
 
+    string GetSwitchLangUrl(string targetLang)
+    {
+        var routeValues = ViewContext.RouteData.Values;
+        var newRouteValues = new RouteValueDictionary(routeValues);
+        newRouteValues["lang"] = targetLang;
+
+        // Không cộng thêm Context.Request.QueryString để tránh lặp ?lang=en
+        return Url.Action(currentAction, currentController, newRouteValues);
+    }
     // Helper: Active State cho Menu
     string IsActive(string controller, string action = null)
     {
@@ -37,31 +49,32 @@
             @* UPDATE: 
                2. text-lg -> text-base (Giảm cỡ chữ xuống mức tiêu chuẩn) 
             *@
-            <a asp-controller="Home" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
-                Home
+            <a asp-controller="Home" asp-action="Index" asp-route-lang="@currentLang" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Home")">
+                @(isEn ? "Home" : "Trang chủ")
             </a>
-            <a asp-controller="About" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
-                About Us
+            <a asp-controller="About" asp-action="Index" asp-route-lang="@currentLang" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("About")">
+                @(isEn ? "About Us" : "Về chúng tôi")
             </a>
-            <a asp-controller="Medical" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
-                Medical
+            <a asp-controller="Medical" asp-action="Index" asp-route-lang="@currentLang" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Medical")">
+                @(isEn ? "Medical" : "Y tế")
             </a>
-            <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
+            <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="@currentLang" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("FbSolutions")">
                 F&B
             </a>
-            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
-                News
+            <a asp-controller="News" asp-action="Index" asp-route-lang="@currentLang" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("News")">
+                @(isEn ? "News" : "Tin tức")
             </a>
-            <a asp-controller="Contact" asp-action="Index" asp-route-lang="en" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
-                Contact
+            <a asp-controller="Contact" asp-action="Index" asp-route-lang="@currentLang" class="text-base font-heading font-bold transition-colors uppercase tracking-wide @IsActive("Contact")">
+                @(isEn ? "Contact" : "Liên hệ")
             </a>
         </nav>
 
         <div class="flex items-center space-x-6">
             @* Cập nhật cỡ chữ cho phần switch ngôn ngữ luôn cho cân đối *@
-            <div class="flex items-center text-base font-medium text-black divide-x divide-slate-300">
-                <a href="?lang=en" class="px-3 hover:text-brand-primary text-brand-primary font-bold">EN</a>
-                <a href="?lang=vi" class="px-3 hover:text-brand-primary">VI</a>
+            <div class="flex items-center border-l border-gray-300 ml-4 pl-4 space-x-3 text-xs font-bold">
+                <a href="@GetSwitchLangUrl("en")" class="@(isEn ? "text-brand-primary" : "text-gray-400 hover:text-black") transition-colors">EN</a>
+                <span class="text-gray-300">|</span>
+                <a href="@GetSwitchLangUrl("vi")" class="@(!isEn ? "text-brand-primary" : "text-gray-400 hover:text-black") transition-colors">VN</a>
             </div>
             @* Search Bar trong Header *@
             <div class="relative hidden xl:block">
@@ -86,12 +99,12 @@
     @* Mobile Menu *@
     <div id="mobile-menu" class="hidden lg:hidden absolute top-32 left-0 w-full bg-white border-b border-gray-200 shadow-lg">
         <div class="px-6 py-4 space-y-4">
-            <a asp-controller="Home" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("Home")">Home</a>
-            <a asp-controller="About" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("About")">About Us</a>
-            <a asp-controller="Medical" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
-            <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
-            <a asp-controller="News" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("News")">News</a>
-            <a asp-controller="Contact" asp-action="Index" asp-route-lang="en" class="block text-base font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
+            <a asp-controller="Home" asp-action="Index" asp-route-lang="@currentLang" class="block text-base font-heading font-bold uppercase @IsActive("Home")">Home</a>
+            <a asp-controller="About" asp-action="Index" asp-route-lang="@currentLang" class="block text-base font-heading font-bold uppercase @IsActive("About")">About Us</a>
+            <a asp-controller="Medical" asp-action="Index" asp-route-lang="@currentLang" class="block text-base font-heading font-bold uppercase @IsActive("Medical")">Medical</a>
+            <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="@currentLang" class="block text-base font-heading font-bold uppercase @IsActive("FbSolutions")">F&B</a>
+            <a asp-controller="News" asp-action="Index" asp-route-lang="@currentLang" class="block text-base font-heading font-bold uppercase @IsActive("News")">News</a>
+            <a asp-controller="Contact" asp-action="Index" asp-route-lang="@currentLang" class="block text-base font-heading font-bold uppercase @IsActive("Contact")">Contact</a>
         </div>
     </div>
 </header>

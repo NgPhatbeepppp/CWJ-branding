@@ -4,6 +4,7 @@ using Cw.Branding.Web.Services.Interfaces;
 
 namespace Cw.Branding.Web.Controllers
 {
+    [Route("{lang:regex(^(en|vi)$)}")]
     public class NewsController : Controller
     {
         private readonly INewsService _newsService;
@@ -14,7 +15,8 @@ namespace Cw.Branding.Web.Controllers
         }
 
         // --- TRANG DANH SÁCH (INDEX) ---
-        [Route("{lang=en}/news")]
+        [HttpGet("news", Name = "NewsIndexEn")]
+        [HttpGet("tin-tuc", Name = "NewsIndexVi")]
         public async Task<IActionResult> Index(string lang = "en", int page = 1)
         {
             // Setup UI
@@ -42,7 +44,8 @@ namespace Cw.Branding.Web.Controllers
         }
 
         // --- TRANG CHI TIẾT (DETAIL) ---
-        [Route("{lang=en}/news/{slug}")]
+        [HttpGet("news/{slug}")]
+        [HttpGet("tin-tuc/{slug}")]
         public async Task<IActionResult> Detail(string slug, string lang = "en")
         {
             // Setup UI
