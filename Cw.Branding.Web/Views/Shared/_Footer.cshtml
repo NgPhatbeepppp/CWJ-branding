@@ -1,62 +1,81 @@
-﻿<footer class="bg-[#002B57] text-white pt-32 pb-8 mt-auto border-t border-white/10 overflow-hidden w-full relative z-0">
+﻿@using System.Globalization
+@{
+    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var isEn = currentLang == "en";
+}
+
+<footer class="bg-[#002B57] text-white pt-32 pb-8 mt-auto border-t border-white/10 overflow-hidden w-full relative z-0">
     <div class="w-[92%] max-w-[1600px] mx-auto px-4 md:px-6">
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-y-10 gap-x-6 mb-20 items-start w-full">
 
+            @* --- 1. LOGO & COMPANY INFO --- *@
             <div class="flex flex-col items-start relative -top-3">
-                <a asp-controller="Home" asp-action="Index" asp-route-lang="en" class="inline-block mb-8">
+                <a asp-controller="Home" asp-action="Index" asp-route-lang="@currentLang" class="inline-block mb-8">
                     <img src="~/images/logo2.png" alt="Charles Wembley Logo" class="h-[145px] w-auto object-contain brightness-0 invert" />
                 </a>
 
-                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">TAN LONG TRADING AND SERVICE TECHNOLOGY CO.,LTD.</h4>
+                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">
+                    @(isEn ? "TAN LONG TRADING AND SERVICE TECHNOLOGY CO.,LTD." : "CÔNG TY TNHH THƯƠNG MẠI VÀ DỊCH VỤ KỸ THUẬT TÂN LONG")
+                </h4>
                 <ul class="space-y-2 text-sm text-white/90 font-medium">
-                    <li><a asp-controller="About" asp-action="Index" asp-route-lang="en" class="hover:text-blue-300 transition-colors">About Us</a></li>
-                    <li><a asp-controller="Contact" asp-action="Index" asp-route-lang="en" class="hover:text-blue-300 transition-colors">Contact</a></li>
+                    <li><a asp-controller="About" asp-action="Index" asp-route-lang="@currentLang" class="hover:text-blue-300 transition-colors">@(isEn ? "About Us" : "Về chúng tôi")</a></li>
+                    <li><a asp-controller="Contact" asp-action="Index" asp-route-lang="@currentLang" class="hover:text-blue-300 transition-colors">@(isEn ? "Contact" : "Liên hệ")</a></li>
                 </ul>
             </div>
 
+            @* --- 2. SOLUTIONS --- *@
             <div class="md:pt-14">
-                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">Solutions</h4>
+                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">@(isEn ? "Solutions" : "Giải pháp")</h4>
                 <ul class="space-y-2 text-sm text-white/90 font-medium">
-                    <li><a asp-controller="Medical" asp-action="Index" asp-route-lang="en" class="hover:text-blue-300 transition-colors block leading-snug">Medical Equipment & Devices</a></li>
-                    <li><a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="en" class="hover:text-blue-300 transition-colors block leading-snug">Foodservice Equipment & ingredients</a></li>
+                    <li>
+                        <a asp-controller="Medical" asp-action="Index" asp-route-lang="@currentLang" class="hover:text-blue-300 transition-colors block leading-snug">
+                            @(isEn ? "Medical Equipment & Devices" : "Thiết bị & Giải pháp Y tế")
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="FbSolutions" asp-action="Index" asp-route-lang="@currentLang" class="hover:text-blue-300 transition-colors block leading-snug">
+                            @(isEn ? "Foodservice Equipment & Ingredients" : "Thiết bị & Nguyên liệu F&B")
+                        </a>
+                    </li>
                 </ul>
             </div>
 
+            @* --- 3. SUPPORT --- *@
             <div class="md:pt-14">
-                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">Support</h4>
+                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">@(isEn ? "Support" : "Hỗ trợ")</h4>
                 <ul class="space-y-2 text-sm text-white/90 font-medium">
-                    <li><a asp-controller="Contact" asp-action="Index" asp-route-lang="en" class="hover:text-blue-300 transition-colors">Service & Warranty</a></li>
+                    <li><a asp-controller="Contact" asp-action="Index" asp-route-lang="@currentLang" class="hover:text-blue-300 transition-colors">@(isEn ? "Service & Warranty" : "Dịch vụ & Bảo hành")</a></li>
                 </ul>
             </div>
 
+            @* --- 4. RESOURCES --- *@
             <div class="md:pt-14">
-                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">Resources</h4>
+                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">@(isEn ? "Resources" : "Tài nguyên")</h4>
                 <ul class="space-y-2 text-sm text-white/90 font-medium">
-                    <li><a href="#" class="hover:text-blue-300 transition-colors">Product Catalogue - Medical</a></li>
-                    <li><a href="#" class="hover:text-blue-300 transition-colors">Product Catalogue - Foodservice</a></li>
-                    <li><a asp-controller="News" asp-action="Index" asp-route-lang="en" class="hover:text-blue-300 transition-colors">News</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">@(isEn ? "Product Catalogue - Medical" : "Danh mục sản phẩm - Y tế")</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">@(isEn ? "Product Catalogue - Foodservice" : "Danh mục sản phẩm - F&B")</a></li>
+                    <li><a asp-controller="News" asp-action="Index" asp-route-lang="@currentLang" class="hover:text-blue-300 transition-colors">@(isEn ? "News" : "Tin tức")</a></li>
                 </ul>
             </div>
 
+            @* --- 5. LEGAL --- *@
             <div class="md:pt-14">
-                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">Legal</h4>
+                <h4 class="font-heading font-bold text-lg mb-4 text-white uppercase tracking-wider">@(isEn ? "Legal" : "Pháp lý")</h4>
                 <ul class="space-y-2 text-sm text-white/90 font-medium">
-                    <li><a href="#" class="hover:text-blue-300 transition-colors">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-blue-300 transition-colors">Terms of Use</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">@(isEn ? "Privacy Policy" : "Chính sách bảo mật")</a></li>
+                    <li><a href="#" class="hover:text-blue-300 transition-colors">@(isEn ? "Terms of Use" : "Điều khoản sử dụng")</a></li>
                 </ul>
             </div>
         </div>
 
+        @* --- BOTTOM BAR --- *@
         <div class="border-t border-white/10 pt-8">
-            @* Đã xóa phần <h1> Charles Wembley lớn tại đây theo yêu cầu *@
-
             <div class="flex flex-col md:flex-row justify-between items-end mt-6 text-xs text-white/60 font-light">
                 <div class="mb-4 md:mb-0 text-center md:text-left uppercase">
-                    <p>&copy; @DateTime.Now.Year Charles Wembley. All rights reserved.</p>
-                    <p class="mt-1">Head Office: Ho Chi Minh City, Vietnam</p>
+                    <p>&copy; @DateTime.Now.Year Charles Wembley. @(isEn ? "All rights reserved." : "Bảo lưu mọi quyền.")</p>
+                    <p class="mt-1">@(isEn ? "Head Office: Ho Chi Minh City, Vietnam" : "Trụ sở chính: TP. Hồ Chí Minh, Việt Nam")</p>
                 </div>
-               
             </div>
         </div>
     </div>

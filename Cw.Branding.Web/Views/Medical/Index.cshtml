@@ -1,7 +1,13 @@
 ﻿@model Cw.Branding.Web.Models.ViewModels.MedicalIndexViewModel
-
+@using System.Globalization
 @{
-    ViewData["Title"] = "Medical Solutions";
+    // Lấy ngôn ngữ hiện tại từ Route
+    var currentLang = ViewContext.RouteData.Values["lang"]?.ToString()?.ToLower() ?? "en";
+    var isEn = currentLang == "en";
+
+    // Giữ nguyên logic Title và MetaDescription
+    ViewData["Title"] = isEn ? "Medical Solutions" : "Giải pháp Y tế";
+   
 }
 
 @* --- THƯ VIỆN ANIMATION (AOS) --- *@
@@ -21,10 +27,10 @@
 
         <div class="absolute inset-0 bg-black/30"></div>
 
-        @* Hero Text: Trượt lên chậm rãi *@
+        @* Hero Text *@
         <div class="absolute inset-0 flex items-center justify-center" data-aos="fade-up">
-            <h1 class="font-brand text-6xl text-white italic tracking-wider md:text-8xl drop-shadow-md">
-                Medical solutions
+            <h1 class="font-brand text-6xl text-white italic tracking-wider md:text-8xl drop-shadow-md text-center">
+                @(isEn ? "Medical solutions" : "Giải pháp y tế")
             </h1>
         </div>
     </div>
@@ -36,24 +42,37 @@
             @* Tiêu đề & Gạch chân *@
             <div data-aos="fade-up">
                 <h2 class="mb-8 font-heading text-3xl font-bold uppercase tracking-widest text-brand-primary md:text-5xl">
-                    HEALTHCARE DIVISION
+                    @(isEn ? "HEALTHCARE DIVISION" : "KHỐI NGÀNH Y TẾ")
                 </h2>
                 <hr class="mx-auto mb-5 w-102 border-t-2 border-slate-300 text-blue-800" />
             </div>
-            
+
             @* Nội dung văn bản: Hiện lần lượt (Stagger) *@
-            <div class="space-y-4 [&>p]:font-heading [&>p]:tracking-wide text-base text-slate-600 md:text-lg leading-relaxed">
+            <div class="space-y-4 [&>p]:font-heading [&>p]:tracking-wide text-base text-slate-600 md:text-lg leading-relaxed text-center">
                 <p data-aos="fade-up" data-aos-delay="100">
-                    Our Healthcare Division delivers trusted, compliant solutions for hospitals, clinics, and labs.
-                    We cover medical consumables, devices and equipment, infection prevention, clinical furniture,
-                    and facility solutions—validated with product dossiers, traceability, and alignment to local regulations.
+                    @if (isEn)
+                    {
+                        <text>Our Healthcare Division delivers trusted, compliant solutions for hospitals, clinics, and labs. We cover medical consumables, devices and equipment, infection prevention, clinical furniture, and facility solutions—validated with product dossiers, traceability, and alignment to local regulations.</text>
+                    }
+                    else
+                    {
+                        <text>Khối ngành Y tế của chúng tôi cung cấp các giải pháp tin cậy và tuân thủ cho các bệnh viện, phòng khám và phòng xét nghiệm. Chúng tôi cung cấp vật tư tiêu hao y tế, thiết bị và máy móc, kiểm soát nhiễm khuẩn, nội thất lâm sàng và các giải pháp cơ sở hạ tầng—được xác thực bằng hồ sơ sản phẩm, khả năng truy xuất nguồn gốc và phù hợp với các quy định tại địa phương.</text>
+                    }
                 </p>
                 <p data-aos="fade-up" data-aos-delay="200">
-                    Through reliable supply, training, and aftercare, we help teams standardize SKUs, reduce risk,
-                    and improve operational efficiency, leading to safer care and better total value.
+                    @if (isEn)
+                    {
+                        <text>Through reliable supply, training, and aftercare, we help teams standardize SKUs, reduce risk, and improve operational efficiency, leading to safer care and better total value.</text>
+                    }
+                    else
+                    {
+                        <text>Thông qua nguồn cung ứng tin cậy, đào tạo và chăm sóc sau bán hàng, chúng tôi giúp các đội ngũ chuẩn hóa danh mục sản phẩm (SKU), giảm thiểu rủi ro và cải thiện hiệu quả vận hành, hướng tới việc chăm sóc an toàn hơn và giá trị tổng thể tốt hơn.</text>
+                    }
                 </p>
                 <p class="font-medium text-slate-800" data-aos="fade-up" data-aos-delay="300">
-                    Contact us to request a product list, book a needs assessment, or obtain compliance documentation.
+                    @(isEn
+                                        ? "Contact us to request a product list, book a needs assessment, or obtain compliance documentation." 
+                                                : "Liên hệ với chúng tôi để yêu cầu danh mục sản phẩm, đặt lịch đánh giá nhu cầu hoặc lấy hồ sơ năng lực/tài liệu tuân thủ.")
                 </p>
             </div>
         </div>
@@ -62,194 +81,169 @@
 </div>
 
 @* --- CATEGORIES SECTION --- *@
-<div id="section-categories">
-    <div id="section-categories" class="bg-slate-50 py-12 md:py-16">
-        <div class="section-container">
+<div id="section-categories" class="bg-slate-50 py-12 md:py-16">
+    <div class="section-container">
 
-            @* Header Danh mục *@
-            <div class="mb-16 text-center" data-aos="fade-up">
-                <h2 class="font-heading text-4xl font-bold tracking-wide text-brand-primary md:text-5xl">
-                    Our Product Categories
-                </h2>
-                <div class="mx-auto mt-10 h-1 w-[50%] bg-blue-900"></div>
-            </div>
+        @* Header Danh mục *@
+        <div class="mb-16 text-center" data-aos="fade-up">
+            <h2 class="font-heading text-4xl font-bold tracking-wide text-brand-primary md:text-5xl">
+                @(isEn ? "Our Product Categories" : "Danh mục Sản phẩm")
+            </h2>
+            <div class="mx-auto mt-10 h-1 w-[50%] bg-blue-900"></div>
+        </div>
 
-            @if (Model.Categories != null && Model.Categories.Any())
-            {
-                <div class="grid grid-cols-2 gap-7 sm:grid-cols-3 lg:grid-cols-4">
-                    @{
-                        int delay = 0; // Biến đếm để tăng độ trễ cho từng item
-                    }
-                    @foreach (var cat in Model.Categories)
-                    {
-                        @* Mỗi item trễ hơn item trước 100ms *@
-                        <div class="category-item group flex cursor-pointer flex-col items-center justify-center rounded-lg  p-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover border border-transparent hover:border-brand-primary/20"
-                             onclick="loadProducts(this, @cat.Id)"
-                             data-aos="fade-up"
-                             data-aos-delay="@delay">
+        @if (Model.Categories != null && Model.Categories.Any())
+        {
+            <div class="grid grid-cols-2 gap-7 sm:grid-cols-3 lg:grid-cols-4">
+                @{
+                    int delay = 0;
+                }
+                @foreach (var cat in Model.Categories)
+                {
+                    <div class="category-item group flex cursor-pointer flex-col items-center justify-center rounded-lg p-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover border border-transparent hover:border-brand-primary/20"
+                         onclick="loadProducts(this, @cat.Id)"
+                         data-aos="fade-up"
+                         data-aos-delay="@delay">
 
-                            <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-400 text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
-                                @if (!string.IsNullOrEmpty(cat.IconPath))
-                                {
-                                    <img src="@cat.IconPath" alt="@cat.NameEn" class="h-8 w-8 object-contain" />
-                                }
-                                else
-                                {
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
-                                    </svg>
-                                }
-                            </div>
-
-                            <h3 class="font-heading text-sm font-bold uppercase text-slate-800 transition-colors group-hover:text-brand-primary md:text-base">
-                                @cat.NameEn
-                            </h3>
-
-                            <span class="mt-2 text-xs text-slate-400 group-hover:text-brand-secondary">
-                                View Details
-                            </span>
+                        <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-400 text-brand-primary transition-colors group-hover:bg-brand-primary group-hover:text-white">
+                            @if (!string.IsNullOrEmpty(cat.IconPath))
+                            {
+                                <img src="@cat.IconPath" alt="@(isEn? cat.NameEn: cat.NameVi)" class="h-8 w-8 object-contain" />
+                            }
+                            else
+                            {
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                                </svg>
+                            }
                         </div>
 
-                        delay += 100; // Tăng delay cho vòng lặp sau
-                    }
-                </div>
-            }
-            else
-            {
-                <p class="text-center text-slate-500">Categories are being updated.</p>
-            }
-        </div>
+                        <h3 class="font-heading text-sm font-bold uppercase text-slate-800 transition-colors group-hover:text-brand-primary md:text-base">
+                            @(isEn? cat.NameEn: cat.NameVi)
+                        </h3>
+
+                        <span class="mt-2 text-xs text-slate-400 group-hover:text-brand-secondary">
+                            @(isEn ? "View Details" : "Xem chi tiết")
+                        </span>
+                    </div>
+                    delay += 100;
+                }
+            </div>
+        }
+        else
+        {
+            <p class="text-center text-slate-500">
+                @(isEn ? "Categories are being updated." : "Danh mục đang được cập nhật.")
+            </p>
+        }
     </div>
 </div>
 
 <div id="section-products"></div>
 
 @section Scripts {
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<script>
-    // --- 0. BIẾN TOÀN CỤC ---
-    window.currentCategoryId = 0;
+    <script>
+        window.currentCategoryId = 0;
+        const currentLang = '@currentLang';
 
-    // --- 1. HÀM HELPER: CUỘN MƯỢT ---
-    function customSmoothScroll(targetY, duration) {
-        const startPosition = window.scrollY;
-        const distance = targetY - startPosition;
-        let startTime = null;
-
-        function easeOutCubic(t, b, c, d) {
-            t /= d; t--;
-            return c * (t * t * t + 1) + b;
+        function customSmoothScroll(targetY, duration) {
+            const startPosition = window.scrollY;
+            const distance = targetY - startPosition;
+            let startTime = null;
+            function easeOutCubic(t, b, c, d) {
+                t /= d; t--;
+                return c * (t * t * t + 1) + b;
+            }
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = easeOutCubic(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+            requestAnimationFrame(animation);
         }
 
-        function animation(currentTime) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = easeOutCubic(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        }
-        requestAnimationFrame(animation);
-    }
-
-    // --- 2. HÀM LỌC CHÍNH (HỖ TRỢ PHÂN TRANG) ---
-    function applyFilters(page = 1) {
-        // Lấy giá trị từ các element (đang nằm trong Partial View)
-        const brandId = document.getElementById('filter-brand')?.value || '';
-        const mTypeId = document.getElementById('filter-machineType')?.value || '';
-        const search = document.getElementById('filter-search')?.value || '';
-
-        // Truyền 'null' cho element vì đây không phải click từ icon chuyên khoa
-        loadProducts(null, window.currentCategoryId, brandId, mTypeId, search, page);
-    }
-
-    // --- 3. HÀM CHUYỂN TRANG (GỌI TỪ NÚT PHÂN TRANG) ---
-    window.goToPage = function(page) {
-        applyFilters(page);
-    };
-
-    // --- 4. HÀM BỎ LỌC ---
-    function clearFilters() {
-        if(document.getElementById('filter-brand')) document.getElementById('filter-brand').value = "";
-        if(document.getElementById('filter-machineType')) document.getElementById('filter-machineType').value = "";
-        if(document.getElementById('filter-search')) document.getElementById('filter-search').value = "";
-
-        loadProducts(null, window.currentCategoryId, '', '', '', 1);
-    }
-
-    // --- 5. HÀM LOAD PRODUCTS (CORE LOGIC) ---
-    window.loadProducts = function(element, categoryId, brandId, machineTypeId, searchTerm, page = 1) {
-        
-        // Cập nhật chuyên khoa hiện tại
-        if (categoryId !== null && categoryId !== undefined) {
-            window.currentCategoryId = categoryId;
+        function applyFilters(page = 1) {
+            const brandId = document.getElementById('filter-brand')?.value || '';
+            const mTypeId = document.getElementById('filter-machineType')?.value || '';
+            const search = document.getElementById('filter-search')?.value || '';
+            loadProducts(null, window.currentCategoryId, brandId, mTypeId, search, page);
         }
 
-        // Xử lý UI Active cho icon chuyên khoa
-        if (element) {
-            document.querySelectorAll('.category-item').forEach(item => {
-                item.classList.remove('border-brand-primary', 'bg-blue-50');
-                item.classList.add('border-transparent');
-            });
-            element.classList.remove('border-transparent');
-            element.classList.add('border-brand-primary', 'bg-blue-50');
+        window.goToPage = function(page) {
+            applyFilters(page);
+        };
+
+        function clearFilters() {
+            if(document.getElementById('filter-brand')) document.getElementById('filter-brand').value = "";
+            if(document.getElementById('filter-machineType')) document.getElementById('filter-machineType').value = "";
+            if(document.getElementById('filter-search')) document.getElementById('filter-search').value = "";
+            loadProducts(null, window.currentCategoryId, '', '', '', 1);
         }
 
-        const lang = '@ViewContext.RouteData.Values["lang"]' || 'en';
-         let url = `/${lang}/medical/filter?categoryId=${window.currentCategoryId || ''}&brandId=${brandId || ''}&machineTypeId=${machineTypeId || ''}&searchTerm=${encodeURIComponent(searchTerm || '')}&page=${page}`;
+        window.loadProducts = function(element, categoryId, brandId, machineTypeId, searchTerm, page = 1) {
+            if (categoryId !== null && categoryId !== undefined) {
+                window.currentCategoryId = categoryId;
+            }
 
-        const container = document.getElementById('section-products');
+            if (element) {
+                document.querySelectorAll('.category-item').forEach(item => {
+                    item.classList.remove('border-brand-primary', 'bg-blue-50');
+                    item.classList.add('border-transparent');
+                });
+                element.classList.remove('border-transparent');
+                element.classList.add('border-brand-primary', 'bg-blue-50');
+            }
 
-        if(container) {
-            container.style.transition = "opacity 0.3s ease";
-            container.style.opacity = '0.4';
-            container.style.pointerEvents = 'none';
+            let url = `/${currentLang}/medical/filter?categoryId=${window.currentCategoryId || ''}&brandId=${brandId || ''}&machineTypeId=${machineTypeId || ''}&searchTerm=${encodeURIComponent(searchTerm || '')}&page=${page}`;
+
+            const container = document.getElementById('section-products');
+            if(container) {
+                container.style.transition = "opacity 0.3s ease";
+                container.style.opacity = '0.4';
+                container.style.pointerEvents = 'none';
+            }
+
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    if(container) {
+                        container.innerHTML = html;
+                        container.style.opacity = '1';
+                        container.style.pointerEvents = 'auto';
+                        const y = container.getBoundingClientRect().top + window.scrollY - 100;
+                        customSmoothScroll(y, 800);
+                    }
+                })
+                .catch(err => {
+                    console.error("Lỗi load sản phẩm:", err);
+                    if(container) {
+                        container.style.opacity = '1';
+                        container.style.pointerEvents = 'auto';
+                    }
+                });
+        };
+
+        function renderPlaceholder() {
+            const productContainer = document.getElementById('section-products');
+            if(!productContainer) return;
+            const message = currentLang === 'vi' ? "Vui lòng chọn một chuyên khoa..." : "Please select a category...";
+            productContainer.innerHTML = `<div class="py-32 text-center border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50"><p class="text-slate-400 font-medium">${message}</p></div>`;
+            productContainer.style.opacity = '1';
         }
 
-        fetch(url)
-            .then(res => res.text())
-            .then(html => {
-                if(container) {
-                    container.innerHTML = html;
-                    container.style.opacity = '1';
-                    container.style.pointerEvents = 'auto';
-
-                    // Sau khi load xong, cuộn lên đầu danh sách sản phẩm
-                    const y = container.getBoundingClientRect().top + window.scrollY - 100;
-                    customSmoothScroll(y, 800);
-                }
-            })
-            .catch(err => {
-                console.error("Lỗi load sản phẩm:", err);
-                if(container) {
-                    container.style.opacity = '1';
-                    container.style.pointerEvents = 'auto';
-                }
-            });
-    };
-
-    // --- 6. RENDER TRẠNG THÁI CHỜ ---
-    function renderPlaceholder() {
-        const productContainer = document.getElementById('section-products');
-        if(!productContainer) return;
-        const lang = '@ViewContext.RouteData.Values["lang"]' || 'en';
-        const message = lang === 'vi' ? "Vui lòng chọn một chuyên khoa..." : "Please select a category...";
-
-        productContainer.innerHTML = `<div class="py-32 text-center border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50"><p class="text-slate-400 font-medium">${message}</p></div>`;
-        productContainer.style.opacity = '1';
-    }
-
-    // --- 7. KHỞI TẠO ---
-    document.addEventListener("DOMContentLoaded", function () {
-        AOS.init({ duration: 1000, once: true });
-        
-        // Kiểm tra search từ header
-        const searchFromUrl = new URLSearchParams(window.location.search).get('searchTerm') || '';
-        if (searchFromUrl) {
-            loadProducts(null, 0, '', '', searchFromUrl, 1);
-        } else {
-            renderPlaceholder();
-        }
-    });
-</script>
+        document.addEventListener("DOMContentLoaded", function () {
+            AOS.init({ duration: 1000, once: true });
+            const searchFromUrl = new URLSearchParams(window.location.search).get('searchTerm') || '';
+            if (searchFromUrl) {
+                loadProducts(null, 0, '', '', searchFromUrl, 1);
+            }
+            else {
+                renderPlaceholder();
+            }
+        });
+    </script>
 }

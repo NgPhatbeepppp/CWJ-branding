@@ -1,6 +1,11 @@
-﻿@model Cw.Branding.Web.Models.ViewModels.AboutViewModel
+﻿@using System.Globalization
+@model Cw.Branding.Web.Models.ViewModels.AboutViewModel
 @{
-    ViewData["Title"] = Model.MetaTitle ?? "About Us";
+    var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var isEn = currentLang == "en";
+
+    // Giữ nguyên logic Title và MetaDescription như yêu cầu
+    ViewData["Title"] = isEn ? (Model.MetaTitle ?? "About Us") : "Về chúng tôi | Charles Wembley";
     ViewData["MetaDescription"] = Model.MetaDescription;
 }
 
@@ -24,49 +29,45 @@
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-2 items-center">
 
-            @* --- COL 1: ẢNH (Trượt từ trái vào) --- *@
+            @* --- COL 1: ẢNH --- *@
             <div class="md:col-span-6 flex justify-center md:justify-end relative"
                  data-aos="fade-right">
-                @* [UPDATE] Animation *@
-
                 <img src="~/images/about-collage.png"
                      alt="Charles Wembley Medical & F&B"
                      class="w-full object-contain drop-shadow-xl transform scale-125 md:translate-x-8 z-10" />
             </div>
 
-            @* --- COL 2: CHỮ (Trượt từ phải vào) --- *@
+            @* --- COL 2: CHỮ --- *@
             <div class="text-center md:text-left md:col-span-6 md:-ml-24 z-20 pl-4"
                  data-aos="fade-left">
-                @* [UPDATE] Animation *@
 
                 @* TIÊU ĐỀ *@
                 <h1 class="flex flex-col md:flex-row items-center md:items-baseline gap-x-4 mb-6">
                     <span class="text-2xl md:text-5xl lg:text-5xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap ">
-                        About
+                        @(isEn ? "About" : "Về")
                     </span>
                     <span class="font-signature text-3xl md:text-7xl lg:text-7xl whitespace-nowrap leading-none mt-2 md:mt-0">
                         Charles Wembley
                     </span>
                 </h1>
 
-                @* Nội dung (Delay nhẹ để hiện sau tiêu đề) *@
+                @* Nội dung *@
                 <div class="text-slate-800 text-base md:text-lg lg:text-xl font-narrative tracking-wide opacity-90 space-y-6 pr-4 md:pr-12 max-w-[800px]"
                      style="line-height: 1.6;"
                      data-aos="fade-up" data-aos-delay="200">
-
                     <p class="font-narrative">
-                        Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems.
-                        The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings.
+                        @(isEn
+                                                ? "Charles Wembley is a global leader in cutting-edge medical solutions and premium food & beverage (F&B) systems. The company is dedicated to advancing healthcare with state-of-the-art technology, while enriching culinary experiences worldwide through innovative F&B offerings."
+                                                : "Charles Wembley là đơn vị dẫn đầu toàn cầu trong các giải pháp y tế tiên tiến và hệ thống thực phẩm & đồ uống (F&B) cao cấp. Chúng tôi cam kết thúc đẩy nền y tế phát triển bằng công nghệ hiện đại, đồng thời nâng tầm trải nghiệm ẩm thực toàn thế giới thông qua các giải pháp F&B sáng tạo.")
                     </p>
                 </div>
-
             </div>
         </div>
     </div>
 </section>
 
 @* ==========================================
-   SECTION TRANSITION: FULL WIDTH COVER IMAGE
+   SECTION TRANSITION
    ========================================== *@
 <div class="w-full h-[245px] relative overflow-hidden" data-aos="fade-in">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
@@ -81,43 +82,37 @@
    SECTION 2: OUR STORY
    ========================================== *@
 <section id="our-story" class="relative w-full py-16 md:py-24 bg-[#FDFBF7] overflow-hidden">
-
     <div class="absolute inset-0 z-0">
         <img src="~/images/about-bg-texture.png" alt="Texture" class="w-full h-full object-cover opacity-30" />
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
-
         <div class="max-w-4xl mx-auto text-center">
-
-            @* TITLE: Trượt lên *@
             <h2 class="text-4xl md:text-5xl text-[#002143] font-narrative mb-6 tracking-wide"
                 data-aos="fade-up">
-                Our Story
+                @(isEn ? "Our Story" : "Câu chuyện của chúng tôi")
             </h2>
 
-            @* SEPARATOR LINE: Zoom ra từ giữa *@
             <div class="w-[200px] md:w-[600px] h-[2px] bg-[#004F9F] mx-auto mb-10"
                  data-aos="zoom-in" data-aos-delay="200"></div>
 
-            @* BODY TEXT: Xuất hiện kiểu bậc thang (Stagger) *@
             <div class="[&_p]:font-narrative font-narrative text-slate-700 text-xl md:text-2xl leading-relaxed space-y-6 text-center max-w-4xl mx-auto">
-
                 <p data-aos="fade-up" data-aos-delay="300">
-                    Driven by a pioneering spirit, we at Charles Wembley (Tan Long) have grown to become one of the largest and most trusted medical equipment suppliers in Vietnam.
+                    @(isEn
+                                        ? "Driven by a pioneering spirit, we at Charles Wembley (Tan Long) have grown to become one of the largest and most trusted medical equipment suppliers in Vietnam."
+                                        : "Với tinh thần tiên phong, chúng tôi tại Charles Wembley (Tân Long) đã phát triển để trở thành một trong những nhà cung cấp thiết bị y tế lớn nhất và đáng tin cậy nhất tại Việt Nam.")
                 </p>
-
                 <p data-aos="fade-up" data-aos-delay="400">
-                    With an extensive network across Vietnam and Cambodia, we specialize in essential solutions for Surgery, ICU & Emergency, Anesthesia, Neonatal, Urology, and Ophthalmology.
-                    Our mission is to deliver optimal solutions that perfectly balance quality and cost, backed by our deep industry experience.
+                    @(isEn
+                                        ? "With an extensive network across Vietnam and Cambodia, we specialize in essential solutions for Surgery, ICU & Emergency, Anesthesia, Neonatal, Urology, and Ophthalmology. Our mission is to deliver optimal solutions that perfectly balance quality and cost, backed by our deep industry experience."
+                                        : "Với mạng lưới rộng khắp Việt Nam và Campuchia, chúng tôi chuyên cung cấp các giải pháp thiết yếu cho Phẫu thuật, Hồi sức cấp cứu (ICU), Gây mê, Sơ sinh, Tiết niệu và Nhãn khoa. Sứ mệnh của chúng tôi là mang đến những giải pháp tối ưu, cân bằng hoàn hảo giữa chất lượng và chi phí, dựa trên kinh nghiệm chuyên sâu trong ngành.")
                 </p>
-
                 <p data-aos="fade-up" data-aos-delay="500">
-                    We are proud to be the official distributor for world-leading brands like Masimo, Johnson & Johnson, Seca, Fisher & Paykel, and Reichert.
-                    Above all, we are committed to being your trusted companion on every step of your journey.
+                    @(isEn
+                                        ? "We are proud to be the official distributor for world-leading brands like Masimo, Johnson & Johnson, Seca, Fisher & Paykel, and Reichert. Above all, we are committed to being your trusted companion on every step of your journey."
+                                        : "Chúng tôi tự hào là nhà phân phối chính thức cho các thương hiệu hàng đầu thế giới như Masimo, Johnson & Johnson, Seca, Fisher & Paykel và Reichert. Trên tất cả, chúng tôi cam kết là người đồng hành đáng tin cậy trên mọi bước đường của bạn.")
                 </p>
             </div>
-
         </div>
     </div>
 </section>
@@ -127,102 +122,85 @@
    ========================================== *@
 <section id="vision-values" class="w-full py-16 md:py-24 bg-white">
     <div class="w-[75%] mx-auto max-w-none">
-
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 lg:gap-32 items-start">
 
             @* --- COL 1: VIDEO (Sticky) --- *@
-            @* Video hiện nhẹ nhàng (Fade in) *@
-            <div class="relative w-full rounded-sm overflow-hidden shadow-2xl
-                       aspect-[2/3]
-                        lg:sticky lg:top-24 pointer-events-none"
+            <div class="relative w-full rounded-sm overflow-hidden shadow-2xl aspect-[2/3] lg:sticky lg:top-24 pointer-events-none"
                  data-aos="fade-in" data-aos-duration="2000">
-
                 <video autoplay loop muted playsinline class="w-full h-full object-cover" poster="/images/about/journey-poster.jpg">
                     <source src="~/videos/cw-journey.mp4" type="video/mp4">
                 </video>
             </div>
 
-
             @* --- COL 2: RIGHT CONTENT --- *@
             <div class="flex flex-col justify-between min-h-[1500px] py-10 [&_p]:font-['Montserrat']">
-
-                @* Block 1: HEADING & IMAGE - Trượt từ phải *@
                 <div data-aos="fade-left">
                     <h2 class="text-[#004F9F] font-heading font-bold text-3xl md:text-4xl uppercase tracking-wide mb-8">
-                        Vision & Core Value
+                        @(isEn ? "Vision & Core Value" : "Tầm nhìn & Giá trị cốt lõi")
                     </h2>
-                    <img src="~/images/vision-bg.png"
-                         alt="Charles Wembley Office"
-                         class="w-[85%] h-auto object-cover rounded-sm shadow-md" />
+                    <img src="~/images/vision-bg.png" alt="Charles Wembley Office" class="w-[85%] h-auto object-cover rounded-sm shadow-md" />
                 </div>
 
-                @* Block 2: OUR VISION - Trượt lên *@
                 <div class="py-12 border-b border-slate-100" data-aos="fade-up">
                     <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-6">
-                        Our Vision
+                        @(isEn ? "Our Vision" : "Tầm nhìn của chúng tôi")
                     </h3>
                     <p class="text-slate-800 leading-loose font-body text-lg md:text-xl">
-                        We aspire to set the benchmark for trustworthy Medical and F&B solutions—combining rigor,
-                        design, and service to help organizations work safer, faster, and smarter.
-                        By uniting proven expertise with practical innovation, we enable our partners to deliver better experiences and measurable results.
+                        @(isEn
+                                                ? "We aspire to set the benchmark for trustworthy Medical and F&B solutions—combining rigor, design, and service to help organizations work safer, faster, and smarter. By uniting proven expertise with practical innovation, we enable our partners to deliver better experiences and measurable results."
+                                                : "Chúng tôi mong muốn thiết lập tiêu chuẩn cho các giải pháp Y tế và F&B đáng tin cậy — kết hợp giữa sự khắt khe, thiết kế và dịch vụ để giúp các tổ chức làm việc an toàn hơn, nhanh hơn và thông minh hơn. Bằng cách kết hợp chuyên môn vững chắc với những cải tiến thiết thực, chúng tôi giúp các đối tác mang lại trải nghiệm tốt hơn và kết quả rõ rệt.")
                     </p>
                 </div>
 
-                @* Block 3: OUR VALUES (List) *@
                 <div>
-                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-12 mt-6 "
-                        data-aos="fade-up">
-                        Our Values
+                    <h3 class="text-[#004F9F] font-heading font-bold text-2xl uppercase mb-12 mt-6 " data-aos="fade-up">
+                        @(isEn ? "Our Values" : "Giá trị của chúng tôi")
                     </h3>
 
                     <div class="space-y-12">
-                        @* Mỗi giá trị sẽ trượt lên khi cuộn tới nơi (không cần delay vì cuộn xa mới thấy) *@
-
                         <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Integrity</h4>
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">@(isEn ? "Integrity" : "Chính trực")</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                We speak plainly, deliver exactly what we promise, and back decisions with evidence.
+                                @(isEn ? "We speak plainly, deliver exactly what we promise, and back decisions with evidence." : "Chúng tôi nói thẳng, làm đúng những gì đã cam kết và đưa ra quyết định dựa trên minh chứng rõ ràng.")
                             </p>
                         </div>
 
                         <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Safety & Compliance</h4>
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">@(isEn ? "Safety & Compliance" : "An toàn & Tuân thủ")</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                People come first. We follow clinical and industry standards to protect patients, guests, and teams.
+                                @(isEn ? "People come first. We follow clinical and industry standards to protect patients, guests, and teams." : "Con người là trên hết. Chúng tôi tuân thủ các tiêu chuẩn lâm sàng và ngành để bảo vệ bệnh nhân, khách hàng và đội ngũ.")
                             </p>
                         </div>
 
                         <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Practical Innovation</h4>
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">@(isEn ? "Practical Innovation" : "Cải tiến thiết thực")</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                We build useful improvements that scale—never complexity for its own sake.
+                                @(isEn ? "We build useful improvements that scale—never complexity for its own sake." : "Chúng tôi xây dựng những cải tiến hữu ích có khả năng mở rộng, không bao giờ làm phức tạp hóa vấn đề một cách vô ích.")
                             </p>
                         </div>
 
                         <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Reliability & Accountability</h4>
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">@(isEn ? "Reliability & Accountability" : "Tin cậy & Trách nhiệm")</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                Clear commitments, on-time handoffs, and ownership of outcomes.
+                                @(isEn ? "Clear commitments, on-time handoffs, and ownership of outcomes." : "Cam kết rõ ràng, bàn giao đúng hạn và luôn chịu trách nhiệm về kết quả đạt được.")
                             </p>
                         </div>
 
                         <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Partnership Mindset</h4>
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">@(isEn ? "Partnership Mindset" : "Tư duy cộng tác")</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                We succeed with our clients and suppliers, not just for them—through transparency and respect.
+                                @(isEn ? "We succeed with our clients and suppliers, not just for them—through transparency and respect." : "Chúng tôi thành công cùng với khách hàng và nhà cung cấp, chứ không chỉ cho họ — thông qua sự minh bạch và tôn trọng lẫn nhau.")
                             </p>
                         </div>
 
                         <div class="group" data-aos="fade-up">
-                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">Continuous Improvement</h4>
+                            <h4 class="text-[#002143] font-bold text-xl mb-2 group-hover:text-[#004F9F] transition-colors">@(isEn ? "Continuous Improvement" : "Cải tiến không ngừng")</h4>
                             <p class="text-slate-600 text-base md:text-lg leading-relaxed">
-                                Small, repeatable upgrades that compound over time.
+                                @(isEn ? "Small, repeatable upgrades that compound over time." : "Những nâng cấp nhỏ, có tính lặp lại thường xuyên để tạo nên giá trị lớn theo thời gian.")
                             </p>
                         </div>
-
                     </div>
                 </div>
-
                 <div class="h-20"></div>
             </div>
         </div>
@@ -232,21 +210,18 @@
 @* ==========================================
    SECTION 4: LEADERSHIP SLIDER
    ========================================== *@
-@* Cả khối xanh trượt lên *@
 <section id="leadership"
          class="relative z-20 -mb-[90px] bg-[#528AC4] text-white py-20 md:py-28 rounded-br-[80px] md:rounded-br-[40px] overflow-hidden"
          data-aos="fade-up">
 
     <div class="container mx-auto px-4 max-w-[1500px]">
-
         <div class="text-center mb-16 md:mb-20">
             <h2 class="font-heading text-white font-bold text-2xl md:text-4xl uppercase tracking-[0.1em]"
                 data-aos="fade-up" data-aos-delay="200">
-                Guided by Experience and Vision
+                @(isEn ? "Guided by Experience and Vision" : "Dẫn dắt bởi Kinh nghiệm và Tầm nhìn")
             </h2>
         </div>
 
-        @* SWIPER SLIDER (Nội dung bên trong do Swiper lo hiệu ứng fade) *@
         <div class="swiper leadership-swiper relative" data-aos="fade-in" data-aos-delay="400">
             <div class="swiper-wrapper">
 
@@ -255,11 +230,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
                         <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
                             <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
-                                "Charles Wembley is a leader in providing cutting-edge medical and food & beverage solutions, dedicated to advancing healthcare and enriching culinary experiences around the world."
+                                "@(isEn
+                                                                ? "Charles Wembley is a leader in providing cutting-edge medical and food & beverage solutions, dedicated to advancing healthcare and enriching culinary experiences around the world." 
+                                                                        : "Charles Wembley dẫn đầu trong việc cung cấp các giải pháp y tế và thực phẩm & đồ uống tiên tiến, cam kết thúc đẩy nền y tế phát triển và làm phong phú thêm trải nghiệm ẩm thực trên toàn thế giới.")"
                             </blockquote>
                             <div>
                                 <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Mr. Charles Wembley</h4>
-                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">Founder & CEO</p>
+                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">@(isEn ? "Founder & CEO" : "Nhà sáng lập & CEO")</p>
                             </div>
                         </div>
 
@@ -278,11 +255,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
                         <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
                             <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
-                                "Our technology vision is simple: Practical innovation that solves real-world problems for hospitals and businesses across Southeast Asia."
+                                "@(isEn
+                                                                ? "Our technology vision is simple: Practical innovation that solves real-world problems for hospitals and businesses across Southeast Asia."
+                                                                : "Tầm nhìn công nghệ của chúng tôi rất đơn giản: Những cải tiến thiết thực giúp giải quyết các vấn đề thực tế cho các bệnh viện và doanh nghiệp trên khắp Đông Nam Á.")"
                             </blockquote>
                             <div>
                                 <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Ms. Sarah Nguyen</h4>
-                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">Chief Technology Officer</p>
+                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">@(isEn ? "Chief Technology Officer" : "Giám đốc Công nghệ")</p>
                             </div>
                         </div>
                         <div class="md:col-span-7 flex justify-center md:justify-end">
@@ -311,38 +290,30 @@
                 </button>
             </div>
         </div>
-
     </div>
 </section>
 
 @section Scripts {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    @* SCRIPT ANIMATION AOS *@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
-            // 1. KHỞI TẠO AOS (Giống hệt trang chủ)
             AOS.init({
-                duration: 1500,      
+                duration: 1500,
                 easing: 'ease-out-cubic',
-                once: true,           
-                offset: 250           
+                once: true,
+                offset: 250
             });
 
-            // 2. Swiper Leadership
             var leaderSwiper = new Swiper(".leadership-swiper", {
                 slidesPerView: 1,
                 spaceBetween: 50,
                 speed: 800,
                 loop: true,
                 effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
+                fadeEffect: { crossFade: true },
                 navigation: {
                     nextEl: ".swiper-button-next-custom",
                     prevEl: ".swiper-button-prev-custom",

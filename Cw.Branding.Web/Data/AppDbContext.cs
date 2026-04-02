@@ -17,7 +17,7 @@ public class AppDbContext : DbContext
     public DbSet<ContactFormEntry> ContactFormEntries => Set<ContactFormEntry>();
     public DbSet<Brand> Brands => Set<Brand>();
     public DbSet<MachineType> MachineTypes => Set<MachineType>();
-
+    public DbSet<VisualContent> VisualContents { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -85,5 +85,7 @@ public class AppDbContext : DbContext
         {
             entity.HasIndex(x => x.CreatedAt);
         });
+        modelBuilder.Entity<VisualContent>()
+        .HasIndex(x => x.PageCode);
     }
 }
