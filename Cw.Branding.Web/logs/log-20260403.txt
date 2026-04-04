@@ -1,0 +1,80 @@
+2026-04-03 15:01:59.316 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:01:59.358 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:01:59.895 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:01:59.895 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:02:32.292 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:02:32.341 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:02:33.051 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-03 15:02:33.087 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-03 15:02:33.092 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-03 15:02:33.093 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-03 15:02:33.124 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-04-03 15:02:33.147 +07:00 [INF] Applying migration '20260403080201_RemoveLegacyVisualContent'.
+2026-04-03 15:02:33.246 +07:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP TABLE [VisualContents];
+2026-04-03 15:02:33.250 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260403080201_RemoveLegacyVisualContent', N'8.0.22');
+2026-04-03 15:15:26.488 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:15:26.532 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:15:26.876 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:15:26.876 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:16:44.546 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:16:44.624 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-03 15:16:45.375 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-03 15:16:45.421 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-03 15:16:45.425 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-03 15:16:45.426 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-03 15:16:45.466 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-04-03 15:16:45.494 +07:00 [INF] Applying migration '20260403081527_AddHeroAndHomeSlide'.
+2026-04-03 15:16:45.683 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HeroSection] (
+    [Id] int NOT NULL IDENTITY,
+    [BackgroundImage] nvarchar(255) NOT NULL,
+    [TitleEn] nvarchar(200) NOT NULL,
+    [TitleVi] nvarchar(200) NOT NULL,
+    [HighlightEn] nvarchar(100) NOT NULL,
+    [HighlightVi] nvarchar(100) NOT NULL,
+    [DescriptionEn] nvarchar(500) NOT NULL,
+    [DescriptionVi] nvarchar(500) NOT NULL,
+    [Cta1TextEn] nvarchar(50) NOT NULL,
+    [Cta1TextVi] nvarchar(50) NOT NULL,
+    [Cta1Url] nvarchar(max) NOT NULL,
+    [Cta2TextEn] nvarchar(50) NOT NULL,
+    [Cta2TextVi] nvarchar(50) NOT NULL,
+    [Cta2Url] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_HeroSection] PRIMARY KEY ([Id])
+);
+2026-04-03 15:16:45.686 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [HomeSlide] (
+    [Id] int NOT NULL IDENTITY,
+    [ImageUrl] nvarchar(255) NOT NULL,
+    [DisplayOrder] int NOT NULL,
+    [IsActive] bit NOT NULL,
+    [Note] nvarchar(100) NULL,
+    CONSTRAINT [PK_HomeSlide] PRIMARY KEY ([Id])
+);
+2026-04-03 15:16:45.743 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'BackgroundImage', N'Cta1TextEn', N'Cta1TextVi', N'Cta1Url', N'Cta2TextEn', N'Cta2TextVi', N'Cta2Url', N'DescriptionEn', N'DescriptionVi', N'HighlightEn', N'HighlightVi', N'TitleEn', N'TitleVi') AND [object_id] = OBJECT_ID(N'[HeroSection]'))
+    SET IDENTITY_INSERT [HeroSection] ON;
+INSERT INTO [HeroSection] ([Id], [BackgroundImage], [Cta1TextEn], [Cta1TextVi], [Cta1Url], [Cta2TextEn], [Cta2TextVi], [Cta2Url], [DescriptionEn], [DescriptionVi], [HighlightEn], [HighlightVi], [TitleEn], [TitleVi])
+VALUES (1, N'/images/Hero illstration.png', N'Explore Solutions', N'Khám phá Giải pháp', N'/en/medical', N'Contact Us', N'Liên hệ', N'/en/contact', N'Providing innovative and efficient solutions tailored to contemporary medical needs.', N'Cung cấp các giải pháp sáng tạo và hiệu quả, được tinh chỉnh theo nhu cầu y tế đương đại.', N'Healthcare', N'Y tế Hiện đại', N'Trusted Medical Solutions For Modern', N'Giải pháp Y tế Tin cậy cho');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'BackgroundImage', N'Cta1TextEn', N'Cta1TextVi', N'Cta1Url', N'Cta2TextEn', N'Cta2TextVi', N'Cta2Url', N'DescriptionEn', N'DescriptionVi', N'HighlightEn', N'HighlightVi', N'TitleEn', N'TitleVi') AND [object_id] = OBJECT_ID(N'[HeroSection]'))
+    SET IDENTITY_INSERT [HeroSection] OFF;
+2026-04-03 15:16:45.745 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260403081527_AddHeroAndHomeSlide', N'8.0.22');

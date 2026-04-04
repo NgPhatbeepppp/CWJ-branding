@@ -25,27 +25,32 @@ namespace Cw.Branding.Web.Controllers
         [Route("", Name = "HomeIndex")]
         public async Task<IActionResult> Index()
         {
-            var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-            var isEn = currentLang == "en";
-
-            var viewModel = new HomeViewModel
-            {
-                MetaTitle = isEn ? "Home - Charles Wembley Medical" : "Trang chủ - Charles Wembley Medical",
-                MetaDescription = isEn ? "Trusted Medical Solutions" : "Giải pháp y tế tin cậy"
-            };
+            var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName.ToLower();
+            var viewModel = new HomeViewModel(); // Đã có sẵn default bên trong
 
             try
             {
-                // Lấy 3 tin mới nhất dựa trên ngôn ngữ hiện tại
+                // Lấy Hero từ DB
+                var dbHero = await _context.HeroSections.AsNoTracking().FirstOrDefaultAsync();
+                if (dbHero != null) viewModel.Hero = dbHero;
+
+                // Lấy Slides - Nếu DB trống, mình sẽ tự add 1 slide mặc định để không hỏng Ken Burns
+                var dbSlides = await _context.HomeSlides.Where(x => x.IsActive).OrderBy(x => x.DisplayOrder).ToListAsync();
+                if (dbSlides.Any()) viewModel.Slides = dbSlides;
+                else viewModel.Slides.Add(new HomeSlide { ImageUrl = "/images/healthcare-hero.png" });
+
+                // Lấy News (Cần thiết để không mất mục News ở dưới)
                 viewModel.LatestNews = await _context.News
-                     .Where(n => n.IsActive && n.PublishedAt <= DateTime.Now)
-                     .OrderByDescending(n => n.PublishedAt)
-                     .Take(3)
-                     .ToListAsync();
+                    .Where(n => n.IsActive)
+                    .OrderByDescending(n => n.PublishedAt)
+                    .Take(3).ToListAsync();
+
+                // SEO
+                viewModel.MetaTitle = (currentLang == "vi") ? "Trang chủ - Charles Wembley" : "Home - Charles Wembley";
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error loading Homepage data");
+                _logger.LogError(ex, "Lỗi load trang chủ, đang dùng dữ liệu dự phòng.");
             }
 
             return View(viewModel);

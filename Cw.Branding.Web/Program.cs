@@ -51,13 +51,25 @@ builder.Services.AddAuthentication("AdminCookie")
     });
 
 builder.Services.AddAuthorization();
+// Nâng giới hạn dung lượng request (Ví dụ: 100MB)
+builder.Services.Configure<Microsoft.AspNetCore.Http.Features.FormOptions>(options =>
+{
+    options.ValueLengthLimit = int.MaxValue;
+    options.MultipartBodyLengthLimit = 100 * 1024 * 1024; // 100MB
+    options.MemoryBufferThreshold = int.MaxValue;
+});
 
+// Nếu chạy trên Kestrel (mặc định của .NET Core)
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 100 * 1024 * 1024; // 100MB
+});
 // 5. DI Services
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<INewsService, NewsService>();
-
+builder.Services.AddScoped<IFileService, FileService>();
 var app = builder.Build();
 
 

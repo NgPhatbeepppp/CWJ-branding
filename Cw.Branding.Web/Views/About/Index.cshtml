@@ -11,7 +11,7 @@
 
 @* --- THƯ VIỆN ANIMATION (AOS) --- *@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
 @* ==========================================
    SECTION 1: ABOUT INTRODUCTION
    ========================================== *@
@@ -38,15 +38,20 @@
             </div>
 
             @* --- COL 2: CHỮ --- *@
+
             <div class="text-center md:text-left md:col-span-6 md:-ml-24 z-20 pl-4"
                  data-aos="fade-left">
-
+                <style>
+                    .font-signature-override {
+                        font-family: 'Monsieur La Doulaise', cursive !important;
+                    }
+                </style>
                 @* TIÊU ĐỀ *@
                 <h1 class="flex flex-col md:flex-row items-center md:items-baseline gap-x-4 mb-6">
                     <span class="text-2xl md:text-5xl lg:text-5xl text-slate-900 font-heading font-light tracking-wide whitespace-nowrap ">
                         @(isEn ? "About" : "Về")
                     </span>
-                    <span class="font-signature text-3xl md:text-7xl lg:text-7xl whitespace-nowrap leading-none mt-2 md:mt-0">
+                    <span class="font-signature-override text-3xl md:text-7xl lg:text-7xl whitespace-nowrap leading-none mt-2 md:mt-0">
                         Charles Wembley
                     </span>
                 </h1>
@@ -64,6 +69,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 @* ==========================================
@@ -241,10 +247,10 @@
                         </div>
 
                         <div class="md:col-span-7 flex justify-center md:justify-end">
-                            <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
-                                <img src="~/images/about/leader-1.jpg"
+                            <div class="w-full max-w-lg aspect-square bg-white/10 backdrop-blur-sm p-4 rounded-sm">
+                                <img src="~/images/manager-simple.jpg"
                                      alt="Mr. Charles Wembley"
-                                     class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                                     class="w-full h-full object-cover shadow-2xl  transition-all duration-500" />
                             </div>
                         </div>
                     </div>
@@ -266,9 +272,9 @@
                         </div>
                         <div class="md:col-span-7 flex justify-center md:justify-end">
                             <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
-                                <img src="~/images/about/leader-2.jpg"
+                                <img src="~/images/manager-simbple2.jpg"
                                      alt="Ms. Sarah Nguyen"
-                                     class="w-full h-full object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500" />
+                                     class="w-full h-full object-cover shadow-2xl transition-all duration-500" />
                             </div>
                         </div>
                     </div>
@@ -291,6 +297,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 @section Scripts {

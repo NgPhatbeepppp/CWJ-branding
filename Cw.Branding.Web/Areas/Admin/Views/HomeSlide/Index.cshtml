@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Cw.Branding.Web.Models.Entities.HomeSlide>
+@{
+    ViewData["Title"] = "Quản lý Slider Trang chủ";
+    Layout = "_AdminLayout";
+}
+
+<div class="p-6">
+    <div class="flex justify-between items-end mb-6 border-b pb-4">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800">Slider & Banner (Ken Burns)</h1>
+            <p class="text-xs text-slate-500">Quản lý ảnh nền "Our Healthcare Solutions"</p>
+        </div>
+        <div class="text-xs text-slate-400">
+            Tổng cộng: <span class="font-bold text-blue-600">@Model.Count()</span> ảnh
+        </div>
+    </div>
+
+    <form asp-action="Upload" method="post" enctype="multipart/form-data" class="bg-white p-4 rounded-lg shadow-sm border border-slate-200 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+            <div class="md:col-span-5">
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1 uppercase">Chọn ảnh (Multi)</label>
+                <input type="file" id="multiFileInput" name="imageFiles" multiple required
+                       class="block w-full text-xs text-slate-500 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 border rounded"
+                       accept="image/*" />
+            </div>
+            <div class="md:col-span-4">
+                <label class="block text-[11px] font-semibold text-slate-500 mb-1 uppercase">Ghi chú nhanh</label>
+                <input type="text" name="note" placeholder="Ví dụ: Banner máy siêu âm..." class="w-full p-1.5 border rounded text-xs focus:ring-1 focus:ring-blue-400 outline-none" />
+            </div>
+            <div class="md:col-span-3">
+                <button type="submit" class="w-full bg-blue-600 text-white py-1.5 rounded font-bold hover:bg-blue-700 transition text-xs shadow-sm uppercase tracking-wider">
+                    Tải lên ngay
+                </button>
+            </div>
+        </div>
+
+        <div id="previewContainer" class="hidden mt-4 p-3 border border-dashed border-blue-200 rounded bg-blue-50/30">
+            <p class="text-[10px] font-bold text-blue-600 mb-2 uppercase italic">Xem trước file đã chọn:</p>
+            <div id="previewGrid" class="flex flex-wrap gap-2">
+            </div>
+        </div>
+    </form>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        @foreach (var item in Model)
+        {
+            <div class="bg-white rounded-lg overflow-hidden border border-slate-200 shadow-sm group hover:border-blue-400 transition-all relative">
+                <div class="relative h-32 bg-slate-100">
+                    <img src="@item.ImageUrl" class="w-full h-full object-cover" />
+
+                    <div class="absolute top-1 left-1">
+                        @if (item.IsActive)
+                        {
+                            <span class="bg-green-500/90 backdrop-blur-sm text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">ACTIVE</span>
+                        }
+                        else
+                        {
+                            <span class="bg-slate-400/90 backdrop-blur-sm text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow-sm">HIDDEN</span>
+                        }
+                    </div>
+                </div>
+
+                <div class="p-2">
+                    <p class="text-[11px] text-slate-600 truncate mb-2 italic" title="@item.Note">@(string.IsNullOrEmpty(item.Note) ? "Không có ghi chú" : item.Note)</p>
+
+                    <div class="flex items-center gap-1">
+                        <form asp-action="ToggleActive" asp-route-id="@item.Id" method="post" class="flex-1">
+                            <button type="submit" class="w-full text-[10px] font-bold py-1 rounded border transition @(item.IsActive ? "text-orange-600 border-orange-100 hover:bg-orange-50" : "text-green-600 border-green-100 hover:bg-green-50")">
+                                @(item.IsActive ? "ẨN" : "HIỆN")
+                            </button>
+                        </form>
+
+                        <form asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Xóa ảnh này?')">
+                            <button type="submit" class="p-1 text-red-400 hover:text-red-600 hover:bg-red-50 rounded border border-transparent hover:border-red-100 transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (!Model.Any())
+        {
+            <div class="col-span-full py-12 text-center bg-slate-50 rounded-lg border border-dashed border-slate-300">
+                <p class="text-slate-400 text-sm">Chưa có ảnh nào trong bộ sưu tập.</p>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    document.getElementById('multiFileInput').addEventListener('change', function (event) {
+        const container = document.getElementById('previewContainer');
+        const grid = document.getElementById('previewGrid');
+        const files = event.target.files;
+
+        grid.innerHTML = '';
+        if (files.length > 0) {
+            container.classList.remove('hidden');
+
+            Array.from(files).forEach(file => {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const div = document.createElement('div');
+                      
+                        div.className = 'relative w-40 h-40 bg-slate-200 rounded border border-blue-200 overflow-hidden shadow-sm flex-shrink-0';
+
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.className = 'w-full h-full object-cover';
+
+                        const label = document.createElement('div');
+                        label.className = 'absolute bottom-0 left-0 right-0 bg-black/50 text-[8px] text-white px-1 truncate py-0.5';
+                        label.textContent = file.name;
+
+                        div.appendChild(img);
+                        div.appendChild(label);
+                        grid.appendChild(div);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        } else {
+            container.classList.add('hidden');
+        }
+    });
+</script>

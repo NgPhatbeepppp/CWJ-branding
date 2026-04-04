@@ -4,68 +4,53 @@
     var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     var isEn = currentLang == "en";
     ViewData["Title"] = Model.MetaTitle;
+  
+    var hero = ViewBag.Hero as Cw.Branding.Web.Models.Entities.HeroSection;
+    var slides = ViewBag.Slides as List<Cw.Branding.Web.Models.Entities.HomeSlide>;
 }
 
 @* --- THƯ VIỆN ANIMATION (AOS) --- *@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
 
 @* --- 1. HERO BANNER SECTION --- *@
 <section class="relative w-full h-screen min-h-[700px] flex items-center overflow-hidden">
-
-    @* Background Image *@
     <div class="absolute inset-0 z-0">
-        <img src="~/images/Hero illstration.png"
-             alt="Charles Wembley Medical Solutions"
-             class="w-full h-full object-cover" />
+        @* Dùng toán tử ?? để đảm bảo luôn có ảnh *@
+        <img src="@(Model.Hero.BackgroundImage ?? "/images/Hero illstration.png")"
+             alt="Hero" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-white/20"></div>
     </div>
 
-    @* Content Container *@
-    @* data-aos="fade-right": Trượt từ trái vào *@
-    <div class="relative z-10 w-[92%] max-w-[1800px] mx-auto h-full flex flex-col justify-center pt-32 px-4 md:pl-10 md:pr-3"
-         data-aos="fade-right">
-
+    <div class="relative z-10 w-[92%] max-w-[1800px] mx-auto h-full flex flex-col justify-center pt-32 px-4 md:pl-10 md:pr-3" data-aos="fade-right">
         <div class="max-w-5xl text-center md:text-left">
-            @* Main Headline *@
-            <h1 class="font-heading font-bold text-blue-900
-                       text-4xl md:text-5xl lg:text-[60px]
-                       leading-tight lg:leading-[70px]
-                       tracking-[0.05em]
-                       drop-shadow-sm mb-2">
-                Trusted Medical <br />
-                Solutions For Modern
+            <h1 class="font-heading font-bold text-blue-900 text-4xl md:text-5xl lg:text-[60px] leading-tight lg:leading-[70px] mb-2">
+                @(isEn? Model.Hero.TitleEn : Model.Hero.TitleVi)
             </h1>
-
-            @* Highlight Text *@
-            <h1 class="font-heading font-bold text-[#004F9F] uppercase
-                       text-4xl md:text-5xl lg:text-[60px]
-                       leading-tight lg:leading-[70px]
-                       tracking-[0.05em]">
-                Healthcare
+            <h1 class="font-heading font-bold text-[#004F9F] uppercase text-4xl md:text-5xl lg:text-[60px] leading-tight lg:leading-[70px]">
+                @(isEn? Model.Hero.HighlightEn : Model.Hero.HighlightVi)
             </h1>
-
-            @* Sub-headline *@
             <p class="font-body text-lg md:text-xl text-slate-800 mt-6 mb-10 max-w-2xl leading-relaxed font-medium">
-                Providing innovative and efficient solutions tailored to contemporary
-                medical needs.
+                @(isEn? Model.Hero.DescriptionEn : Model.Hero.DescriptionVi)
             </p>
 
-            @* CTA Buttons *@
             <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
-                <a asp-controller="Medical" asp-action="Index" asp-route-lang="en"
-                   class="btn-primary rounded-md px-8 py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center">
-                    Explore Solutions
+                <a href="@Model.Hero.Cta1Url" class="btn-primary rounded-md px-8 py-3 text-lg shadow-lg">
+                    @(isEn? Model.Hero.Cta1TextEn : Model.Hero.Cta1TextVi)
                 </a>
-                <a asp-controller="Contact" asp-action="Index" asp-route-lang="en"
-                   class="inline-flex items-center justify-center px-8 py-3 rounded-md border-2 border-[#004F9F] text-[#004F9F] font-bold hover:bg-[#004F9F] hover:text-white transition-all duration-300">
-                    Contact Us
+                <a href="@Model.Hero.Cta2Url" class="inline-flex items-center justify-center px-8 py-3 rounded-md border-2 border-[#004F9F] text-[#004F9F] font-bold hover:bg-[#004F9F] hover:text-white transition-all">
+                    @(isEn? Model.Hero.Cta2TextEn : Model.Hero.Cta2TextVi)
                 </a>
             </div>
         </div>
     </div>
 </section>
-
 @* --- 2. ABOUT US SECTION --- *@
+<style>
+    .font-signature-override {
+        font-family: 'Monsieur La Doulaise', cursive !important;
+    }
+</style>
 <section class="relative w-full py-6 md:py-8 bg-center bg-no-repeat overflow-hidden"
          style="background-image: url('/images/WebBR_1.png'); background-size: 100% 100%;">
 
@@ -75,7 +60,7 @@
             @* Cột Trái: Trượt từ trái vào (fade-right) *@
             <div class="flex flex-col text-slate-900 text-center md:text-left self-start pt-6"
                  data-aos="fade-right">
-                <h2 class="font-signature text-4xl md:text-6xl mb-2 text-slate-900 text-blue-600">
+                <h2 class="font-signature-override text-4xl md:text-6xl mb-2 text-slate-900 text-blue-600">
                     Charles Wembley
                 </h2>
                 <h3 class="font-classic font-medium text-xl md:text-2xl tracking-wide border-b-2 border-slate-900 pb-4 inline-block md:self-start">
@@ -105,42 +90,34 @@
     </div>
 </section>
 
-@* --- 3. OUR HEALTHCARE SOLUTIONS SECTION (Ken Burns Slider) --- *@
-<section class="relative w-full h-[800px] md:h-[800px] flex items-center justify-center overflow-hidden bg-gray-900">
-
-    @* BACKGROUND SLIDER *@
+@* --- 3. OUR HEALTHCARE SOLUTIONS (Ken Burns Slider) --- *@
+<section class="relative w-full h-[800px] flex items-center justify-center overflow-hidden bg-gray-900">
     <div id="ken-burns-slider" class="absolute inset-0 z-0">
-        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/healthcare-hero.png');"></div>
-        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-2.jpg');"></div>
-        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-3.jpg');"></div>
-        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-4.jpg');"></div>
-        <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center" style="background-image: url('/images/medical-bg-5.jpg');"></div>
+        @foreach (var slide in Model.Slides)
+        {
+            <div class="slide absolute inset-0 bg-cover bg-center opacity-0 scale-100 origin-center transition-all duration-[3000ms]"
+                 style="background-image: url('@slide.ImageUrl');"></div>
+        }
     </div>
-
-    <div class="absolute inset-0 z-0 pointer-events-none"></div>
-
     <div class="container mx-auto px-4 relative z-10 text-center">
-        @* Hộp trắng: Trượt từ dưới lên (fade-up) *@
-        <div class="inline-block bg-white/95 backdrop-blur-sm shadow-2xl px-6 py-10 md:px-16 md:py-20 max-w-5xl mx-auto"
-             data-aos="fade-up">
-
-            <h2 class="font-heading font-bold text-5xl md:text-6xl lg:text-[80px] text-blue-800 mb-8"
-                style="line-height: 1.1; letter-spacing: 0.02em;">
-                Our Healthcare<br />Solutions
+        <div class="inline-block bg-white/95 backdrop-blur-sm shadow-2xl px-6 py-10 md:px-16 md:py-20 max-w-5xl mx-auto" data-aos="fade-up">
+            <h2 class="font-heading font-bold text-5xl md:text-6xl lg:text-[80px] text-blue-800 mb-8">
+                @(isEn ? "Our Healthcare" : "Giải pháp")<br />
+                @(isEn ? "Solutions" : "Y tế")
             </h2>
+            <a asp-controller="Medical" asp-action="Index" asp-route-lang="@currentLang"
+               class="inline-flex items-center gap-2 text-brand-primary font-heading font-bold text-lg uppercase tracking-wider group border-b-2 border-transparent hover:border-brand-primary transition-all duration-300">
 
-            <a asp-controller="Medical" asp-action="Index" asp-route-lang="en"
-               class="group inline-flex items-center gap-3 font-heading text-base md:text-lg font-bold text-[#004F9F] uppercase tracking-wider hover:text-blue-700 transition-colors duration-300">
-                <span class="border-b-2 border-[#004F9F] group-hover:border-blue-700 pb-1">Explore Categories</span>
+                <span>@(isEn ? "Explore Categories" : "Khám phá Danh mục")</span>
+
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"
-                     class="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                     class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
             </a>
         </div>
     </div>
 </section>
-
 @* --- 4. OUR HEALTHCARE PARTNERS SECTION --- *@
 <section class="relative w-full min-h-[500px] md:min-h-[500px] flex items-center py-16 md:py-24 bg-cover bg-center bg-no-repeat"
          style="background-image: url('/images/Partnerbg.png');">

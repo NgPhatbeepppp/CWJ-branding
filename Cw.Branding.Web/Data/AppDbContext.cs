@@ -17,7 +17,9 @@ public class AppDbContext : DbContext
     public DbSet<ContactFormEntry> ContactFormEntries => Set<ContactFormEntry>();
     public DbSet<Brand> Brands => Set<Brand>();
     public DbSet<MachineType> MachineTypes => Set<MachineType>();
-    public DbSet<VisualContent> VisualContents { get; set; }
+    public DbSet<HeroSection> HeroSections => Set<HeroSection>();
+    public DbSet<HomeSlide> HomeSlides => Set<HomeSlide>();
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -85,7 +87,22 @@ public class AppDbContext : DbContext
         {
             entity.HasIndex(x => x.CreatedAt);
         });
-        modelBuilder.Entity<VisualContent>()
-        .HasIndex(x => x.PageCode);
+        base.OnModelCreating(modelBuilder);
+
+        // Cấu hình tên bảng (để db gọn gàng)
+        modelBuilder.Entity<HeroSection>().ToTable("HeroSection");
+        modelBuilder.Entity<HomeSlide>().ToTable("HomeSlide");
+
+        // (Optional) Seeding dữ liệu mặc định để trang chủ không bị trống sau khi update
+        modelBuilder.Entity<HeroSection>().HasData(new HeroSection
+        {
+            Id = 1,
+            BackgroundImage = "/images/Hero illstration.png",
+            TitleEn = "Trusted Medical Solutions For Modern",
+            TitleVi = "Giải pháp Y tế Tin cậy cho",
+            HighlightEn = "Healthcare",
+            HighlightVi = "Y tế Hiện đại"
+          
+        });
     }
 }
