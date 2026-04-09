@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null; 
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Charles Wembley Admin</title>
+    <link rel="stylesheet" href="~/css/site.css" /> @* Link tới file Tailwind đã build *@
+</head>
+<body class="bg-blue-50 flex items-center justify-center min-h-screen">
+
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-600">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-blue-900 uppercase tracking-wider">Charles Wembley</h1>
+            <p class="text-gray-500 text-sm mt-1">Hệ thống quản trị nội dung (MVP)</p>
+        </div>
+
+        <form asp-action="Login" method="post" class="space-y-6">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 text-sm mb-4"></div>
+
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Tên đăng nhập</label>
+                <input type="text" name="username" required
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none" />
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Mật khẩu</label>
+                <input type="password" name="password" required
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none" />
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition duration-200">
+                ĐĂNG NHẬP
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <a href="/" class="text-sm text-gray-400 hover:text-blue-600 transition">← Quay lại trang chủ</a>
+        </div>
+    </div>
+
+</body>
+</html>

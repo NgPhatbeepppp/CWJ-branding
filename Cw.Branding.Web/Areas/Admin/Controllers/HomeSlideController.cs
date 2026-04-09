@@ -7,7 +7,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HomeSlideController : Controller
+    [Route("{lang}/Admin/[controller]/[action]/{id?}")]
+    public class HomeSlideController : BaseAdminController
     {
         private readonly AppDbContext _context;
         private readonly IFileService _fileService;

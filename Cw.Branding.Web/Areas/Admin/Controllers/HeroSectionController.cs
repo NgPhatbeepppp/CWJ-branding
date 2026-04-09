@@ -6,7 +6,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class HeroSectionController : Controller
+    [Route("{lang}/Admin/[controller]/[action]/{id?}")]
+    public class HeroSectionController : BaseAdminController
     {
         private readonly AppDbContext _db;
         private readonly IFileService _fileService;

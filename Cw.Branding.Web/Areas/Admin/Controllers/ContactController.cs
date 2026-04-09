@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    // [Authorize] // Bật khi anh đã xong phần Identity
-    public class ContactController : Controller
+    [Route("{lang}/Admin/[controller]/[action]/{id?}")]
+    public class ContactController : BaseAdminController
     {
         private readonly IContactService _contactService;
 

@@ -1,7 +1,10 @@
 ﻿using Cw.Branding.Web.Data;
+using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Services;
 using Cw.Branding.Web.Services.Implementations;
 using Cw.Branding.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.EntityFrameworkCore;
@@ -70,6 +73,19 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IPasswordHasher<AppUser>, PasswordHasher<AppUser>>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
+builder.Services.AddScoped<IMachineTypeService, MachineTypeService>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Admin/Auth/Login";
+        options.AccessDeniedPath = "/Admin/Auth/AccessDenied";
+        options.ExpireTimeSpan = TimeSpan.FromHours(8);
+    }); 
+
 var app = builder.Build();
 
 

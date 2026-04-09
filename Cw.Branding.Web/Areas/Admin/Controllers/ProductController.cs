@@ -6,9 +6,8 @@ using Cw.Branding.Web.Helpers;
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 [Area("Admin")]
-// Nhắc lại Context Ngày 2: Không dùng [Route] ở đây để tránh xung đột, 
-// đã xử lý routing chung tại Program.cs
-public class ProductController : Controller
+[Route("{lang}/Admin/[controller]/[action]/{id?}")]
+public class ProductController : BaseAdminController
 {
     private readonly IProductService _productService;
     private readonly ICategoryService _categoryService;

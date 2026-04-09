@@ -4,9 +4,10 @@ using Cw.Branding.Web.Services.Interfaces;
 
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
+
     [Area("Admin")]
-    [Route("Admin/News/[action]/{id?}")]
-    public class NewsController : Controller
+    [Route("{lang}/Admin/[controller]/[action]/{id?}")]
+    public class NewsController : BaseAdminController
     {
         private readonly INewsService _newsService;
         private readonly IWebHostEnvironment _webHostEnvironment;

@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 [Area("Admin")]
-
-public class MachineTypeController(IMachineTypeService machineTypeService) : Controller
+[Route("{lang}/Admin/[controller]/[action]/{id?}")]
+public class MachineTypeController(IMachineTypeService machineTypeService) : BaseAdminController
 {
     public async Task<IActionResult> Index()
     {

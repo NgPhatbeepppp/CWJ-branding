@@ -1,12 +1,13 @@
 ﻿using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 [Area("Admin")]
-
-public class BrandController(IBrandService brandService, IWebHostEnvironment env) : Controller
+[Route("{lang}/Admin/[controller]/[action]/{id?}")]
+public class BrandController(IBrandService brandService, IWebHostEnvironment env) : BaseAdminController
 {
     public async Task<IActionResult> Index()
     {

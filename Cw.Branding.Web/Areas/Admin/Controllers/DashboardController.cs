@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
-[Area("Admin")]
-//[Authorize(AuthenticationSchemes = "AdminCookie")]
-public class DashboardController : Controller
+
+public class DashboardController : BaseAdminController
 {
     public IActionResult Index()
     {

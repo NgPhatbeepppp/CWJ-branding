@@ -19,6 +19,8 @@ public class AppDbContext : DbContext
     public DbSet<MachineType> MachineTypes => Set<MachineType>();
     public DbSet<HeroSection> HeroSections => Set<HeroSection>();
     public DbSet<HomeSlide> HomeSlides => Set<HomeSlide>();
+    public DbSet<AppUser> Users { get; set; }
+    public DbSet<AppRole> Roles { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -104,5 +106,30 @@ public class AppDbContext : DbContext
             HighlightVi = "Y tế Hiện đại"
           
         });
+        base.OnModelCreating(modelBuilder);
+
+        // 1. Seed Roles (Bắt buộc seed trước vì User có FK đến Role)
+        modelBuilder.Entity<AppRole>().HasData(
+            new AppRole { Id = 1, Name = "Admin", Description = "Toàn quyền hệ thống" },
+            new AppRole { Id = 2, Name = "User", Description = "Quản lý nội dung" }
+        );
+
+        // 2. Seed Admin Account
+        // Khởi tạo hasher để tạo chuỗi mã hóa mật khẩu chuẩn .NET Identity
+        var hasher = new Microsoft.AspNetCore.Identity.PasswordHasher<AppUser>();
+
+        modelBuilder.Entity<AppUser>().HasData(
+            new AppUser
+            {
+                Id = 1,
+                Username = "admin",
+                Email = "admin@charleswembley.com",
+                PasswordHash = hasher.HashPassword(null, "Admin@123"),
+                RoleId = 1, // Gán quyền Admin
+                FullName = "System Admin",
+                IsActive = true,
+                CreatedAt = new DateTime(2026, 1, 1)
+            }
+        );
     }
 }
