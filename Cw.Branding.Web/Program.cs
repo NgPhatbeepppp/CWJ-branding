@@ -22,7 +22,10 @@ builder.Host.UseSerilog();
 // 2. Add Services & Localization
 builder.Services.AddControllersWithViews()
     .AddViewLocalization(); // Hỗ trợ dịch thuật trong View
-
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "X-XSRF-TOKEN"; // Tên Header mà script JS sẽ gửi lên
+});
 // Cấu hình danh sách ngôn ngữ hỗ trợ
 // Tìm đoạn cấu hình RequestLocalizationOptions và cập nhật:
 builder.Services.Configure<RequestLocalizationOptions>(options =>

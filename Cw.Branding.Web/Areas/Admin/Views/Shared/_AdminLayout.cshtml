@@ -258,6 +258,11 @@
 
     <!-- Mobile overlay sidebar (optional simple behavior) -->
     <script>
+            $.ajaxSetup({
+            headers: {
+                'X-XSRF-TOKEN': $('input[name="__RequestVerificationToken"]').val()
+            }
+        });
         function toggleAdminSidebar() {
             const sidebar = document.getElementById('admin-sidebar');
 
@@ -275,6 +280,7 @@
                 sidebar.classList.add('flex');
             }
         });
+
     </script>
 
     @RenderSection("Scripts", required: false)

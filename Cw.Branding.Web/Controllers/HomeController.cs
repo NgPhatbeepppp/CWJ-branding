@@ -56,7 +56,8 @@ namespace Cw.Branding.Web.Controllers
             return View(viewModel);
         }
 
-        [HttpPost("Home/Submit")] 
+        [HttpPost("Home/Submit")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Submit(string lang, ContactFormViewModel model)
         {
             var currentLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
