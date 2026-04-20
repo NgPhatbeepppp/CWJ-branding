@@ -96,6 +96,7 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\templates\Product_Import_Template.xlsx
 wwwroot\uploads\brands\3d03896f-abdd-43e4-9349-7a617ea4dd8f.png
 wwwroot\uploads\brands\884017c8-33de-432d-8d06-93a16276d2ba.png
 wwwroot\uploads\hero\36e62242-ae46-488a-a218-78d5d66c5464.jpg

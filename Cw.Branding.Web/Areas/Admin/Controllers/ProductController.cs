@@ -1,9 +1,13 @@
-﻿using Cw.Branding.Web.Models.Entities;
+﻿using Cw.Branding.Web.Helpers; 
+using Cw.Branding.Web.Models.Entities;
+using Cw.Branding.Web.Models.Import;
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Cw.Branding.Web.Helpers; 
+using Newtonsoft.Json;
+
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
+
 
 [Area("Admin")]
 [Route("{lang}/Admin/[controller]/[action]/{id?}")]
@@ -13,17 +17,22 @@ public class ProductController : BaseAdminController
     private readonly ICategoryService _categoryService;
     private readonly IBrandService _brandService;
     private readonly IMachineTypeService _machineTypeService;
-
+    private readonly IProductImportService _importService;
     public ProductController(
         IProductService productService,
         ICategoryService categoryService,
         IBrandService brandService,
-        IMachineTypeService machineTypeService)
+        IMachineTypeService machineTypeService,
+        IProductImportService importService)
+        
+        
     {
         _productService = productService;
         _categoryService = categoryService;
         _brandService = brandService;
         _machineTypeService = machineTypeService;
+        _importService = importService;
+
     }
 
     // 1. INDEX: Danh sách sản phẩm
@@ -227,5 +236,78 @@ public class ProductController : BaseAdminController
             return Json(new { success = true });
         }
         return Json(new { success = false, message = "Lỗi lưu DB" });
+    }
+    // --- LUỒNG BULK IMPORT ---
+
+    // 1. Trang Upload: /vi/Admin/Product/Import
+    [HttpGet]
+    public IActionResult Import()
+    {
+        return View();
+    }
+
+    // 2. Xử lý Validate file (Dry Run)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Validate(IFormFile excelFile)
+    {
+        if (excelFile == null || excelFile.Length == 0)
+        {
+            TempData["Error"] = "Vui lòng chọn một file Excel (.xlsx) hợp lệ.";
+            return RedirectToAction(nameof(Import));
+        }
+
+        // Đọc và kiểm tra dữ liệu từ Excel
+        using var stream = excelFile.OpenReadStream();
+        var result = await _importService.ValidateExcelAsync(stream);
+
+        // Nếu có lỗi (dù chỉ 1 dòng): Quay lại trang Import và hiển thị bảng lỗi
+        if (result.ErrorRows > 0)
+        {
+            TempData["Error"] = $"Phát hiện {result.ErrorRows} dòng dữ liệu không hợp lệ. Vui lòng sửa lại file.";
+            return View("Import", result);
+        }
+
+        // Nếu 100% hợp lệ: Chuyển sang màn hình Review để Admin xem lại lần cuối
+        return View("Review", result);
+    }
+
+    // 3. Xác nhận lưu dữ liệu (Final Commit)
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Confirm(string jsonData)
+    {
+        if (string.IsNullOrEmpty(jsonData))
+        {
+            TempData["Error"] = "Dữ liệu xác nhận bị trống. Vui lòng thử lại.";
+            return RedirectToAction(nameof(Import));
+        }
+
+        // Giải mã JSON ngược lại thành List Model
+        var validRows = JsonConvert.DeserializeObject<List<ProductImportRow>>(jsonData);
+
+        if (validRows == null || !validRows.Any())
+        {
+            TempData["Error"] = "Không tìm thấy dữ liệu hợp lệ để Import.";
+            return RedirectToAction(nameof(Import));
+        }
+
+        // Thực hiện lưu vào DB thông qua Transaction
+        var (success, message) = await _importService.CommitImportAsync(validRows);
+
+        if (success)
+        {
+            TempData["SuccessMessage"] = message; 
+
+            // Lấy ngôn ngữ hiện tại từ Route để redirect về đúng /vi/ hoặc /en/
+            var currentLang = RouteData.Values["lang"] ?? "vi";
+
+            return RedirectToAction("Index", "Product", new { lang = currentLang, area = "Admin" });
+        }
+        else
+        {
+            TempData["Error"] = message;
+            return RedirectToAction(nameof(Import), new { lang = RouteData.Values["lang"] ?? "vi", area = "Admin" });
+        }
     }
 }

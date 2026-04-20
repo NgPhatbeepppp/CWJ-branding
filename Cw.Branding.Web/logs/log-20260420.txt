@@ -1,0 +1,1074 @@
+2026-04-20 23:13:30.730 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-20 23:13:31.432 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-20 23:13:31.485 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-20 23:13:31.485 +07:00 [INF] Hosting environment: Development
+2026-04-20 23:13:31.486 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-04-20 23:13:32.708 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-20 23:13:32.712 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-20 23:13:32.715 +07:00 [INF] HTTP GET / responded 302 in 105.1698 ms
+2026-04-20 23:13:32.798 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-20 23:13:32.832 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-20 23:13:32.873 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 1458.6144ms
+2026-04-20 23:13:32.957 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-20 23:13:34.927 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-20 23:13:34.928 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-20 23:13:35.680 +07:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-20 23:13:36.616 +07:00 [INF] Executed DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-20 23:13:36.740 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-20 23:13:36.893 +07:00 [INF] Executed DbCommand (55ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-20 23:13:36.917 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:13:37.538 +07:00 [INF] Executed ViewResult - view Index executed in 623.1132ms.
+2026-04-20 23:13:37.541 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 4583.2599ms
+2026-04-20 23:13:37.542 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-20 23:13:37.544 +07:00 [INF] HTTP GET /en responded 200 in 4740.2338 ms
+2026-04-20 23:13:37.623 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 4825.623ms
+2026-04-20 23:13:37.624 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/css/site.css?v=BhbCKoF_axuYvMEq6oXUgvflJVlqUw9Chav009USzbQ - null null
+2026-04-20 23:13:37.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/logo2.png - null null
+2026-04-20 23:13:37.954 +07:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\css\site.css'
+2026-04-20 23:13:37.967 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/css/site.css?v=BhbCKoF_axuYvMEq6oXUgvflJVlqUw9Chav009USzbQ - 200 105605 text/css 342.647ms
+2026-04-20 23:13:37.968 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/hero/36e62242-ae46-488a-a218-78d5d66c5464.jpg - null null
+2026-04-20 23:13:37.976 +07:00 [INF] Sending file. Request path: '/images/logo2.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\logo2.png'
+2026-04-20 23:13:37.986 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p1.png - null null
+2026-04-20 23:13:37.990 +07:00 [INF] Sending file. Request path: '/images/p1.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p1.png'
+2026-04-20 23:13:37.991 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p1.png - 200 15319 image/png 4.9867ms
+2026-04-20 23:13:38.004 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/logo2.png - 200 300357 image/png 377.693ms
+2026-04-20 23:13:38.039 +07:00 [INF] Sending file. Request path: '/uploads/hero/36e62242-ae46-488a-a218-78d5d66c5464.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\uploads\hero\36e62242-ae46-488a-a218-78d5d66c5464.jpg'
+2026-04-20 23:13:38.046 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/hero/36e62242-ae46-488a-a218-78d5d66c5464.jpg - 200 1208317 image/jpeg 78.1897ms
+2026-04-20 23:13:38.279 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p2.png - null null
+2026-04-20 23:13:38.280 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p3.png - null null
+2026-04-20 23:13:38.289 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery/dist/jquery.min.js - null null
+2026-04-20 23:13:38.289 +07:00 [INF] Sending file. Request path: '/images/p2.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p2.png'
+2026-04-20 23:13:38.289 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p2.png - 200 6421 image/png 10.065ms
+2026-04-20 23:13:38.293 +07:00 [INF] Sending file. Request path: '/images/p3.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p3.png'
+2026-04-20 23:13:38.293 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p3.png - 200 17009 image/png 13.5659ms
+2026-04-20 23:13:38.311 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/js/site.js?v=pIJb7CJRPNRKiY448kJa2WN4pPMjJrKocNExO9fm2rk - null null
+2026-04-20 23:13:38.321 +07:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\js\site.js'
+2026-04-20 23:13:38.322 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/js/site.js?v=pIJb7CJRPNRKiY448kJa2WN4pPMjJrKocNExO9fm2rk - 200 552 text/javascript 9.9393ms
+2026-04-20 23:13:38.470 +07:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery\dist\jquery.min.js'
+2026-04-20 23:13:38.490 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery/dist/jquery.min.js - 200 89501 text/javascript 201.2235ms
+2026-04-20 23:13:38.596 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:13:38.602 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 4.4795ms
+2026-04-20 23:13:38.605 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p4.png - null null
+2026-04-20 23:13:38.607 +07:00 [INF] Sending file. Request path: '/images/p4.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p4.png'
+2026-04-20 23:13:38.608 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p4.png - 200 2372 image/png 2.7761ms
+2026-04-20 23:13:38.611 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p5.png - null null
+2026-04-20 23:13:38.615 +07:00 [INF] Sending file. Request path: '/images/p5.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p5.png'
+2026-04-20 23:13:38.616 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p5.png - 200 9619 image/png 4.9813ms
+2026-04-20 23:13:38.619 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p6.png - null null
+2026-04-20 23:13:38.624 +07:00 [INF] Sending file. Request path: '/images/p6.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p6.png'
+2026-04-20 23:13:38.624 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p6.png - 200 41465 image/png 5.1741ms
+2026-04-20 23:13:38.628 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p7.png - null null
+2026-04-20 23:13:38.634 +07:00 [INF] Sending file. Request path: '/images/p7.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p7.png'
+2026-04-20 23:13:38.634 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p7.png - 200 4778 image/png 6.183ms
+2026-04-20 23:13:38.640 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p9.png - null null
+2026-04-20 23:13:38.640 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p8.png - null null
+2026-04-20 23:13:38.645 +07:00 [INF] Sending file. Request path: '/images/p8.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p8.png'
+2026-04-20 23:13:38.645 +07:00 [INF] Sending file. Request path: '/images/p9.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p9.png'
+2026-04-20 23:13:38.646 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p9.png - 200 28326 image/png 5.6901ms
+2026-04-20 23:13:38.646 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p8.png - 200 26568 image/png 5.4241ms
+2026-04-20 23:13:38.651 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p11.png - null null
+2026-04-20 23:13:38.652 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p10.png - null null
+2026-04-20 23:13:38.656 +07:00 [INF] Sending file. Request path: '/images/p11.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p11.png'
+2026-04-20 23:13:38.657 +07:00 [INF] Sending file. Request path: '/images/p10.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p10.png'
+2026-04-20 23:13:38.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p10.png - 200 6811 image/png 5.0212ms
+2026-04-20 23:13:38.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p11.png - 200 31170 image/png 6.0734ms
+2026-04-20 23:13:38.662 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:13:38.662 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/p12.png - null null
+2026-04-20 23:13:38.668 +07:00 [INF] Sending file. Request path: '/images/p12.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\p12.png'
+2026-04-20 23:13:38.671 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/p12.png - 200 19000 image/png 8.9882ms
+2026-04-20 23:13:38.698 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/WebBR_1.png - null null
+2026-04-20 23:13:38.702 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/slides/cc980433-73cd-45d5-93b5-f9264865886b.jpg - null null
+2026-04-20 23:13:38.709 +07:00 [INF] Sending file. Request path: '/images/WebBR_1.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\WebBR_1.png'
+2026-04-20 23:13:38.715 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/WebBR_1.png - 200 37154 image/png 18.308ms
+2026-04-20 23:13:38.804 +07:00 [INF] Sending file. Request path: '/uploads/slides/cc980433-73cd-45d5-93b5-f9264865886b.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\uploads\slides\cc980433-73cd-45d5-93b5-f9264865886b.jpg'
+2026-04-20 23:13:38.817 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/slides/cc980433-73cd-45d5-93b5-f9264865886b.jpg - 200 565570 image/jpeg 114.8304ms
+2026-04-20 23:13:38.828 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 165.4986ms
+2026-04-20 23:13:42.177 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/slides/30fc074f-ad3c-4308-9f34-d9fe32800165.jpg - null null
+2026-04-20 23:13:42.178 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/slides/8ccbdd72-f98a-402f-aecb-cec55141fe4f.jpg - null null
+2026-04-20 23:13:42.178 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/slides/1a04faf2-ffcd-42af-a266-989b90391639.jpg - null null
+2026-04-20 23:13:42.240 +07:00 [INF] Sending file. Request path: '/uploads/slides/30fc074f-ad3c-4308-9f34-d9fe32800165.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\uploads\slides\30fc074f-ad3c-4308-9f34-d9fe32800165.jpg'
+2026-04-20 23:13:42.271 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/slides/30fc074f-ad3c-4308-9f34-d9fe32800165.jpg - 200 1561366 image/jpeg 94.2555ms
+2026-04-20 23:13:42.274 +07:00 [INF] Sending file. Request path: '/uploads/slides/1a04faf2-ffcd-42af-a266-989b90391639.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\uploads\slides\1a04faf2-ffcd-42af-a266-989b90391639.jpg'
+2026-04-20 23:13:42.320 +07:00 [INF] Sending file. Request path: '/uploads/slides/8ccbdd72-f98a-402f-aecb-cec55141fe4f.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\uploads\slides\8ccbdd72-f98a-402f-aecb-cec55141fe4f.jpg'
+2026-04-20 23:13:42.327 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/slides/1a04faf2-ffcd-42af-a266-989b90391639.jpg - 200 2672392 image/jpeg 149.4302ms
+2026-04-20 23:13:42.349 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/slides/8ccbdd72-f98a-402f-aecb-cec55141fe4f.jpg - 200 3972195 image/jpeg 171.0108ms
+2026-04-20 23:13:42.906 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/Partnerbg.png - null null
+2026-04-20 23:13:42.913 +07:00 [INF] Sending file. Request path: '/images/Partnerbg.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\Partnerbg.png'
+2026-04-20 23:13:42.916 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/Partnerbg.png - 200 119926 image/png 8.9048ms
+2026-04-20 23:13:42.986 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/fnb-hero.png - null null
+2026-04-20 23:13:43.011 +07:00 [INF] Sending file. Request path: '/images/fnb-hero.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\fnb-hero.png'
+2026-04-20 23:13:43.014 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/fnb-hero.png - 200 1215073 image/png 28.3103ms
+2026-04-20 23:13:43.080 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/favicon.ico?v=2 - null null
+2026-04-20 23:13:43.101 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\favicon.ico'
+2026-04-20 23:13:43.101 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/favicon.ico?v=2 - 200 15086 image/x-icon 21.13ms
+2026-04-20 23:14:48.165 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - null null
+2026-04-20 23:14:48.203 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-04-20 23:14:48.210 +07:00 [INF] AuthenticationScheme: Cookies was challenged.
+2026-04-20 23:14:48.210 +07:00 [INF] HTTP GET /en/Admin/Dashboard responded 302 in 37.8695 ms
+2026-04-20 23:14:48.211 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/Dashboard - 302 null null 46.3558ms
+2026-04-20 23:14:48.222 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/Admin/Auth/Login?ReturnUrl=%2Fen%2FAdmin%2FDashboard - null null
+2026-04-20 23:14:48.227 +07:00 [INF] HTTP GET /Admin/Auth/Login responded 404 in 1.7655 ms
+2026-04-20 23:14:48.229 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/Admin/Auth/Login?ReturnUrl=%2Fen%2FAdmin%2FDashboard - 404 null null 7.3233ms
+2026-04-20 23:14:48.230 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/Admin/Auth/Login, Response status code: 404
+2026-04-20 23:14:52.247 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-20 23:14:52.252 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-20 23:14:52.253 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-20 23:14:52.353 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-20 23:14:52.361 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-20 23:14:52.365 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-20 23:14:52.365 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:14:52.376 +07:00 [INF] Executed ViewResult - view Index executed in 11.3236ms.
+2026-04-20 23:14:52.377 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 123.4668ms
+2026-04-20 23:14:52.377 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-20 23:14:52.377 +07:00 [INF] HTTP GET /en responded 200 in 126.4531 ms
+2026-04-20 23:14:52.378 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 130.5941ms
+2026-04-20 23:14:52.514 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:14:52.516 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.6578ms
+2026-04-20 23:15:37.145 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338//vi/Admin/Auth/Login - null null
+2026-04-20 23:15:37.148 +07:00 [INF] HTTP GET //vi/Admin/Auth/Login responded 404 in 0.2255 ms
+2026-04-20 23:15:37.148 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338//vi/Admin/Auth/Login - 404 null null 3.7046ms
+2026-04-20 23:15:37.149 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338//vi/Admin/Auth/Login, Response status code: 404
+2026-04-20 23:15:44.461 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - null null
+2026-04-20 23:15:44.468 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:15:44.495 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-20 23:15:44.515 +07:00 [INF] Executing ViewResult, running view Login.
+2026-04-20 23:15:44.532 +07:00 [INF] Executed ViewResult - view Login executed in 19.8127ms.
+2026-04-20 23:15:44.533 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 37.1699ms
+2026-04-20 23:15:44.533 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:15:44.533 +07:00 [INF] HTTP GET /vi/Admin/Auth/Login responded 200 in 69.1252 ms
+2026-04-20 23:15:44.533 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - 200 null text/html; charset=utf-8 72.2728ms
+2026-04-20 23:15:44.598 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/css/site.css - null null
+2026-04-20 23:15:44.760 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:15:44.761 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.437ms
+2026-04-20 23:15:44.765 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:15:44.797 +07:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\css\site.css'
+2026-04-20 23:15:44.801 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/css/site.css - 200 105605 text/css 204.4743ms
+2026-04-20 23:15:44.806 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.424ms
+2026-04-20 23:15:46.435 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/favicon.ico - null null
+2026-04-20 23:15:46.438 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\favicon.ico'
+2026-04-20 23:15:46.438 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/favicon.ico - 200 15086 image/x-icon 2.6338ms
+2026-04-20 23:16:07.086 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - application/x-www-form-urlencoded 229
+2026-04-20 23:16:07.100 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:16:07.107 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-20 23:16:07.258 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Username] = @__username_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-04-20 23:16:07.427 +07:00 [INF] AuthenticationScheme: Cookies signed in.
+2026-04-20 23:16:07.435 +07:00 [INF] Executing RedirectResult, redirecting to /vi/admin.
+2026-04-20 23:16:07.435 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 328.6316ms
+2026-04-20 23:16:07.435 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:16:07.436 +07:00 [INF] HTTP POST /vi/Admin/Auth/Login responded 302 in 343.5916 ms
+2026-04-20 23:16:07.437 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - 302 null null 351.5077ms
+2026-04-20 23:16:07.442 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-20 23:16:07.450 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-20 23:16:07.451 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-20 23:16:07.452 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:16:07.482 +07:00 [INF] Executed ViewResult - view Index executed in 30.2992ms.
+2026-04-20 23:16:07.482 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 30.9046ms
+2026-04-20 23:16:07.482 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-20 23:16:07.482 +07:00 [INF] HTTP GET /vi/admin responded 200 in 38.4062 ms
+2026-04-20 23:16:07.482 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 40.3812ms
+2026-04-20 23:16:07.551 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:16:07.551 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:16:07.551 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7487ms
+2026-04-20 23:16:07.577 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.9121ms
+2026-04-20 23:16:12.932 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:16:12.938 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:16:12.947 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:16:13.034 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:16:13.077 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:16:13.122 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:16:13.156 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:16:13.204 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:16:13.298 +07:00 [INF] Executed ViewResult - view Index executed in 97.0328ms.
+2026-04-20 23:16:13.299 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 351.1944ms
+2026-04-20 23:16:13.299 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:16:13.299 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 363.8095 ms
+2026-04-20 23:16:13.305 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 373.1083ms
+2026-04-20 23:16:13.376 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:16:13.378 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.3199 ms
+2026-04-20 23:16:13.381 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 4.5665ms
+2026-04-20 23:16:13.381 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:16:13.381 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:16:13.385 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:16:13.388 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.3849ms
+2026-04-20 23:16:13.412 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.1787ms
+2026-04-20 23:16:13.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:16:13.455 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.3410 ms
+2026-04-20 23:16:13.457 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 2.7995ms
+2026-04-20 23:16:13.457 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:16:19.645 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/templates/Product_Import_Template.xlsx - null null
+2026-04-20 23:16:19.649 +07:00 [INF] Sending file. Request path: '/templates/Product_Import_Template.xlsx'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\templates\Product_Import_Template.xlsx'
+2026-04-20 23:16:19.649 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/templates/Product_Import_Template.xlsx - 200 6021 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 3.7518ms
+2026-04-20 23:16:22.602 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Product/Import - null null
+2026-04-20 23:16:22.624 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Import (Cw.Branding.Web)'
+2026-04-20 23:16:22.627 +07:00 [INF] Route matched with {area = "Admin", action = "Import", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Import() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:16:22.633 +07:00 [INF] Executing ViewResult, running view Import.
+2026-04-20 23:16:22.644 +07:00 [INF] Executed ViewResult - view Import executed in 12.858ms.
+2026-04-20 23:16:22.644 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Import (Cw.Branding.Web) in 16.9935ms
+2026-04-20 23:16:22.644 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Import (Cw.Branding.Web)'
+2026-04-20 23:16:22.645 +07:00 [INF] HTTP GET /vi/admin/Product/Import responded 200 in 22.7681 ms
+2026-04-20 23:16:22.645 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Product/Import - 200 null text/html; charset=utf-8 43.8526ms
+2026-04-20 23:16:22.724 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:16:22.933 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:16:22.937 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.6428ms
+2026-04-20 23:16:22.942 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 218.071ms
+2026-04-20 23:16:30.231 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/admin/Product/Validate - multipart/form-data; boundary=----WebKitFormBoundaryYpxhyFWIim4DS40e 8503
+2026-04-20 23:16:30.236 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Validate (Cw.Branding.Web)'
+2026-04-20 23:16:30.243 +07:00 [INF] Route matched with {area = "Admin", action = "Validate", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Validate(Microsoft.AspNetCore.Http.IFormFile) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:16:31.252 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+2026-04-20 23:16:31.283 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+2026-04-20 23:16:31.289 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+2026-04-20 23:16:31.306 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT LOWER([p].[Code])
+FROM [Product] AS [p]
+2026-04-20 23:16:35.346 +07:00 [INF] Executing ViewResult, running view Review.
+2026-04-20 23:16:35.671 +07:00 [INF] Executed ViewResult - view Review executed in 325.7437ms.
+2026-04-20 23:16:35.671 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Validate (Cw.Branding.Web) in 5427.8918ms
+2026-04-20 23:16:35.671 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Validate (Cw.Branding.Web)'
+2026-04-20 23:16:35.671 +07:00 [INF] HTTP POST /vi/admin/Product/Validate responded 200 in 5435.3302 ms
+2026-04-20 23:16:35.674 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/admin/Product/Validate - 200 null text/html; charset=utf-8 5442.3086ms
+2026-04-20 23:16:35.719 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:16:35.738 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:16:35.738 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.8497ms
+2026-04-20 23:16:35.739 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.8586ms
+2026-04-20 23:17:58.859 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/admin/Product/Confirm - application/x-www-form-urlencoded 10831
+2026-04-20 23:17:58.905 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Confirm (Cw.Branding.Web)'
+2026-04-20 23:17:58.911 +07:00 [INF] Route matched with {area = "Admin", action = "Confirm", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Confirm(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:17:59.325 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Size = 450), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 450), @p18='?' (Size = 450), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = DateTime2), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (Size = 450), @p26='?' (DbType = DateTime2), @p27='?' (Size = 4000), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (DbType = Int32), @p31='?' (DbType = Boolean), @p32='?' (DbType = Boolean), @p33='?' (DbType = Int32), @p34='?' (DbType = Int32), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (Size = 450), @p40='?' (Size = 450), @p41='?' (Size = 4000), @p42='?' (Size = 4000), @p43='?' (DbType = DateTime2), @p44='?' (DbType = Int32), @p45='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (Size = 450), @p48='?' (DbType = DateTime2), @p49='?' (Size = 4000), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (DbType = Int32), @p53='?' (DbType = Boolean), @p54='?' (DbType = Boolean), @p55='?' (DbType = Int32), @p56='?' (DbType = Int32), @p57='?' (Size = 4000), @p58='?' (Size = 4000), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (Size = 450), @p62='?' (Size = 450), @p63='?' (Size = 4000), @p64='?' (Size = 4000), @p65='?' (DbType = DateTime2), @p66='?' (DbType = Int32), @p67='?' (DbType = Int32), @p68='?' (DbType = Int32), @p69='?' (Size = 450), @p70='?' (DbType = DateTime2), @p71='?' (Size = 4000), @p72='?' (Size = 4000), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (DbType = Boolean), @p76='?' (DbType = Boolean), @p77='?' (DbType = Int32), @p78='?' (DbType = Int32), @p79='?' (Size = 4000), @p80='?' (Size = 4000), @p81='?' (Size = 4000), @p82='?' (Size = 4000), @p83='?' (Size = 450), @p84='?' (Size = 450), @p85='?' (Size = 4000), @p86='?' (Size = 4000), @p87='?' (DbType = DateTime2), @p88='?' (DbType = Int32), @p89='?' (DbType = Int32), @p90='?' (DbType = Int32), @p91='?' (Size = 450), @p92='?' (DbType = DateTime2), @p93='?' (Size = 4000), @p94='?' (Size = 4000), @p95='?' (Size = 4000), @p96='?' (DbType = Int32), @p97='?' (DbType = Boolean), @p98='?' (DbType = Boolean), @p99='?' (DbType = Int32), @p100='?' (DbType = Int32), @p101='?' (Size = 4000), @p102='?' (Size = 4000), @p103='?' (Size = 4000), @p104='?' (Size = 4000), @p105='?' (Size = 450), @p106='?' (Size = 450), @p107='?' (Size = 4000), @p108='?' (Size = 4000), @p109='?' (DbType = DateTime2), @p110='?' (DbType = Int32), @p111='?' (DbType = Int32), @p112='?' (DbType = Int32), @p113='?' (Size = 450), @p114='?' (DbType = DateTime2), @p115='?' (Size = 4000), @p116='?' (Size = 4000), @p117='?' (Size = 4000), @p118='?' (DbType = Int32), @p119='?' (DbType = Boolean), @p120='?' (DbType = Boolean), @p121='?' (DbType = Int32), @p122='?' (DbType = Int32), @p123='?' (Size = 4000), @p124='?' (Size = 4000), @p125='?' (Size = 4000), @p126='?' (Size = 4000), @p127='?' (Size = 450), @p128='?' (Size = 450), @p129='?' (Size = 4000), @p130='?' (Size = 4000), @p131='?' (DbType = DateTime2), @p132='?' (DbType = Int32), @p133='?' (DbType = Int32), @p134='?' (DbType = Int32), @p135='?' (Size = 450), @p136='?' (DbType = DateTime2), @p137='?' (Size = 4000), @p138='?' (Size = 4000), @p139='?' (Size = 4000), @p140='?' (DbType = Int32), @p141='?' (DbType = Boolean), @p142='?' (DbType = Boolean), @p143='?' (DbType = Int32), @p144='?' (DbType = Int32), @p145='?' (Size = 4000), @p146='?' (Size = 4000), @p147='?' (Size = 4000), @p148='?' (Size = 4000), @p149='?' (Size = 450), @p150='?' (Size = 450), @p151='?' (Size = 4000), @p152='?' (Size = 4000), @p153='?' (DbType = DateTime2), @p154='?' (DbType = Int32), @p155='?' (DbType = Int32), @p156='?' (DbType = Int32), @p157='?' (Size = 450), @p158='?' (DbType = DateTime2), @p159='?' (Size = 4000), @p160='?' (Size = 4000), @p161='?' (Size = 4000), @p162='?' (DbType = Int32), @p163='?' (DbType = Boolean), @p164='?' (DbType = Boolean), @p165='?' (DbType = Int32), @p166='?' (DbType = Int32), @p167='?' (Size = 4000), @p168='?' (Size = 4000), @p169='?' (Size = 4000), @p170='?' (Size = 4000), @p171='?' (Size = 450), @p172='?' (Size = 450), @p173='?' (Size = 4000), @p174='?' (Size = 4000), @p175='?' (DbType = DateTime2), @p176='?' (DbType = Int32), @p177='?' (DbType = Int32), @p178='?' (DbType = Int32), @p179='?' (Size = 450), @p180='?' (DbType = DateTime2), @p181='?' (Size = 4000), @p182='?' (Size = 4000), @p183='?' (Size = 4000), @p184='?' (DbType = Int32), @p185='?' (DbType = Boolean), @p186='?' (DbType = Boolean), @p187='?' (DbType = Int32), @p188='?' (DbType = Int32), @p189='?' (Size = 4000), @p190='?' (Size = 4000), @p191='?' (Size = 4000), @p192='?' (Size = 4000), @p193='?' (Size = 450), @p194='?' (Size = 450), @p195='?' (Size = 4000), @p196='?' (Size = 4000), @p197='?' (DbType = DateTime2), @p198='?' (DbType = Int32), @p199='?' (DbType = Int32), @p200='?' (DbType = Int32), @p201='?' (Size = 450), @p202='?' (DbType = DateTime2), @p203='?' (Size = 4000), @p204='?' (Size = 4000), @p205='?' (Size = 4000), @p206='?' (DbType = Int32), @p207='?' (DbType = Boolean), @p208='?' (DbType = Boolean), @p209='?' (DbType = Int32), @p210='?' (DbType = Int32), @p211='?' (Size = 4000), @p212='?' (Size = 4000), @p213='?' (Size = 4000), @p214='?' (Size = 4000), @p215='?' (Size = 450), @p216='?' (Size = 450), @p217='?' (Size = 4000), @p218='?' (Size = 4000), @p219='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Product] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, 0),
+(@p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, 1),
+(@p44, @p45, @p46, @p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, @p62, @p63, @p64, @p65, 2),
+(@p66, @p67, @p68, @p69, @p70, @p71, @p72, @p73, @p74, @p75, @p76, @p77, @p78, @p79, @p80, @p81, @p82, @p83, @p84, @p85, @p86, @p87, 3),
+(@p88, @p89, @p90, @p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, @p100, @p101, @p102, @p103, @p104, @p105, @p106, @p107, @p108, @p109, 4),
+(@p110, @p111, @p112, @p113, @p114, @p115, @p116, @p117, @p118, @p119, @p120, @p121, @p122, @p123, @p124, @p125, @p126, @p127, @p128, @p129, @p130, @p131, 5),
+(@p132, @p133, @p134, @p135, @p136, @p137, @p138, @p139, @p140, @p141, @p142, @p143, @p144, @p145, @p146, @p147, @p148, @p149, @p150, @p151, @p152, @p153, 6),
+(@p154, @p155, @p156, @p157, @p158, @p159, @p160, @p161, @p162, @p163, @p164, @p165, @p166, @p167, @p168, @p169, @p170, @p171, @p172, @p173, @p174, @p175, 7),
+(@p176, @p177, @p178, @p179, @p180, @p181, @p182, @p183, @p184, @p185, @p186, @p187, @p188, @p189, @p190, @p191, @p192, @p193, @p194, @p195, @p196, @p197, 8),
+(@p198, @p199, @p200, @p201, @p202, @p203, @p204, @p205, @p206, @p207, @p208, @p209, @p210, @p211, @p212, @p213, @p214, @p215, @p216, @p217, @p218, @p219, 9)) AS i ([BrandId], [BrandId1], [CategoryId], [Code], [CreatedAt], [DatasheetPath], [DescriptionEn], [DescriptionVi], [DisplayOrder], [IsActive], [IsFeatured], [MachineTypeId], [MachineTypeId1], [NameEn], [NameVi], [ShortDescriptionEn], [ShortDescriptionVi], [SlugEn], [SlugVi], [TechnicalSpecsEn], [TechnicalSpecsVi], [UpdatedAt], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([BrandId], [BrandId1], [CategoryId], [Code], [CreatedAt], [DatasheetPath], [DescriptionEn], [DescriptionVi], [DisplayOrder], [IsActive], [IsFeatured], [MachineTypeId], [MachineTypeId1], [NameEn], [NameVi], [ShortDescriptionEn], [ShortDescriptionVi], [SlugEn], [SlugVi], [TechnicalSpecsEn], [TechnicalSpecsVi], [UpdatedAt])
+VALUES (i.[BrandId], i.[BrandId1], i.[CategoryId], i.[Code], i.[CreatedAt], i.[DatasheetPath], i.[DescriptionEn], i.[DescriptionVi], i.[DisplayOrder], i.[IsActive], i.[IsFeatured], i.[MachineTypeId], i.[MachineTypeId1], i.[NameEn], i.[NameVi], i.[ShortDescriptionEn], i.[ShortDescriptionVi], i.[SlugEn], i.[SlugVi], i.[TechnicalSpecsEn], i.[TechnicalSpecsVi], i.[UpdatedAt])
+OUTPUT INSERTED.[Id], i._Position;
+2026-04-20 23:17:59.363 +07:00 [INF] Executing RedirectResult, redirecting to /vi/admin/Product.
+2026-04-20 23:17:59.369 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Confirm (Cw.Branding.Web) in 458.3377ms
+2026-04-20 23:17:59.369 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Confirm (Cw.Branding.Web)'
+2026-04-20 23:17:59.369 +07:00 [INF] HTTP POST /vi/admin/Product/Confirm responded 302 in 465.5598 ms
+2026-04-20 23:17:59.370 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/admin/Product/Confirm - 302 null null 510.4284ms
+2026-04-20 23:17:59.376 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Product - null null
+2026-04-20 23:17:59.379 +07:00 [INF] HTTP GET /vi/admin/Product responded 404 in 0.2424 ms
+2026-04-20 23:17:59.379 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Product - 404 null null 3.0276ms
+2026-04-20 23:17:59.379 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/vi/admin/Product, Response status code: 404
+2026-04-20 23:18:14.522 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - null null
+2026-04-20 23:18:14.538 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:18:14.538 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-20 23:18:14.545 +07:00 [INF] Executing ViewResult, running view Login.
+2026-04-20 23:18:14.547 +07:00 [INF] Executed ViewResult - view Login executed in 1.7673ms.
+2026-04-20 23:18:14.547 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 8.5194ms
+2026-04-20 23:18:14.547 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:18:14.547 +07:00 [INF] HTTP GET /vi/Admin/Auth/Login responded 200 in 10.0503 ms
+2026-04-20 23:18:14.547 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - 200 null text/html; charset=utf-8 25.6729ms
+2026-04-20 23:18:14.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:18:14.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:18:14.633 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 6.8732ms
+2026-04-20 23:18:14.655 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 28.7843ms
+2026-04-20 23:18:33.328 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - application/x-www-form-urlencoded 273
+2026-04-20 23:18:33.330 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:18:33.331 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-20 23:18:33.339 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Username] = @__username_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-04-20 23:18:33.439 +07:00 [INF] Executing ViewResult, running view Login.
+2026-04-20 23:18:33.441 +07:00 [INF] Executed ViewResult - view Login executed in 1.6431ms.
+2026-04-20 23:18:33.441 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 110.534ms
+2026-04-20 23:18:33.441 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:18:33.441 +07:00 [INF] HTTP POST /vi/Admin/Auth/Login responded 200 in 111.1343 ms
+2026-04-20 23:18:33.442 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - 200 null text/html; charset=utf-8 113.9911ms
+2026-04-20 23:18:33.491 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:18:33.573 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:18:33.575 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.6948ms
+2026-04-20 23:18:33.584 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 93.1392ms
+2026-04-20 23:18:44.077 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - application/x-www-form-urlencoded 272
+2026-04-20 23:18:44.079 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:18:44.079 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-20 23:18:44.093 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Username] = @__username_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-04-20 23:18:44.191 +07:00 [INF] AuthenticationScheme: Cookies signed in.
+2026-04-20 23:18:44.191 +07:00 [INF] Executing RedirectResult, redirecting to /vi/admin.
+2026-04-20 23:18:44.191 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 112.2348ms
+2026-04-20 23:18:44.191 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-20 23:18:44.192 +07:00 [INF] HTTP POST /vi/Admin/Auth/Login responded 302 in 112.7512 ms
+2026-04-20 23:18:44.192 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - 302 null null 115.437ms
+2026-04-20 23:18:44.196 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-20 23:18:44.198 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-20 23:18:44.198 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-20 23:18:44.198 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:18:44.199 +07:00 [INF] Executed ViewResult - view Index executed in 1.126ms.
+2026-04-20 23:18:44.199 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 1.2607ms
+2026-04-20 23:18:44.199 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-20 23:18:44.199 +07:00 [INF] HTTP GET /vi/admin responded 200 in 1.6769 ms
+2026-04-20 23:18:44.200 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 3.3241ms
+2026-04-20 23:18:44.272 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:18:44.286 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:18:44.288 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.3477ms
+2026-04-20 23:18:44.418 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 146.0225ms
+2026-04-20 23:18:47.227 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:18:47.229 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:18:47.229 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:18:47.254 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:18:47.268 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:18:47.270 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:18:47.272 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:18:47.273 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:18:47.283 +07:00 [INF] Executed ViewResult - view Index executed in 10.1954ms.
+2026-04-20 23:18:47.283 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 53.8183ms
+2026-04-20 23:18:47.283 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:18:47.283 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 54.5348 ms
+2026-04-20 23:18:47.287 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 60.1059ms
+2026-04-20 23:18:47.382 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:18:47.382 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.4496 ms
+2026-04-20 23:18:47.383 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 1.8726ms
+2026-04-20 23:18:47.383 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:18:47.384 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:18:47.386 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.6994ms
+2026-04-20 23:18:47.386 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:18:47.400 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 13.1738ms
+2026-04-20 23:19:20.133 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-20 23:19:20.150 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-20 23:19:20.150 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-20 23:19:20.151 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:19:20.153 +07:00 [INF] Executed ViewResult - view Index executed in 2.4109ms.
+2026-04-20 23:19:20.153 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 2.5967ms
+2026-04-20 23:19:20.153 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-20 23:19:20.153 +07:00 [INF] HTTP GET /vi/admin responded 200 in 3.7082 ms
+2026-04-20 23:19:20.153 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 20.3558ms
+2026-04-20 23:19:20.382 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:19:20.394 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 12.04ms
+2026-04-20 23:19:20.399 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:19:20.454 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.9137ms
+2026-04-20 23:20:02.067 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:20:02.095 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:20:02.095 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:20:02.118 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:20:02.145 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:20:02.149 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:20:02.152 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:20:02.153 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:20:02.162 +07:00 [INF] Executed ViewResult - view Index executed in 8.9259ms.
+2026-04-20 23:20:02.162 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 66.9807ms
+2026-04-20 23:20:02.162 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:20:02.162 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 67.7678 ms
+2026-04-20 23:20:02.166 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 98.6049ms
+2026-04-20 23:20:02.217 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:20:02.218 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.3254 ms
+2026-04-20 23:20:02.219 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 2.1167ms
+2026-04-20 23:20:02.219 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:20:02.243 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:20:02.244 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0606ms
+2026-04-20 23:20:02.247 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:20:02.312 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:20:02.313 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.2644 ms
+2026-04-20 23:20:02.319 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 6.564ms
+2026-04-20 23:20:02.319 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:20:02.321 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.3534ms
+2026-04-20 23:20:15.980 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Product/Edit/1006 - null null
+2026-04-20 23:20:15.987 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Edit (Cw.Branding.Web)'
+2026-04-20 23:20:15.997 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:20:16.033 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BrandId], [t].[BrandId1], [t].[CategoryId], [t].[Code], [t].[CreatedAt], [t].[DatasheetPath], [t].[DescriptionEn], [t].[DescriptionVi], [t].[DisplayOrder], [t].[IsActive], [t].[IsFeatured], [t].[MachineTypeId], [t].[MachineTypeId1], [t].[NameEn], [t].[NameVi], [t].[ShortDescriptionEn], [t].[ShortDescriptionVi], [t].[SlugEn], [t].[SlugVi], [t].[TechnicalSpecsEn], [t].[TechnicalSpecsVi], [t].[UpdatedAt], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+    FROM [Product] AS [p]
+    WHERE [p].[Id] = @__id_0
+) AS [t]
+LEFT JOIN [ProductImage] AS [p0] ON [t].[Id] = [p0].[ProductId]
+ORDER BY [t].[Id]
+2026-04-20 23:20:16.038 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:20:16.040 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:20:16.044 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:20:16.049 +07:00 [INF] Executing ViewResult, running view Edit.
+2026-04-20 23:20:16.151 +07:00 [INF] Executed ViewResult - view Edit executed in 102.1394ms.
+2026-04-20 23:20:16.151 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Edit (Cw.Branding.Web) in 154.2751ms
+2026-04-20 23:20:16.151 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Edit (Cw.Branding.Web)'
+2026-04-20 23:20:16.151 +07:00 [INF] HTTP GET /vi/admin/Product/Edit/1006 responded 200 in 167.8492 ms
+2026-04-20 23:20:16.152 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Product/Edit/1006 - 200 null text/html; charset=utf-8 172.1509ms
+2026-04-20 23:20:16.204 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2026-04-20 23:20:16.209 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:20:16.211 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.6011ms
+2026-04-20 23:20:16.212 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:20:16.212 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2026-04-20 23:20:16.236 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 24.5311ms
+2026-04-20 23:20:16.470 +07:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+2026-04-20 23:20:16.470 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 258.2031ms
+2026-04-20 23:20:16.574 +07:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+2026-04-20 23:20:16.575 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 371.3359ms
+2026-04-20 23:20:33.008 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:20:33.018 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:20:33.018 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:20:33.046 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:20:33.056 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:20:33.058 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:20:33.060 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:20:33.061 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:20:33.067 +07:00 [INF] Executed ViewResult - view Index executed in 6.3573ms.
+2026-04-20 23:20:33.067 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 48.7882ms
+2026-04-20 23:20:33.067 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:20:33.067 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 49.5544 ms
+2026-04-20 23:20:33.070 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 62.0753ms
+2026-04-20 23:20:33.128 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:20:33.132 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.9271ms
+2026-04-20 23:24:01.499 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:24:01.546 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:01.547 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:24:01.573 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:24:01.583 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:24:01.585 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:24:01.588 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:24:01.588 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:01.593 +07:00 [INF] Executed ViewResult - view Index executed in 5.3087ms.
+2026-04-20 23:24:01.593 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 46.8962ms
+2026-04-20 23:24:01.594 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:01.594 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 47.5303 ms
+2026-04-20 23:24:01.597 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 98.3704ms
+2026-04-20 23:24:01.645 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:24:01.645 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.3737 ms
+2026-04-20 23:24:01.647 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 1.7894ms
+2026-04-20 23:24:01.647 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:24:01.647 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:01.648 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.582ms
+2026-04-20 23:24:01.709 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:01.764 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:24:01.764 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.2717 ms
+2026-04-20 23:24:01.789 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 25.4243ms
+2026-04-20 23:24:01.789 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:24:01.872 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 163.4755ms
+2026-04-20 23:24:04.136 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index - null null
+2026-04-20 23:24:04.147 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:04.153 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.Nullable`1[Cw.Branding.Web.Models.Enums.ContactStatus]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-20 23:24:04.182 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-20 23:24:04.227 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:04.250 +07:00 [INF] Executed ViewResult - view Index executed in 24.8922ms.
+2026-04-20 23:24:04.251 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web) in 97.4714ms
+2026-04-20 23:24:04.251 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:04.251 +07:00 [INF] HTTP GET /vi/Admin/Contact/Index responded 200 in 104.1028 ms
+2026-04-20 23:24:04.251 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index - 200 null text/html; charset=utf-8 114.7467ms
+2026-04-20 23:24:04.365 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:04.366 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0316ms
+2026-04-20 23:24:04.366 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:04.484 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 118.128ms
+2026-04-20 23:24:13.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index?status=New - null null
+2026-04-20 23:24:13.218 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:13.218 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.Nullable`1[Cw.Branding.Web.Models.Enums.ContactStatus]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-20 23:24:13.261 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__status_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct]
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = @__status_0
+ORDER BY [c].[CreatedAt] DESC
+2026-04-20 23:24:13.262 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:13.266 +07:00 [INF] Executed ViewResult - view Index executed in 4.8084ms.
+2026-04-20 23:24:13.267 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web) in 48.1806ms
+2026-04-20 23:24:13.267 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:13.267 +07:00 [INF] HTTP GET /vi/Admin/Contact/Index responded 200 in 50.0222 ms
+2026-04-20 23:24:13.267 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index?status=New - 200 null text/html; charset=utf-8 53.674ms
+2026-04-20 23:24:13.335 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:13.336 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:13.338 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.9264ms
+2026-04-20 23:24:13.441 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 105.3762ms
+2026-04-20 23:24:14.474 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index?status=InProcess - null null
+2026-04-20 23:24:14.480 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:14.480 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.Nullable`1[Cw.Branding.Web.Models.Enums.ContactStatus]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-20 23:24:14.490 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__status_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct]
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = @__status_0
+ORDER BY [c].[CreatedAt] DESC
+2026-04-20 23:24:14.491 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:14.493 +07:00 [INF] Executed ViewResult - view Index executed in 2.4555ms.
+2026-04-20 23:24:14.493 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web) in 13.2187ms
+2026-04-20 23:24:14.493 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:14.493 +07:00 [INF] HTTP GET /vi/Admin/Contact/Index responded 200 in 14.2994 ms
+2026-04-20 23:24:14.494 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index?status=InProcess - 200 null text/html; charset=utf-8 20.1298ms
+2026-04-20 23:24:14.565 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:14.566 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:14.569 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.8124ms
+2026-04-20 23:24:14.588 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.9477ms
+2026-04-20 23:24:15.862 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index - null null
+2026-04-20 23:24:15.875 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:15.875 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.Nullable`1[Cw.Branding.Web.Models.Enums.ContactStatus]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-20 23:24:15.884 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-20 23:24:15.888 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:15.890 +07:00 [INF] Executed ViewResult - view Index executed in 2.2239ms.
+2026-04-20 23:24:15.890 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web) in 14.8435ms
+2026-04-20 23:24:15.890 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:15.890 +07:00 [INF] HTTP GET /vi/Admin/Contact/Index responded 200 in 15.3964 ms
+2026-04-20 23:24:15.890 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Index - 200 null text/html; charset=utf-8 28.0406ms
+2026-04-20 23:24:16.029 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:16.038 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 8.9915ms
+2026-04-20 23:24:16.039 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:16.079 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.1173ms
+2026-04-20 23:24:24.943 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/HeroSection/Edit - null null
+2026-04-20 23:24:24.949 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.HeroSectionController.Edit (Cw.Branding.Web)'
+2026-04-20 23:24:24.957 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "HeroSection"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit() on controller Cw.Branding.Web.Areas.Admin.Controllers.HeroSectionController (Cw.Branding.Web).
+2026-04-20 23:24:24.959 +07:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-20 23:24:24.970 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-20 23:24:24.992 +07:00 [INF] Executing ViewResult, running view Edit.
+2026-04-20 23:24:25.024 +07:00 [INF] Executed ViewResult - view Edit executed in 33.3815ms.
+2026-04-20 23:24:25.025 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.HeroSectionController.Edit (Cw.Branding.Web) in 67.6968ms
+2026-04-20 23:24:25.025 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.HeroSectionController.Edit (Cw.Branding.Web)'
+2026-04-20 23:24:25.025 +07:00 [INF] HTTP GET /vi/Admin/HeroSection/Edit responded 200 in 76.3918 ms
+2026-04-20 23:24:25.026 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/HeroSection/Edit - 200 null text/html; charset=utf-8 82.9873ms
+2026-04-20 23:24:25.119 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:25.120 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.3771ms
+2026-04-20 23:24:25.120 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:25.154 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.8532ms
+2026-04-20 23:24:27.176 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/HomeSlide/Index - null null
+2026-04-20 23:24:27.180 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.HomeSlideController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:27.186 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "HomeSlide"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.HomeSlideController (Cw.Branding.Web).
+2026-04-20 23:24:27.203 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+ORDER BY [h].[Id] DESC
+2026-04-20 23:24:27.205 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:27.224 +07:00 [INF] Executed ViewResult - view Index executed in 19.739ms.
+2026-04-20 23:24:27.224 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.HomeSlideController.Index (Cw.Branding.Web) in 37.6957ms
+2026-04-20 23:24:27.224 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.HomeSlideController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:27.224 +07:00 [INF] HTTP GET /vi/Admin/HomeSlide/Index responded 200 in 45.4308 ms
+2026-04-20 23:24:27.225 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/HomeSlide/Index - 200 null text/html; charset=utf-8 48.8339ms
+2026-04-20 23:24:27.282 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:27.282 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:27.283 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0693ms
+2026-04-20 23:24:27.317 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.4706ms
+2026-04-20 23:24:33.971 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Brand/Index - null null
+2026-04-20 23:24:33.976 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:33.982 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Brand"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.BrandController (Cw.Branding.Web).
+2026-04-20 23:24:34.000 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:24:34.002 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:34.011 +07:00 [INF] Executed ViewResult - view Index executed in 10.2805ms.
+2026-04-20 23:24:34.012 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Index (Cw.Branding.Web) in 29.402ms
+2026-04-20 23:24:34.012 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:34.012 +07:00 [INF] HTTP GET /vi/Admin/Brand/Index responded 200 in 36.3414 ms
+2026-04-20 23:24:34.012 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Brand/Index - 200 null text/html; charset=utf-8 41.4354ms
+2026-04-20 23:24:34.083 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:34.084 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.1848ms
+2026-04-20 23:24:34.085 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:34.234 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 149.1503ms
+2026-04-20 23:24:41.313 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Brand/Edit/5 - null null
+2026-04-20 23:24:41.318 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Edit (Cw.Branding.Web)'
+2026-04-20 23:24:41.327 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "Brand"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.BrandController (Cw.Branding.Web).
+2026-04-20 23:24:41.354 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+WHERE [b].[Id] = @__p_0
+2026-04-20 23:24:41.355 +07:00 [INF] Executing ViewResult, running view Edit.
+2026-04-20 23:24:41.369 +07:00 [INF] Executed ViewResult - view Edit executed in 14.7307ms.
+2026-04-20 23:24:41.369 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Edit (Cw.Branding.Web) in 42.1255ms
+2026-04-20 23:24:41.369 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Edit (Cw.Branding.Web)'
+2026-04-20 23:24:41.369 +07:00 [INF] HTTP GET /vi/admin/Brand/Edit/5 responded 200 in 52.9284 ms
+2026-04-20 23:24:41.370 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Brand/Edit/5 - 200 null text/html; charset=utf-8 56.6586ms
+2026-04-20 23:24:41.436 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:41.437 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:41.438 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9833ms
+2026-04-20 23:24:41.455 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 19.2161ms
+2026-04-20 23:24:45.197 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Brand/Index - null null
+2026-04-20 23:24:45.201 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:45.201 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Brand"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.BrandController (Cw.Branding.Web).
+2026-04-20 23:24:45.205 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:24:45.205 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:45.208 +07:00 [INF] Executed ViewResult - view Index executed in 2.4364ms.
+2026-04-20 23:24:45.208 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Index (Cw.Branding.Web) in 6.4395ms
+2026-04-20 23:24:45.208 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.BrandController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:45.208 +07:00 [INF] HTTP GET /vi/Admin/Brand/Index responded 200 in 6.8607 ms
+2026-04-20 23:24:45.208 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Brand/Index - 200 null text/html; charset=utf-8 10.7097ms
+2026-04-20 23:24:45.257 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:45.258 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.1502ms
+2026-04-20 23:24:48.192 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/MachineType/Index - null null
+2026-04-20 23:24:48.194 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:48.204 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "MachineType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController (Cw.Branding.Web).
+2026-04-20 23:24:48.212 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:24:48.214 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:48.226 +07:00 [INF] Executed ViewResult - view Index executed in 13.2194ms.
+2026-04-20 23:24:48.226 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController.Index (Cw.Branding.Web) in 22.0736ms
+2026-04-20 23:24:48.226 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:48.226 +07:00 [INF] HTTP GET /vi/Admin/MachineType/Index responded 200 in 32.4294 ms
+2026-04-20 23:24:48.227 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/MachineType/Index - 200 null text/html; charset=utf-8 35.0691ms
+2026-04-20 23:24:48.300 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:48.301 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.1344ms
+2026-04-20 23:24:48.301 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:48.331 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.0076ms
+2026-04-20 23:24:51.211 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Categories - null null
+2026-04-20 23:24:51.213 +07:00 [INF] HTTP GET /vi/admin/Categories responded 404 in 0.2451 ms
+2026-04-20 23:24:51.214 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Categories - 404 null null 3.4053ms
+2026-04-20 23:24:51.214 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/vi/admin/Categories, Response status code: 404
+2026-04-20 23:24:52.410 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/MachineType/Index - null null
+2026-04-20 23:24:52.415 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:52.415 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "MachineType"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController (Cw.Branding.Web).
+2026-04-20 23:24:52.423 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:24:52.424 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:52.426 +07:00 [INF] Executed ViewResult - view Index executed in 2.8299ms.
+2026-04-20 23:24:52.426 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController.Index (Cw.Branding.Web) in 11.3094ms
+2026-04-20 23:24:52.426 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.MachineTypeController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:52.426 +07:00 [INF] HTTP GET /vi/Admin/MachineType/Index responded 200 in 13.7954 ms
+2026-04-20 23:24:52.427 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/MachineType/Index - 200 null text/html; charset=utf-8 16.78ms
+2026-04-20 23:24:52.496 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:52.497 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7022ms
+2026-04-20 23:24:54.392 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:24:54.401 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:54.402 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:24:54.441 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:24:54.450 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:24:54.453 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:24:54.459 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:24:54.460 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:24:54.467 +07:00 [INF] Executed ViewResult - view Index executed in 7.1833ms.
+2026-04-20 23:24:54.467 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 65.2334ms
+2026-04-20 23:24:54.467 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:24:54.467 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 65.7880 ms
+2026-04-20 23:24:54.476 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 84.205ms
+2026-04-20 23:24:54.632 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:24:54.632 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.1746 ms
+2026-04-20 23:24:54.635 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 3.804ms
+2026-04-20 23:24:54.635 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:24:54.636 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:24:54.638 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.2862ms
+2026-04-20 23:24:54.638 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:24:54.659 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.6281ms
+2026-04-20 23:24:54.699 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:24:54.699 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.2785 ms
+2026-04-20 23:24:54.700 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 1.1325ms
+2026-04-20 23:24:54.700 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:05.131 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:26:05.136 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:05.149 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:05.166 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:26:05.174 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:26:05.178 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:26:05.181 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:26:05.185 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:26:05.202 +07:00 [INF] Executed ViewResult - view Index executed in 20.5684ms.
+2026-04-20 23:26:05.202 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 53.2195ms
+2026-04-20 23:26:05.203 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:05.203 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 67.1190 ms
+2026-04-20 23:26:05.234 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 102.2516ms
+2026-04-20 23:26:05.375 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:26:05.538 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 163.3553ms
+2026-04-20 23:26:05.589 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:26:05.592 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 3.4262 ms
+2026-04-20 23:26:05.604 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 15.8601ms
+2026-04-20 23:26:05.604 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:05.605 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:26:05.935 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 330.6828ms
+2026-04-20 23:26:06.541 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:26:06.550 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:06.550 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:06.615 +07:00 [INF] Executed DbCommand (63ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:26:06.632 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:26:06.633 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:26:06.635 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:26:06.635 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:26:06.642 +07:00 [INF] Executed ViewResult - view Index executed in 6.4157ms.
+2026-04-20 23:26:06.642 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 91.2872ms
+2026-04-20 23:26:06.642 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:06.642 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 95.0667 ms
+2026-04-20 23:26:06.709 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 167.5728ms
+2026-04-20 23:26:06.881 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:26:06.948 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 67.638ms
+2026-04-20 23:26:06.971 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:26:06.972 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.1772 ms
+2026-04-20 23:26:06.981 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 10.1372ms
+2026-04-20 23:26:06.982 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:06.982 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:26:07.054 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 72.6167ms
+2026-04-20 23:26:14.075 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:26:14.079 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:14.079 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:14.085 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:26:14.097 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:26:14.098 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:26:14.100 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:26:14.100 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:26:14.107 +07:00 [INF] Executed ViewResult - view Index executed in 6.9121ms.
+2026-04-20 23:26:14.107 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 28.4407ms
+2026-04-20 23:26:14.107 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:14.107 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 29.1111 ms
+2026-04-20 23:26:14.112 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 36.4714ms
+2026-04-20 23:26:14.184 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:26:14.184 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.2000 ms
+2026-04-20 23:26:14.185 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 1.7581ms
+2026-04-20 23:26:14.186 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:14.186 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:26:14.188 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.101ms
+2026-04-20 23:26:14.191 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:26:14.202 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.0588ms
+2026-04-20 23:26:14.246 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:26:14.247 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.1699 ms
+2026-04-20 23:26:14.250 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 3.4482ms
+2026-04-20 23:26:14.250 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:18.583 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Product/Import - null null
+2026-04-20 23:26:18.586 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Import (Cw.Branding.Web)'
+2026-04-20 23:26:18.588 +07:00 [INF] Route matched with {area = "Admin", action = "Import", controller = "Product"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Import() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:18.589 +07:00 [INF] Executing ViewResult, running view Import.
+2026-04-20 23:26:18.608 +07:00 [INF] Executed ViewResult - view Import executed in 19.8974ms.
+2026-04-20 23:26:18.608 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Import (Cw.Branding.Web) in 20.5401ms
+2026-04-20 23:26:18.608 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Import (Cw.Branding.Web)'
+2026-04-20 23:26:18.608 +07:00 [INF] HTTP GET /vi/admin/Product/Import responded 200 in 22.9902 ms
+2026-04-20 23:26:18.610 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Product/Import - 200 null text/html; charset=utf-8 25.7726ms
+2026-04-20 23:26:18.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:26:18.679 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:26:18.680 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 6.3678ms
+2026-04-20 23:26:18.816 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 137.1986ms
+2026-04-20 23:26:23.689 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/admin/Product/Validate - multipart/form-data; boundary=----WebKitFormBoundaryxc7hQb4yw2fxx7sp 8503
+2026-04-20 23:26:23.694 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Validate (Cw.Branding.Web)'
+2026-04-20 23:26:23.703 +07:00 [INF] Route matched with {area = "Admin", action = "Validate", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Validate(Microsoft.AspNetCore.Http.IFormFile) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:23.716 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+2026-04-20 23:26:23.720 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+2026-04-20 23:26:23.723 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+2026-04-20 23:26:23.726 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT LOWER([p].[Code])
+FROM [Product] AS [p]
+2026-04-20 23:26:23.751 +07:00 [INF] Executing ViewResult, running view Review.
+2026-04-20 23:26:23.754 +07:00 [INF] Executed ViewResult - view Review executed in 3.3086ms.
+2026-04-20 23:26:23.754 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Validate (Cw.Branding.Web) in 51.232ms
+2026-04-20 23:26:23.754 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Validate (Cw.Branding.Web)'
+2026-04-20 23:26:23.754 +07:00 [INF] HTTP POST /vi/admin/Product/Validate responded 200 in 60.3567 ms
+2026-04-20 23:26:23.755 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/admin/Product/Validate - 200 null text/html; charset=utf-8 65.6383ms
+2026-04-20 23:26:23.818 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:26:23.832 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:26:23.836 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 8.852ms
+2026-04-20 23:26:23.978 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 159.7099ms
+2026-04-20 23:26:28.169 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/admin/Product/Confirm - application/x-www-form-urlencoded 10821
+2026-04-20 23:26:28.177 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Confirm (Cw.Branding.Web)'
+2026-04-20 23:26:28.200 +07:00 [INF] Route matched with {area = "Admin", action = "Confirm", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Confirm(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:28.227 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.230 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.231 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.233 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.235 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.237 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.238 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.240 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.241 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.242 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__row_Code_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+FROM [Product] AS [p]
+WHERE [p].[Code] = @__row_Code_0
+2026-04-20 23:26:28.341 +07:00 [INF] Executed DbCommand (80ms) [Parameters=[@p22='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Size = 450), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Int32), @p9='?' (DbType = Boolean), @p10='?' (DbType = Boolean), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 450), @p18='?' (Size = 450), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = DateTime2), @p45='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (Size = 450), @p27='?' (DbType = DateTime2), @p28='?' (Size = 4000), @p29='?' (Size = 4000), @p30='?' (Size = 4000), @p31='?' (DbType = Int32), @p32='?' (DbType = Boolean), @p33='?' (DbType = Boolean), @p34='?' (DbType = Int32), @p35='?' (DbType = Int32), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (Size = 4000), @p39='?' (Size = 4000), @p40='?' (Size = 450), @p41='?' (Size = 450), @p42='?' (Size = 4000), @p43='?' (Size = 4000), @p44='?' (DbType = DateTime2), @p68='?' (DbType = Int32), @p46='?' (DbType = Int32), @p47='?' (DbType = Int32), @p48='?' (DbType = Int32), @p49='?' (Size = 450), @p50='?' (DbType = DateTime2), @p51='?' (Size = 4000), @p52='?' (Size = 4000), @p53='?' (Size = 4000), @p54='?' (DbType = Int32), @p55='?' (DbType = Boolean), @p56='?' (DbType = Boolean), @p57='?' (DbType = Int32), @p58='?' (DbType = Int32), @p59='?' (Size = 4000), @p60='?' (Size = 4000), @p61='?' (Size = 4000), @p62='?' (Size = 4000), @p63='?' (Size = 450), @p64='?' (Size = 450), @p65='?' (Size = 4000), @p66='?' (Size = 4000), @p67='?' (DbType = DateTime2), @p91='?' (DbType = Int32), @p69='?' (DbType = Int32), @p70='?' (DbType = Int32), @p71='?' (DbType = Int32), @p72='?' (Size = 450), @p73='?' (DbType = DateTime2), @p74='?' (Size = 4000), @p75='?' (Size = 4000), @p76='?' (Size = 4000), @p77='?' (DbType = Int32), @p78='?' (DbType = Boolean), @p79='?' (DbType = Boolean), @p80='?' (DbType = Int32), @p81='?' (DbType = Int32), @p82='?' (Size = 4000), @p83='?' (Size = 4000), @p84='?' (Size = 4000), @p85='?' (Size = 4000), @p86='?' (Size = 450), @p87='?' (Size = 450), @p88='?' (Size = 4000), @p89='?' (Size = 4000), @p90='?' (DbType = DateTime2), @p114='?' (DbType = Int32), @p92='?' (DbType = Int32), @p93='?' (DbType = Int32), @p94='?' (DbType = Int32), @p95='?' (Size = 450), @p96='?' (DbType = DateTime2), @p97='?' (Size = 4000), @p98='?' (Size = 4000), @p99='?' (Size = 4000), @p100='?' (DbType = Int32), @p101='?' (DbType = Boolean), @p102='?' (DbType = Boolean), @p103='?' (DbType = Int32), @p104='?' (DbType = Int32), @p105='?' (Size = 4000), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (Size = 4000), @p109='?' (Size = 450), @p110='?' (Size = 450), @p111='?' (Size = 4000), @p112='?' (Size = 4000), @p113='?' (DbType = DateTime2), @p137='?' (DbType = Int32), @p115='?' (DbType = Int32), @p116='?' (DbType = Int32), @p117='?' (DbType = Int32), @p118='?' (Size = 450), @p119='?' (DbType = DateTime2), @p120='?' (Size = 4000), @p121='?' (Size = 4000), @p122='?' (Size = 4000), @p123='?' (DbType = Int32), @p124='?' (DbType = Boolean), @p125='?' (DbType = Boolean), @p126='?' (DbType = Int32), @p127='?' (DbType = Int32), @p128='?' (Size = 4000), @p129='?' (Size = 4000), @p130='?' (Size = 4000), @p131='?' (Size = 4000), @p132='?' (Size = 450), @p133='?' (Size = 450), @p134='?' (Size = 4000), @p135='?' (Size = 4000), @p136='?' (DbType = DateTime2), @p160='?' (DbType = Int32), @p138='?' (DbType = Int32), @p139='?' (DbType = Int32), @p140='?' (DbType = Int32), @p141='?' (Size = 450), @p142='?' (DbType = DateTime2), @p143='?' (Size = 4000), @p144='?' (Size = 4000), @p145='?' (Size = 4000), @p146='?' (DbType = Int32), @p147='?' (DbType = Boolean), @p148='?' (DbType = Boolean), @p149='?' (DbType = Int32), @p150='?' (DbType = Int32), @p151='?' (Size = 4000), @p152='?' (Size = 4000), @p153='?' (Size = 4000), @p154='?' (Size = 4000), @p155='?' (Size = 450), @p156='?' (Size = 450), @p157='?' (Size = 4000), @p158='?' (Size = 4000), @p159='?' (DbType = DateTime2), @p183='?' (DbType = Int32), @p161='?' (DbType = Int32), @p162='?' (DbType = Int32), @p163='?' (DbType = Int32), @p164='?' (Size = 450), @p165='?' (DbType = DateTime2), @p166='?' (Size = 4000), @p167='?' (Size = 4000), @p168='?' (Size = 4000), @p169='?' (DbType = Int32), @p170='?' (DbType = Boolean), @p171='?' (DbType = Boolean), @p172='?' (DbType = Int32), @p173='?' (DbType = Int32), @p174='?' (Size = 4000), @p175='?' (Size = 4000), @p176='?' (Size = 4000), @p177='?' (Size = 4000), @p178='?' (Size = 450), @p179='?' (Size = 450), @p180='?' (Size = 4000), @p181='?' (Size = 4000), @p182='?' (DbType = DateTime2), @p206='?' (DbType = Int32), @p184='?' (DbType = Int32), @p185='?' (DbType = Int32), @p186='?' (DbType = Int32), @p187='?' (Size = 450), @p188='?' (DbType = DateTime2), @p189='?' (Size = 4000), @p190='?' (Size = 4000), @p191='?' (Size = 4000), @p192='?' (DbType = Int32), @p193='?' (DbType = Boolean), @p194='?' (DbType = Boolean), @p195='?' (DbType = Int32), @p196='?' (DbType = Int32), @p197='?' (Size = 4000), @p198='?' (Size = 4000), @p199='?' (Size = 4000), @p200='?' (Size = 4000), @p201='?' (Size = 450), @p202='?' (Size = 450), @p203='?' (Size = 4000), @p204='?' (Size = 4000), @p205='?' (DbType = DateTime2), @p229='?' (DbType = Int32), @p207='?' (DbType = Int32), @p208='?' (DbType = Int32), @p209='?' (DbType = Int32), @p210='?' (Size = 450), @p211='?' (DbType = DateTime2), @p212='?' (Size = 4000), @p213='?' (Size = 4000), @p214='?' (Size = 4000), @p215='?' (DbType = Int32), @p216='?' (DbType = Boolean), @p217='?' (DbType = Boolean), @p218='?' (DbType = Int32), @p219='?' (DbType = Int32), @p220='?' (Size = 4000), @p221='?' (Size = 4000), @p222='?' (Size = 4000), @p223='?' (Size = 4000), @p224='?' (Size = 450), @p225='?' (Size = 450), @p226='?' (Size = 4000), @p227='?' (Size = 4000), @p228='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [Product] SET [BrandId] = @p0, [BrandId1] = @p1, [CategoryId] = @p2, [Code] = @p3, [CreatedAt] = @p4, [DatasheetPath] = @p5, [DescriptionEn] = @p6, [DescriptionVi] = @p7, [DisplayOrder] = @p8, [IsActive] = @p9, [IsFeatured] = @p10, [MachineTypeId] = @p11, [MachineTypeId1] = @p12, [NameEn] = @p13, [NameVi] = @p14, [ShortDescriptionEn] = @p15, [ShortDescriptionVi] = @p16, [SlugEn] = @p17, [SlugVi] = @p18, [TechnicalSpecsEn] = @p19, [TechnicalSpecsVi] = @p20, [UpdatedAt] = @p21
+OUTPUT 1
+WHERE [Id] = @p22;
+UPDATE [Product] SET [BrandId] = @p23, [BrandId1] = @p24, [CategoryId] = @p25, [Code] = @p26, [CreatedAt] = @p27, [DatasheetPath] = @p28, [DescriptionEn] = @p29, [DescriptionVi] = @p30, [DisplayOrder] = @p31, [IsActive] = @p32, [IsFeatured] = @p33, [MachineTypeId] = @p34, [MachineTypeId1] = @p35, [NameEn] = @p36, [NameVi] = @p37, [ShortDescriptionEn] = @p38, [ShortDescriptionVi] = @p39, [SlugEn] = @p40, [SlugVi] = @p41, [TechnicalSpecsEn] = @p42, [TechnicalSpecsVi] = @p43, [UpdatedAt] = @p44
+OUTPUT 1
+WHERE [Id] = @p45;
+UPDATE [Product] SET [BrandId] = @p46, [BrandId1] = @p47, [CategoryId] = @p48, [Code] = @p49, [CreatedAt] = @p50, [DatasheetPath] = @p51, [DescriptionEn] = @p52, [DescriptionVi] = @p53, [DisplayOrder] = @p54, [IsActive] = @p55, [IsFeatured] = @p56, [MachineTypeId] = @p57, [MachineTypeId1] = @p58, [NameEn] = @p59, [NameVi] = @p60, [ShortDescriptionEn] = @p61, [ShortDescriptionVi] = @p62, [SlugEn] = @p63, [SlugVi] = @p64, [TechnicalSpecsEn] = @p65, [TechnicalSpecsVi] = @p66, [UpdatedAt] = @p67
+OUTPUT 1
+WHERE [Id] = @p68;
+UPDATE [Product] SET [BrandId] = @p69, [BrandId1] = @p70, [CategoryId] = @p71, [Code] = @p72, [CreatedAt] = @p73, [DatasheetPath] = @p74, [DescriptionEn] = @p75, [DescriptionVi] = @p76, [DisplayOrder] = @p77, [IsActive] = @p78, [IsFeatured] = @p79, [MachineTypeId] = @p80, [MachineTypeId1] = @p81, [NameEn] = @p82, [NameVi] = @p83, [ShortDescriptionEn] = @p84, [ShortDescriptionVi] = @p85, [SlugEn] = @p86, [SlugVi] = @p87, [TechnicalSpecsEn] = @p88, [TechnicalSpecsVi] = @p89, [UpdatedAt] = @p90
+OUTPUT 1
+WHERE [Id] = @p91;
+UPDATE [Product] SET [BrandId] = @p92, [BrandId1] = @p93, [CategoryId] = @p94, [Code] = @p95, [CreatedAt] = @p96, [DatasheetPath] = @p97, [DescriptionEn] = @p98, [DescriptionVi] = @p99, [DisplayOrder] = @p100, [IsActive] = @p101, [IsFeatured] = @p102, [MachineTypeId] = @p103, [MachineTypeId1] = @p104, [NameEn] = @p105, [NameVi] = @p106, [ShortDescriptionEn] = @p107, [ShortDescriptionVi] = @p108, [SlugEn] = @p109, [SlugVi] = @p110, [TechnicalSpecsEn] = @p111, [TechnicalSpecsVi] = @p112, [UpdatedAt] = @p113
+OUTPUT 1
+WHERE [Id] = @p114;
+UPDATE [Product] SET [BrandId] = @p115, [BrandId1] = @p116, [CategoryId] = @p117, [Code] = @p118, [CreatedAt] = @p119, [DatasheetPath] = @p120, [DescriptionEn] = @p121, [DescriptionVi] = @p122, [DisplayOrder] = @p123, [IsActive] = @p124, [IsFeatured] = @p125, [MachineTypeId] = @p126, [MachineTypeId1] = @p127, [NameEn] = @p128, [NameVi] = @p129, [ShortDescriptionEn] = @p130, [ShortDescriptionVi] = @p131, [SlugEn] = @p132, [SlugVi] = @p133, [TechnicalSpecsEn] = @p134, [TechnicalSpecsVi] = @p135, [UpdatedAt] = @p136
+OUTPUT 1
+WHERE [Id] = @p137;
+UPDATE [Product] SET [BrandId] = @p138, [BrandId1] = @p139, [CategoryId] = @p140, [Code] = @p141, [CreatedAt] = @p142, [DatasheetPath] = @p143, [DescriptionEn] = @p144, [DescriptionVi] = @p145, [DisplayOrder] = @p146, [IsActive] = @p147, [IsFeatured] = @p148, [MachineTypeId] = @p149, [MachineTypeId1] = @p150, [NameEn] = @p151, [NameVi] = @p152, [ShortDescriptionEn] = @p153, [ShortDescriptionVi] = @p154, [SlugEn] = @p155, [SlugVi] = @p156, [TechnicalSpecsEn] = @p157, [TechnicalSpecsVi] = @p158, [UpdatedAt] = @p159
+OUTPUT 1
+WHERE [Id] = @p160;
+UPDATE [Product] SET [BrandId] = @p161, [BrandId1] = @p162, [CategoryId] = @p163, [Code] = @p164, [CreatedAt] = @p165, [DatasheetPath] = @p166, [DescriptionEn] = @p167, [DescriptionVi] = @p168, [DisplayOrder] = @p169, [IsActive] = @p170, [IsFeatured] = @p171, [MachineTypeId] = @p172, [MachineTypeId1] = @p173, [NameEn] = @p174, [NameVi] = @p175, [ShortDescriptionEn] = @p176, [ShortDescriptionVi] = @p177, [SlugEn] = @p178, [SlugVi] = @p179, [TechnicalSpecsEn] = @p180, [TechnicalSpecsVi] = @p181, [UpdatedAt] = @p182
+OUTPUT 1
+WHERE [Id] = @p183;
+UPDATE [Product] SET [BrandId] = @p184, [BrandId1] = @p185, [CategoryId] = @p186, [Code] = @p187, [CreatedAt] = @p188, [DatasheetPath] = @p189, [DescriptionEn] = @p190, [DescriptionVi] = @p191, [DisplayOrder] = @p192, [IsActive] = @p193, [IsFeatured] = @p194, [MachineTypeId] = @p195, [MachineTypeId1] = @p196, [NameEn] = @p197, [NameVi] = @p198, [ShortDescriptionEn] = @p199, [ShortDescriptionVi] = @p200, [SlugEn] = @p201, [SlugVi] = @p202, [TechnicalSpecsEn] = @p203, [TechnicalSpecsVi] = @p204, [UpdatedAt] = @p205
+OUTPUT 1
+WHERE [Id] = @p206;
+UPDATE [Product] SET [BrandId] = @p207, [BrandId1] = @p208, [CategoryId] = @p209, [Code] = @p210, [CreatedAt] = @p211, [DatasheetPath] = @p212, [DescriptionEn] = @p213, [DescriptionVi] = @p214, [DisplayOrder] = @p215, [IsActive] = @p216, [IsFeatured] = @p217, [MachineTypeId] = @p218, [MachineTypeId1] = @p219, [NameEn] = @p220, [NameVi] = @p221, [ShortDescriptionEn] = @p222, [ShortDescriptionVi] = @p223, [SlugEn] = @p224, [SlugVi] = @p225, [TechnicalSpecsEn] = @p226, [TechnicalSpecsVi] = @p227, [UpdatedAt] = @p228
+OUTPUT 1
+WHERE [Id] = @p229;
+2026-04-20 23:26:28.347 +07:00 [INF] Executing RedirectResult, redirecting to /vi/Admin/Product/Index.
+2026-04-20 23:26:28.347 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Confirm (Cw.Branding.Web) in 146.9061ms
+2026-04-20 23:26:28.347 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Confirm (Cw.Branding.Web)'
+2026-04-20 23:26:28.347 +07:00 [INF] HTTP POST /vi/admin/Product/Confirm responded 302 in 171.1463 ms
+2026-04-20 23:26:28.348 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/admin/Product/Confirm - 302 null null 178.7879ms
+2026-04-20 23:26:28.354 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - null null
+2026-04-20 23:26:28.357 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:28.357 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-20 23:26:28.370 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt], [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId]
+FROM [Product] AS [p]
+INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+LEFT JOIN [MachineType] AS [m] ON [p].[MachineTypeId] = [m].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [p].[Id] = [p0].[ProductId]
+ORDER BY [p].[DisplayOrder], [p].[CreatedAt] DESC, [p].[Id], [c].[Id], [b].[Id], [m].[Id]
+2026-04-20 23:26:28.378 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-20 23:26:28.380 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-20 23:26:28.382 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-20 23:26:28.382 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-20 23:26:28.389 +07:00 [INF] Executed ViewResult - view Index executed in 7.1959ms.
+2026-04-20 23:26:28.389 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web) in 32.4702ms
+2026-04-20 23:26:28.389 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Index (Cw.Branding.Web)'
+2026-04-20 23:26:28.390 +07:00 [INF] HTTP GET /vi/Admin/Product/Index responded 200 in 33.1704 ms
+2026-04-20 23:26:28.405 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Product/Index - 200 null text/html; charset=utf-8 50.816ms
+2026-04-20 23:26:28.492 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:26:28.492 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.1804 ms
+2026-04-20 23:26:28.496 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 4.1884ms
+2026-04-20 23:26:28.496 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:28.524 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-20 23:26:28.524 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-20 23:26:28.530 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 5.9464ms
+2026-04-20 23:26:28.758 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-20 23:26:28.758 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.1862 ms
+2026-04-20 23:26:28.764 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 6.7382ms
+2026-04-20 23:26:28.764 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-20 23:26:28.767 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 243.5225ms

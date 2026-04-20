@@ -1,0 +1,85 @@
+﻿@model Cw.Branding.Web.Models.Import.ProductImportResult
+@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "Xác nhận dữ liệu Import";
+    Layout = "_AdminLayout";
+}
+
+<div class="p-6 max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-6">
+        <div>
+            <h1 class="text-3xl font-bold text-blue-900 text-uppercase">Review & Confirm</h1>
+            <p class="text-gray-600">Kiểm tra kỹ thông tin trước khi ghi vào Database.</p>
+        </div>
+
+        <div class="flex gap-4">
+            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg border border-blue-200">
+                <span class="block text-xs uppercase font-semibold">Thêm mới</span>
+                <span class="text-xl font-bold">@Model.NewItems</span>
+            </div>
+            <div class="bg-orange-100 text-orange-800 px-4 py-2 rounded-lg border border-orange-200">
+                <span class="block text-xs uppercase font-semibold">Cập nhật</span>
+                <span class="text-xl font-bold">@Model.UpdatedItems</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto max-h-[600px]">
+            <table class="w-full text-sm text-left border-collapse">
+                <thead class="bg-gray-800 text-white sticky top-0">
+                    <tr>
+                        <th class="px-4 py-3">STT</th>
+                        <th class="px-4 py-3">Mã SP (SKU)</th>
+                        <th class="px-4 py-3">Tên sản phẩm (VI)</th>
+                        <th class="px-4 py-3">Danh mục</th>
+                        <th class="px-4 py-3">Hãng / Loại máy</th>
+                        <th class="px-4 py-3 text-center">Nổi bật</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    @foreach (var row in Model.Rows)
+                    {
+                        <tr class="@(row.IsUpdate ? "bg-orange-50/50" : "bg-blue-50/50") hover:bg-gray-100 transition">
+                            <td class="px-4 py-3 text-gray-500">@row.RowIndex</td>
+                            <td class="px-4 py-3 font-mono font-bold @(row.IsUpdate ? "text-orange-700" : "text-blue-700")">
+                                @row.Code
+                            </td>
+                            <td class="px-4 py-3 font-medium">@row.NameVi</td>
+                            <td class="px-4 py-3">
+                                <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs">@row.CategoryName</span>
+                            </td>
+                            <td class="px-4 py-3 text-gray-600 italic">
+                                @row.BrandName / @row.MachineTypeName
+                            </td>
+                            <td class="px-4 py-3 text-center">
+                                @if (row.IsFeatured)
+                                {
+                                    <span class="text-yellow-500">⭐</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-8 flex items-center justify-between bg-gray-50 p-6 rounded-xl border border-gray-200">
+        <div class="text-sm text-gray-600">
+            Bấm <strong>Xác nhận</strong> để thực hiện thay đổi cho <span class="font-bold text-gray-900">@Model.TotalRows</span> sản phẩm.
+        </div>
+        <form asp-action="Confirm" method="post" class="flex gap-3">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="jsonData" value='@JsonConvert.SerializeObject(Model.Rows)' />
+
+            <a asp-action="Import" class="px-6 py-2.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-white transition font-semibold">
+                Hủy bỏ
+            </a>
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-10 py-2.5 rounded-lg font-bold transition shadow-lg shadow-green-100 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                XÁC NHẬN IMPORT
+            </button>
+        </form>
+    </div>
+</div>

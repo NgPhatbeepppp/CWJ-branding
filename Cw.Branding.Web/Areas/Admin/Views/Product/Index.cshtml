@@ -5,21 +5,39 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="mb-6 flex items-center justify-between">
-    <div>
+<div class="mb-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+    @* Khối 1: Tiêu đề *@
+    <div class="flex-1">
         <h1 class="text-2xl font-bold text-gray-800">Danh sách Sản phẩm</h1>
         <p class="text-sm text-gray-500 mt-1">Quản lý toàn bộ sản phẩm và thiết bị y tế trên hệ thống</p>
     </div>
-    <div class="flex gap-2">
-        <a asp-action="Create" class="inline-flex items-center rounded-md bg-[#004F9F] px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-blue-800 transition-all">
-            <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-            Thêm Sản phẩm mới
+
+    @* Khối 2: Nhóm hành động (Gom Tải mẫu, Làm mới, Import, Thêm mới) *@
+    <div class="flex flex-wrap items-center gap-3">
+
+        @* 1. Nút Tải mẫu (Làm nhỏ gọn lại) *@
+        <a href="/templates/Product_Import_Template.xlsx" download
+           class="inline-flex items-center px-3 py-2 border border-blue-200 bg-blue-50 text-blue-700 text-xs font-bold rounded-md hover:bg-blue-100 transition-all" title="Tải file Excel mẫu">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            MẪU EXCEL
         </a>
-        <button onclick="window.location.reload()" class="rounded bg-[#004F9F] px-4 py-2 text-white hover:bg-blue-800 transition-all">
-            <i class="fas fa-sync"></i> Làm mới danh sách
+
+        @* 2. Nút Làm mới (Dùng icon xoay cho gọn) *@
+        <button onclick="window.location.reload()"
+                class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-all shadow-sm" title="Làm mới trang">
+            <i class="fas fa-sync-alt"></i>
         </button>
+
+        @* 3. Nút Nhập hàng loạt *@
+        <a asp-action="Import" class="inline-flex items-center rounded-md border border-blue-600 bg-white px-4 py-2 text-sm font-bold text-blue-700 shadow-sm hover:bg-blue-50 transition-all">
+            <i class="fas fa-file-excel mr-2"></i> Nhập hàng loạt
+        </a>
+
+        @* 4. Nút Thêm mới (Màu Primary nổi bật nhất) *@
+        <a asp-action="Create" class="inline-flex items-center rounded-md bg-[#004F9F] px-4 py-2 text-sm font-bold text-white shadow-sm hover:bg-blue-800 transition-all">
+            <i class="fas fa-plus mr-2"></i> Thêm mới
+        </a>
     </div>
-   
 </div>
 @* --- Thanh Filter (Đã thêm ô tìm kiếm & tối ưu) --- *@
 <div class="mb-6 rounded-lg bg-white p-4 shadow-sm border border-gray-100">

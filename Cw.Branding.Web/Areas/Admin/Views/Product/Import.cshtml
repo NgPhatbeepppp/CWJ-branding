@@ -1,0 +1,66 @@
+﻿@model Cw.Branding.Web.Models.Import.ProductImportResult
+@{
+    ViewData["Title"] = "Nhập sản phẩm hàng loạt";
+    Layout = "_AdminLayout"; // Đảm bảo dùng layout admin
+}
+
+<div class="p-6 max-w-6xl mx-auto">
+    <nav class="flex mb-4 text-sm" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2 text-gray-500">
+            <li><a href="@Url.Action("Index", "Product")" class="hover:text-blue-800">Sản phẩm</a></li>
+            <li><span class="mx-2">/</span></li>
+            <li class="text-gray-800 font-bold">Bulk Import</li>
+        </ol>
+    </nav>
+
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-blue-900">Bulk Product Import</h1>
+        <p class="text-gray-600">Tải lên file Excel để thêm mới hoặc cập nhật hàng loạt sản phẩm.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-200 mb-8">
+        <form asp-action="Validate" method="post" enctype="multipart/form-data" class="flex items-end gap-4">
+            @Html.AntiForgeryToken()
+            <div class="flex-1">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Chọn file dữ liệu (.xlsx)</label>
+                <input type="file" name="excelFile" accept=".xlsx" required
+                       class="block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all border border-dashed border-gray-300 p-2 rounded-lg" />
+            </div>
+            <button type="submit" class="bg-blue-800 hover:bg-blue-900 text-white px-6 py-2.5 rounded-lg font-bold transition shadow-lg shadow-blue-200">
+                Kiểm tra dữ liệu
+            </button>
+        </form>
+        <p class="mt-3 text-xs text-gray-500 italic">* Lưu ý: Hệ thống sẽ kiểm tra danh mục và hãng sản xuất trước khi cho phép nhập.</p>
+    </div>
+
+    @if (Model != null && Model.ErrorRows > 0)
+    {
+        <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+            <h2 class="text-red-700 font-bold text-lg mb-4 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Phát hiện @Model.ErrorRows lỗi - Vui lòng sửa file Excel và thử lại
+            </h2>
+            <div class="overflow-hidden rounded-lg border border-red-100">
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-red-100 text-red-800 uppercase text-xs">
+                        <tr>
+                            <th class="px-4 py-3">Dòng</th>
+                            <th class="px-4 py-3">Mã SP</th>
+                            <th class="px-4 py-3">Nội dung lỗi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-red-100 bg-white">
+                        @foreach (var row in Model.Rows.Where(r => !r.IsValid))
+                        {
+                            <tr class="hover:bg-red-50 transition">
+                                <td class="px-4 py-3 font-bold text-red-600">@row.RowIndex</td>
+                                <td class="px-4 py-3">@row.Code</td>
+                                <td class="px-4 py-3 text-red-500">@string.Join(" | ", row.Errors)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>
