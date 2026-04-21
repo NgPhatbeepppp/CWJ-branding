@@ -17,13 +17,21 @@
                 <label class="block text-sm font-medium text-gray-700">Tên đăng nhập (Username)</label>
                 <input asp-for="Username" class="mt-1 block w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-1 focus:ring-blue-500" required />
                 <span asp-validation-for="Username" class="text-red-500 text-xs"></span>
+          
             </div>
             <div>
                 <label class="block text-sm font-medium text-gray-700">Mật khẩu khởi tạo</label>
                 <input type="password" name="Password" class="mt-1 block w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-1 focus:ring-blue-500" required />
             </div>
         </div>
-
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-slate-700 mb-1">Vùng miền quản lý</label>
+            <select asp-for="Region" class="w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary"
+                    asp-items="Html.GetEnumSelectList<Cw.Branding.Web.Models.Enums.ContactRegion>()">
+                <option value="">-- Chọn khu vực --</option>
+            </select>
+            <span asp-validation-for="Region" class="text-red-500 text-xs"></span>
+        </div>
         <div>
             <label class="block text-sm font-medium text-gray-700">Họ và tên</label>
             <input asp-for="FullName" class="mt-1 block w-full border border-gray-300 rounded-md p-2 outline-none focus:ring-1 focus:ring-blue-500" />
@@ -50,22 +58,6 @@
                 LƯU TÀI KHOẢN
             </button>
         </div>
+
     </form>
 </div>
-<script>
-    document.querySelector('input[name="Username"]').addEventListener('blur', function() {
-        const username = this.value;
-        if (!username) return;
-
-        fetch(`/${document.documentElement.lang}/Admin/UserManagement/CheckUsername?username=${username}`)
-            .then(res => res.json())
-            .then(data => {
-                if (!data.isAvailable) {
-                    alert("Tên đăng nhập này đã có người dùng!");
-                    this.classList.add('border-red-500');
-                } else {
-                    this.classList.remove('border-red-500');
-                }
-            });
-    });
-</script>

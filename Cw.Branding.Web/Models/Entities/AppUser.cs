@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Cw.Branding.Web.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cw.Branding.Web.Models.Entities
 {
@@ -17,9 +18,11 @@ namespace Cw.Branding.Web.Models.Entities
 
         public bool IsActive { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public ContactRegion Region { get; set; } = ContactRegion.South;
 
         // Foreign Key
         public int RoleId { get; set; }
         public virtual AppRole Role { get; set; }
+
     }
 }

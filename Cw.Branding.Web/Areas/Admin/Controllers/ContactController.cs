@@ -2,6 +2,7 @@
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
@@ -19,10 +20,27 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
         public async Task<IActionResult> Index(ContactStatus? status)
         {
             ViewBag.CurrentStatus = status;
-            var leads = await _contactService.GetContactsAsync(status, null);
+
+            // 1. Lấy thông tin Role và Region của người dùng hiện tại từ Claims
+            var userRole = User.FindFirstValue(ClaimTypes.Role);
+            var userRegionClaim = User.FindFirst("UserRegion")?.Value;
+
+            // 2. Xác định vùng cần lọc
+            ContactRegion? filterRegion = null;
+
+            // Nếu là nhân viên (không phải Admin) và có thông tin vùng trong Claim
+            if (userRole != "Admin" && Enum.TryParse<ContactRegion>(userRegionClaim, out var region))
+            {
+                filterRegion = region;
+            }
+            // Note: Nếu là Admin, filterRegion vẫn là null -> service sẽ lấy tất cả các miền.
+
+            // 3. Gọi service với tham số đã tính toán
+            var leads = await _contactService.GetContactsAsync(status, filterRegion);
+
             return View(leads);
         }
-        // Thêm vào ContactController.cs
+       
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {

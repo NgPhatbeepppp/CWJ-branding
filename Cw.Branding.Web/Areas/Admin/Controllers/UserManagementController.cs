@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Services.Interfaces;
 using Cw.Branding.Web.Data;
+using Cw.Branding.Web.Models.Enums;
+
 
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
@@ -27,52 +29,48 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
             var users = await _context.Users.Include(u => u.Role).ToListAsync();
             return View(users);
         }
-
-        // Task 3.2: View Tạo mới
         [HttpGet]
         public async Task<IActionResult> Create()
         {
+            // Cần lấy danh sách Role để đổ vào Dropdown trong view
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name");
-            return View();
+            return View(new AppUser());
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AppUser user, string Password)
         {
-            // 1. Kiểm tra trùng Username
+            // 1. Kiểm tra trùng Username trong Database
             bool isExisted = await _context.Users.AnyAsync(u => u.Username == user.Username);
             if (isExisted)
             {
-                ModelState.AddModelError("Username", "Tên đăng nhập này đã tồn tại.");
+                // Gắn lỗi trực tiếp vào trường Username
+                ModelState.AddModelError("Username", "Tên đăng nhập này đã tồn tại. Vui lòng kiểm tra và nhập tên khác.");
             }
 
-            // 2. LOẠI BỎ VALIDATION CHO CÁC TRƯỜNG KHÔNG GỬI TỪ FORM
+            // 2. Xử lý các validation khác (như password, roles...)
             ModelState.Remove(nameof(user.Role));
             ModelState.Remove(nameof(user.PasswordHash));
-            ModelState.Remove(nameof(user.Username)); // Nếu model có [Required] nhưng bị lỗi format
 
-            // 3. GÁN PASSWORD HASH TRƯỚC KHI CHECK VALID
-            if (!string.IsNullOrEmpty(Password))
-            {
-                user.PasswordHash = _accountService.HashPassword(Password);
-            }
-            else
+            if (string.IsNullOrEmpty(Password))
             {
                 ModelState.AddModelError("Password", "Vui lòng nhập mật khẩu.");
             }
 
+            // 3. Nếu mọi thứ ổn (không trùng tên, đủ mật khẩu)
             if (ModelState.IsValid)
             {
+                user.PasswordHash = _accountService.HashPassword(Password);
                 user.CreatedAt = DateTime.Now;
+
                 _context.Add(user);
                 await _context.SaveChangesAsync();
 
-                TempData["Message"] = $"Đã tạo thành công tài khoản: {user.Username}";
+                TempData["Message"] = "Tạo nhân viên thành công!";
                 return RedirectToAction(nameof(Index));
             }
 
-            // Nếu lỗi, load lại Roles để hiển thị lại Form
+            // 4. Nếu có lỗi (trùng tên hoặc lỗi khác), load lại danh sách Role để hiển thị lại Form
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name", user.RoleId);
             return View(user);
         }
@@ -110,26 +108,32 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
         {
             if (id != user.Id) return NotFound();
 
-            // Loại bỏ kiểm tra Username ở đây vì ta đã để Username là Hidden/Read-only
-            // Nhưng để chắc chắn, ta lấy lại dữ liệu gốc từ DB
             var originalUser = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
             if (originalUser == null) return NotFound();
 
+            // Loại bỏ các trường không update trong form này
+            ModelState.Remove(nameof(user.Role));
+            ModelState.Remove(nameof(user.PasswordHash));
+
             if (ModelState.IsValid)
             {
-                // Luôn giữ nguyên Username và Password cũ
+                // Giữ nguyên các giá trị không cho phép sửa ở màn hình này
                 user.Username = originalUser.Username;
                 user.PasswordHash = originalUser.PasswordHash;
                 user.CreatedAt = originalUser.CreatedAt;
 
+                // user.Region đã được bind từ form nên sẽ được lưu mới
                 _context.Update(user);
                 await _context.SaveChangesAsync();
+
+                TempData["Message"] = "Cập nhật thông tin nhân viên thành công.";
                 return RedirectToAction(nameof(Index));
             }
 
             ViewBag.Roles = new SelectList(await _context.Roles.ToListAsync(), "Id", "Name", user.RoleId);
             return View(user);
         }
+    
         [HttpGet]
         public async Task<JsonResult> CheckUsername(string username)
         {

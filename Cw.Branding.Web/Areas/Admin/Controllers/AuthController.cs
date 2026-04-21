@@ -43,6 +43,7 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
                 new Claim(ClaimTypes.NameIdentifier, user.Username), // Lưu username vào NameIdentifier
                 new Claim(ClaimTypes.Name, user.FullName ?? ""),    // Lưu FullName vào Name
                 new Claim(ClaimTypes.Role, user.Role.Name),
+                new Claim("UserRegion", ((int)user.Region).ToString()),
                 new Claim("UserId", user.Id.ToString())
             };
 

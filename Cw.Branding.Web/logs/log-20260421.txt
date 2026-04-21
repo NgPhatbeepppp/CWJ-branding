@@ -1,0 +1,560 @@
+2026-04-21 15:18:36.679 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:18:36.711 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:18:37.003 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:18:37.003 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:19:19.396 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:19:19.421 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:19:19.975 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-21 15:19:20.009 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-21 15:19:20.011 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-04-21 15:19:20.012 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-04-21 15:19:20.037 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-04-21 15:19:20.050 +07:00 [INF] Applying migration '20260421081837_AddRegionToAppUser'.
+2026-04-21 15:19:20.154 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [Region] int NOT NULL DEFAULT 0;
+2026-04-21 15:19:20.165 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+UPDATE [Users] SET [CreatedAt] = '2026-01-01T00:00:00.0000000', [PasswordHash] = N'AQAAAAIAAYagAAAAEOKnYKC5Yh36RV/tRN5jhIaesvmRCTjd2v3/HPaOs94eonYu0APkJzmDlfdL/tNyZA==', [Region] = 2
+WHERE [Id] = 1;
+SELECT @@ROWCOUNT;
+2026-04-21 15:19:20.169 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260421081837_AddRegionToAppUser', N'8.0.22');
+2026-04-21 15:22:17.315 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-21 15:22:17.707 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-21 15:22:17.773 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 15:22:17.773 +07:00 [INF] Hosting environment: Development
+2026-04-21 15:22:17.773 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-04-21 15:22:17.936 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-21 15:22:17.937 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-21 15:22:17.939 +07:00 [INF] HTTP GET / responded 302 in 59.7672 ms
+2026-04-21 15:22:17.973 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-21 15:22:17.997 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 297.5085ms
+2026-04-21 15:22:17.998 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-21 15:22:18.067 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-21 15:22:19.013 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:22:19.014 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:22:19.389 +07:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-21 15:22:19.845 +07:00 [INF] Executed DbCommand (49ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-21 15:22:19.920 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-21 15:22:20.026 +07:00 [INF] Executed DbCommand (52ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-21 15:22:20.044 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:22:20.448 +07:00 [INF] Executed ViewResult - view Index executed in 400.9239ms.
+2026-04-21 15:22:20.452 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2383.5321ms
+2026-04-21 15:22:20.453 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-21 15:22:20.454 +07:00 [INF] HTTP GET /en responded 200 in 2477.2893 ms
+2026-04-21 15:22:20.486 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 2513.5063ms
+2026-04-21 15:22:20.638 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:22:20.638 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:22:20.643 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 4.0814ms
+2026-04-21 15:22:20.738 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 100.8526ms
+2026-04-21 15:24:29.807 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-21 15:24:29.839 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-21 15:24:29.840 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-21 15:24:29.928 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-21 15:24:29.938 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-21 15:24:29.949 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-21 15:24:29.950 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:24:29.983 +07:00 [INF] Executed ViewResult - view Index executed in 33.8692ms.
+2026-04-21 15:24:29.984 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 144.1014ms
+2026-04-21 15:24:29.984 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-21 15:24:29.984 +07:00 [INF] HTTP GET /en responded 200 in 163.1692 ms
+2026-04-21 15:24:29.985 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 183.9549ms
+2026-04-21 15:24:30.069 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:24:30.257 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:24:30.271 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 13.8771ms
+2026-04-21 15:24:30.438 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 369.2185ms
+2026-04-21 15:24:39.047 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - null null
+2026-04-21 15:24:39.058 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:24:39.077 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-21 15:24:39.099 +07:00 [INF] Executing ViewResult, running view Login.
+2026-04-21 15:24:39.126 +07:00 [INF] Executed ViewResult - view Login executed in 29.0428ms.
+2026-04-21 15:24:39.126 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 48.4122ms
+2026-04-21 15:24:39.126 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:24:39.126 +07:00 [INF] HTTP GET /vi/Admin/Auth/Login responded 200 in 71.9922 ms
+2026-04-21 15:24:39.126 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - 200 null text/html; charset=utf-8 79.8563ms
+2026-04-21 15:24:39.200 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:24:39.208 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 7.9471ms
+2026-04-21 15:24:39.208 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:24:39.284 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.8488ms
+2026-04-21 15:24:49.968 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - application/x-www-form-urlencoded 229
+2026-04-21 15:24:49.976 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:24:49.982 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-21 15:24:50.136 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Username] = @__username_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-04-21 15:24:50.284 +07:00 [INF] AuthenticationScheme: Cookies signed in.
+2026-04-21 15:24:50.289 +07:00 [INF] Executing RedirectResult, redirecting to /vi/admin.
+2026-04-21 15:24:50.289 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 307.2845ms
+2026-04-21 15:24:50.289 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:24:50.289 +07:00 [INF] HTTP POST /vi/Admin/Auth/Login responded 302 in 317.8443 ms
+2026-04-21 15:24:50.290 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - 302 null null 322.5811ms
+2026-04-21 15:24:50.295 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-21 15:24:50.303 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-21 15:24:50.304 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-21 15:24:50.306 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:24:50.337 +07:00 [INF] Executed ViewResult - view Index executed in 32.8496ms.
+2026-04-21 15:24:50.338 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 33.4515ms
+2026-04-21 15:24:50.338 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-21 15:24:50.338 +07:00 [INF] HTTP GET /vi/admin responded 200 in 40.7591 ms
+2026-04-21 15:24:50.338 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 43.3298ms
+2026-04-21 15:24:50.395 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:24:50.415 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:24:50.417 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.2175ms
+2026-04-21 15:24:50.418 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.971ms
+2026-04-21 15:24:53.021 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - null null
+2026-04-21 15:24:53.027 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:24:53.035 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:24:53.063 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+2026-04-21 15:24:53.067 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:24:53.079 +07:00 [INF] Executed ViewResult - view Index executed in 13.4994ms.
+2026-04-21 15:24:53.079 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web) in 43.4473ms
+2026-04-21 15:24:53.079 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:24:53.079 +07:00 [INF] HTTP GET /vi/admin/UserManagement responded 200 in 55.3427 ms
+2026-04-21 15:24:53.079 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - 200 null text/html; charset=utf-8 58.6339ms
+2026-04-21 15:24:53.135 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:24:53.145 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:24:53.154 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 8.6685ms
+2026-04-21 15:24:53.287 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 152.779ms
+2026-04-21 15:24:59.311 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create - null null
+2026-04-21 15:24:59.314 +07:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-21 15:24:59.315 +07:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-21 15:24:59.315 +07:00 [INF] HTTP GET /vi/admin/UserManagement/Create responded 405 in 0.8530 ms
+2026-04-21 15:24:59.316 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create - 405 null null 5.5091ms
+2026-04-21 15:25:05.949 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - null null
+2026-04-21 15:25:05.954 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:25:05.954 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:25:05.965 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+2026-04-21 15:25:05.966 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:25:05.970 +07:00 [INF] Executed ViewResult - view Index executed in 4.8741ms.
+2026-04-21 15:25:05.971 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web) in 15.6068ms
+2026-04-21 15:25:05.971 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:25:05.971 +07:00 [INF] HTTP GET /vi/admin/UserManagement responded 200 in 19.1350 ms
+2026-04-21 15:25:05.971 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - 200 null text/html; charset=utf-8 22.4683ms
+2026-04-21 15:25:06.064 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:25:06.064 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.806ms
+2026-04-21 15:25:08.030 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Edit/1 - null null
+2026-04-21 15:25:08.039 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Edit (Cw.Branding.Web)'
+2026-04-21 15:25:08.046 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:25:08.090 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-04-21 15:25:08.111 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[Name]
+FROM [Roles] AS [r]
+2026-04-21 15:25:08.125 +07:00 [INF] Executing ViewResult, running view Edit.
+2026-04-21 15:25:08.206 +07:00 [INF] Executed ViewResult - view Edit executed in 82.3075ms.
+2026-04-21 15:25:08.206 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Edit (Cw.Branding.Web) in 160.2042ms
+2026-04-21 15:25:08.206 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Edit (Cw.Branding.Web)'
+2026-04-21 15:25:08.206 +07:00 [INF] HTTP GET /vi/admin/UserManagement/Edit/1 responded 200 in 170.2385 ms
+2026-04-21 15:25:08.207 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Edit/1 - 200 null text/html; charset=utf-8 177.2332ms
+2026-04-21 15:25:08.291 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:25:08.360 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:25:08.383 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 22.6122ms
+2026-04-21 15:25:08.385 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 91.4546ms
+2026-04-21 15:25:13.891 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - null null
+2026-04-21 15:25:13.894 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:25:13.894 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:25:13.897 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+2026-04-21 15:25:13.898 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:25:13.901 +07:00 [INF] Executed ViewResult - view Index executed in 2.8922ms.
+2026-04-21 15:25:13.901 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web) in 7.6255ms
+2026-04-21 15:25:13.902 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:25:13.902 +07:00 [INF] HTTP GET /vi/admin/UserManagement responded 200 in 9.0689 ms
+2026-04-21 15:25:13.904 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - 200 null text/html; charset=utf-8 13.2261ms
+2026-04-21 15:25:13.959 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:25:13.960 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7463ms
+2026-04-21 15:25:18.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create - null null
+2026-04-21 15:25:18.147 +07:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-21 15:25:18.147 +07:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-21 15:25:18.148 +07:00 [INF] HTTP GET /vi/admin/UserManagement/Create responded 405 in 0.5608 ms
+2026-04-21 15:25:18.149 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create - 405 null null 5.7406ms
+2026-04-21 15:25:29.366 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338//admin/UserManagement/Create - null null
+2026-04-21 15:25:29.371 +07:00 [INF] HTTP GET //admin/UserManagement/Create responded 404 in 1.1217 ms
+2026-04-21 15:25:29.372 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338//admin/UserManagement/Create - 404 null null 5.5887ms
+2026-04-21 15:25:29.373 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338//admin/UserManagement/Create, Response status code: 404
+2026-04-21 15:25:35.947 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/admin/UserManagement/Create - null null
+2026-04-21 15:25:35.952 +07:00 [INF] HTTP GET /admin/UserManagement/Create responded 404 in 0.6036 ms
+2026-04-21 15:25:35.953 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/admin/UserManagement/Create - 404 null null 5.466ms
+2026-04-21 15:25:35.953 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/admin/UserManagement/Create, Response status code: 404
+2026-04-21 15:38:28.760 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - null null
+2026-04-21 15:38:28.790 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:38:28.790 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:38:28.849 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+2026-04-21 15:38:28.850 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:38:28.853 +07:00 [INF] Executed ViewResult - view Index executed in 2.5758ms.
+2026-04-21 15:38:28.853 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web) in 62.8296ms
+2026-04-21 15:38:28.853 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:38:28.853 +07:00 [INF] HTTP GET /vi/admin/UserManagement responded 200 in 64.4712 ms
+2026-04-21 15:38:28.853 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - 200 null text/html; charset=utf-8 93.5602ms
+2026-04-21 15:38:28.931 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:38:28.932 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7972ms
+2026-04-21 15:38:30.712 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Edit/2 - null null
+2026-04-21 15:38:30.717 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Edit (Cw.Branding.Web)'
+2026-04-21 15:38:30.717 +07:00 [INF] Route matched with {area = "Admin", action = "Edit", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:38:30.724 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-04-21 15:38:30.726 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[Name]
+FROM [Roles] AS [r]
+2026-04-21 15:38:30.726 +07:00 [INF] Executing ViewResult, running view Edit.
+2026-04-21 15:38:30.731 +07:00 [INF] Executed ViewResult - view Edit executed in 4.2149ms.
+2026-04-21 15:38:30.731 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Edit (Cw.Branding.Web) in 13.4433ms
+2026-04-21 15:38:30.731 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Edit (Cw.Branding.Web)'
+2026-04-21 15:38:30.731 +07:00 [INF] HTTP GET /vi/admin/UserManagement/Edit/2 responded 200 in 16.1231 ms
+2026-04-21 15:38:30.732 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Edit/2 - 200 null text/html; charset=utf-8 19.9315ms
+2026-04-21 15:38:30.988 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:38:30.992 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:38:30.993 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7309ms
+2026-04-21 15:38:31.069 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.5462ms
+2026-04-21 15:43:10.126 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create/0 - null null
+2026-04-21 15:43:10.156 +07:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-04-21 15:43:10.156 +07:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-04-21 15:43:10.156 +07:00 [INF] HTTP GET /vi/admin/UserManagement/Create/0 responded 405 in 0.6410 ms
+2026-04-21 15:43:10.157 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create/0 - 405 null null 30.6476ms
+2026-04-21 15:47:28.445 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-21 15:47:28.657 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-21 15:47:28.712 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-21 15:47:28.712 +07:00 [INF] Hosting environment: Development
+2026-04-21 15:47:28.712 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-04-21 15:47:28.873 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-21 15:47:28.874 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-21 15:47:28.875 +07:00 [INF] HTTP GET / responded 302 in 70.2424 ms
+2026-04-21 15:47:28.894 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-21 15:47:28.918 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 269.9692ms
+2026-04-21 15:47:28.922 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-21 15:47:28.982 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-21 15:47:30.083 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:47:30.084 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-21 15:47:30.518 +07:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-21 15:47:30.993 +07:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-21 15:47:31.068 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-21 15:47:31.156 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-21 15:47:31.166 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:47:31.457 +07:00 [INF] Executed ViewResult - view Index executed in 286.604ms.
+2026-04-21 15:47:31.460 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2477.3844ms
+2026-04-21 15:47:31.461 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-21 15:47:31.465 +07:00 [INF] HTTP GET /en responded 200 in 2557.8427 ms
+2026-04-21 15:47:31.495 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 2600.0205ms
+2026-04-21 15:47:31.596 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:47:31.603 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:47:31.616 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 15.3197ms
+2026-04-21 15:47:31.697 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.0041ms
+2026-04-21 15:47:33.573 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - null null
+2026-04-21 15:47:33.594 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:47:33.609 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-21 15:47:33.631 +07:00 [INF] Executing ViewResult, running view Login.
+2026-04-21 15:47:33.652 +07:00 [INF] Executed ViewResult - view Login executed in 22.8804ms.
+2026-04-21 15:47:33.652 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 43.1107ms
+2026-04-21 15:47:33.652 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:47:33.653 +07:00 [INF] HTTP GET /vi/Admin/Auth/Login responded 200 in 67.8316 ms
+2026-04-21 15:47:33.653 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Auth/Login - 200 null text/html; charset=utf-8 80.2327ms
+2026-04-21 15:47:34.422 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:47:34.436 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:47:34.446 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 9.8366ms
+2026-04-21 15:47:34.476 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.6084ms
+2026-04-21 15:47:42.610 +07:00 [INF] Request starting HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - application/x-www-form-urlencoded 272
+2026-04-21 15:47:42.621 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:47:42.630 +07:00 [INF] Route matched with {area = "Admin", action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(System.String, System.String, System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.AuthController (Cw.Branding.Web).
+2026-04-21 15:47:42.866 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Username] = @__username_0 AND [u].[IsActive] = CAST(1 AS bit)
+2026-04-21 15:47:43.041 +07:00 [INF] AuthenticationScheme: Cookies signed in.
+2026-04-21 15:47:43.045 +07:00 [INF] Executing RedirectResult, redirecting to /vi/admin.
+2026-04-21 15:47:43.045 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web) in 414.6687ms
+2026-04-21 15:47:43.045 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.AuthController.Login (Cw.Branding.Web)'
+2026-04-21 15:47:43.045 +07:00 [INF] HTTP POST /vi/Admin/Auth/Login responded 302 in 431.4946 ms
+2026-04-21 15:47:43.047 +07:00 [INF] Request finished HTTP/2 POST https://localhost:44338/vi/Admin/Auth/Login - 302 null null 436.3807ms
+2026-04-21 15:47:43.052 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-21 15:47:43.060 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-21 15:47:43.061 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-21 15:47:43.066 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:47:43.097 +07:00 [INF] Executed ViewResult - view Index executed in 35.8753ms.
+2026-04-21 15:47:43.097 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 36.5422ms
+2026-04-21 15:47:43.097 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-21 15:47:43.098 +07:00 [INF] HTTP GET /vi/admin responded 200 in 42.9735 ms
+2026-04-21 15:47:43.098 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 46.7439ms
+2026-04-21 15:47:43.163 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:47:43.185 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:47:43.305 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 123.094ms
+2026-04-21 15:47:43.306 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 143.0359ms
+2026-04-21 15:47:44.999 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - null null
+2026-04-21 15:47:45.013 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:47:45.020 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:45.073 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Region], [u].[RoleId], [u].[Username], [r].[Id], [r].[Description], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+2026-04-21 15:47:45.077 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-21 15:47:45.097 +07:00 [INF] Executed ViewResult - view Index executed in 21.2357ms.
+2026-04-21 15:47:45.097 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web) in 76.8238ms
+2026-04-21 15:47:45.097 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Index (Cw.Branding.Web)'
+2026-04-21 15:47:45.097 +07:00 [INF] HTTP GET /vi/admin/UserManagement responded 200 in 88.6205 ms
+2026-04-21 15:47:45.098 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement - 200 null text/html; charset=utf-8 98.7401ms
+2026-04-21 15:47:45.214 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:47:45.292 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:47:45.293 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0536ms
+2026-04-21 15:47:45.300 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 86.5331ms
+2026-04-21 15:47:46.828 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create - null null
+2026-04-21 15:47:46.834 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Create (Cw.Branding.Web)'
+2026-04-21 15:47:46.842 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:46.861 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[Description], [r].[Name]
+FROM [Roles] AS [r]
+2026-04-21 15:47:46.869 +07:00 [INF] Executing ViewResult, running view Create.
+2026-04-21 15:47:46.959 +07:00 [INF] Executed ViewResult - view Create executed in 91.3459ms.
+2026-04-21 15:47:46.960 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Create (Cw.Branding.Web) in 117.9353ms
+2026-04-21 15:47:46.960 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.Create (Cw.Branding.Web)'
+2026-04-21 15:47:46.960 +07:00 [INF] HTTP GET /vi/admin/UserManagement/Create responded 200 in 128.4252 ms
+2026-04-21 15:47:46.960 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/UserManagement/Create - 200 null text/html; charset=utf-8 132.2934ms
+2026-04-21 15:47:47.060 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-21 15:47:47.334 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-21 15:47:47.335 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.6063ms
+2026-04-21 15:47:47.343 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 282.9171ms
+2026-04-21 15:47:49.410 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:47:49.412 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:49.419 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:49.473 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:47:49.483 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:47:49.500 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 81.1165ms
+2026-04-21 15:47:49.500 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:49.500 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 90.3639 ms
+2026-04-21 15:47:49.501 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 91.0961ms
+2026-04-21 15:47:51.731 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:47:51.732 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:51.732 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:51.766 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:47:51.767 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:47:51.768 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 35.0132ms
+2026-04-21 15:47:51.768 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:51.768 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 36.2864 ms
+2026-04-21 15:47:51.768 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 36.7415ms
+2026-04-21 15:47:55.703 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:47:55.704 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:55.704 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:55.721 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:47:55.721 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:47:55.721 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 16.9858ms
+2026-04-21 15:47:55.721 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:55.722 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 18.2083 ms
+2026-04-21 15:47:55.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 18.8839ms
+2026-04-21 15:47:57.068 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:47:57.069 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:57.069 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:57.092 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:47:57.092 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:47:57.093 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 23.6478ms
+2026-04-21 15:47:57.093 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:57.093 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 24.5799 ms
+2026-04-21 15:47:57.093 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 24.956ms
+2026-04-21 15:47:58.060 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:47:58.064 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:58.065 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:58.079 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:47:58.079 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:47:58.080 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 14.8782ms
+2026-04-21 15:47:58.080 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:58.080 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 20.3260 ms
+2026-04-21 15:47:58.081 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 20.8696ms
+2026-04-21 15:47:59.804 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:47:59.805 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:59.805 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:47:59.810 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:47:59.812 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:47:59.813 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 7.4438ms
+2026-04-21 15:47:59.813 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:47:59.813 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 8.4758 ms
+2026-04-21 15:47:59.813 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 9.0014ms
+2026-04-21 15:48:00.247 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:48:00.248 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.248 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:48:00.258 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:48:00.258 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:48:00.259 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 10.3406ms
+2026-04-21 15:48:00.259 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.259 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 11.1885 ms
+2026-04-21 15:48:00.259 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 11.7831ms
+2026-04-21 15:48:00.540 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:48:00.541 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.541 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:48:00.562 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:48:00.563 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:48:00.563 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 21.741ms
+2026-04-21 15:48:00.563 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.563 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 22.8885 ms
+2026-04-21 15:48:00.564 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 23.3907ms
+2026-04-21 15:48:00.717 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:48:00.718 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.718 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:48:00.734 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:48:00.742 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:48:00.743 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 22.5169ms
+2026-04-21 15:48:00.743 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.743 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 26.0184 ms
+2026-04-21 15:48:00.744 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 26.5124ms
+2026-04-21 15:48:00.887 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:48:00.891 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.891 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:48:00.897 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:48:00.898 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:48:00.899 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 7.3622ms
+2026-04-21 15:48:00.899 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:00.899 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 11.2546 ms
+2026-04-21 15:48:00.899 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 13.6557ms
+2026-04-21 15:48:03.745 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:48:03.746 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:03.746 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:48:03.753 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:48:03.754 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:48:03.756 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 9.9187ms
+2026-04-21 15:48:03.756 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:03.756 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 11.2103 ms
+2026-04-21 15:48:03.756 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 11.584ms
+2026-04-21 15:48:27.078 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - null null
+2026-04-21 15:48:27.081 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:27.081 +07:00 [INF] Route matched with {area = "Admin", action = "CheckUsername", controller = "UserManagement"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] CheckUsername(System.String) on controller Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController (Cw.Branding.Web).
+2026-04-21 15:48:27.092 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__username_0='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-04-21 15:48:27.093 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType7`1[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-21 15:48:27.101 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web) in 18.6964ms
+2026-04-21 15:48:27.101 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.UserManagementController.CheckUsername (Cw.Branding.Web)'
+2026-04-21 15:48:27.103 +07:00 [INF] HTTP GET /en/Admin/UserManagement/CheckUsername responded 200 in 24.9119 ms
+2026-04-21 15:48:27.104 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/Admin/UserManagement/CheckUsername?username=NV1 - 200 null application/json; charset=utf-8 26.1893ms

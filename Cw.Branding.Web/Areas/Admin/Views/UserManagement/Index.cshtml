@@ -1,13 +1,20 @@
-﻿@model IEnumerable<Cw.Branding.Web.Models.Entities.AppUser>
+﻿@using Cw.Branding.Web.Models.Enums
+@model IEnumerable<Cw.Branding.Web.Models.Entities.AppUser>
+@{
+    ViewData["Title"] = "Quản lý nhân viên";
+}
 
 <div class="p-4 md:p-6">
+    @* Header *@
     <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
         <div>
             <h2 class="text-2xl font-bold text-brand-primary">Quản lý nhân viên</h2>
             <p class="text-sm text-slate-500">Danh sách tài khoản hệ thống Charles Wembley</p>
         </div>
-        <a asp-action="Create" class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-sm text-sm font-medium">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+        <a asp-action="Create" class="inline-flex items-center bg-brand-primary text-white px-4 py-2 rounded-lg hover:opacity-90 transition-colors shadow-sm text-sm font-medium">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
             Thêm nhân viên mới
         </a>
     </div>
@@ -15,7 +22,9 @@
     @if (TempData["Message"] != null)
     {
         <div class="bg-emerald-50 border-l-4 border-emerald-500 text-emerald-700 px-4 py-3 rounded shadow-sm mb-6 flex items-center">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
             @TempData["Message"]
         </div>
     }
@@ -25,11 +34,12 @@
             <table class="min-w-full divide-y divide-slate-200">
                 <thead class="bg-slate-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tài khoản</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Họ và Tên</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Vai trò</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Trạng thái</th>
-                        <th scope="col" class="px-6 py-3 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">Thao tác</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tài khoản</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Họ và Tên</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Vai trò</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Trạng thái</th>
+                        <th class="px-6 py-3 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Vùng miền</th>
+                        <th class="px-6 py-3 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-200 bg-white">
@@ -61,15 +71,30 @@
                                     </span>
                                 }
                             </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                @switch (item.Region)
+                                {
+                                    case ContactRegion.North:
+                                        <span class="px-2 py-1 rounded bg-blue-50 text-blue-600 text-xs font-medium border border-blue-100">Miền Bắc</span>
+                                        break;
+                                    case ContactRegion.Central:
+                                        <span class="px-2 py-1 rounded bg-amber-50 text-amber-600 text-xs font-medium border border-amber-100">Miền Trung</span>
+                                        break;
+                                    case ContactRegion.South:
+                                        <span class="px-2 py-1 rounded bg-emerald-50 text-emerald-600 text-xs font-medium border border-emerald-100">Miền Nam</span>
+                                        break;
+                                    default:
+                                        <span class="text-slate-400 text-xs italic">Chưa xác định</span>
+                                        break;
+                                }
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <div class="flex justify-end items-center space-x-4">
-                                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-blue-600 hover:text-blue-900 flex items-center">
-                                        Sửa
-                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="text-brand-primary hover:underline">Sửa</a>
+
                                     <form asp-action="ResetPassword" asp-route-id="@item.Id" method="post" class="inline" onsubmit="return confirm('Anh/chị có chắc muốn reset mật khẩu tài khoản này về mặc định?')">
-                                        <button type="submit" class="text-orange-600 hover:text-orange-900">
-                                            Reset Pass
-                                        </button>
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="text-orange-600 hover:text-orange-900">Reset Pass</button>
                                     </form>
                                 </div>
                             </td>
