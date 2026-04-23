@@ -7,7 +7,7 @@ using System.Security.Claims;
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("{lang}/Admin/[controller]/[action]/{id?}")]
+    [Route("{lang}/Admin/[controller]/{action=Index}")]
     public class ContactController : BaseAdminController
     {
         private readonly IContactService _contactService;

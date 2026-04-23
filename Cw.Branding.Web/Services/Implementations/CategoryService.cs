@@ -1,4 +1,5 @@
 ﻿using Cw.Branding.Web.Data;
+using Cw.Branding.Web.Helpers; 
 using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ public class CategoryService : ICategoryService
         _context = context;
     }
 
+    // Phục vụ Dropdown trong ProductController
     public async Task<List<Category>> GetAllAsync()
     {
         return await _context.Categories
@@ -37,30 +39,28 @@ public class CategoryService : ICategoryService
 
     public async Task<Category?> GetBySlugAsync(string slug, string lang)
     {
-        if (lang.ToLower() == "vi")
-        {
-            return await _context.Categories
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.SlugVi == slug && x.IsActive);
-        }
+        var isVi = lang.ToLower() == "vi";
         return await _context.Categories
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.SlugEn == slug && x.IsActive);
+            .FirstOrDefaultAsync(x => (isVi ? x.SlugVi == slug : x.SlugEn == slug) && x.IsActive);
     }
 
     public async Task<bool> CreateAsync(Category category)
     {
         try
         {
+            // Tích hợp Auto-slug từ SlugHelper anh đã gửi
+            if (string.IsNullOrWhiteSpace(category.SlugVi))
+                category.SlugVi = SlugHelper.GenerateSlug(category.NameVi);
+            if (string.IsNullOrWhiteSpace(category.SlugEn))
+                category.SlugEn = SlugHelper.GenerateSlug(category.NameEn);
+
             category.CreatedAt = DateTime.UtcNow;
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
             return true;
         }
-        catch (Exception)
-        {
-            return false;
-        }
+        catch { return false; }
     }
 
     public async Task<bool> UpdateAsync(Category category)
@@ -70,33 +70,34 @@ public class CategoryService : ICategoryService
             var existing = await _context.Categories.FindAsync(category.Id);
             if (existing == null) return false;
 
-            // Map data
             existing.Code = category.Code;
             existing.NameVi = category.NameVi;
             existing.NameEn = category.NameEn;
-            existing.SlugVi = category.SlugVi;
-            existing.SlugEn = category.SlugEn;
             existing.IconPath = category.IconPath;
             existing.IsActive = category.IsActive;
             existing.DisplayOrder = category.DisplayOrder;
             existing.UpdatedAt = DateTime.UtcNow;
 
+            // Cập nhật Slug nếu cần
+            existing.SlugVi = string.IsNullOrWhiteSpace(category.SlugVi)
+                ? SlugHelper.GenerateSlug(category.NameVi) : category.SlugVi;
+            existing.SlugEn = string.IsNullOrWhiteSpace(category.SlugEn)
+                ? SlugHelper.GenerateSlug(category.NameEn) : category.SlugEn;
+
             await _context.SaveChangesAsync();
             return true;
         }
-        catch (Exception)
-        {
-            return false;
-        }
+        catch { return false; }
     }
 
     public async Task<bool> DeleteAsync(int id)
     {
-        var category = await _context.Categories.FindAsync(id);
-        if (category == null) return false;
+        var category = await _context.Categories
+            .Include(c => c.Products)
+            .FirstOrDefaultAsync(c => c.Id == id);
 
-        // Lưu ý: DbContext đã cấu hình Restrict, 
-        // nên nếu có sản phẩm thuộc Category này, EF sẽ tự ném lỗi nếu xóa.
+        if (category == null || category.Products.Any()) return false;
+
         _context.Categories.Remove(category);
         await _context.SaveChangesAsync();
         return true;

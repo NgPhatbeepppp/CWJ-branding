@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("{lang}/Admin/[controller]/[action]/{id?}")]
+    [Route("{lang}/Admin/[controller]/{action=Index}")]
     public class HomeSlideController : BaseAdminController
     {
         private readonly AppDbContext _context;
@@ -80,7 +80,7 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
         }
 
         // 4. Xóa ảnh
-        [HttpPost]
+        [HttpPost("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             var slide = await _context.HomeSlides.FindAsync(id);

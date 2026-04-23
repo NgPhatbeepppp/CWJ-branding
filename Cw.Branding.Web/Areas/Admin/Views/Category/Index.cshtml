@@ -1,0 +1,146 @@
+﻿@model IEnumerable<Cw.Branding.Web.Models.Entities.Category>
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@{
+    ViewData["Title"] = "Quản lý Danh mục Medical";
+    Layout = "_AdminLayout"; // Đảm bảo dùng đúng Layout Admin
+    var currentLang = ViewContext.RouteData.Values["lang"]?.ToString() ?? "vi";
+    var tokens = Antiforgery.GetAndStoreTokens(Context);
+}
+<div id="antiforgery-config" data-token="@tokens.RequestToken"></div>
+<div class="p-6">
+    <input type="hidden" id="RequestVerificationToken" value="@tokens.RequestToken" />
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <div>
+            <h1 class="text-2xl font-bold text-slate-900">Danh mục Giải pháp Y tế</h1>
+            <p class="text-slate-500 text-sm">Quản lý các chuyên khoa và nhóm sản phẩm chính.</p>
+        </div>
+        <a asp-action="Create" asp-route-lang="@currentLang"
+           class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" /></svg>
+            Thêm danh mục mới
+        </a>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <table class="min-w-full divide-y divide-slate-200">
+            <thead class="bg-slate-50">
+                <tr>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Thứ tự</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Icon / Code</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">Tên (VI / EN)</th>
+                    <th class="px-6 py-4 text-center text-xs font-semibold text-slate-500 uppercase tracking-wider">Trạng thái</th>
+                    <th class="px-6 py-4 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 bg-white">
+                @foreach (var item in Model)
+                {
+                    <tr class="hover:bg-slate-50/50 transition-colors" id="row-@item.Id">
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-600 font-medium">
+                            #@item.DisplayOrder
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="h-10 w-10 flex-shrink-0 bg-slate-100 rounded-lg flex items-center justify-center overflow-hidden border border-slate-200">
+                                    @if (!string.IsNullOrEmpty(item.IconPath))
+                                    {
+                                        <img src="@item.IconPath" class="h-8 w-8 object-contain" alt="icon" />
+                                    }
+                                    else
+                                    {
+                                        <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                                    }
+                                </div>
+                                <div class="ml-4">
+                                    <div class="text-xs font-mono text-blue-600 font-semibold">@item.Code</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="text-sm font-semibold text-slate-900">@item.NameVi</div>
+                            <div class="text-xs text-slate-500 italic">@item.NameEn</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-center">
+                            @if (item.IsActive)
+                            {
+                                <span class="px-2 py-1 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full">Hoạt động</span>
+                            }
+                            else
+                            {
+                                <span class="px-2 py-1 text-xs font-medium bg-slate-100 text-slate-500 rounded-full">Tạm ẩn</span>
+                            }
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <div class="flex justify-end gap-2">
+                                <a asp-action="Edit" asp-route-id="@item.Id" asp-route-lang="@currentLang"
+                                   class="p-2 text-slate-400 hover:text-blue-600 transition-colors" title="Chỉnh sửa">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                                </a>
+                                <button type="button" onclick="confirmDelete(@item.Id)"
+                                        class="p-2 text-slate-400 hover:text-red-600 transition-colors" title="Xóa">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+               function confirmDelete(id) {
+            const currentLang = '@currentLang';
+            // Lấy token từ thuộc tính data của div config
+            const token = document.getElementById('antiforgery-config').getAttribute('data-token');
+
+            Swal.fire({
+                title: 'Xác nhận xóa?',
+                text: "Hành động này không thể hoàn tác!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                confirmButtonText: 'Xóa ngay',
+                cancelButtonText: 'Hủy'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.showLoading();
+
+                    fetch(`/${currentLang}/Admin/Category/Delete/${id}`, {
+                        method: 'POST',
+                        headers: {
+                            // Tên Header phải khớp với options.HeaderName trong Program.cs
+                            'X-XSRF-TOKEN': token,
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(async response => {
+                        const isJson = response.headers.get('content-type')?.includes('application/json');
+                        const data = isJson ? await response.json() : null;
+
+                        if (!response.ok) {
+                            // Log chi tiết lỗi nếu là 400
+                            console.error("Server Error:", data);
+                            throw new Error(data?.message || `Lỗi hệ thống (${response.status})`);
+                        }
+                        return data;
+                    })
+                    .then(data => {
+                        if (data.success) {
+                            Swal.fire('Thành công', data.message, 'success');
+                            document.getElementById(`row-${id}`)?.remove();
+                        } else {
+                            Swal.fire('Thất bại', data.message, 'error');
+                        }
+                    })
+                    .catch(err => {
+                        Swal.fire('Lỗi kịch bản', err.message, 'error');
+                    });
+                }
+            });
+        }
+    </script>
+}

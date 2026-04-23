@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 [Area("Admin")]
-[Route("{lang}/Admin/[controller]/[action]/{id?}")]
+[Route("{lang}/Admin/[controller]/{action=Index}")]
 public class MachineTypeController(IMachineTypeService machineTypeService) : BaseAdminController
 {
     public async Task<IActionResult> Index()
@@ -13,7 +13,7 @@ public class MachineTypeController(IMachineTypeService machineTypeService) : Bas
         var items = await machineTypeService.GetAllAsync();
         return View(items);
     }
-
+    [HttpGet]
     public IActionResult Create() => View(new MachineType { IsActive = true });
 
     [HttpPost]
@@ -29,6 +29,7 @@ public class MachineTypeController(IMachineTypeService machineTypeService) : Bas
     }
 
     // GET: Admin/MachineType/Edit/5
+    [HttpGet("{id}")]
     public async Task<IActionResult> Edit(int id)
     {
         var item = await machineTypeService.GetByIdAsync(id);
@@ -37,7 +38,7 @@ public class MachineTypeController(IMachineTypeService machineTypeService) : Bas
     }
 
     // POST: Admin/MachineType/Edit/5
-    [HttpPost]
+    [HttpPost("{id}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, MachineType machineType)
     {
@@ -51,7 +52,7 @@ public class MachineTypeController(IMachineTypeService machineTypeService) : Bas
         return View(machineType);
     }
 
-    [HttpPost]
+    [HttpPost("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
         await machineTypeService.DeleteAsync(id);

@@ -1,7 +1,6 @@
 ﻿using Cw.Branding.Web.Data;
 using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Models.ViewModels;
-using Cw.Branding.Web.Services;
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,60 +12,60 @@ namespace Cw.Branding.Web.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IProductService _productService;
-        public MedicalController(AppDbContext context, IProductService productService)
+        private readonly ICategoryService _categoryService; // Thêm Service mới
+
+        public MedicalController(
+            AppDbContext context,
+            IProductService productService,
+            ICategoryService categoryService)
         {
             _context = context;
             _productService = productService;
+            _categoryService = categoryService;
         }
 
-
-
+        // GET: /vi/giai-phap-y-te hoặc /en/medical-solutions
         [HttpGet("medical-solutions")]
         [HttpGet("giai-phap-y-te")]
         public async Task<IActionResult> Index()
         {
-            // Lấy danh mục
-            var categories = await _context.Categories
-                .Where(c => c.IsActive)
-                .OrderBy(c => c.DisplayOrder)
-                .ToListAsync();
+            // Gọi hàm trả về danh sách Active cho trang chủ Medical
+            var categories = await _categoryService.GetActiveCategoriesAsync();
 
             var viewModel = new MedicalIndexViewModel
             {
                 Categories = categories,
-                InitialProducts = new List<Product>() // Khởi tạo rỗng để tránh null
+                InitialProducts = new List<Product>()
             };
 
             return View(viewModel);
         }
 
+        // GET: /vi/medical/product/{slug}
         [HttpGet("medical/product/{slug}")]
         public async Task<IActionResult> Detail(string lang, string slug)
         {
             if (string.IsNullOrEmpty(slug)) return NotFound();
 
-            // 1. Lấy sản phẩm (Eager Loading đầy đủ để hiện Detail và Gallery)
+            // Lấy sản phẩm và dữ liệu liên quan (Eager Loading)
             var product = await _context.Products
                 .Include(p => p.Category)
                 .Include(p => p.Images)
                 .Include(p => p.Brand)
-                .AsNoTracking() // Thêm AsNoTracking để tối ưu tốc độ load trang client
+                .AsNoTracking()
                 .FirstOrDefaultAsync(p => (p.SlugEn == slug || p.SlugVi == slug) && p.IsActive);
 
             if (product == null) return NotFound();
 
-            // --- BẮT ĐẦU: SEO AUTOMATION LOGIC ---
+            // --- SEO AUTOMATION LOGIC ---
             var isEn = lang == "en";
-
-            // Tự động lấy Meta Description từ ShortDescription, nếu trống thì lấy tên SP
             string metaDesc = isEn
                 ? (product.ShortDescriptionEn ?? product.NameEn)
                 : (product.ShortDescriptionVi ?? product.NameVi);
 
-            // Lấy ảnh chính từ Gallery để làm ảnh preview khi share link (OpenGraph Image)
             string? ogImage = product.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault()?.FilePath;
 
-            ViewBag.SeoData = new Cw.Branding.Web.Models.ViewModels.SeoViewModel
+            ViewBag.SeoData = new SeoViewModel
             {
                 Title = $"{(isEn ? product.NameEn : product.NameVi)} | Charles Wembley Medical",
                 Description = metaDesc,
@@ -74,10 +73,9 @@ namespace Cw.Branding.Web.Controllers
                 Type = "product",
                 CanonicalUrl = $"{Request.Scheme}://{Request.Host}{Request.Path}"
             };
-            // --- KẾT THÚC: SEO AUTOMATION LOGIC ---
 
-            // 2. Lấy 3 sản phẩm liên quan
-            var relatedProducts = await _context.Products
+            // Lấy 3 sản phẩm liên quan cùng Category
+            ViewBag.RelatedProducts = await _context.Products
                 .Include(p => p.Images)
                 .Include(p => p.Category)
                 .Where(p => p.CategoryId == product.CategoryId && p.Id != product.Id && p.IsActive)
@@ -86,42 +84,40 @@ namespace Cw.Branding.Web.Controllers
                 .AsNoTracking()
                 .ToListAsync();
 
-            ViewBag.RelatedProducts = relatedProducts;
-            ViewBag.CurrentLang = lang; // Truyền xuống để view xử lý logic ngôn ngữ nếu cần
+            ViewBag.CurrentLang = lang;
 
             return View(product);
         }
-        // --- AJAX FILTER ---
+
+        // --- AJAX FILTER: Phục vụ loadProducts() trong Index.cshtml ---
         [HttpGet("medical/filter")]
         public async Task<IActionResult> FilterProducts(string lang, int? categoryId, int? brandId, int? machineTypeId, string? searchTerm, int page = 1)
         {
             try
             {
-                int pageSize = 8; // Fix 8 sản phẩm/trang theo yêu cầu
+                int pageSize = 8; // Theo yêu cầu MVP
 
-                // Gọi hàm phân trang mới
+                // Gọi Service xử lý filter và phân trang
                 var result = await _productService.GetFilteredProductsPaginatedAsync(searchTerm, categoryId, brandId, machineTypeId, page, pageSize);
 
-                // Giữ nguyên logic lấy Dropdowns như cũ
+                // Load dữ liệu cho các dropdown bộ lọc
                 ViewBag.Brands = await _context.Brands.Where(b => b.IsActive).OrderBy(b => b.Name).AsNoTracking().ToListAsync();
+
                 var machineTypesQuery = _context.MachineTypes.Where(m => m.IsActive).AsNoTracking();
                 ViewBag.MachineTypes = lang == "vi"
                     ? await machineTypesQuery.OrderBy(m => m.NameVi).ToListAsync()
                     : await machineTypesQuery.OrderBy(m => m.NameEn).ToListAsync();
 
-                // Đẩy trạng thái xuống View
+                // Truyền trạng thái hiện tại xuống Partial View
                 ViewBag.CurrentCategoryId = categoryId;
                 ViewBag.CurrentBrandId = brandId;
                 ViewBag.CurrentMachineTypeId = machineTypeId;
                 ViewBag.CurrentSearch = searchTerm;
                 ViewBag.CurrentLang = lang;
-
-                // PAGING DATA
                 ViewBag.CurrentPage = page;
                 ViewBag.TotalPages = (int)Math.Ceiling((double)result.TotalCount / pageSize);
                 ViewBag.TotalCount = result.TotalCount;
 
-                // Trả về Items thay vì biến products cũ
                 return PartialView("_ProductListPartial", result.Items);
             }
             catch (Exception)
@@ -130,5 +126,4 @@ namespace Cw.Branding.Web.Controllers
             }
         }
     }
-
 }

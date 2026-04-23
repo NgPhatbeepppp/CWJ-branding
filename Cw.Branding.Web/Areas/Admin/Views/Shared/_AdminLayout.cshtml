@@ -5,284 +5,202 @@
 }
 
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="@currentLang" class="h-full">
 <head>
     <meta charset="utf-8" />
-    <title>@title - Admin</title>
+    <title>@title - Charles Wembley Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Main site CSS (Tailwind-built) -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     @RenderSection("Styles", required: false)
 </head>
-<body class="h-full bg-brand-bg font-body text-slate-800">
+<body class="h-full bg-slate-50 font-body text-slate-800">
 
-    <div class="min-h-screen flex">
-
-        <!-- Sidebar -->
+    <div class="flex min-h-screen">
         <aside id="admin-sidebar"
-               class="hidden md:flex md:flex-col w-64 bg-brand-primary text-white flex-shrink-0">
+               class="hidden md:flex md:flex-col w-64 bg-brand-primary text-white flex-shrink-0 sticky top-0 h-screen shadow-2xl z-50">
 
-            <!-- Logo / Brand -->
-            <div class="h-16 flex items-center px-6 border-b border-white/10">
-                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
-                   class="flex items-center gap-3">
-                    <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10">
-                        <!-- Heroicon: Shield Check -->
-                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M9 12.75 11.25 15 15 9.75m-3-6.356a11.959 11.959 0 0 0-7.5 2.772 0.75.75 0 0 0-.27.576v5.682a11.966 11.966 0 0 0 7.5 10.937 11.966 11.966 0 0 0 7.5-10.937V6.77a0.75 0.75 0 0 0-.27-.576 11.959 11.959 0 0 0-7.5-2.772z" />
+            <div class="h-16 flex items-center px-6 border-b border-white/10 flex-shrink-0 bg-brand-primary">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="flex items-center gap-3">
+                    <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 ring-1 ring-white/20">
+                        <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12.75 11.25 15 15 9.75m-3-6.356a11.959 11.959 0 0 0-7.5 2.772 0.75.75 0 0 0-.27.576v5.682a11.966 11.966 0 0 0 7.5 10.937 11.966 11.966 0 0 0 7.5-10.937V6.77a0.75 0.75 0 0 0-.27-.576 11.959 11.959 0 0 0-7.5-2.772z" />
                         </svg>
                     </span>
                     <div>
-                        <div class="font-heading font-semibold tracking-wide text-sm uppercase">
-                            Admin Console
-                        </div>
-                        <div class="text-xs text-blue-100">
-                            Charles Wembley
-                        </div>
+                        <div class="font-heading font-bold tracking-wider text-xs uppercase">Admin Console</div>
+                        <div class="text-[10px] text-blue-200 font-medium">Charles Wembley</div>
                     </div>
                 </a>
             </div>
 
-            <!-- Navigation -->
-            <nav class="flex-1 overflow-y-auto py-4">
+            <nav class="flex-1 overflow-y-auto py-6 scrollbar-thin scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20">
                 <ul class="space-y-1 px-3 text-sm">
-                    <!-- Dashboard -->
                     <li>
                         <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
-                            <!-- Heroicon: Home -->
-                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="m2.25 12 9.193-8.007a0.75 0.75 0 0 1 1.114 0L21.75 12M4.5 9.75V20.25A1.5 1.5 0 0 0 6 21.75h4.5v-6h3v6H18A1.5 1.5 0 0 0 19.5 20.25V9.75" />
-                            </svg>
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
                             <span class="font-medium">Dashboard</span>
                         </a>
                     </li>
-                    <!-- News (Medical) -->
+
+                    <li class="pt-5 pb-1 px-3 text-[10px] uppercase font-bold text-blue-400 tracking-[0.2em]">Sản phẩm & Giải pháp</li>
+
                     <li>
-                        <a asp-area="Admin" asp-controller="News" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "News" ? "bg-white/10 text-white" : "text-blue-100")">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h3.75M12 10.5h3.75M4.5 13.5h11.25M4.5 16.5H12m-7.5-12h15A1.5 1.5 0 0 1 21 6v11.25A2.25 2.25 0 0 1 18.75 19.5H6A2.25 2.25 0 0 1 3.75 17.25V5.25A0.75 0.75 0 0 1 4.5 4.5z" />
-                            </svg>
-                            <span class="font-medium">Quản lý Tin tức</span>
+                        <a asp-area="Admin" asp-controller="Brand" asp-action="Index" asp-route-lang="@currentLang"
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Brand" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" /></svg>
+                            <span class="font-medium">Hãng sản xuất</span>
                         </a>
                     </li>
                     <li>
+                        <a asp-area="Admin" asp-controller="MachineType" asp-action="Index" asp-route-lang="@currentLang"
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "MachineType" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.448a20.859 20.859 0 0 1-1.043-2.716m2.715-1.51c.313-.037.625-.087.935-.15m.345-4.88c.299.194.541.46.7.77L15.99 12l-1.11 2.25c-.159.31-.4.576-.7.77m0-5.02c-.31-.063-.622-.113-.935-.15m.345 4.88c.39.563.766 1.152 1.127 1.766l.162.274a.75.75 0 0 0 1.274-.742l-.162-.274a21.23 21.23 0 0 0-1.23-1.766Z" /></svg>
+                            <span class="font-medium">Loại máy móc</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Category" asp-action="Index" asp-route-lang="@currentLang"
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Category" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
+                            <span class="font-medium">Danh mục sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-lang="@currentLang"
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Product" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+                            <span class="font-medium">Quản lý Sản phẩm</span>
+                        </a>
+                    </li>
+
+                    <li class="pt-5 pb-1 px-3 text-[10px] uppercase font-bold text-blue-400 tracking-[0.2em]">Marketing & Tin tức</li>
+
+                    <li>
                         <a asp-area="Admin" asp-controller="HeroSection" asp-action="Edit" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HeroSection" ? "bg-white/10 text-white" : "text-blue-100")">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.448a20.859 20.859 0 0 1-1.043-2.716m2.715-1.51c.313-.037.625-.087.935-.15m.345-4.88c.299.194.541.46.7.77L15.99 12l-1.11 2.25c-.159.31-.4.576-.7.77m0-5.02c-.31-.063-.622-.113-.935-.15m.345 4.88c.39.563.766 1.152 1.127 1.766l.162.274a.75.75 0 0 0 1.274-.742l-.162-.274a21.23 21.23 0 0 0-1.23-1.766Z" />
-                            </svg>
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HeroSection" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
                             <span class="font-medium">Hero Banner</span>
                         </a>
                     </li>
-
                     <li>
                         <a asp-area="Admin" asp-controller="HomeSlide" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HomeSlide" ? "bg-white/10 text-white" : "text-blue-100")">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                            </svg>
-                            <span class="font-medium">Home Slides (Ken Burns)</span>
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "HomeSlide" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>
+                            <span class="font-medium">Slider (Ken Burns)</span>
                         </a>
                     </li>
-                    <!-- Brand (Medical) -->
                     <li>
-                        <a asp-area="Admin" asp-controller="Brand" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Brand" ? "bg-white/10 text-white" : "text-blue-100")">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 7.5h.008v.008H6V7.5Z" />
-                            </svg>
-                            <span class="font-medium">Quản lý Hãng (Brands)</span>
-                        </a>
-                    </li>
-                    <!-- MachineType (Medical) -->
-                    <li>
-                        <a asp-area="Admin" asp-controller="MachineType" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "MachineType" ? "bg-white/10 text-white" : "text-blue-100")">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-7.5 7.5V21m0-16.5V3" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12h.008v.008H12V12Z" />
-                            </svg>
-                            <span class="font-medium">Quản lý Loại máy</span>
+                        <a asp-area="Admin" asp-controller="News" asp-action="Index" asp-route-lang="@currentLang"
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "News" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 7.5h3.75M12 10.5h3.75M4.5 13.5h11.25M4.5 16.5H12m-7.5-12h15A1.5 1.5 0 0 1 21 6v11.25A2.25 2.25 0 0 1 18.75 19.5H6A2.25 2.25 0 0 1 3.75 17.25V5.25A0.75 0.75 0 0 1 4.5 4.5z" /></svg>
+                            <span class="font-medium">Tin tức bài viết</span>
                         </a>
                     </li>
 
-                    <!-- Categories (Medical) -->
-                    <li>
-                        <a asp-area="Admin" asp-controller="Categories" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
-                            <!-- Heroicon: Squares 2x2 -->
-                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M4.5 4.5h6v6h-6v-6zm0 9h6v6h-6v-6zm9-9h6v6h-6v-6zm0 9h6v6h-6v-6z" />
-                            </svg>
-                            <span class="font-medium">Categories (Medical)</span>
-                        </a>
-                    </li>
-
-                    <!-- Products (Medical) -->
-                    <li>
-                        <a asp-area="Admin" asp-controller="Product" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
-                            <!-- Heroicon: Beaker -->
-                            <svg class="w-5 h-5 text-blue-100" xmlns="http://://www.w3.org/2000/svg" fill="none"
-                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M9.75 3v3.75L5.25 15a3.75 3.75 0 0 0 3.25 5.625h7A3.75 3.75 0 0 0 18.75 15L14.25 6.75V3M9 3h6" />
-                            </svg>
-                            <span class="font-medium">Products (Medical)</span>
-                        </a>
-                    </li>
-
-                    <!-- Contact -->
+                    <li class="pt-5 pb-1 px-3 text-[10px] uppercase font-bold text-blue-400 tracking-[0.2em]">Khách hàng</li>
                     <li>
                         <a asp-area="Admin" asp-controller="Contact" asp-action="Index" asp-route-lang="@currentLang"
-                           class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition">
-                            <!-- Heroicon: Inbox -->
-                            <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                 viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M2.25 12.75 4.5 5.25h15l2.25 7.5M4.5 5.25 9 12h6l4.5-6.75M3 13.5h3.75L9 16.5h6l2.25-3H21" />
-                            </svg>
-                            <span class="font-medium">Contact</span>
+                           class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Contact" ? "bg-white/15 text-white" : "text-blue-100")">
+                            <svg class="w-5 h-5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M2.25 12.75 4.5 5.25h15l2.25 7.5M4.5 5.25 9 12h6l4.5-6.75M3 13.5h3.75L9 16.5h6l2.25-3H21" /></svg>
+                            <span class="font-medium">Liên hệ khách hàng</span>
                         </a>
                     </li>
+
                     @if (User.IsInRole("Admin"))
                     {
-                        <li class="mt-6 mb-1">
-                            <p class="px-3 text-[10px] uppercase font-bold text-blue-300 tracking-widest">Hệ thống</p>
-                        </li>
+                        <li class="pt-5 pb-1 px-3 text-[10px] uppercase font-bold text-blue-400 tracking-[0.2em]">Hệ thống</li>
                         <li>
-                            <a asp-area="Admin" asp-controller="UserManagement" asp-action="Index"
-                               class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/10 transition @(ViewContext.RouteData.Values["Controller"]?.ToString() == "UserManagement" ? "bg-white/10 text-white" : "text-blue-100")">
-                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M15 19.128a9.38 9.38 0 0 0 2.625.372m-14.75-9.75a11.959 11.959 0 0 1 7.5-2.772" /></svg>
-                                <span class="font-medium">Tài khoản nhân viên</span>
+                            <a asp-area="Admin" asp-controller="UserManagement" asp-action="Index" asp-route-lang="@currentLang"
+                               class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all @(ViewContext.RouteData.Values["Controller"]?.ToString() == "UserManagement" ? "bg-white/15 text-white" : "text-blue-100")">
+                                <svg class="w-5 h-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372m-14.75-9.75a11.959 11.959 0 0 1 7.5-2.772M6.25 5.25a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM3.75 20.25v-1.5a6 6 0 0 1 6-6h7.5a6 6 0 0 1 6 6v1.5m-15-7.5h.008v.008H12v-.008Z" />
+                                </svg>
+                                <span class="font-medium">Nhân viên hệ thống</span>
                             </a>
                         </li>
                     }
                 </ul>
             </nav>
 
-            <!-- Sidebar Footer / Logout -->
-            <div class="border-t border-white/10 px-4 py-3">
-               
-                <form asp-area="Admin" asp-controller="Auth" asp-action="Logout" method="post" class="w-full">
+            <div class="border-t border-white/10 p-4 bg-brand-primary flex-shrink-0">
+                <form asp-area="Admin" asp-controller="Auth" asp-action="Logout" asp-route-lang="@currentLang" method="post">
+                    @Html.AntiForgeryToken()
                     <button type="submit"
-                            class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-sm font-medium transition text-white">
-                        <svg class="w-5 h-5 text-blue-100" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3H5.25A2.25 2.25 0 0 0 3 5.25v13.5A2.25 2.25 0 0 0 5.25 21h8.25a2.25 2.25 0 0 0 2.25-2.25V15M18 9l3 3m0 0-3 3m3-3H9" />
+                            class="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-red-500/10 hover:bg-red-500 text-red-200 hover:text-white text-sm font-bold transition-all duration-300 shadow-sm border border-red-500/20">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                         </svg>
-                        <span>Logout</span>
+                        Logout
                     </button>
                 </form>
+                <div class="mt-3 text-center opacity-30">
+                    <span class="text-[9px] uppercase tracking-widest">CW Management v1.0</span>
+                </div>
             </div>
         </aside>
 
-        <!-- Main content wrapper -->
-        <div class="flex-1 flex flex-col min-w-0">
-
-            <!-- Topbar -->
-            <header class="sticky top-0 z-30 bg-white shadow-card">
-                <div class="flex items-center justify-between px-4 md:px-6 py-3 gap-4">
-
-                    <!-- Left: Mobile menu + Breadcrumb -->
-                    <div class="flex items-center gap-3 min-w-0">
-                        <!-- Mobile hamburger -->
-                        <button type="button"
-                                class="inline-flex md:hidden items-center justify-center w-10 h-10 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50"
-                                aria-label="Toggle sidebar"
-                                onclick="toggleAdminSidebar()">
-                            <!-- Heroicon: Bars 3 -->
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                 viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M3.75 7.5h16.5M3.75 12h16.5M3.75 16.5h16.5" />
-                            </svg>
-                        </button>
-
-                        <!-- Breadcrumb -->
-                        <div class="truncate">
-                            <p class="text-xs uppercase tracking-[0.08em] text-slate-400 font-semibold">
-                                Admin
-                            </p>
-                            <h1 class="font-heading text-base md:text-lg font-semibold text-slate-800 truncate">
-                                @title
-                            </h1>
+        <div class="flex-1 flex flex-col min-w-0 bg-slate-50">
+            <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8 sticky top-0 z-40 shadow-sm">
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleAdminSidebar()" class="md:hidden p-2 rounded-lg hover:bg-slate-100">
+                        <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    </button>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">@title</span>
+                        <div class="hidden sm:block h-4 w-px bg-slate-300"></div>
+                        <div class="text-sm font-medium text-slate-600">
+                            Chào, <span class="text-slate-900 font-bold">@User.Identity?.Name</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="flex items-center gap-4">
-                        <div class="hidden sm:flex flex-col text-right border-r border-slate-200 pr-4">
-                            <span class="text-sm font-bold text-slate-700">@User.Identity.Name</span>
-                            <span class="text-[11px] text-blue-600 font-medium uppercase">
-                                @(User.IsInRole("Admin") ? "Quản trị viên" : "Nhân viên")
-                            </span>
-                        </div>
-
-                        <a asp-area="Admin" asp-controller="Profile" asp-action="ChangePassword"
-                           title="Đổi mật khẩu"
-                           class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
-                            </svg>
-                        </a>
-                    </div>
+                <div class="flex items-center gap-4">
+                    <a asp-area="Admin" asp-controller="Profile" asp-action="ChangePassword" title="Đổi mật khẩu" class="p-2 text-slate-400 hover:text-blue-600 transition">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" /></svg>
+                    </a>
+                    <a href="/" target="_blank" class="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full hover:bg-blue-100 transition flex items-center gap-1">
+                        Trang chủ
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2" /></svg>
+                    </a>
                 </div>
             </header>
 
-            <!-- Main content -->
-            <main class="flex-1">
-                <div class="px-4 md:px-6 py-4 md:py-6 max-w-7xl mx-auto w-full">
-                    @RenderBody()
-                </div>
+            <main class="p-4 md:p-8 flex-1">
+                @RenderBody()
             </main>
 
-            <!-- Footer -->
-            <footer class="border-t border-slate-200 bg-white">
-                <div class="px-4 md:px-6 py-3 text-xs text-slate-400 flex items-center justify-between">
-                    <span>© @DateTime.UtcNow.Year Charles Wembley. All rights reserved.</span>
-                    <span class="hidden sm:inline">Admin Console · v1.0</span>
-                </div>
+            <footer class="px-8 py-4 border-t border-slate-200 text-xs text-slate-400 flex justify-between bg-white">
+                <span>© @DateTime.Now.Year Charles Wembley Corporate.</span>
+                <span class="font-medium">Design by CW-Branding Team</span>
             </footer>
         </div>
     </div>
 
-    <!-- Mobile overlay sidebar (optional simple behavior) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-            $.ajaxSetup({
-            headers: {
-                'X-XSRF-TOKEN': $('input[name="__RequestVerificationToken"]').val()
-            }
+        // Setup AJAX Header Global
+        $.ajaxSetup({
+            headers: { 'X-XSRF-TOKEN': $('input[name="__RequestVerificationToken"]').val() }
         });
+
         function toggleAdminSidebar() {
             const sidebar = document.getElementById('admin-sidebar');
-
-            // On mobile we use 'hidden' to show/hide; on md+ it should always be visible.
-            if (window.innerWidth < 768) {
-                sidebar.classList.toggle('hidden');
-            }
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('flex');
         }
 
-        // Ensure sidebar visible when resizing back to desktop
-        window.addEventListener('resize', function () {
-            const sidebar = document.getElementById('admin-sidebar');
+        window.addEventListener('resize', () => {
             if (window.innerWidth >= 768) {
-                sidebar.classList.remove('hidden');
-                sidebar.classList.add('flex');
+                const sb = document.getElementById('admin-sidebar');
+                sb.classList.remove('hidden');
+                sb.classList.add('flex');
             }
         });
-
     </script>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

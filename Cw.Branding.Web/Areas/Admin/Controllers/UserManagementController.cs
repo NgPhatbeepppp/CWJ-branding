@@ -11,7 +11,7 @@ using Cw.Branding.Web.Models.Enums;
 namespace Cw.Branding.Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
-  
+    [Route("{lang}/Admin/[controller]/{action=Index}")]
     public class UserManagementController : BaseAdminController
     {
         private readonly AppDbContext _context;
@@ -24,6 +24,7 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
         }
 
         // Task 3.2: Danh sách User
+        
         public async Task<IActionResult> Index()
         {
             var users = await _context.Users.Include(u => u.Role).ToListAsync();
@@ -91,7 +92,7 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
             TempData["Message"] = $"Đã reset mật khẩu cho {user.Username} về mặc định: Wembley@123";
             return RedirectToAction(nameof(Index));
         }
-        // [HttpGet] Edit
+        [HttpGet("{id}")]
         public async Task<IActionResult> Edit(int id)
         {
             var user = await _context.Users.FindAsync(id);
@@ -102,7 +103,7 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers
         }
 
         // [HttpPost] Edit
-        [HttpPost]
+        [HttpPost("{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, AppUser user)
         {

@@ -10,7 +10,7 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 
 [Area("Admin")]
-[Route("{lang}/Admin/[controller]/[action]/{id?}")]
+[Route("{lang}/Admin/[controller]/{action=Index}")]
 public class ProductController : BaseAdminController
 {
     private readonly IProductService _productService;
@@ -121,7 +121,7 @@ public class ProductController : BaseAdminController
     }
 
     // 4. EDIT (GET): Load data lên form
-    [HttpGet]
+    [HttpGet("{id}")]
     public async Task<IActionResult> Edit(int id)
     {
         var product = await _productService.GetByIdAsync(id);
@@ -132,7 +132,7 @@ public class ProductController : BaseAdminController
     }
 
     // 5. EDIT (POST): Xử lý cập nhật
-    [HttpPost]
+    [HttpPost("{id}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, Product product, List<IFormFile> uploadImages, List<int> deletedImageIds, int? mainImageId, string? mainImageName)
     {
@@ -168,7 +168,7 @@ public class ProductController : BaseAdminController
         return View(product);
     }
     // 6. DELETE (POST): Xóa sản phẩm và dọn dẹp file
-    [HttpPost]
+    [HttpPost("{id}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Delete(int id)
     {

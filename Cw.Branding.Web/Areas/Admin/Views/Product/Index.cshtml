@@ -23,9 +23,13 @@
         </a>
 
         @* 2. Nút Làm mới (Dùng icon xoay cho gọn) *@
-        <button onclick="window.location.reload()"
-                class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-all shadow-sm" title="Làm mới trang">
-            <i class="fas fa-sync-alt"></i>
+        <button onclick="refreshPage(this)"
+                class="inline-flex items-center p-2 rounded-lg border border-slate-200 bg-white text-slate-600 hover:text-blue-600 hover:bg-blue-50 hover:border-blue-200 transition-all shadow-sm group"
+                title="Làm mới danh sách">
+            @* Icon SVG chuẩn Heroicons - Đồng bộ với Sidebar *@
+            <svg id="refresh-icon" class="w-5 h-5 transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.6" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+            </svg>
         </button>
 
         @* 3. Nút Nhập hàng loạt *@
@@ -243,7 +247,7 @@
                 method: 'POST',
                 headers: {
                     // QUAN TRỌNG: Phải gửi token này lên nếu không Server sẽ chặn (Lỗi 400)
-                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    'X-XSRF-TOKEN': document.querySelector('input[name="__RequestVerificationToken"]').value
                 }
             })
             .then(res => res.json())
@@ -262,5 +266,69 @@
                 alert("Lỗi kết nối máy chủ!");
             });
         }
+                // --- LOGIC XỬ LÝ MODAL XÓA SẢN PHẨM ---
+        let currentDeleteId = null;
+
+        function openDeleteModal(id, name) {
+            currentDeleteId = id;
+            // Gán tên sản phẩm vào modal để người dùng xác nhận
+            document.getElementById('modalProductName').innerText = name;
+
+            const modal = document.getElementById('deleteModal');
+            const content = document.getElementById('deleteModalContent');
+
+            // Hiển thị Modal (Xử lý các class Tailwind)
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            // Tạo hiệu ứng mượt (Transition)
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeDeleteModal() {
+            const modal = document.getElementById('deleteModal');
+            const content = document.getElementById('deleteModalContent');
+
+            // Hiệu ứng đóng
+            modal.classList.remove('opacity-100');
+            content.classList.replace('scale-100', 'scale-95');
+            content.classList.replace('opacity-100', 'opacity-0');
+
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                currentDeleteId = null;
+            }, 200);
+        }
+
+        // Lắng nghe sự kiện click vào nút "Xóa ngay!" trong Modal
+        document.getElementById('btnConfirmDelete').addEventListener('click', function() {
+            if (currentDeleteId) {
+                // Tìm và submit cái form ẩn tương ứng với ID sản phẩm
+                document.getElementById(`delete-form-${currentDeleteId}`).submit();
+            }
+        });
+
+        // Đóng modal khi click ra ngoài vùng trắng (overlay)
+        document.getElementById('deleteModal').addEventListener('click', function(e) {
+            if (e.target === this) closeDeleteModal();
+        });
+            function refreshPage(btn) {
+            // 1. Tìm icon bên trong nút
+            const icon = btn.querySelector('#refresh-icon');
+
+            // 2. Thêm class xoay của Tailwind
+            icon.classList.add('animate-spin');
+
+            // 3. Reload trang sau một khoảng thời gian ngắn để user kịp thấy hiệu ứng
+            setTimeout(() => {
+                window.location.reload();
+            }, 300);
+        }
     </script>
+
 }

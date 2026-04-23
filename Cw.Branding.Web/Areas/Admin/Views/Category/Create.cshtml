@@ -1,0 +1,96 @@
+﻿@model Cw.Branding.Web.Models.Entities.Category
+@{
+    ViewData["Title"] = "Thêm mới danh mục";
+    Layout = "_AdminLayout";
+    var currentLang = ViewContext.RouteData.Values["lang"]?.ToString() ?? "vi";
+}
+
+<div class="p-6 max-w-4xl mx-auto">
+    <div class="mb-8">
+        <a asp-action="Index" asp-route-lang="@currentLang" class="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center gap-1 mb-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Quay lại danh sách
+        </a>
+        <h1 class="text-2xl font-bold text-slate-900 font-heading">Thêm danh mục Medical mới</h1>
+    </div>
+
+    <form asp-action="Create" asp-route-lang="@currentLang" method="post" enctype="multipart/form-data" class="space-y-6">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="ModelOnly" class="text-red-500 text-sm mb-4"></div>
+
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="p-6 space-y-6">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label asp-for="Code" class="block text-sm font-semibold text-slate-700 mb-2">Mã danh mục (Code)</label>
+                        <input asp-for="Code" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="VD: CARDIO, RADIOLOGY..." />
+                        <span asp-validation-for="Code" class="text-red-500 text-xs mt-1"></span>
+                    </div>
+                    <div>
+                        <label asp-for="DisplayOrder" class="block text-sm font-semibold text-slate-700 mb-2">Thứ tự hiển thị</label>
+                        <input asp-for="DisplayOrder" type="number" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                        <label asp-for="NameVi" class="block text-sm font-semibold text-blue-800 mb-2">Tên Tiếng Việt</label>
+                        <input asp-for="NameVi" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Nhập tên tiếng Việt..." />
+                        <span asp-validation-for="NameVi" class="text-red-500 text-xs mt-1"></span>
+                    </div>
+                    <div class="p-4 bg-blue-50/30 rounded-lg border border-blue-100">
+                        <label asp-for="NameEn" class="block text-sm font-semibold text-blue-900 mb-2">English Name</label>
+                        <input asp-for="NameEn" class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Enter English name..." />
+                        <span asp-validation-for="NameEn" class="text-red-500 text-xs mt-1"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Icon Danh mục (SVG/PNG)</label>
+                    <div class="mt-1 flex items-center gap-4">
+                        <div id="preview-container" class="h-16 w-16 bg-slate-100 rounded-lg flex items-center justify-center border-2 border-dashed border-slate-300 overflow-hidden">
+                            <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                        </div>
+                        <input type="file" name="iconFile" id="iconFile" accept="image/*" class="text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 cursor-pointer" onchange="previewImage(this)" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-60">
+                    <div>
+                        <label asp-for="SlugVi" class="block text-xs font-medium text-slate-500 mb-1">Slug Tiếng Việt (Để trống để tự tạo)</label>
+                        <input asp-for="SlugVi" class="w-full px-3 py-1.5 text-sm rounded border border-slate-200 bg-slate-50" readonly />
+                    </div>
+                    <div>
+                        <label asp-for="SlugEn" class="block text-xs font-medium text-slate-500 mb-1">Slug English (Auto-generated)</label>
+                        <input asp-for="SlugEn" class="w-full px-3 py-1.5 text-sm rounded border border-slate-200 bg-slate-50" readonly />
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 pt-2">
+                    <input asp-for="IsActive" type="checkbox" class="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500" />
+                    <label asp-for="IsActive" class="text-sm font-medium text-slate-700">Kích hoạt danh mục này</label>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 px-6 py-4 flex items-center justify-end gap-3 border-t border-slate-200">
+                <a asp-action="Index" asp-route-lang="@currentLang" class="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-800 transition-colors">Hủy bỏ</a>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-semibold shadow-sm transition-all transform active:scale-95">Lưu danh mục</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function previewImage(input) {
+        const container = document.getElementById('preview-container');
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                container.innerHTML = `<img src="${e.target.result}" class="h-full w-full object-contain" />`;
+                container.classList.remove('border-dashed');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

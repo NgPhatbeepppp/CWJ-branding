@@ -4,14 +4,14 @@ namespace Cw.Branding.Web.Services.Interfaces;
 
 public interface ICategoryService
 {
-    // Cho Admin
+    // Giữ nguyên tên hàm cũ để không lỗi ProductController
     Task<List<Category>> GetAllAsync();
     Task<Category?> GetByIdAsync(int id);
     Task<bool> CreateAsync(Category category);
     Task<bool> UpdateAsync(Category category);
     Task<bool> DeleteAsync(int id);
 
-    // Cho Client (Chỉ lấy cái Active và sắp xếp theo DisplayOrder)
+    // Cho Client
     Task<List<Category>> GetActiveCategoriesAsync();
     Task<Category?> GetBySlugAsync(string slug, string lang);
 }

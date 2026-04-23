@@ -22,9 +22,13 @@ builder.Host.UseSerilog();
 // 2. Add Services & Localization
 builder.Services.AddControllersWithViews()
     .AddViewLocalization(); // Hỗ trợ dịch thuật trong View
+
 builder.Services.AddAntiforgery(options =>
 {
-    options.HeaderName = "X-XSRF-TOKEN"; // Tên Header mà script JS sẽ gửi lên
+    // Tên cookie lưu token (có thể tùy chỉnh hoặc để mặc định)
+    options.Cookie.Name = "AntiforgeryCookie";
+    // Vẫn giữ HeaderName để sau này nếu dùng Ajax upload ảnh hoặc xóa nhanh bằng JS thì không bị lỗi
+    options.HeaderName = "X-XSRF-TOKEN";
 });
 // Cấu hình danh sách ngôn ngữ hỗ trợ
 // Tìm đoạn cấu hình RequestLocalizationOptions và cập nhật:

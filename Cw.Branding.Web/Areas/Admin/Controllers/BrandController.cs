@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 [Area("Admin")]
-[Route("{lang}/Admin/[controller]/[action]/{id?}")]
+[Route("{lang}/Admin/[controller]/{action=Index}")]
 public class BrandController(IBrandService brandService, IWebHostEnvironment env) : BaseAdminController
 {
     public async Task<IActionResult> Index()
@@ -34,6 +34,7 @@ public class BrandController(IBrandService brandService, IWebHostEnvironment env
     }
 
     // GET: Admin/Brand/Edit/5
+    [HttpGet("{id}")]
     public async Task<IActionResult> Edit(int id)
     {
         var brand = await brandService.GetByIdAsync(id);
@@ -42,7 +43,7 @@ public class BrandController(IBrandService brandService, IWebHostEnvironment env
     }
 
     // POST: Admin/Brand/Edit/5
-    [HttpPost]
+    [HttpPost("{id}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, Brand brand, IFormFile? logoFile)
     {
@@ -63,7 +64,7 @@ public class BrandController(IBrandService brandService, IWebHostEnvironment env
         return View(brand);
     }
 
-    [HttpPost]
+    [HttpPost("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
         await brandService.DeleteAsync(id);

@@ -1379,6 +1379,7 @@
 	  <Folder Include="obj\Debug\net8.0\staticwebassets\" />
 	  <Folder Include="wwwroot\uploads\assets\" />
 	  <Folder Include="wwwroot\uploads\brands\" />
+	  <Folder Include="wwwroot\uploads\categories\" />
 	  <Folder Include="wwwroot\uploads\news\" />
 	</ItemGroup>
 
