@@ -111,7 +111,6 @@ wwwroot\uploads\news-thumbnails\5b6f95e8-8810-40ca-ae62-7e7e1bf39b65.jpg
 wwwroot\uploads\news-thumbnails\69d33813-f81c-4e1f-8f55-8c0a5ec1ad8d.jpg
 wwwroot\uploads\news-thumbnails\bad43b2d-79e0-4593-8675-337e81a2bb9d.jpg
 wwwroot\uploads\news-thumbnails\d9e368d8-3a0c-4709-8afb-e86a4cc98f9e.jpg
-wwwroot\uploads\products\1011\26aded29-68fb-4bfa-8367-260b8262b21d_natanael-melchor-43LwvC-eQPM-unsplash.jpg
 wwwroot\uploads\products\2010\6d22e3a7-2a4a-46ab-bc7f-7490f0aab425_pawel-czerwinski-JdtUKqGdqw8-unsplash.jpg
 wwwroot\uploads\products\2010\a2b94f62-d6e3-47e8-b643-442924a7fd3e_hh-e-LwYlLzteMxo-unsplash.jpg
 wwwroot\uploads\products\2012\1179d704-4071-41b4-ad43-c9381347b356_national-cancer-institute-2g9uIMeVKvk-unsplash.jpg
@@ -130,7 +129,6 @@ wwwroot\uploads\products\monitor-1.png
 wwwroot\uploads\products\monitor-2.png
 wwwroot\uploads\products\monitor-3.png
 wwwroot\uploads\slides\16daf223-745b-4d12-9d4e-edcd0f01ddca.jpg
-wwwroot\uploads\slides\17d4b14b-0685-46d8-a6db-1b093712ae18.jpg
 wwwroot\uploads\slides\1a04faf2-ffcd-42af-a266-989b90391639.jpg
 wwwroot\uploads\slides\8ccbdd72-f98a-402f-aecb-cec55141fe4f.jpg
 wwwroot\uploads\slides\b944898f-88b0-4f61-b90e-a5ea8864fec0.jpg

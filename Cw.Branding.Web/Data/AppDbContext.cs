@@ -21,6 +21,7 @@ public class AppDbContext : DbContext
     public DbSet<HomeSlide> HomeSlides => Set<HomeSlide>();
     public DbSet<AppUser> Users { get; set; }
     public DbSet<AppRole> Roles { get; set; }
+    public DbSet<VisitorLog> VisitorLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,0 +1,1800 @@
+2026-04-25 00:03:23.616 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-25 00:03:23.875 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-25 00:03:23.941 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-25 00:03:23.942 +07:00 [INF] Hosting environment: Development
+2026-04-25 00:03:23.942 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-04-25 00:03:24.291 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-25 00:03:24.293 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-25 00:03:24.320 +07:00 [INF] HTTP GET / responded 302 in 276.4220 ms
+2026-04-25 00:03:24.387 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-25 00:03:24.396 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 528.9568ms
+2026-04-25 00:03:24.410 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:24.445 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-25 00:03:25.467 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-25 00:03:25.467 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-25 00:03:25.850 +07:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-25 00:03:26.285 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-25 00:03:26.348 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-25 00:03:26.426 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-25 00:03:26.471 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:03:26.750 +07:00 [INF] Executed ViewResult - view Index executed in 280.5117ms.
+2026-04-25 00:03:26.753 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2307.0161ms
+2026-04-25 00:03:26.755 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:27.193 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:03:27.236 +07:00 [INF] HTTP GET /en responded 200 in 2841.8845 ms
+2026-04-25 00:03:27.253 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 2866.701ms
+2026-04-25 00:03:27.733 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - null null
+2026-04-25 00:03:27.733 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:03:27.735 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:03:27.744 +07:00 [INF] HTTP GET /images/news-placeholder.jpg responded 404 in 6.6492 ms
+2026-04-25 00:03:27.745 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - 404 null null 13.7201ms
+2026-04-25 00:03:27.747 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/news-placeholder.jpg, Response status code: 404
+2026-04-25 00:03:27.761 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 25.2703ms
+2026-04-25 00:03:27.804 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 71.4767ms
+2026-04-25 00:03:37.220 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-25 00:03:37.227 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:37.227 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-25 00:03:37.306 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-25 00:03:37.310 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-25 00:03:37.312 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-25 00:03:37.313 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:03:37.326 +07:00 [INF] Executed ViewResult - view Index executed in 12.5321ms.
+2026-04-25 00:03:37.326 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 98.9268ms
+2026-04-25 00:03:37.326 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:37.336 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:03:37.341 +07:00 [INF] HTTP GET /en responded 200 in 115.7155 ms
+2026-04-25 00:03:37.343 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 122.9577ms
+2026-04-25 00:03:37.391 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - null null
+2026-04-25 00:03:37.396 +07:00 [INF] HTTP GET /images/news-placeholder.jpg responded 404 in 4.5376 ms
+2026-04-25 00:03:37.399 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - 404 null null 7.3061ms
+2026-04-25 00:03:37.401 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/news-placeholder.jpg, Response status code: 404
+2026-04-25 00:03:37.409 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:03:37.409 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:03:37.415 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.3987ms
+2026-04-25 00:03:37.487 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 78.1354ms
+2026-04-25 00:03:45.313 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:03:45.330 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:45.339 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:03:45.431 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:03:45.443 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:03:45.451 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:03:45.455 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:03:45.462 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.466 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.467 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.468 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.470 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.471 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.473 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:45.522 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:03:45.531 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:03:45.563 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:03:45.622 +07:00 [INF] Executed ViewResult - view Index executed in 63.6681ms.
+2026-04-25 00:03:45.623 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 283.0467ms
+2026-04-25 00:03:45.623 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:45.623 +07:00 [INF] HTTP GET /vi/admin responded 200 in 306.7026 ms
+2026-04-25 00:03:45.624 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 310.9934ms
+2026-04-25 00:03:45.671 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:03:45.672 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.3647ms
+2026-04-25 00:03:45.741 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:03:45.751 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.6943ms
+2026-04-25 00:03:54.702 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:03:54.717 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:54.718 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:03:54.731 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:03:54.735 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:03:54.740 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:03:54.743 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:03:54.747 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.749 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.750 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.752 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.754 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.756 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.758 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:54.772 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:03:54.777 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:03:54.778 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:03:54.785 +07:00 [INF] Executed ViewResult - view Index executed in 6.8514ms.
+2026-04-25 00:03:54.786 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 67.2464ms
+2026-04-25 00:03:54.786 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:54.786 +07:00 [INF] HTTP GET /vi/admin responded 200 in 75.5445 ms
+2026-04-25 00:03:54.787 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 85.0344ms
+2026-04-25 00:03:54.847 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:03:54.852 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 5.4108ms
+2026-04-25 00:03:56.764 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:03:56.772 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:56.772 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:03:56.779 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:03:56.781 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:03:56.782 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:03:56.786 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:03:56.788 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.791 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.792 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.794 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.795 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.796 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.798 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:56.799 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:03:56.803 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:03:56.803 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:03:56.806 +07:00 [INF] Executed ViewResult - view Index executed in 3.0071ms.
+2026-04-25 00:03:56.806 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 33.9302ms
+2026-04-25 00:03:56.806 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:56.806 +07:00 [INF] HTTP GET /vi/admin responded 200 in 37.1518 ms
+2026-04-25 00:03:56.807 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 42.9199ms
+2026-04-25 00:03:56.855 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:03:56.870 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:03:56.871 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.8834ms
+2026-04-25 00:03:56.882 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.5699ms
+2026-04-25 00:03:59.508 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:03:59.513 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:59.513 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:03:59.522 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:03:59.526 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:03:59.528 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:03:59.530 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:03:59.531 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.533 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.534 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.535 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.537 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.541 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.542 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:03:59.544 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:03:59.547 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:03:59.548 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:03:59.552 +07:00 [INF] Executed ViewResult - view Index executed in 4.7563ms.
+2026-04-25 00:03:59.553 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 39.8683ms
+2026-04-25 00:03:59.553 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:03:59.554 +07:00 [INF] HTTP GET /vi/admin responded 200 in 42.1109 ms
+2026-04-25 00:03:59.555 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 47.1357ms
+2026-04-25 00:03:59.597 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:03:59.617 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.1506ms
+2026-04-25 00:03:59.618 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:03:59.620 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.6467ms
+2026-04-25 00:04:27.950 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-25 00:04:27.963 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-25 00:04:27.963 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-25 00:04:27.963 +07:00 [INF] HTTP GET / responded 302 in 1.5149 ms
+2026-04-25 00:04:27.976 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-25 00:04:27.977 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 26.4811ms
+2026-04-25 00:04:27.980 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:27.980 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-25 00:04:27.989 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-25 00:04:27.994 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-25 00:04:28.000 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-25 00:04:28.001 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:04:28.014 +07:00 [INF] Executed ViewResult - view Index executed in 12.9343ms.
+2026-04-25 00:04:28.014 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 33.5448ms
+2026-04-25 00:04:28.014 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:28.020 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:04:28.022 +07:00 [INF] HTTP GET /en responded 200 in 42.5179 ms
+2026-04-25 00:04:28.023 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 46.5769ms
+2026-04-25 00:04:28.184 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:04:28.185 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9399ms
+2026-04-25 00:04:28.185 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - null null
+2026-04-25 00:04:28.187 +07:00 [INF] HTTP GET /images/news-placeholder.jpg responded 404 in 0.9365 ms
+2026-04-25 00:04:28.189 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - 404 null null 3.9549ms
+2026-04-25 00:04:28.189 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/news-placeholder.jpg, Response status code: 404
+2026-04-25 00:04:28.190 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:04:28.219 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.5143ms
+2026-04-25 00:04:33.860 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:04:33.864 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:33.864 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:04:33.868 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:04:33.870 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:04:33.875 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:04:33.876 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:04:33.878 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.879 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.880 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.881 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.889 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.890 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.891 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:33.892 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:04:33.893 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:04:33.894 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:04:33.895 +07:00 [INF] Executed ViewResult - view Index executed in 1.3977ms.
+2026-04-25 00:04:33.895 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 31.1798ms
+2026-04-25 00:04:33.895 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:33.895 +07:00 [INF] HTTP GET /vi/admin responded 200 in 32.3524 ms
+2026-04-25 00:04:33.896 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 35.5327ms
+2026-04-25 00:04:33.945 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:04:33.960 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:04:33.961 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.0947ms
+2026-04-25 00:04:33.966 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.946ms
+2026-04-25 00:04:50.945 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:04:50.948 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:50.948 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:04:50.950 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:04:50.955 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:04:50.959 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:04:50.960 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:04:50.961 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.962 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.963 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.965 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.966 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.967 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.969 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:50.970 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:04:50.974 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:04:50.975 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:04:50.977 +07:00 [INF] Executed ViewResult - view Index executed in 2.6953ms.
+2026-04-25 00:04:50.977 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 29.173ms
+2026-04-25 00:04:50.977 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:50.978 +07:00 [INF] HTTP GET /vi/admin responded 200 in 30.0092 ms
+2026-04-25 00:04:50.978 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 33.0982ms
+2026-04-25 00:04:51.031 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:04:51.041 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:04:51.042 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 5.182ms
+2026-04-25 00:04:51.051 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 20.7241ms
+2026-04-25 00:04:54.881 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:04:54.887 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:54.887 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:04:54.890 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:04:54.892 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:04:54.896 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:04:54.898 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:04:54.899 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.900 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.901 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.902 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.903 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.904 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.904 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:04:54.907 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:04:54.912 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:04:54.912 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:04:54.913 +07:00 [INF] Executed ViewResult - view Index executed in 1.4292ms.
+2026-04-25 00:04:54.914 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 26.5036ms
+2026-04-25 00:04:54.914 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:04:54.914 +07:00 [INF] HTTP GET /vi/admin responded 200 in 28.2522 ms
+2026-04-25 00:04:54.914 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 33.7295ms
+2026-04-25 00:04:54.973 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:04:54.973 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:04:54.976 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 3.218ms
+2026-04-25 00:04:54.983 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.4966ms
+2026-04-25 00:05:03.053 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:05:03.058 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:05:03.058 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:05:03.065 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:05:03.074 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:05:03.079 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:05:03.091 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:05:03.098 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.099 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.103 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.108 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.110 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.111 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.112 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:03.119 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:05:03.125 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:05:03.126 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:05:03.127 +07:00 [INF] Executed ViewResult - view Index executed in 1.5788ms.
+2026-04-25 00:05:03.127 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 69.2413ms
+2026-04-25 00:05:03.127 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:05:03.128 +07:00 [INF] HTTP GET /vi/admin responded 200 in 70.1194 ms
+2026-04-25 00:05:03.128 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 75.4081ms
+2026-04-25 00:05:03.210 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:05:03.217 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 6.5735ms
+2026-04-25 00:05:03.248 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:05:03.258 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.8665ms
+2026-04-25 00:05:06.295 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:05:06.303 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:05:06.304 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:05:06.310 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:05:06.312 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:05:06.316 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:05:06.322 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:05:06.326 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.327 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.334 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.335 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.336 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.341 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.342 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:06.344 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:05:06.345 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:05:06.346 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:05:06.348 +07:00 [INF] Executed ViewResult - view Index executed in 1.7605ms.
+2026-04-25 00:05:06.348 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 43.9993ms
+2026-04-25 00:05:06.348 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:05:06.348 +07:00 [INF] HTTP GET /vi/admin responded 200 in 45.3640 ms
+2026-04-25 00:05:06.349 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 53.535ms
+2026-04-25 00:05:06.423 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:05:06.425 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.7475ms
+2026-04-25 00:05:06.425 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:05:06.595 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 169.9616ms
+2026-04-25 00:05:21.559 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Contact/Details/2 - null null
+2026-04-25 00:05:21.564 +07:00 [INF] HTTP GET /vi/admin/Contact/Details/2 responded 404 in 1.1087 ms
+2026-04-25 00:05:21.565 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Contact/Details/2 - 404 null null 5.5978ms
+2026-04-25 00:05:21.565 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/vi/admin/Contact/Details/2, Response status code: 404
+2026-04-25 00:05:24.907 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:05:24.917 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:05:24.918 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:05:24.919 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:05:24.926 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:05:24.933 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:05:24.934 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:05:24.935 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.936 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.937 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.938 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.941 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.943 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.944 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:05:24.946 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:05:24.947 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:05:24.948 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:05:24.949 +07:00 [INF] Executed ViewResult - view Index executed in 1.715ms.
+2026-04-25 00:05:24.950 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 31.9125ms
+2026-04-25 00:05:24.950 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:05:24.950 +07:00 [INF] HTTP GET /vi/admin responded 200 in 32.7516 ms
+2026-04-25 00:05:24.950 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 42.8465ms
+2026-04-25 00:05:25.023 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:05:25.024 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.1873ms
+2026-04-25 00:07:02.476 +07:00 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-25 00:07:02.700 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-25 00:07:02.775 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-25 00:07:02.775 +07:00 [INF] Hosting environment: Development
+2026-04-25 00:07:02.775 +07:00 [INF] Content root path: C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web
+2026-04-25 00:07:03.112 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-25 00:07:03.113 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-25 00:07:03.127 +07:00 [INF] HTTP GET / responded 302 in 269.2506 ms
+2026-04-25 00:07:03.147 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-25 00:07:03.165 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 478.7277ms
+2026-04-25 00:07:03.174 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:03.198 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-25 00:07:04.230 +07:00 [WRN] The foreign key property 'Product.BrandId1' was created in shadow state because a conflicting property with the simple name 'BrandId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-25 00:07:04.230 +07:00 [WRN] The foreign key property 'Product.MachineTypeId1' was created in shadow state because a conflicting property with the simple name 'MachineTypeId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-04-25 00:07:04.625 +07:00 [WRN] The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.
+2026-04-25 00:07:05.113 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-25 00:07:05.194 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-25 00:07:05.338 +07:00 [INF] Executed DbCommand (40ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-25 00:07:05.389 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:07:05.821 +07:00 [INF] Executed ViewResult - view Index executed in 434.1931ms.
+2026-04-25 00:07:05.824 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 2625.2647ms
+2026-04-25 00:07:05.824 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:06.256 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:07:06.300 +07:00 [INF] HTTP GET /en responded 200 in 3140.8282 ms
+2026-04-25 00:07:06.314 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 3167.2769ms
+2026-04-25 00:07:06.630 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - null null
+2026-04-25 00:07:06.634 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:07:06.652 +07:00 [INF] HTTP GET /images/news-placeholder.jpg responded 404 in 5.9152 ms
+2026-04-25 00:07:06.653 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:07:06.660 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - 404 null null 32.139ms
+2026-04-25 00:07:06.662 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/news-placeholder.jpg, Response status code: 404
+2026-04-25 00:07:06.664 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 10.0944ms
+2026-04-25 00:07:06.720 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 85.2022ms
+2026-04-25 00:07:13.775 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:07:13.795 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:13.806 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:07:13.943 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:07:13.953 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:07:13.966 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:07:13.972 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:07:13.976 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:13.984 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:13.985 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:13.987 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:13.988 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:13.990 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:13.991 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:14.031 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:07:14.041 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:07:14.069 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:07:14.138 +07:00 [INF] Executed ViewResult - view Index executed in 69.8658ms.
+2026-04-25 00:07:14.138 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 331.6049ms
+2026-04-25 00:07:14.138 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:14.138 +07:00 [INF] HTTP GET /vi/admin responded 200 in 360.0738 ms
+2026-04-25 00:07:14.139 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 363.9459ms
+2026-04-25 00:07:14.189 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:07:14.191 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.5813ms
+2026-04-25 00:07:14.207 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:07:14.296 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 89.0432ms
+2026-04-25 00:07:22.880 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Contact/Details/4 - null null
+2026-04-25 00:07:22.886 +07:00 [INF] HTTP GET /vi/admin/Contact/Details/4 responded 404 in 1.5242 ms
+2026-04-25 00:07:22.889 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Contact/Details/4 - 404 null null 8.7472ms
+2026-04-25 00:07:22.890 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/vi/admin/Contact/Details/4, Response status code: 404
+2026-04-25 00:07:24.945 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:07:24.952 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:24.953 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:07:24.978 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:07:24.979 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:07:24.981 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:07:24.983 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:07:24.984 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.986 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.987 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.989 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.991 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.993 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.995 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:07:24.999 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:07:25.000 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:07:25.001 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:07:25.007 +07:00 [INF] Executed ViewResult - view Index executed in 6.3297ms.
+2026-04-25 00:07:25.007 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 54.6225ms
+2026-04-25 00:07:25.007 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:25.007 +07:00 [INF] HTTP GET /vi/admin responded 200 in 58.3499 ms
+2026-04-25 00:07:25.008 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 63.3984ms
+2026-04-25 00:07:25.067 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:07:25.070 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 2.3278ms
+2026-04-25 00:07:27.257 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact - null null
+2026-04-25 00:07:27.269 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:27.289 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.Nullable`1[Cw.Branding.Web.Models.Enums.ContactStatus]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-25 00:07:27.351 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:07:27.353 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:07:27.401 +07:00 [INF] Executed ViewResult - view Index executed in 48.8779ms.
+2026-04-25 00:07:27.401 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web) in 111.9083ms
+2026-04-25 00:07:27.401 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Index (Cw.Branding.Web)'
+2026-04-25 00:07:27.401 +07:00 [INF] HTTP GET /vi/Admin/Contact responded 200 in 137.0608 ms
+2026-04-25 00:07:27.402 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact - 200 null text/html; charset=utf-8 144.8172ms
+2026-04-25 00:07:27.489 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:07:27.500 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:07:27.505 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 4.7421ms
+2026-04-25 00:07:27.516 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.3586ms
+2026-04-25 00:07:31.480 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Details?id=3 - null null
+2026-04-25 00:07:31.489 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web)'
+2026-04-25 00:07:31.496 +07:00 [INF] Route matched with {area = "Admin", action = "Details", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-25 00:07:31.533 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-04-25 00:07:31.535 +07:00 [INF] Executing ViewResult, running view Details.
+2026-04-25 00:07:31.544 +07:00 [INF] Executed ViewResult - view Details executed in 9.9817ms.
+2026-04-25 00:07:31.545 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web) in 48.3233ms
+2026-04-25 00:07:31.545 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web)'
+2026-04-25 00:07:31.545 +07:00 [INF] HTTP GET /vi/Admin/Contact/Details responded 200 in 59.6743 ms
+2026-04-25 00:07:31.545 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Details?id=3 - 200 null text/html; charset=utf-8 64.9761ms
+2026-04-25 00:07:31.596 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:07:31.617 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:07:31.618 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.8313ms
+2026-04-25 00:07:31.624 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.4455ms
+2026-04-25 00:07:51.789 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Contact/Details/4 - null null
+2026-04-25 00:07:51.795 +07:00 [INF] HTTP GET /vi/admin/Contact/Details/4 responded 404 in 1.1106 ms
+2026-04-25 00:07:51.804 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Contact/Details/4 - 404 null null 15.4512ms
+2026-04-25 00:07:51.805 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/vi/admin/Contact/Details/4, Response status code: 404
+2026-04-25 00:08:55.858 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:08:55.862 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:08:55.862 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:08:55.875 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:08:55.883 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:08:55.889 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:08:55.892 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:08:55.895 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.897 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.906 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.908 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.909 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.910 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.911 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:08:55.915 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:08:55.919 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:08:55.919 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:08:55.921 +07:00 [INF] Executed ViewResult - view Index executed in 2.3535ms.
+2026-04-25 00:08:55.922 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 59.6201ms
+2026-04-25 00:08:55.922 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:08:55.922 +07:00 [INF] HTTP GET /vi/admin responded 200 in 60.6055 ms
+2026-04-25 00:08:55.922 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 64.6141ms
+2026-04-25 00:08:56.260 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:08:56.480 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 220.2161ms
+2026-04-25 00:10:08.559 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Product/Create - null null
+2026-04-25 00:10:08.597 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-04-25 00:10:08.599 +07:00 [INF] Route matched with {area = "Admin", action = "Create", controller = "Product"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller Cw.Branding.Web.Areas.Admin.Controllers.ProductController (Cw.Branding.Web).
+2026-04-25 00:10:08.616 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+ORDER BY [c].[DisplayOrder]
+2026-04-25 00:10:08.644 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+ORDER BY [b].[DisplayOrder]
+2026-04-25 00:10:08.666 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+ORDER BY [m].[DisplayOrder]
+2026-04-25 00:10:08.688 +07:00 [INF] Executing ViewResult, running view Create.
+2026-04-25 00:10:08.754 +07:00 [INF] Executed ViewResult - view Create executed in 67.1346ms.
+2026-04-25 00:10:08.754 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web) in 154.3254ms
+2026-04-25 00:10:08.754 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ProductController.Create (Cw.Branding.Web)'
+2026-04-25 00:10:08.754 +07:00 [INF] HTTP GET /vi/admin/Product/Create responded 200 in 157.9348 ms
+2026-04-25 00:10:08.754 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Product/Create - 200 null text/html; charset=utf-8 194.9891ms
+2026-04-25 00:10:08.834 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2026-04-25 00:10:08.854 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:10:08.854 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:10:08.855 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.843ms
+2026-04-25 00:10:08.877 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2026-04-25 00:10:08.883 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.5441ms
+2026-04-25 00:10:09.131 +07:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+2026-04-25 00:10:09.131 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5824 text/javascript 269.7134ms
+2026-04-25 00:10:09.217 +07:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+2026-04-25 00:10:09.219 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/lib/jquery-validation/dist/jquery.validate.min.js - 200 24601 text/javascript 385.5943ms
+2026-04-25 00:10:10.997 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:10:11.032 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:10:11.032 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:10:11.047 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:10:11.053 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:10:11.057 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:10:11.062 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:10:11.066 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.067 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.069 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.072 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.073 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.075 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.078 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:10:11.083 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:10:11.087 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:10:11.088 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:10:11.090 +07:00 [INF] Executed ViewResult - view Index executed in 2.1864ms.
+2026-04-25 00:10:11.090 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 58.1851ms
+2026-04-25 00:10:11.090 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:10:11.090 +07:00 [INF] HTTP GET /vi/admin responded 200 in 59.4368 ms
+2026-04-25 00:10:11.091 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 93.425ms
+2026-04-25 00:10:11.207 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:10:11.221 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:10:11.222 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9027ms
+2026-04-25 00:10:11.251 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.0257ms
+2026-04-25 00:10:12.555 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin/Contact/Export - null null
+2026-04-25 00:10:12.558 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Export (Cw.Branding.Web)'
+2026-04-25 00:10:12.566 +07:00 [INF] Route matched with {area = "Admin", action = "Export", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Export(System.Nullable`1[Cw.Branding.Web.Models.Enums.ContactStatus]) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-25 00:10:13.579 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:10:17.499 +07:00 [INF] Executing FileContentResult, sending file with download name 'Leads_Report_20260425_0010.xlsx' ...
+2026-04-25 00:10:17.502 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Export (Cw.Branding.Web) in 4936.0147ms
+2026-04-25 00:10:17.502 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Export (Cw.Branding.Web)'
+2026-04-25 00:10:17.503 +07:00 [INF] HTTP GET /vi/admin/Contact/Export responded 200 in 4945.0635 ms
+2026-04-25 00:10:17.503 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin/Contact/Export - 200 6847 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 4947.7062ms
+2026-04-25 00:12:18.114 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-25 00:12:18.119 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:18.122 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:12:18.127 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:18.127 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-25 00:12:18.140 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-25 00:12:18.144 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:12:18.152 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-25 00:12:18.159 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Details?id=3 - null null
+2026-04-25 00:12:18.160 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:12:18.173 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:12:18.176 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web)'
+2026-04-25 00:12:18.177 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:12:18.180 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:12:18.188 +07:00 [INF] Route matched with {area = "Admin", action = "Details", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-25 00:12:18.200 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.201 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-25 00:12:18.207 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:12:18.213 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.216 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.227 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-04-25 00:12:18.227 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.228 +07:00 [INF] Executing ViewResult, running view Details.
+2026-04-25 00:12:18.230 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.232 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.234 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:18.242 +07:00 [INF] Executed ViewResult - view Details executed in 14.2675ms.
+2026-04-25 00:12:18.242 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:12:18.242 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web) in 53.3475ms
+2026-04-25 00:12:18.242 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web)'
+2026-04-25 00:12:18.242 +07:00 [INF] HTTP GET /vi/Admin/Contact/Details responded 200 in 75.7183 ms
+2026-04-25 00:12:18.242 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Details?id=3 - 200 null text/html; charset=utf-8 84.3777ms
+2026-04-25 00:12:18.246 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:12:18.271 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:12:18.458 +07:00 [INF] Executed ViewResult - view Index executed in 256.3443ms.
+2026-04-25 00:12:18.458 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 330.4508ms
+2026-04-25 00:12:18.458 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:18.844 +07:00 [INF] Executed ViewResult - view Index executed in 597.5621ms.
+2026-04-25 00:12:18.845 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 699.9871ms
+2026-04-25 00:12:18.845 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:18.845 +07:00 [INF] HTTP GET /vi/admin responded 200 in 720.0177 ms
+2026-04-25 00:12:18.845 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 722.6831ms
+2026-04-25 00:12:18.851 +07:00 [INF] Executed DbCommand (389ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:12:18.852 +07:00 [INF] HTTP GET /en responded 200 in 734.2208 ms
+2026-04-25 00:12:18.855 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:12:18.855 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 741.715ms
+2026-04-25 00:12:18.924 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:18.933 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 8.6351ms
+2026-04-25 00:12:18.933 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:12:19.462 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:19.462 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:12:19.475 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - null null
+2026-04-25 00:12:19.465 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:19.476 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 11.2717ms
+2026-04-25 00:12:19.477 +07:00 [INF] HTTP GET /images/news-placeholder.jpg responded 404 in 0.4083 ms
+2026-04-25 00:12:19.481 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - 404 null null 5.8686ms
+2026-04-25 00:12:19.481 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/news-placeholder.jpg, Response status code: 404
+2026-04-25 00:12:19.481 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:12:19.482 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 626.3792ms
+2026-04-25 00:12:19.482 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:12:19.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:19.485 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:12:19.486 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.2156ms
+2026-04-25 00:12:19.494 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:12:19.496 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:12:19.545 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.550 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:12:19.560 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.608 +07:00 [INF] Executed DbCommand (47ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.617 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 134.8229ms
+2026-04-25 00:12:19.617 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.2747ms
+2026-04-25 00:12:19.617 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.619 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.623 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.624 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:19.626 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:12:19.627 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:12:19.627 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:12:19.629 +07:00 [INF] Executed ViewResult - view Index executed in 1.916ms.
+2026-04-25 00:12:19.629 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 167.1863ms
+2026-04-25 00:12:19.630 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:19.630 +07:00 [INF] HTTP GET /vi/admin responded 200 in 168.0773 ms
+2026-04-25 00:12:19.630 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 696.8129ms
+2026-04-25 00:12:19.694 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:12:19.697 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:19.697 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.8479ms
+2026-04-25 00:12:19.755 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.179ms
+2026-04-25 00:12:24.618 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:12:24.627 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:24.627 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:12:24.634 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:12:24.635 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:12:24.636 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:12:24.637 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:12:24.638 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.640 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.641 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.645 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.646 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.648 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.649 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:24.650 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:12:24.652 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:12:24.652 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:12:24.655 +07:00 [INF] Executed ViewResult - view Index executed in 2.551ms.
+2026-04-25 00:12:24.655 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 27.5185ms
+2026-04-25 00:12:24.655 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:24.655 +07:00 [INF] HTTP GET /vi/admin responded 200 in 31.8610 ms
+2026-04-25 00:12:24.655 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 37.5326ms
+2026-04-25 00:12:24.711 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:12:24.735 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:24.736 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7539ms
+2026-04-25 00:12:24.749 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.029ms
+2026-04-25 00:12:41.809 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Details?id=4 - null null
+2026-04-25 00:12:41.820 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web)'
+2026-04-25 00:12:41.820 +07:00 [INF] Route matched with {area = "Admin", action = "Details", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller Cw.Branding.Web.Areas.Admin.Controllers.ContactController (Cw.Branding.Web).
+2026-04-25 00:12:41.829 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[Id] = @__p_0
+2026-04-25 00:12:41.830 +07:00 [INF] Executing ViewResult, running view Details.
+2026-04-25 00:12:41.832 +07:00 [INF] Executed ViewResult - view Details executed in 2.2755ms.
+2026-04-25 00:12:41.832 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web) in 11.6006ms
+2026-04-25 00:12:41.832 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.ContactController.Details (Cw.Branding.Web)'
+2026-04-25 00:12:41.832 +07:00 [INF] HTTP GET /vi/Admin/Contact/Details responded 200 in 19.7477 ms
+2026-04-25 00:12:41.833 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/Admin/Contact/Details?id=4 - 200 null text/html; charset=utf-8 23.7056ms
+2026-04-25 00:12:41.881 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:12:41.907 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.0437ms
+2026-04-25 00:12:41.913 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:41.913 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7661ms
+2026-04-25 00:12:46.398 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:12:46.402 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:46.402 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:12:46.406 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:12:46.410 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:12:46.417 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:12:46.419 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:12:46.421 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.422 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.423 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.424 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.432 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.434 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.436 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:12:46.439 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:12:46.442 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:12:46.442 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:12:46.443 +07:00 [INF] Executed ViewResult - view Index executed in 1.3735ms.
+2026-04-25 00:12:46.443 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 41.4203ms
+2026-04-25 00:12:46.443 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:12:46.444 +07:00 [INF] HTTP GET /vi/admin responded 200 in 42.5226 ms
+2026-04-25 00:12:46.444 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 45.6688ms
+2026-04-25 00:12:46.524 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:12:46.526 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.5905ms
+2026-04-25 00:13:39.436 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/ - null null
+2026-04-25 00:13:39.443 +07:00 [INF] Executing endpoint 'HTTP: GET /'
+2026-04-25 00:13:39.443 +07:00 [INF] Executed endpoint 'HTTP: GET /'
+2026-04-25 00:13:39.443 +07:00 [INF] HTTP GET / responded 302 in 0.7799 ms
+2026-04-25 00:13:39.444 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/ - 302 null null 8.3264ms
+2026-04-25 00:13:39.461 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en - null null
+2026-04-25 00:13:39.482 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:13:39.482 +07:00 [INF] Route matched with {action = "Index", controller = "Home", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.HomeController (Cw.Branding.Web).
+2026-04-25 00:13:39.495 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [h].[Id], [h].[BackgroundImage], [h].[Cta1TextEn], [h].[Cta1TextVi], [h].[Cta1Url], [h].[Cta2TextEn], [h].[Cta2TextVi], [h].[Cta2Url], [h].[DescriptionEn], [h].[DescriptionVi], [h].[HighlightEn], [h].[HighlightVi], [h].[TitleEn], [h].[TitleVi]
+FROM [HeroSection] AS [h]
+2026-04-25 00:13:39.499 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [h].[Id], [h].[DisplayOrder], [h].[ImageUrl], [h].[IsActive], [h].[Note]
+FROM [HomeSlide] AS [h]
+WHERE [h].[IsActive] = CAST(1 AS bit)
+ORDER BY [h].[DisplayOrder]
+2026-04-25 00:13:39.506 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [n].[Id], [n].[ContentEn], [n].[ContentVi], [n].[CreatedAt], [n].[IsActive], [n].[MetaDescEn], [n].[MetaDescVi], [n].[MetaTitleEn], [n].[MetaTitleVi], [n].[PublishedAt], [n].[SlugEn], [n].[SlugVi], [n].[SummaryEn], [n].[SummaryVi], [n].[ThumbnailPath], [n].[TitleEn], [n].[TitleVi], [n].[UpdatedAt]
+FROM [News] AS [n]
+WHERE [n].[IsActive] = CAST(1 AS bit)
+ORDER BY [n].[PublishedAt] DESC
+2026-04-25 00:13:39.507 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:13:39.513 +07:00 [INF] Executed ViewResult - view Index executed in 6.8748ms.
+2026-04-25 00:13:39.514 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web) in 31.2714ms
+2026-04-25 00:13:39.514 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.HomeController.Index (Cw.Branding.Web)'
+2026-04-25 00:13:39.526 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:13:39.526 +07:00 [INF] HTTP GET /en responded 200 in 45.9659 ms
+2026-04-25 00:13:39.532 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en - 200 null text/html; charset=utf-8 71.209ms
+2026-04-25 00:13:39.697 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - null null
+2026-04-25 00:13:39.698 +07:00 [INF] HTTP GET /images/news-placeholder.jpg responded 404 in 0.5115 ms
+2026-04-25 00:13:39.698 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:13:39.700 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.4264ms
+2026-04-25 00:13:39.703 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/news-placeholder.jpg - 404 null null 6.4208ms
+2026-04-25 00:13:39.703 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/news-placeholder.jpg, Response status code: 404
+2026-04-25 00:13:39.710 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:13:39.729 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 18.388ms
+2026-04-25 00:13:42.620 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/giai-phap-y-te - null null
+2026-04-25 00:13:42.626 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.MedicalController.Index (Cw.Branding.Web)'
+2026-04-25 00:13:42.640 +07:00 [INF] Route matched with {action = "Index", controller = "Medical", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Controllers.MedicalController (Cw.Branding.Web).
+2026-04-25 00:13:42.669 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM [Category] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[DisplayOrder]
+2026-04-25 00:13:42.677 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:13:42.710 +07:00 [INF] Executed ViewResult - view Index executed in 34.5499ms.
+2026-04-25 00:13:42.710 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.MedicalController.Index (Cw.Branding.Web) in 70.1459ms
+2026-04-25 00:13:42.710 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.MedicalController.Index (Cw.Branding.Web)'
+2026-04-25 00:13:42.714 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:13:42.714 +07:00 [INF] HTTP GET /en/giai-phap-y-te responded 200 in 88.9495 ms
+2026-04-25 00:13:42.714 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/giai-phap-y-te - 200 null text/html; charset=utf-8 94.0708ms
+2026-04-25 00:13:42.805 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/medical-bg-2.jpg - null null
+2026-04-25 00:13:42.898 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/cardiology.png - null null
+2026-04-25 00:13:42.897 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:13:42.901 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/urology.png - null null
+2026-04-25 00:13:42.905 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/imaging.png - null null
+2026-04-25 00:13:42.905 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/obgyn.png - null null
+2026-04-25 00:13:42.905 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 8.2018ms
+2026-04-25 00:13:42.905 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/endoscopy.png - null null
+2026-04-25 00:13:42.906 +07:00 [INF] HTTP GET /images/icons/imaging.png responded 404 in 0.7854 ms
+2026-04-25 00:13:42.906 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/imaging.png - 404 null null 2.3061ms
+2026-04-25 00:13:42.907 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/icons/imaging.png, Response status code: 404
+2026-04-25 00:13:42.907 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/icu.png - null null
+2026-04-25 00:13:42.907 +07:00 [INF] HTTP GET /images/icons/icu.png responded 404 in 0.4947 ms
+2026-04-25 00:13:42.909 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/icu.png - 404 null null 2.4017ms
+2026-04-25 00:13:42.909 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/icons/icu.png, Response status code: 404
+2026-04-25 00:13:42.909 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/lab.png - null null
+2026-04-25 00:13:42.910 +07:00 [INF] HTTP GET /images/icons/endoscopy.png responded 404 in 3.3618 ms
+2026-04-25 00:13:42.911 +07:00 [INF] HTTP GET /images/icons/lab.png responded 404 in 1.4238 ms
+2026-04-25 00:13:42.912 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/lab.png - 404 null null 2.3684ms
+2026-04-25 00:13:42.912 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/icons/lab.png, Response status code: 404
+2026-04-25 00:13:42.912 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/endoscopy.png - 404 null null 6.2235ms
+2026-04-25 00:13:42.912 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/icons/endoscopy.png, Response status code: 404
+2026-04-25 00:13:42.912 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/medical-bg-4.jpg - null null
+2026-04-25 00:13:42.912 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:13:42.915 +07:00 [INF] HTTP GET /images/icons/obgyn.png responded 404 in 9.2354 ms
+2026-04-25 00:13:42.916 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/obgyn.png - 404 null null 10.9153ms
+2026-04-25 00:13:42.916 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/icons/obgyn.png, Response status code: 404
+2026-04-25 00:13:42.918 +07:00 [INF] Sending file. Request path: '/images/icons/urology.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\icons\Urology.png'
+2026-04-25 00:13:42.919 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/urology.png - 200 5207 image/png 17.073ms
+2026-04-25 00:13:42.919 +07:00 [INF] Sending file. Request path: '/images/icons/cardiology.png'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\icons\cardiology.png'
+2026-04-25 00:13:42.919 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/cardiology.png - 200 4123 image/png 21.0576ms
+2026-04-25 00:13:42.924 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/medical-bg-3.jpg - null null
+2026-04-25 00:13:42.931 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/images/icons/eye.png - null null
+2026-04-25 00:13:42.932 +07:00 [INF] HTTP GET /images/icons/eye.png responded 404 in 0.4798 ms
+2026-04-25 00:13:42.933 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/icons/eye.png - 404 null null 2.0565ms
+2026-04-25 00:13:42.934 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/images/icons/eye.png, Response status code: 404
+2026-04-25 00:13:42.934 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 21.9571ms
+2026-04-25 00:13:42.951 +07:00 [INF] Sending file. Request path: '/images/medical-bg-3.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\medical-bg-3.jpg'
+2026-04-25 00:13:42.976 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/medical-bg-3.jpg - 200 565570 image/jpeg 51.6314ms
+2026-04-25 00:13:42.991 +07:00 [INF] Sending file. Request path: '/images/medical-bg-2.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\medical-bg-2.jpg'
+2026-04-25 00:13:43.025 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/medical-bg-2.jpg - 200 1668041 image/jpeg 219.6187ms
+2026-04-25 00:13:43.072 +07:00 [INF] Sending file. Request path: '/images/medical-bg-4.jpg'. Physical path: 'C:\Users\HP\source\repos\Cw.Branding\Cw.Branding.Web\wwwroot\images\medical-bg-4.jpg'
+2026-04-25 00:13:43.106 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/images/medical-bg-4.jpg - 200 4898673 image/jpeg 194.042ms
+2026-04-25 00:13:51.916 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/medical/filter?categoryId=1&brandId=&machineTypeId=&searchTerm=&page=1 - null null
+2026-04-25 00:13:51.917 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.MedicalController.FilterProducts (Cw.Branding.Web)'
+2026-04-25 00:13:51.929 +07:00 [INF] Route matched with {action = "FilterProducts", controller = "Medical", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FilterProducts(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String, Int32) on controller Cw.Branding.Web.Controllers.MedicalController (Cw.Branding.Web).
+2026-04-25 00:13:51.972 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__categoryId_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+WHERE [p].[IsActive] = CAST(1 AS bit) AND [p].[CategoryId] = @__categoryId_Value_0
+2026-04-25 00:13:52.126 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__categoryId_Value_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BrandId], [t].[BrandId1], [t].[CategoryId], [t].[Code], [t].[CreatedAt], [t].[DatasheetPath], [t].[DescriptionEn], [t].[DescriptionVi], [t].[DisplayOrder], [t].[IsActive], [t].[IsFeatured], [t].[MachineTypeId], [t].[MachineTypeId1], [t].[NameEn], [t].[NameVi], [t].[ShortDescriptionEn], [t].[ShortDescriptionVi], [t].[SlugEn], [t].[SlugVi], [t].[TechnicalSpecsEn], [t].[TechnicalSpecsVi], [t].[UpdatedAt], [b].[Id], [c].[Id], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM (
+    SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+    FROM [Product] AS [p]
+    WHERE [p].[IsActive] = CAST(1 AS bit) AND [p].[CategoryId] = @__categoryId_Value_0
+    ORDER BY [p].[Id] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [Brand] AS [b] ON [t].[BrandId] = [b].[Id]
+INNER JOIN [Category] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [t].[Id] = [p0].[ProductId]
+ORDER BY [t].[Id] DESC, [b].[Id], [c].[Id]
+2026-04-25 00:13:52.152 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+WHERE [b].[IsActive] = CAST(1 AS bit)
+ORDER BY [b].[Name]
+2026-04-25 00:13:52.163 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+ORDER BY [m].[NameEn]
+2026-04-25 00:13:52.190 +07:00 [INF] Executing PartialViewResult, running view _ProductListPartial.
+2026-04-25 00:13:52.300 +07:00 [INF] Executed PartialViewResult - view _ProductListPartial executed in 112.2919ms.
+2026-04-25 00:13:52.300 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.MedicalController.FilterProducts (Cw.Branding.Web) in 371.0128ms
+2026-04-25 00:13:52.300 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.MedicalController.FilterProducts (Cw.Branding.Web)'
+2026-04-25 00:13:52.304 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/medical/filter?categoryId=1&brandId=&machineTypeId=&searchTerm=&page=1 - null null
+2026-04-25 00:13:52.305 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:13:52.305 +07:00 [INF] HTTP GET /en/medical/filter responded 200 in 388.5865 ms
+2026-04-25 00:13:52.305 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/medical/filter?categoryId=1&brandId=&machineTypeId=&searchTerm=&page=1 - 200 null text/html; charset=utf-8 389.1169ms
+2026-04-25 00:13:52.306 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.MedicalController.FilterProducts (Cw.Branding.Web)'
+2026-04-25 00:13:52.306 +07:00 [INF] Route matched with {action = "FilterProducts", controller = "Medical", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FilterProducts(System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.Nullable`1[System.Int32], System.String, Int32) on controller Cw.Branding.Web.Controllers.MedicalController (Cw.Branding.Web).
+2026-04-25 00:13:52.308 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+WHERE [p].[IsActive] = CAST(1 AS bit) AND [p].[CategoryId] = @__categoryId_Value_0
+2026-04-25 00:13:52.311 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__categoryId_Value_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32), @__p_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BrandId], [t].[BrandId1], [t].[CategoryId], [t].[Code], [t].[CreatedAt], [t].[DatasheetPath], [t].[DescriptionEn], [t].[DescriptionVi], [t].[DisplayOrder], [t].[IsActive], [t].[IsFeatured], [t].[MachineTypeId], [t].[MachineTypeId1], [t].[NameEn], [t].[NameVi], [t].[ShortDescriptionEn], [t].[ShortDescriptionVi], [t].[SlugEn], [t].[SlugVi], [t].[TechnicalSpecsEn], [t].[TechnicalSpecsVi], [t].[UpdatedAt], [b].[Id], [c].[Id], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM (
+    SELECT [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+    FROM [Product] AS [p]
+    WHERE [p].[IsActive] = CAST(1 AS bit) AND [p].[CategoryId] = @__categoryId_Value_0
+    ORDER BY [p].[Id] DESC
+    OFFSET @__p_1 ROWS FETCH NEXT @__p_2 ROWS ONLY
+) AS [t]
+LEFT JOIN [Brand] AS [b] ON [t].[BrandId] = [b].[Id]
+INNER JOIN [Category] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [t].[Id] = [p0].[ProductId]
+ORDER BY [t].[Id] DESC, [b].[Id], [c].[Id]
+2026-04-25 00:13:52.313 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[CreatedAt], [b].[DisplayOrder], [b].[IsActive], [b].[LogoPath], [b].[Name], [b].[Slug]
+FROM [Brand] AS [b]
+WHERE [b].[IsActive] = CAST(1 AS bit)
+ORDER BY [b].[Name]
+2026-04-25 00:13:52.315 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[DisplayOrder], [m].[IsActive], [m].[NameEn], [m].[NameVi], [m].[SlugEn], [m].[SlugVi]
+FROM [MachineType] AS [m]
+WHERE [m].[IsActive] = CAST(1 AS bit)
+ORDER BY [m].[NameEn]
+2026-04-25 00:13:52.315 +07:00 [INF] Executing PartialViewResult, running view _ProductListPartial.
+2026-04-25 00:13:52.317 +07:00 [INF] Executed PartialViewResult - view _ProductListPartial executed in 1.6122ms.
+2026-04-25 00:13:52.317 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.MedicalController.FilterProducts (Cw.Branding.Web) in 11.2347ms
+2026-04-25 00:13:52.317 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.MedicalController.FilterProducts (Cw.Branding.Web)'
+2026-04-25 00:13:52.319 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:13:52.319 +07:00 [INF] HTTP GET /en/medical/filter responded 200 in 14.7723 ms
+2026-04-25 00:13:52.319 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/medical/filter?categoryId=1&brandId=&machineTypeId=&searchTerm=&page=1 - 200 null text/html; charset=utf-8 15.3544ms
+2026-04-25 00:13:57.687 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-25 00:13:57.689 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.9883 ms
+2026-04-25 00:13:57.689 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 2.1735ms
+2026-04-25 00:13:57.689 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-25 00:14:00.523 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/en/medical/product/urology-model-10 - null null
+2026-04-25 00:14:00.529 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Controllers.MedicalController.Detail (Cw.Branding.Web)'
+2026-04-25 00:14:00.536 +07:00 [INF] Route matched with {action = "Detail", controller = "Medical", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Detail(System.String, System.String) on controller Cw.Branding.Web.Controllers.MedicalController (Cw.Branding.Web).
+2026-04-25 00:14:00.579 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__slug_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BrandId], [t].[BrandId1], [t].[CategoryId], [t].[Code], [t].[CreatedAt], [t].[DatasheetPath], [t].[DescriptionEn], [t].[DescriptionVi], [t].[DisplayOrder], [t].[IsActive], [t].[IsFeatured], [t].[MachineTypeId], [t].[MachineTypeId1], [t].[NameEn], [t].[NameVi], [t].[ShortDescriptionEn], [t].[ShortDescriptionVi], [t].[SlugEn], [t].[SlugVi], [t].[TechnicalSpecsEn], [t].[TechnicalSpecsVi], [t].[UpdatedAt], [t].[Id0], [t].[Code0], [t].[CreatedAt0], [t].[DisplayOrder0], [t].[IconPath], [t].[IsActive0], [t].[NameEn0], [t].[NameVi0], [t].[SlugEn0], [t].[SlugVi0], [t].[UpdatedAt0], [t].[Id1], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId], [t].[CreatedAt1], [t].[DisplayOrder1], [t].[IsActive1], [t].[LogoPath], [t].[Name], [t].[Slug]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt], [c].[Id] AS [Id0], [c].[Code] AS [Code0], [c].[CreatedAt] AS [CreatedAt0], [c].[DisplayOrder] AS [DisplayOrder0], [c].[IconPath], [c].[IsActive] AS [IsActive0], [c].[NameEn] AS [NameEn0], [c].[NameVi] AS [NameVi0], [c].[SlugEn] AS [SlugEn0], [c].[SlugVi] AS [SlugVi0], [c].[UpdatedAt] AS [UpdatedAt0], [b].[Id] AS [Id1], [b].[CreatedAt] AS [CreatedAt1], [b].[DisplayOrder] AS [DisplayOrder1], [b].[IsActive] AS [IsActive1], [b].[LogoPath], [b].[Name], [b].[Slug]
+    FROM [Product] AS [p]
+    INNER JOIN [Category] AS [c] ON [p].[CategoryId] = [c].[Id]
+    LEFT JOIN [Brand] AS [b] ON [p].[BrandId] = [b].[Id]
+    WHERE ([p].[SlugEn] = @__slug_0 OR [p].[SlugVi] = @__slug_0) AND [p].[IsActive] = CAST(1 AS bit)
+) AS [t]
+LEFT JOIN [ProductImage] AS [p0] ON [t].[Id] = [p0].[ProductId]
+ORDER BY [t].[Id], [t].[Id0], [t].[Id1]
+2026-04-25 00:14:00.603 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__p_2='?' (DbType = Int32), @__product_CategoryId_0='?' (DbType = Int32), @__product_Id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[BrandId], [t].[BrandId1], [t].[CategoryId], [t].[Code], [t].[CreatedAt], [t].[DatasheetPath], [t].[DescriptionEn], [t].[DescriptionVi], [t].[DisplayOrder], [t].[IsActive], [t].[IsFeatured], [t].[MachineTypeId], [t].[MachineTypeId1], [t].[NameEn], [t].[NameVi], [t].[ShortDescriptionEn], [t].[ShortDescriptionVi], [t].[SlugEn], [t].[SlugVi], [t].[TechnicalSpecsEn], [t].[TechnicalSpecsVi], [t].[UpdatedAt], [c].[Id], [p0].[Id], [p0].[AltEn], [p0].[AltVi], [p0].[DisplayOrder], [p0].[FilePath], [p0].[IsMain], [p0].[ProductId], [c].[Code], [c].[CreatedAt], [c].[DisplayOrder], [c].[IconPath], [c].[IsActive], [c].[NameEn], [c].[NameVi], [c].[SlugEn], [c].[SlugVi], [c].[UpdatedAt]
+FROM (
+    SELECT TOP(@__p_2) [p].[Id], [p].[BrandId], [p].[BrandId1], [p].[CategoryId], [p].[Code], [p].[CreatedAt], [p].[DatasheetPath], [p].[DescriptionEn], [p].[DescriptionVi], [p].[DisplayOrder], [p].[IsActive], [p].[IsFeatured], [p].[MachineTypeId], [p].[MachineTypeId1], [p].[NameEn], [p].[NameVi], [p].[ShortDescriptionEn], [p].[ShortDescriptionVi], [p].[SlugEn], [p].[SlugVi], [p].[TechnicalSpecsEn], [p].[TechnicalSpecsVi], [p].[UpdatedAt]
+    FROM [Product] AS [p]
+    WHERE [p].[CategoryId] = @__product_CategoryId_0 AND [p].[Id] <> @__product_Id_1 AND [p].[IsActive] = CAST(1 AS bit)
+    ORDER BY [p].[DisplayOrder]
+) AS [t]
+INNER JOIN [Category] AS [c] ON [t].[CategoryId] = [c].[Id]
+LEFT JOIN [ProductImage] AS [p0] ON [t].[Id] = [p0].[ProductId]
+ORDER BY [t].[DisplayOrder], [t].[Id], [c].[Id]
+2026-04-25 00:14:00.607 +07:00 [INF] Executing ViewResult, running view Detail.
+2026-04-25 00:14:00.620 +07:00 [INF] Executed ViewResult - view Detail executed in 14.6637ms.
+2026-04-25 00:14:00.620 +07:00 [INF] Executed action Cw.Branding.Web.Controllers.MedicalController.Detail (Cw.Branding.Web) in 83.7533ms
+2026-04-25 00:14:00.620 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Controllers.MedicalController.Detail (Cw.Branding.Web)'
+2026-04-25 00:14:00.627 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 500), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VisitorLogs] ([IpAddress], [PageUrl], [UserAgent], [ViewedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2026-04-25 00:14:00.627 +07:00 [INF] HTTP GET /en/medical/product/urology-model-10 responded 200 in 99.0466 ms
+2026-04-25 00:14:00.628 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/en/medical/product/urology-model-10 - 200 null text/html; charset=utf-8 104.3117ms
+2026-04-25 00:14:00.677 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-25 00:14:00.677 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.4341 ms
+2026-04-25 00:14:00.678 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 1.7367ms
+2026-04-25 00:14:00.678 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-25 00:14:00.693 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:14:00.694 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:14:00.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.9898ms
+2026-04-25 00:14:00.733 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.6244ms
+2026-04-25 00:14:04.166 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - null null
+2026-04-25 00:14:04.167 +07:00 [INF] HTTP GET /uploads/products/default.jpg responded 404 in 0.4105 ms
+2026-04-25 00:14:04.167 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/uploads/products/default.jpg - 404 null null 1.1185ms
+2026-04-25 00:14:04.167 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:44338/uploads/products/default.jpg, Response status code: 404
+2026-04-25 00:14:06.884 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:14:06.886 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 1.517ms
+2026-04-25 00:14:14.242 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/vi/admin - null null
+2026-04-25 00:14:14.246 +07:00 [INF] Executing endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:14:14.246 +07:00 [INF] Route matched with {area = "Admin", action = "Index", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Cw.Branding.Web.Areas.Admin.Controllers.DashboardController (Cw.Branding.Web).
+2026-04-25 00:14:14.249 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__today_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__today_0
+2026-04-25 00:14:14.254 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__firstDayOfMonth_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE [v].[ViewedAt] >= @__firstDayOfMonth_0
+2026-04-25 00:14:14.257 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ContactFormEntry] AS [c]
+WHERE [c].[ProcessingStatus] = 0
+2026-04-25 00:14:14.259 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Product] AS [p]
+2026-04-25 00:14:14.260 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.261 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.262 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.263 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.264 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.265 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.266 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [VisitorLogs] AS [v]
+WHERE CONVERT(date, [v].[ViewedAt]) = @__date_0
+2026-04-25 00:14:14.274 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) COALESCE([v].[PageUrl], N'/') AS [PageUrl], COUNT(*) AS [ViewCount]
+FROM [VisitorLogs] AS [v]
+GROUP BY [v].[PageUrl]
+ORDER BY COUNT(*) DESC
+2026-04-25 00:14:14.277 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(@__p_0) [c].[Id], [c].[AdminNotes], [c].[Company], [c].[CreatedAt], [c].[Email], [c].[IsRead], [c].[Message], [c].[Name], [c].[Phone], [c].[ProcessingStatus], [c].[ReadAt], [c].[ReadByAdminId], [c].[Region], [c].[SelectedProduct], [c].[SourceUrl]
+FROM [ContactFormEntry] AS [c]
+ORDER BY [c].[CreatedAt] DESC
+2026-04-25 00:14:14.277 +07:00 [INF] Executing ViewResult, running view Index.
+2026-04-25 00:14:14.279 +07:00 [INF] Executed ViewResult - view Index executed in 1.4752ms.
+2026-04-25 00:14:14.279 +07:00 [INF] Executed action Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web) in 33.1574ms
+2026-04-25 00:14:14.279 +07:00 [INF] Executed endpoint 'Cw.Branding.Web.Areas.Admin.Controllers.DashboardController.Index (Cw.Branding.Web)'
+2026-04-25 00:14:14.279 +07:00 [INF] HTTP GET /vi/admin responded 200 in 34.0532 ms
+2026-04-25 00:14:14.280 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/vi/admin - 200 null text/html; charset=utf-8 37.3033ms
+2026-04-25 00:14:14.329 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_vs/browserLink - null null
+2026-04-25 00:14:14.329 +07:00 [INF] Request starting HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-25 00:14:14.329 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 0.7711ms
+2026-04-25 00:14:14.351 +07:00 [INF] Request finished HTTP/2 GET https://localhost:44338/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.2552ms

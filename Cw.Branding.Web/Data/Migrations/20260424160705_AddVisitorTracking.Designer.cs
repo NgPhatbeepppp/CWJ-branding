@@ -4,6 +4,7 @@ using Cw.Branding.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cw.Branding.Web.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260424160705_AddVisitorTracking")]
+    partial class AddVisitorTracking
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,7 +111,7 @@ namespace Cw.Branding.Web.Data.Migrations
                             Email = "admin@charleswembley.com",
                             FullName = "System Admin",
                             IsActive = true,
-                            PasswordHash = "AQAAAAIAAYagAAAAEBlX/pSVUStEn3gywqeVvTjUQmqpTDNOMdWad+zUA0xMaLvmy46+/3BlJ5u8kOCwPQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELHlLBr9mzdfoCE6I3JfGCOi0vTwtYteRegJ9D+iQPKvRCo2BrlksZgSnGmnANCQSA==",
                             Region = 2,
                             RoleId = 1,
                             Username = "admin"
@@ -214,8 +217,7 @@ namespace Cw.Branding.Web.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Company")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -233,8 +235,7 @@ namespace Cw.Branding.Web.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
@@ -252,9 +253,6 @@ namespace Cw.Branding.Web.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SelectedProduct")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SourceUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

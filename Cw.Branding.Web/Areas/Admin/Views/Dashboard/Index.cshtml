@@ -1,14 +1,203 @@
-﻿@{
-    ViewData["Title"] = "Dashboard";
-    
-    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+﻿@model Cw.Branding.Web.Areas.Admin.Models.AdminDashboardViewModel
+@using Cw.Branding.Web.Models.Enums
+@{
+    ViewData["Title"] = "Bảng điều khiển";
+    Layout = "_AdminLayout";
+    // Lấy ngôn ngữ hiện tại từ Route để giữ đồng bộ link
+    var currentLang = ViewContext.RouteData.Values["lang"] ?? "vi";
 }
 
-<div class="p-6">
-    <h1 class="text-3xl font-heading text-brand-primary font-bold">
-        Dashboard Overview
-    </h1>
-    <p class="mt-4 text-slate-600 font-body">
-        Nếu dòng này hiển thị font Roboto và màu xám, CSS đã hoạt động!
-    </p>
+<div class="p-6 space-y-6 bg-slate-50 min-h-screen font-body">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+            <h1 class="text-2xl font-heading font-bold text-slate-800 uppercase tracking-tight">Tổng quan hệ thống</h1>
+            <p class="text-slate-500 text-sm italic">Dữ liệu thống kê thời gian thực cho Charles Wembley.</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+            <a href="/@currentLang/Admin/Product/Create" class="inline-flex items-center px-4 py-2 bg-brand-primary text-white rounded-md hover:bg-blue-800 transition-all text-sm font-medium shadow-sm">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                Đăng máy mới
+            </a>
+            <a href="/@currentLang/Admin/Contact/Export" class="inline-flex items-center px-4 py-2 bg-white border border-slate-200 text-slate-700 rounded-md hover:bg-slate-50 transition-all text-sm font-medium shadow-sm">
+                <svg class="w-4 h-4 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                Xuất file Leads
+            </a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-lg border-l-4 border-brand-primary shadow-card flex items-center space-x-4">
+            <div class="p-3 bg-blue-50 text-brand-primary rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            </div>
+            <div>
+                <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Hôm nay</p>
+                <h3 class="text-2xl font-bold text-slate-800">@Model.TodayTraffic</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg border-l-4 border-green-500 shadow-card flex items-center space-x-4">
+            <div class="p-3 bg-green-50 text-green-600 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            </div>
+            <div>
+                <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Trong tháng</p>
+                <h3 class="text-2xl font-bold text-slate-800">@Model.MonthTraffic</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg border-l-4 border-brand-accent shadow-card flex items-center space-x-4">
+            <div class="p-3 bg-yellow-50 text-brand-accent rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <div>
+                <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Leads mới</p>
+                <h3 class="text-2xl font-bold text-slate-800">@Model.NewLeadsCount</h3>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg border-l-4 border-purple-500 shadow-card flex items-center space-x-4">
+            <div class="p-3 bg-purple-50 text-purple-600 rounded-full">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            </div>
+            <div>
+                <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Sản phẩm</p>
+                <h3 class="text-2xl font-bold text-slate-800">@Model.TotalProducts</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-card border border-slate-100">
+            <h3 class="text-lg font-heading font-bold text-slate-800 mb-6">Lượt xem 7 ngày qua</h3>
+            <div class="h-[280px]">
+                <canvas id="trafficChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-card border border-slate-100">
+            <h3 class="text-lg font-heading font-bold text-slate-800 mb-6">Top 5 trang tiêu biểu</h3>
+            <div class="h-[280px]">
+                <canvas id="pagesChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-card border border-slate-100 overflow-hidden">
+        <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
+            <h3 class="text-lg font-heading font-bold text-slate-800">5 Liên hệ gần nhất</h3>
+            <a href="/@currentLang/Admin/Contact" class="text-brand-primary text-xs font-bold hover:underline">Xem tất cả →</a>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead class="bg-slate-50 border-b border-slate-100 text-slate-500 text-[10px] uppercase font-bold">
+                    <tr>
+                        <th class="px-6 py-4">Khách hàng</th>
+                        <th class="px-6 py-4">Khu vực</th>
+                        <th class="px-6 py-4 text-right">Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-sm">
+                    @foreach (var lead in Model.LatestLeads)
+                    {
+                        <tr class="hover:bg-slate-50 transition-colors cursor-pointer group"
+                            onclick="location.href='/@currentLang/Admin/Contact/Details?id=@lead.Id'">
+                            <td class="px-6 py-4">
+                                <div class="font-bold text-slate-800 group-hover:text-brand-primary transition-colors">@lead.Name</div>
+                                <div class="text-[11px] text-slate-400">@lead.Email</div>
+                            </td>
+                            <td class="px-6 py-4 text-xs">@lead.Region</td>
+                            <td class="px-6 py-4 text-right">
+                                @switch (lead.ProcessingStatus)
+                                {
+                                    case ContactStatus.New:
+                                        <span class="px-2 py-1 bg-red-50 text-red-600 rounded text-[10px] font-bold uppercase">Mới</span>
+                                        break;
+                                    case ContactStatus.InProcess:
+                                        <span class="px-2 py-1 bg-blue-50 text-blue-600 rounded text-[10px] font-bold uppercase">Đang xử lý</span>
+                                        break;
+                                    case ContactStatus.Completed:
+                                        <span class="px-2 py-1 bg-green-50 text-green-600 rounded text-[10px] font-bold uppercase">Hoàn tất</span>
+                                        break;
+                                    case ContactStatus.Rejected:
+                                        <span class="px-2 py-1 bg-slate-100 text-slate-500 rounded text-[10px] font-bold uppercase">Hủy/Spam</span>
+                                        break;
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Truyền dữ liệu từ Model sang Javascript
+        const trafficLabels = @Html.Raw(Json.Serialize(Model.ChartLabels));
+        const trafficData = @Html.Raw(Json.Serialize(Model.ChartData));
+        const pageLabels = @Html.Raw(Json.Serialize(Model.TopPages.Select(x => x.PageUrl)));
+        const pageData = @Html.Raw(Json.Serialize(Model.TopPages.Select(x => x.ViewCount)));
+
+        Chart.defaults.font.family = "'Montserrat', sans-serif";
+        Chart.defaults.color = '#94a3b8';
+
+        // Biểu đồ Line - Traffic Trend
+        const ctxT = document.getElementById('trafficChart').getContext('2d');
+        const gradient = ctxT.createLinearGradient(0, 0, 0, 300);
+        gradient.addColorStop(0, 'rgba(0, 79, 159, 0.1)');
+        gradient.addColorStop(1, 'rgba(0, 79, 159, 0)');
+
+        new Chart(ctxT, {
+            type: 'line',
+            data: {
+                labels: trafficLabels,
+                datasets: [{
+                    data: trafficData,
+                    borderColor: '#004F9F',
+                    borderWidth: 2,
+                    backgroundColor: gradient,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 3,
+                    pointBackgroundColor: '#004F9F'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { stepSize: 1 } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Biểu đồ Bar - Top Pages
+        new Chart(document.getElementById('pagesChart'), {
+            type: 'bar',
+            data: {
+                labels: pageLabels,
+                datasets: [{
+                    data: pageData,
+                    backgroundColor: '#FDB913',
+                    borderRadius: 4,
+                    barThickness: 18
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+}

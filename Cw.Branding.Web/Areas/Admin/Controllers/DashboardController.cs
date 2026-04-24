@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Cw.Branding.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cw.Branding.Web.Areas.Admin.Controllers;
@@ -6,8 +7,16 @@ namespace Cw.Branding.Web.Areas.Admin.Controllers;
 
 public class DashboardController : BaseAdminController
 {
-    public IActionResult Index()
+    private readonly IDashboardService _dashboardService;
+
+    public DashboardController(IDashboardService dashboardService)
     {
-        return View();
+        _dashboardService = dashboardService;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var data = await _dashboardService.GetDashboardStatsAsync();
+        return View(data);
     }
 }
