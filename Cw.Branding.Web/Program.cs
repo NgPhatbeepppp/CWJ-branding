@@ -88,13 +88,29 @@ builder.Services.AddScoped<IMachineTypeService, MachineTypeService>();
 builder.Services.AddScoped<IProductImportService, ProductImportService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
 
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Admin/Auth/Login";
-        options.AccessDeniedPath = "/Admin/Auth/AccessDenied";
-        options.ExpireTimeSpan = TimeSpan.FromHours(8);
-    }); 
+        // Đường dẫn mặc định (fallback)
+        options.LoginPath = "/vi/Admin/Auth/Login";
+
+        options.Events.OnRedirectToLogin = context =>
+        {
+            // 1. Lấy giá trị culture từ RouteData hiện tại
+            var culture = context.HttpContext.Request.RouteValues["culture"]?.ToString() ?? "vi";
+
+            // 2. Xây dựng lại đường dẫn login có chứa tiền tố ngôn ngữ
+            // Lưu ý: Đảm bảo route của bạn cho trang Admin Login là: /{culture}/Admin/Auth/Login
+            var newLoginPath = $"/{culture}/Admin/Auth/Login";
+
+            // 3. Chèn ReturnUrl để sau khi login xong quay lại đúng trang cũ
+            var redirectUrl = $"{newLoginPath}?ReturnUrl={Uri.EscapeDataString(context.Request.Path + context.Request.QueryString)}";
+
+            context.Response.Redirect(redirectUrl);
+            return Task.CompletedTask;
+        };
+    });
 
 var app = builder.Build();
 

@@ -3,7 +3,7 @@ using Cw.Branding.Web.Data;
 using Cw.Branding.Web.Models.Entities;
 using Cw.Branding.Web.Models.Import;
 using Cw.Branding.Web.Services.Interfaces;
-using Cw.Branding.Web.Helpers; 
+using Cw.Branding.Web.Helpers;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cw.Branding.Web.Services
@@ -21,7 +21,7 @@ namespace Cw.Branding.Web.Services
         {
             var result = new ProductImportResult();
 
-            // 1. Pre-fetch master data để tối ưu hiệu năng
+            // Pre-fetch dữ liệu để so khớp nhanh
             var categories = await _context.Categories.ToDictionaryAsync(x => x.NameVi.Trim().ToLower(), x => x.Id);
             var brands = await _context.Brands.ToDictionaryAsync(x => x.Name.Trim().ToLower(), x => x.Id);
             var machineTypes = await _context.MachineTypes.ToDictionaryAsync(x => x.NameVi.Trim().ToLower(), x => x.Id);
@@ -29,49 +29,43 @@ namespace Cw.Branding.Web.Services
 
             using var workbook = new XLWorkbook(fileStream);
             var worksheet = workbook.Worksheet(1);
-            var rows = worksheet.RowsUsed().Skip(1);
+            var rows = worksheet.RowsUsed().Skip(1); // Bỏ qua header
 
             foreach (var row in rows)
             {
-                var item = new ProductImportRow
-                {
-                    RowIndex = row.RowNumber(),
-                    Code = row.Cell(1).GetValue<string>().Trim(),
-                    NameVi = row.Cell(2).GetValue<string>().Trim(),
-                    NameEn = row.Cell(3).GetValue<string>().Trim(),
-                    CategoryName = row.Cell(4).GetValue<string>().Trim(),
-                    BrandName = row.Cell(5).GetValue<string>().Trim(),
-                    MachineTypeName = row.Cell(6).GetValue<string>().Trim(),
-                    ShortDescriptionVi = row.Cell(7).GetValue<string>(),
-                    ShortDescriptionEn = row.Cell(8).GetValue<string>(),
-                    DescriptionVi = row.Cell(9).GetValue<string>(),
-                    DescriptionEn = row.Cell(10).GetValue<string>(),
-                    TechnicalSpecsVi = row.Cell(11).GetValue<string>(),
-                    TechnicalSpecsEn = row.Cell(12).GetValue<string>(),
-                    IsFeaturedStr = row.Cell(13).GetValue<string>().Trim(),
-                    DisplayOrder = row.Cell(14).GetValue<int>()
-                };
+                var item = MapRowToModel(row);
 
-                // Validate dữ liệu bắt buộc
-                if (string.IsNullOrEmpty(item.Code)) item.Errors.Add("Mã SP không được trống.");
-                if (string.IsNullOrEmpty(item.NameVi)) item.Errors.Add("Tên (VI) không được trống.");
-
-                // Xác định New/Update
-                item.IsUpdate = existingCodes.Contains(item.Code.ToLower());
-
-                // Lookup Category (Bắt buộc)
+                // 1. Strict Validation cho Category (Theo UXD-02)[cite: 3]
                 if (categories.TryGetValue(item.CategoryName.ToLower(), out int catId))
                     item.CategoryId = catId;
                 else
-                    item.Errors.Add($"Danh mục '{item.CategoryName}' không tồn tại.");
+                    item.Errors.Add($"Danh mục '{item.CategoryName}' không tồn tại. Vui lòng tạo danh mục trước.");
 
-                // Lookup Brand & MachineType (Không bắt buộc)
-                if (!string.IsNullOrEmpty(item.BrandName) && brands.TryGetValue(item.BrandName.ToLower(), out int bId)) item.BrandId = bId;
-                if (!string.IsNullOrEmpty(item.MachineTypeName) && machineTypes.TryGetValue(item.MachineTypeName.ToLower(), out int mId)) item.MachineTypeId = mId;
+                // 2. Auto-create detection cho Brand[cite: 1]
+                if (!string.IsNullOrEmpty(item.BrandName))
+                {
+                    if (brands.TryGetValue(item.BrandName.ToLower(), out int bId))
+                        item.BrandId = bId;
+                    else
+                    {
+                        item.IsNewBrand = true;
+                        item.Warnings.Add($"Hãng '{item.BrandName}' sẽ được tạo mới.");
+                    }
+                }
 
-                // Parse IsFeatured
-                item.IsFeatured = item.IsFeaturedStr.Equals("Yes", StringComparison.OrdinalIgnoreCase) || item.IsFeaturedStr == "1";
+                // 3. Auto-create detection cho MachineType[cite: 1]
+                if (!string.IsNullOrEmpty(item.MachineTypeName))
+                {
+                    if (machineTypes.TryGetValue(item.MachineTypeName.ToLower(), out int mId))
+                        item.MachineTypeId = mId;
+                    else
+                    {
+                        item.IsNewMachineType = true;
+                        item.Warnings.Add($"Loại máy '{item.MachineTypeName}' sẽ được tạo mới.");
+                    }
+                }
 
+                item.IsUpdate = existingCodes.Contains(item.Code.ToLower());
                 result.Rows.Add(item);
             }
             return result;
@@ -82,6 +76,44 @@ namespace Cw.Branding.Web.Services
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
+                // Bước 1: Xử lý tạo mới Brand/MachineType để lấy ID gán vào Product
+                // Thay thế đoạn xử lý Bước 1 trong phương thức CommitImportAsync
+                // Bước 1: Xử lý tạo mới Brand/MachineType trước để lấy ID
+                foreach (var row in validRows)
+                {
+                    if (row.IsNewBrand && !string.IsNullOrEmpty(row.BrandName))
+                    {
+                        var newBrand = await _context.Brands.FirstOrDefaultAsync(b => b.Name.ToLower() == row.BrandName.ToLower());
+                        if (newBrand == null)
+                        {
+                            newBrand = new Brand { Name = row.BrandName, CreatedAt = DateTime.UtcNow };
+                            _context.Brands.Add(newBrand);
+                            await _context.SaveChangesAsync(); // Lưu để lấy ID ngay
+                        }
+                        row.BrandId = newBrand.Id;
+                    }
+
+                    if (row.IsNewMachineType && !string.IsNullOrEmpty(row.MachineTypeName))
+                    {
+                        var newMt = await _context.MachineTypes.FirstOrDefaultAsync(m => m.NameVi.ToLower() == row.MachineTypeName.ToLower());
+                        if (newMt == null)
+                        {
+                            newMt = new MachineType
+                            {
+                                NameVi = row.MachineTypeName,
+                                NameEn = row.MachineTypeName, 
+                                SlugVi = SlugHelper.GenerateSlug(row.NameVi), // SEO cho Việt
+                                SlugEn = SlugHelper.GenerateSlug(row.NameEn), // SEO cho Anh
+                                IsActive = true
+                            };
+                            _context.MachineTypes.Add(newMt);
+                            await _context.SaveChangesAsync();
+                        }
+                        row.MachineTypeId = newMt.Id;
+                    }
+                }
+
+                // Bước 2: Nhập sản phẩm (Update/Create) bám sát DB Schema
                 foreach (var row in validRows)
                 {
                     if (row.IsUpdate)
@@ -96,7 +128,7 @@ namespace Cw.Branding.Web.Services
                     }
                     else
                     {
-                        var newProduct = new Product { CreatedAt = DateTime.UtcNow, IsActive = true };
+                        var newProduct = new Product { CreatedAt = DateTime.UtcNow, UpdatedAt = DateTime.UtcNow, IsActive = true };
                         MapData(row, newProduct);
                         _context.Products.Add(newProduct);
                     }
@@ -104,12 +136,13 @@ namespace Cw.Branding.Web.Services
 
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
-                return (true, $"Thành công: Đã nhập {validRows.Count} sản phẩm.");
+
+                return (true, $"Thành công: Đã xử lý {validRows.Count} sản phẩm.");
             }
             catch (Exception ex)
             {
                 await transaction.RollbackAsync();
-                return (false, $"Lỗi: {ex.Message}");
+                return (false, $"Lỗi hệ thống: {ex.Message}");
             }
         }
 
@@ -119,7 +152,7 @@ namespace Cw.Branding.Web.Services
             target.NameVi = source.NameVi;
             target.NameEn = source.NameEn;
 
-            // Đã đổi thành GenerateSlug để khớp với Helper của anh
+            // Generate Slug chuẩn SEO (UXD-02)
             target.SlugVi = SlugHelper.GenerateSlug(source.NameVi);
             target.SlugEn = SlugHelper.GenerateSlug(source.NameEn);
 
@@ -134,6 +167,31 @@ namespace Cw.Branding.Web.Services
             target.TechnicalSpecsEn = source.TechnicalSpecsEn;
             target.IsFeatured = source.IsFeatured;
             target.DisplayOrder = source.DisplayOrder;
+        }
+
+        private ProductImportRow MapRowToModel(IXLRow row)
+        {
+            var isFeaturedStr = row.Cell(13).GetValue<string>()?.Trim().ToLower();
+            return new ProductImportRow
+            {
+                RowIndex = row.RowNumber(),
+                Code = row.Cell(1).GetValue<string>().Trim(),
+                NameVi = row.Cell(2).GetValue<string>().Trim(),
+                NameEn = row.Cell(3).GetValue<string>().Trim(),
+                CategoryName = row.Cell(4).GetValue<string>().Trim(),
+                BrandName = row.Cell(5).GetValue<string>()?.Trim(),
+                MachineTypeName = row.Cell(6).GetValue<string>()?.Trim(),
+                ShortDescriptionVi = row.Cell(7).GetValue<string>(),
+                ShortDescriptionEn = row.Cell(8).GetValue<string>(),
+                DescriptionVi = row.Cell(9).GetValue<string>(),
+                DescriptionEn = row.Cell(10).GetValue<string>(),
+                TechnicalSpecsVi = row.Cell(11).GetValue<string>(),
+                TechnicalSpecsEn = row.Cell(12).GetValue<string>(),
+                IsFeaturedStr = isFeaturedStr ?? "no",
+                // Parse logic: chấp nhận "yes", "1", "true"[cite: 1]
+                IsFeatured = isFeaturedStr == "yes" || isFeaturedStr == "1" || isFeaturedStr == "true",
+                DisplayOrder = row.Cell(14).GetValue<int>()
+            };
         }
     }
 }

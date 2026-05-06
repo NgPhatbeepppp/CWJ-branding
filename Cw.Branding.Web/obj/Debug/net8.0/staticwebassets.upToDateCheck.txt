@@ -99,7 +99,7 @@ wwwroot\lib\jquery\LICENSE.txt
 wwwroot\templates\Product_Import_Template.xlsx
 wwwroot\uploads\brands\3d03896f-abdd-43e4-9349-7a617ea4dd8f.png
 wwwroot\uploads\brands\884017c8-33de-432d-8d06-93a16276d2ba.png
-wwwroot\uploads\hero\8c0cff93-c303-4891-a82e-baa187e12eed.jpg
+wwwroot\uploads\hero\d8eb2b87-1aa9-4525-9655-a6097f7fba55.jpg
 wwwroot\uploads\news-content\52ccbb6f-8246-43c3-b936-cc375ff69103_639051205090669733.jpg
 wwwroot\uploads\news-content\5a09d552-b1b2-43cc-bb15-b467d8766259_639051197979057088.jpg
 wwwroot\uploads\news-content\72ed2522-3982-4369-bea1-c034fa064908_639051205659077562.jpg

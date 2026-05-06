@@ -3,59 +3,109 @@
 @{
     ViewData["Title"] = "Xác nhận dữ liệu Import";
     Layout = "_AdminLayout";
+    var currentLang = ViewContext.RouteData.Values["lang"] ?? "vi";
+
+    // Kiểm tra xem có Master Data nào mới không để hiện cảnh báo tổng quát
+    var hasNewMasterData = Model.Rows.Any(r => r.IsNewBrand || r.IsNewMachineType);
+    var newBrandsCount = Model.Rows.Where(r => r.IsNewBrand).Select(r => r.BrandName).Distinct().Count();
+    var newMtCount = Model.Rows.Where(r => r.IsNewMachineType).Select(r => r.MachineTypeName).Distinct().Count();
 }
 
 <div class="p-6 max-w-7xl mx-auto">
-    <div class="flex justify-between items-end mb-6">
+    @* 1. Header & Stats - Bám sát UI Kit *@
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-6">
         <div>
-            <h1 class="text-3xl font-bold text-blue-900 text-uppercase">Review & Confirm</h1>
-            <p class="text-gray-600">Kiểm tra kỹ thông tin trước khi ghi vào Database.</p>
+            <h1 class="text-3xl font-heading font-bold text-slate-900 uppercase">Review & Confirm</h1>
+            <p class="text-slate-600 font-body">Kiểm tra kỹ thông tin. Các dòng màu <span class="text-blue-600 font-bold">Xanh</span> là thêm mới, màu <span class="text-orange-600 font-bold">Cam</span> là cập nhật.</p>
         </div>
 
-        <div class="flex gap-4">
-            <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg border border-blue-200">
-                <span class="block text-xs uppercase font-semibold">Thêm mới</span>
-                <span class="text-xl font-bold">@Model.NewItems</span>
+        <div class="flex flex-wrap gap-3">
+            <div class="bg-blue-50 border border-blue-200 px-4 py-2 rounded-lg">
+                <span class="block text-[10px] uppercase font-bold text-blue-600">Sản phẩm mới</span>
+                <span class="text-xl font-bold text-blue-900">@Model.Rows.Count(r => !r.IsUpdate)</span>
             </div>
-            <div class="bg-orange-100 text-orange-800 px-4 py-2 rounded-lg border border-orange-200">
-                <span class="block text-xs uppercase font-semibold">Cập nhật</span>
-                <span class="text-xl font-bold">@Model.UpdatedItems</span>
+            <div class="bg-orange-50 border border-orange-200 px-4 py-2 rounded-lg">
+                <span class="block text-[10px] uppercase font-bold text-orange-600">Cập nhật SP</span>
+                <span class="text-xl font-bold text-orange-900">@Model.Rows.Count(r => r.IsUpdate)</span>
             </div>
+            @if (hasNewMasterData)
+            {
+                <div class="bg-yellow-50 border border-yellow-300 px-4 py-2 rounded-lg shadow-sm">
+                    <span class="block text-[10px] uppercase font-bold text-yellow-700">Master Data mới</span>
+                    <span class="text-xl font-bold text-yellow-900">@newBrandsCount Hãng | @newMtCount Loại</span>
+                </div>
+            }
         </div>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-        <div class="overflow-x-auto max-h-[600px]">
-            <table class="w-full text-sm text-left border-collapse">
-                <thead class="bg-gray-800 text-white sticky top-0">
+    @* 2. Warning Alert - Thông báo về Auto-create *@
+    @if (hasNewMasterData)
+    {
+        <div class="mb-6 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-xl animate-pulse">
+            <div class="flex">
+                <div class="flex-shrink-0 text-amber-400">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-bold text-amber-800 uppercase">Phát hiện dữ liệu mới</h3>
+                    <p class="text-sm text-amber-700">
+                        Hệ thống sẽ tự động tạo mới các <strong>Hãng sản xuất</strong> và <strong>Loại máy</strong> được đánh dấu <span class="bg-yellow-200 px-1 rounded">như thế này</span>. Vui lòng kiểm tra lại chính tả.
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+
+    @* 3. Data Table - Tối ưu cuộn và hiển thị *@
+    <div class="bg-white rounded-xl shadow-card border border-slate-200 overflow-hidden">
+        <div class="overflow-x-auto max-h-[550px]">
+            <table class="w-full text-sm text-left border-collapse font-body">
+                <thead class="bg-slate-800 text-white sticky top-0 z-10">
                     <tr>
-                        <th class="px-4 py-3">STT</th>
-                        <th class="px-4 py-3">Mã SP (SKU)</th>
-                        <th class="px-4 py-3">Tên sản phẩm (VI)</th>
-                        <th class="px-4 py-3">Danh mục</th>
-                        <th class="px-4 py-3">Hãng / Loại máy</th>
-                        <th class="px-4 py-3 text-center">Nổi bật</th>
+                        <th class="px-4 py-4 w-12 text-center">STT</th>
+                        <th class="px-4 py-4 w-32">Mã SKU</th>
+                        <th class="px-4 py-4">Tên sản phẩm (VI)</th>
+                        <th class="px-4 py-4">Danh mục</th>
+                        <th class="px-4 py-4">Hãng sản xuất</th>
+                        <th class="px-4 py-4">Loại máy móc</th>
+                        <th class="px-4 py-4 text-center">Nổi bật</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-100">
+                <tbody class="divide-y divide-slate-100">
                     @foreach (var row in Model.Rows)
                     {
-                        <tr class="@(row.IsUpdate ? "bg-orange-50/50" : "bg-blue-50/50") hover:bg-gray-100 transition">
-                            <td class="px-4 py-3 text-gray-500">@row.RowIndex</td>
-                            <td class="px-4 py-3 font-mono font-bold @(row.IsUpdate ? "text-orange-700" : "text-blue-700")">
+                        <tr class="@(row.IsUpdate ? "bg-orange-50/20" : "bg-blue-50/20") hover:bg-slate-100 transition-colors">
+                            <td class="px-4 py-3 text-center text-slate-400">@row.RowIndex</td>
+                            <td class="px-4 py-3 font-mono font-bold @(row.IsUpdate ? "text-orange-700" : "text-brand-primary")">
                                 @row.Code
                             </td>
-                            <td class="px-4 py-3 font-medium">@row.NameVi</td>
+                            <td class="px-4 py-3 font-medium text-slate-800">@row.NameVi</td>
                             <td class="px-4 py-3">
-                                <span class="px-2 py-1 bg-white border border-gray-200 rounded text-xs">@row.CategoryName</span>
+                                <span class="px-2 py-1 bg-white border border-slate-200 rounded text-[11px] text-slate-600">
+                                    @row.CategoryName
+                                </span>
                             </td>
-                            <td class="px-4 py-3 text-gray-600 italic">
-                                @row.BrandName / @row.MachineTypeName
+
+                            @* Highlight Brand mới *@
+                            <td class="px-4 py-3">
+                                <span class="@(row.IsNewBrand ? "bg-yellow-100 text-yellow-800 font-bold px-2 py-0.5 rounded border border-yellow-200" : "text-slate-600")">
+                                    @row.BrandName @(row.IsNewBrand ? " (Mới)" : "")
+                                </span>
                             </td>
+
+                            @* Highlight MachineType mới *@
+                            <td class="px-4 py-3">
+                                <span class="@(row.IsNewMachineType ? "bg-yellow-100 text-yellow-800 font-bold px-2 py-0.5 rounded border border-yellow-200" : "text-slate-600")">
+                                    @row.MachineTypeName @(row.IsNewMachineType ? " (Mới)" : "")
+                                </span>
+                            </td>
+
                             <td class="px-4 py-3 text-center">
                                 @if (row.IsFeatured)
                                 {
-                                    <span class="text-yellow-500">⭐</span>
+                                    <span class="text-lg" title="Sản phẩm nổi bật">⭐</span>
                                 }
                             </td>
                         </tr>
@@ -65,21 +115,40 @@
         </div>
     </div>
 
-    <div class="mt-8 flex items-center justify-between bg-gray-50 p-6 rounded-xl border border-gray-200">
-        <div class="text-sm text-gray-600">
-            Bấm <strong>Xác nhận</strong> để thực hiện thay đổi cho <span class="font-bold text-gray-900">@Model.TotalRows</span> sản phẩm.
+    @* 4. Action Bar - Nút Confirm bám sát UX Admin *@
+    <div class="mt-8 flex flex-col md:flex-row items-center justify-between bg-slate-50 p-6 rounded-xl border border-slate-200 gap-4">
+        <div class="text-sm text-slate-600">
+            Bạn đang chuẩn bị thực hiện thay đổi cho <span class="font-bold text-slate-900 text-lg">@Model.Rows.Count</span> sản phẩm.
+            <br /><span class="text-xs italic">* Dữ liệu Master Data mới sẽ được khởi tạo ngay khi bạn nhấn xác nhận.</span>
         </div>
-        <form asp-action="Confirm" method="post" class="flex gap-3">
+
+        <form asp-action="Confirm" asp-route-lang="@currentLang" method="post" class="flex gap-3 w-full md:w-auto">
             @Html.AntiForgeryToken()
+            @* Serialize danh sách Rows thành JSON để gửi về Controller xử lý một lần*@
             <input type="hidden" name="jsonData" value='@JsonConvert.SerializeObject(Model.Rows)' />
 
-            <a asp-action="Import" class="px-6 py-2.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-white transition font-semibold">
+            <a asp-action="Import" asp-route-lang="@currentLang"
+               class="flex-1 md:flex-none text-center px-8 py-3 rounded-lg border border-slate-300 text-slate-700 hover:bg-white transition-all font-bold">
                 Hủy bỏ
             </a>
-            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-10 py-2.5 rounded-lg font-bold transition shadow-lg shadow-green-100 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                XÁC NHẬN IMPORT
+
+            <button type="submit" id="btnSubmitImport"
+                    class="flex-1 md:flex-none bg-green-600 hover:bg-green-700 text-white px-12 py-3 rounded-lg font-bold transition-all shadow-lg shadow-green-100 flex items-center justify-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                XÁC NHẬN NHẬP DỮ LIỆU
             </button>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Hiển thị trạng thái loading khi đang lưu dữ liệu
+        document.getElementById('btnSubmitImport').addEventListener('click', function(e) {
+            this.innerHTML = '<svg class="animate-spin h-5 w-5 mr-3 text-white" viewBox="0 0 24 24">...</svg> ĐANG LƯU...';
+            this.classList.add('opacity-75', 'cursor-not-allowed');
+        });
+    </script>
+}

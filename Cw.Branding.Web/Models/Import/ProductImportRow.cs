@@ -1,4 +1,6 @@
-﻿namespace Cw.Branding.Web.Models.Import
+﻿using Cw.Branding.Web.Helpers;
+
+namespace Cw.Branding.Web.Models.Import
 {
     public class ProductImportRow
     {
@@ -22,15 +24,18 @@
         public string? BrandName { get; set; }
         public string? MachineTypeName { get; set; }
 
-        // Nhóm cấu hình (Mới bổ sung)
+        // Flags báo hiệu tạo mới
+        public bool IsNewBrand { get; set; } = false;
+        public bool IsNewMachineType { get; set; } = false;
         public string? IsFeaturedStr { get; set; } // Nhận "Yes" hoặc "1" từ Excel 
         public int DisplayOrder { get; set; } = 0; // Thứ tự hiển thị 
 
         // --- Dữ liệu sau khi xử lý (Mapped IDs & Logic) ---
         public bool IsUpdate { get; set; } // True nếu trùng SKU cũ 
         public List<string> Errors { get; set; } = new List<string>();
+        public List<string> Warnings { get; set; } = new List<string>();
         public bool IsValid => !Errors.Any();
-
+        public string? NameEnSlug => !string.IsNullOrEmpty(NameEn) ? SlugHelper.GenerateSlug(NameEn) : null;
         // Foreign Keys sau khi Lookup thành công 
         public int? CategoryId { get; set; }
         public int? BrandId { get; set; }
