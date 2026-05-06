@@ -49,7 +49,34 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 // 3. DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    var provider = builder.Configuration["DatabaseProvider"]?.Trim();
+
+    switch (provider?.ToLowerInvariant())
+    {
+        case "postgres":
+        case "postgresql":
+            options.UseNpgsql(
+                builder.Configuration.GetConnectionString("PostgresConnection")
+                ?? builder.Configuration.GetConnectionString("DefaultConnection"));
+            break;
+
+        case "mariadb":
+        case "mysql":
+            var mariaDbConnection = builder.Configuration.GetConnectionString("MariaDbConnection")
+                                    ?? builder.Configuration.GetConnectionString("DefaultConnection");
+            options.UseMySql(mariaDbConnection, ServerVersion.AutoDetect(mariaDbConnection));
+            break;
+
+        case "sqlserver":
+        case null:
+        case "":
+            options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")
+                                 ?? builder.Configuration.GetConnectionString("DefaultConnection"));
+            break;
+
+        default:
+            throw new InvalidOperationException($"Unsupported DatabaseProvider '{provider}'. Use SqlServer, Postgres, or MariaDb.");
+    }
 });
 
 // 4. Auth (Cập nhật đường dẫn Login động theo lang)
