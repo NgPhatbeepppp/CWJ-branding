@@ -1,6 +1,7 @@
 ﻿using Cw.Branding.Web.Data;
 using Cw.Branding.Web.Middleware;
 using Cw.Branding.Web.Models.Entities;
+using Cw.Branding.Web.Models.Settings;
 using Cw.Branding.Web.Services;
 using Cw.Branding.Web.Services.Implementations;
 using Cw.Branding.Web.Services.Interfaces;
@@ -87,6 +88,8 @@ builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IMachineTypeService, MachineTypeService>();
 builder.Services.AddScoped<IProductImportService, ProductImportService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
