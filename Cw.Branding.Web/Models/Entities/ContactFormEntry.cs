@@ -23,9 +23,6 @@ namespace Cw.Branding.Web.Models.Entities
         [Phone(ErrorMessage = "Số điện thoại không hợp lệ")]
         public string? Phone { get; set; }
 
-        // Lưu sản phẩm khách quan tâm (tên hoặc mã sản phẩm)
-        public string? SelectedProduct { get; set; }
-
         [Required(ErrorMessage = "Vui lòng nhập nội dung tin nhắn")]
         public string Message { get; set; } = null!;
 

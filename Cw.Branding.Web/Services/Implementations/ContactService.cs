@@ -68,18 +68,17 @@ namespace Cw.Branding.Web.Services.Implementations
             {
                 var worksheet = workbook.Worksheets.Add("Leads Report");
 
-                // 1. Header (Thêm cột Region và Company/Phone)
-                var headers = new string[] { "Date", "Name", "Company", "Email", "Phone", "Region", "Product", "Status" };
+                // 1. Header: Xóa "Product", dồn "Status" lên cột 7 [cite: 143]
+                var headers = new string[] { "Date", "Name", "Company", "Email", "Phone", "Region", "Status" };
                 for (int i = 0; i < headers.Length; i++)
                 {
                     var cell = worksheet.Cell(1, i + 1);
                     cell.Value = headers[i];
                     cell.Style.Font.Bold = true;
-                    cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#004F9F"); // Brand Blue
+                    cell.Style.Fill.BackgroundColor = XLColor.FromHtml("#004F9F");
                     cell.Style.Font.FontColor = XLColor.White;
                 }
-
-                // 2. Data rows
+                // 2. Data rows: Bỏ dòng gán SelectedProduct [cite: 143]
                 int row = 2;
                 foreach (var item in data)
                 {
@@ -88,12 +87,8 @@ namespace Cw.Branding.Web.Services.Implementations
                     worksheet.Cell(row, 3).Value = item.Company ?? "-";
                     worksheet.Cell(row, 4).Value = item.Email;
                     worksheet.Cell(row, 5).Value = item.Phone ?? "-";
-
-                    // Chuyển Enum Region sang text cho dễ đọc trong Excel
                     worksheet.Cell(row, 6).Value = item.Region.ToString();
-
-                    worksheet.Cell(row, 7).Value = item.SelectedProduct;
-                    worksheet.Cell(row, 8).Value = item.ProcessingStatus.ToString();
+                    worksheet.Cell(row, 7).Value = item.ProcessingStatus.ToString(); // Đẩy Status lên thay chỗ Product
                     row++;
                 }
 

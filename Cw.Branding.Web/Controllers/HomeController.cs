@@ -76,8 +76,7 @@ namespace Cw.Branding.Web.Controllers
                         Name = model.Name,
                         Company = model.Company,
                         Email = model.Email,
-                        Phone = model.Phone,
-                        SelectedProduct = model.SelectedProduct,
+                        Phone = model.Phone,                        
                         Region = model.Region,
                         Message = model.Message,
                         CreatedAt = DateTime.UtcNow,
@@ -97,8 +96,7 @@ namespace Cw.Branding.Web.Controllers
                     <p><b>Họ tên:</b> {model.Name}</p>
                     <p><b>Công ty:</b> {model.Company}</p>
                     <p><b>Email:</b> {model.Email}</p>
-                    <p><b>Điện thoại:</b> {model.Phone}</p>
-                    <p><b>Sản phẩm quan tâm:</b> {model.SelectedProduct}</p>
+                    <p><b>Điện thoại:</b> {model.Phone}</p>                    
                     <p><b>Khu vực:</b> {model.Region}</p>
                     <p><b>Nội dung:</b> {model.Message}</p>
                     <hr/>
