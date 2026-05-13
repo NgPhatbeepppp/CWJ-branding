@@ -5,6 +5,7 @@ using Cw.Branding.Web.Services;
 using Cw.Branding.Web.Services.Implementations;
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
@@ -51,27 +52,36 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     var provider = builder.Configuration["DatabaseProvider"]?.Trim();
 
+    static string GetRequiredConnectionString(IConfiguration configuration, string name)
+    {
+        var connectionString = configuration.GetConnectionString(name);
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new InvalidOperationException(
+                $"Missing connection string '{name}'. Configure it via environment variables or user secrets.");
+        }
+
+        return connectionString;
+    }
+
     switch (provider?.ToLowerInvariant())
     {
         case "postgres":
         case "postgresql":
-            options.UseNpgsql(
-                builder.Configuration.GetConnectionString("PostgresConnection")
-                ?? builder.Configuration.GetConnectionString("DefaultConnection"));
+            options.UseNpgsql(GetRequiredConnectionString(builder.Configuration, "PostgresConnection"));
             break;
 
         case "mariadb":
         case "mysql":
-            var mariaDbConnection = builder.Configuration.GetConnectionString("MariaDbConnection")
-                                    ?? builder.Configuration.GetConnectionString("DefaultConnection");
+            var mariaDbConnection = GetRequiredConnectionString(builder.Configuration, "MariaDbConnection");
             options.UseMySql(mariaDbConnection, ServerVersion.AutoDetect(mariaDbConnection));
             break;
 
         case "sqlserver":
         case null:
         case "":
-            options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServerConnection")
-                                 ?? builder.Configuration.GetConnectionString("DefaultConnection"));
+            options.UseSqlServer(GetRequiredConnectionString(builder.Configuration, "SqlServerConnection"));
             break;
 
         default:
@@ -127,9 +137,14 @@ var app = builder.Build();
 
 
 
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/en/error");
     app.UseHsts();
 }
 
