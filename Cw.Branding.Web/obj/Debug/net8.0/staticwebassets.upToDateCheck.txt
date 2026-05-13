@@ -1,3 +1,4 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\.png
 wwwroot\images\about-bg-texture.png
@@ -134,4 +135,3 @@ wwwroot\uploads\slides\8ccbdd72-f98a-402f-aecb-cec55141fe4f.jpg
 wwwroot\uploads\slides\b944898f-88b0-4f61-b90e-a5ea8864fec0.jpg
 wwwroot\uploads\slides\ef263e81-c27c-4eb9-ada9-184142b0d49d.jpg
 wwwroot\videos\cw-journey.mp4
-wwwroot\css\site.css
