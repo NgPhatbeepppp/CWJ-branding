@@ -214,7 +214,7 @@
 </section>
 
 @* ==========================================
-   SECTION 4: LEADERSHIP SLIDER
+   SECTION 4: LEADERSHIP SLIDER (UPDATED)
    ========================================== *@
 <section id="leadership"
          class="relative z-20 -mb-[90px] bg-[#528AC4] text-white py-20 md:py-28 rounded-br-[80px] md:rounded-br-[40px] overflow-hidden"
@@ -228,52 +228,37 @@
             </h2>
         </div>
 
+        @* Vẫn giữ class swiper/swiper-wrapper để không vỡ layout hoặc JS lỗi, nhưng chỉ có 1 slide *@
         <div class="swiper leadership-swiper relative" data-aos="fade-in" data-aos-delay="400">
             <div class="swiper-wrapper">
 
-                @* SLIDE 1 *@
+                @* SLIDE 1 (Duy nhất) *@
                 <div class="swiper-slide">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
                         <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
-                            <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
-                                "@(isEn
-                                                                ? "Charles Wembley is a leader in providing cutting-edge medical and food & beverage solutions, dedicated to advancing healthcare and enriching culinary experiences around the world." 
-                                                                        : "Charles Wembley dẫn đầu trong việc cung cấp các giải pháp y tế và thực phẩm & đồ uống tiên tiến, cam kết thúc đẩy nền y tế phát triển và làm phong phú thêm trải nghiệm ẩm thực trên toàn thế giới.")"
+                            <blockquote class="font-['Montaga'] text-lg md:text-xl leading-relaxed mb-7 italic opacity-90">
+                                @if (isEn)
+                                {
+                                    <strong class="text-xl md:text-2xl not-italic block mb-4 uppercase tracking-wide">Building solutions that matter</strong>
+                                    <span>At Charles Wembley, we connect innovation with everyday operations across healthcare and food & beverage industries. With a strong foundation built on experience and trust, we continue to help our partners grow through dependable solutions, professional support, and a commitment to excellence.</span>
+                                }
+                                else
+                                {
+                                    <strong class="text-xl md:text-2xl not-italic block mb-4 uppercase tracking-wide">Kiến tạo những giải pháp thiết thực</strong>
+                                    <span>Tại Charles Wembley, chúng tôi kết nối sự đổi mới với hoạt động thường nhật trong ngành y tế và thực phẩm & đồ uống. Với nền tảng vững chắc được xây dựng từ kinh nghiệm và sự tin cậy, chúng tôi tiếp tục đồng hành cùng đối tác phát triển thông qua các giải pháp đáng tin cậy, sự hỗ trợ chuyên nghiệp và cam kết hướng đến sự xuất sắc.</span>
+                                }
                             </blockquote>
                             <div>
-                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Mr. Charles Wembley</h4>
-                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">@(isEn ? "Founder & CEO" : "Nhà sáng lập & CEO")</p>
+                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Ms. Lulu Tan</h4>
+                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">@(isEn ? "Chief Operating Officer" : "Giám đốc Vận hành")</p>
                             </div>
                         </div>
 
                         <div class="md:col-span-7 flex justify-center md:justify-end">
                             <div class="w-full max-w-lg aspect-square bg-white/10 backdrop-blur-sm p-4 rounded-sm">
-                                <img src="~/images/manager-simple.jpg"
-                                     alt="Mr. Charles Wembley"
-                                     class="w-full h-full object-cover shadow-2xl  transition-all duration-500" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                @* SLIDE 2 *@
-                <div class="swiper-slide">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-18 items-center">
-                        <div class="md:col-span-5 md:pl-16 border-l-2 border-white/30 h-full flex flex-col justify-center text-left">
-                            <blockquote class="font-['Montaga'] text-lg md:text-2xl leading-relaxed mb-7 italic opacity-90">
-                                "@(isEn
-                                                                ? "Our technology vision is simple: Practical innovation that solves real-world problems for hospitals and businesses across Southeast Asia."
-                                                                : "Tầm nhìn công nghệ của chúng tôi rất đơn giản: Những cải tiến thiết thực giúp giải quyết các vấn đề thực tế cho các bệnh viện và doanh nghiệp trên khắp Đông Nam Á.")"
-                            </blockquote>
-                            <div>
-                                <h4 class="font-heading font-bold text-xl uppercase tracking-wide">Ms. Sarah Nguyen</h4>
-                                <p class="text-blue-100 text-sm uppercase tracking-wider mt-1">@(isEn ? "Chief Technology Officer" : "Giám đốc Công nghệ")</p>
-                            </div>
-                        </div>
-                        <div class="md:col-span-7 flex justify-center md:justify-end">
-                            <div class="w-full max-w-lg aspect-square bg-white/20 backdrop-blur-sm p-4 rounded-sm">
-                                <img src="~/images/manager-simbple2.jpg"
-                                     alt="Ms. Sarah Nguyen"
+                               
+                                <img src="~/images/ms-lulu-tan.jpg"
+                                     alt="Ms. Lulu Tan"
                                      class="w-full h-full object-cover shadow-2xl transition-all duration-500" />
                             </div>
                         </div>
@@ -282,7 +267,9 @@
 
             </div>
 
-            @* NAVIGATION ARROWS *@
+            @* Đã comment (ẩn) 2 nút điều hướng vì chỉ có 1 slide. 
+               Sau này nếu anh/chị cần thêm slide của người khác thì cứ uncomment đoạn này ra nhé. *@
+            <!--
             <div class="flex gap-4 mt-10 md:mt-0 md:absolute md:bottom-0 md:left-8 z-30">
                 <button class="swiper-button-prev-custom group">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white/70 group-hover:text-white transition-colors">
@@ -295,6 +282,7 @@
                     </svg>
                 </button>
             </div>
+            -->
         </div>
     </div>
 

@@ -257,18 +257,19 @@ public class ProductController : BaseAdminController
             return RedirectToAction(nameof(Import));
         }
 
-        // Đọc và kiểm tra dữ liệu từ Excel
         using var stream = excelFile.OpenReadStream();
         var result = await _importService.ValidateExcelAsync(stream);
 
-        // Nếu có lỗi (dù chỉ 1 dòng): Quay lại trang Import và hiển thị bảng lỗi
-        if (result.ErrorRows > 0)
+        // Kiểm tra xem có dòng nào bị lỗi (Errors) không
+        // Lưu ý: Warnings (tạo mới Brand/MT) thì vẫn cho phép qua màn hình Review
+        if (result.Rows.Any(r => !r.IsValid))
         {
-            TempData["Error"] = $"Phát hiện {result.ErrorRows} dòng dữ liệu không hợp lệ. Vui lòng sửa lại file.";
-            return View("Import", result);
+            var errorCount = result.Rows.Count(r => !r.IsValid);
+            TempData["Error"] = $"Phát hiện {errorCount} dòng dữ liệu không hợp lệ. Bạn cần sửa lại danh mục trước khi Import.";
+            return View("Import", result); // Trả về trang Import để hiển thị danh sách lỗi cụ thể
         }
 
-        // Nếu 100% hợp lệ: Chuyển sang màn hình Review để Admin xem lại lần cuối
+        // Nếu dữ liệu sạch hoặc chỉ có Warnings (Hãng/Loại máy mới) -> Sang màn hình Review[cite: 1, 9]
         return View("Review", result);
     }
 
@@ -277,37 +278,32 @@ public class ProductController : BaseAdminController
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Confirm(string jsonData)
     {
+        var currentLang = RouteData.Values["lang"]?.ToString() ?? "vi";
+
         if (string.IsNullOrEmpty(jsonData))
         {
             TempData["Error"] = "Dữ liệu xác nhận bị trống. Vui lòng thử lại.";
-            return RedirectToAction(nameof(Import));
+            return RedirectToAction(nameof(Import), new { lang = currentLang });
         }
 
-        // Giải mã JSON ngược lại thành List Model
         var validRows = JsonConvert.DeserializeObject<List<ProductImportRow>>(jsonData);
 
         if (validRows == null || !validRows.Any())
         {
             TempData["Error"] = "Không tìm thấy dữ liệu hợp lệ để Import.";
-            return RedirectToAction(nameof(Import));
+            return RedirectToAction(nameof(Import), new { lang = currentLang });
         }
 
-        // Thực hiện lưu vào DB thông qua Transaction
+        // Thực hiện lưu vào DB (Bao gồm việc tự tạo Brand/MT mới)[cite: 1, 8]
         var (success, message) = await _importService.CommitImportAsync(validRows);
 
         if (success)
         {
-            TempData["SuccessMessage"] = message; 
-
-            // Lấy ngôn ngữ hiện tại từ Route để redirect về đúng /vi/ hoặc /en/
-            var currentLang = RouteData.Values["lang"] ?? "vi";
-
-            return RedirectToAction("Index", "Product", new { lang = currentLang, area = "Admin" });
+            TempData["SuccessMessage"] = message;
+            return RedirectToAction("Index", "Product", new { lang = currentLang });
         }
-        else
-        {
-            TempData["Error"] = message;
-            return RedirectToAction(nameof(Import), new { lang = RouteData.Values["lang"] ?? "vi", area = "Admin" });
-        }
+
+        TempData["Error"] = message;
+        return RedirectToAction(nameof(Import), new { lang = currentLang });
     }
 }

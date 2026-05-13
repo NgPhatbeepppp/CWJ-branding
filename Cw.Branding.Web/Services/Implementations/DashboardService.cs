@@ -59,7 +59,7 @@ namespace Cw.Branding.Web.Services.Implementations
                 .Take(5)
                 .ToListAsync();
 
-            // 4. Lấy 5 liên hệ mới nhất
+            // 4.  Lấy 5 liên hệ mới nhất
             model.LatestLeads = await _context.ContactFormEntries
                 .OrderByDescending(x => x.CreatedAt)
                 .Take(5)

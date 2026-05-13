@@ -12,11 +12,11 @@
         <div class="container mx-auto px-4 md:px-8 max-w-[1400px]">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-18 items-start">
 
-                @* --- Cột Trái: Nội dung chào mời  *@
+                @* --- Cột Trái: Nội dung chào mời --- *@
                 <div class="pt-4">
                     <h2 class="text-3xl md:text-5xl font-heading font-semibold text-slate-900 leading-[52px] tracking-wide mb-4">
                         @(currentLang == "vi" ? "BẠN QUAN TÂM ĐẾN" : "INTERESTED IN OUR") <br />
-                        @(currentLang == "vi" ? "SẢN PHẨM CỦA CHÚNG TÔI?" : "PRODUCT?")
+                        @(currentLang == "vi" ? "SẢN PHẨM Y TẾ CỦA CHÚNG TÔI?" : "MEDICAL SOLUTIONS?")
                     </h2>
                     <p class="text-3xl md:text-5xl font-heading text-[#004F9F] italic tracking-wide uppercase">
                         @(currentLang == "vi" ? "LIÊN HỆ NGAY" : "CONTACT US")
@@ -30,13 +30,17 @@
                         @* Row 1: Name & Company *@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="form-group">
-                                <label asp-for="Name" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">@(currentLang == "vi" ? "HỌ TÊN" : "YOUR NAME")</label>
+                                <label asp-for="Name" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">
+                                    @(currentLang == "vi" ? "HỌ TÊN" : "YOUR NAME")
+                                </label>
                                 <input asp-for="Name" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200" />
                                 <span asp-validation-for="Name" class="text-red-500 text-xs mt-1"></span>
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="Company" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">@(currentLang == "vi" ? "CÔNG TY" : "COMPANY")</label>
+                                <label asp-for="Company" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">
+                                    @(currentLang == "vi" ? "CÔNG TY" : "COMPANY")
+                                </label>
                                 <input asp-for="Company" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200" />
                             </div>
                         </div>
@@ -50,42 +54,35 @@
                             </div>
 
                             <div class="form-group">
-                                <label asp-for="Phone" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">@(currentLang == "vi" ? "SỐ ĐIỆN THOẠI" : "PHONE NUMBER")</label>
+                                <label asp-for="Phone" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">
+                                    @(currentLang == "vi" ? "SỐ ĐIỆN THOẠI" : "PHONE NUMBER")
+                                </label>
                                 <input asp-for="Phone" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200" />
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            @* Chọn Sản phẩm *@
-                            <div class="form-group">
-                                <label asp-for="SelectedProduct" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">@(currentLang == "vi" ? "SẢN PHẨM" : "PRODUCT")</label>
-                                <div class="relative">
-                                    <select asp-for="SelectedProduct" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm appearance-none">
-                                        <option value="" disabled selected>@(currentLang == "vi" ? "Chọn..." : "Select...")</option>
-                                        <option value="Medical">Medical Solutions</option>
-                                        <option value="F&B">F&B Solutions</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            @* Chọn Khu vực *@
-                            <div class="form-group">
-                                <label asp-for="Region" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">@(currentLang == "vi" ? "KHU VỰC" : "REGION")</label>
-                                <div class="relative">
-                                    <select asp-for="Region" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm appearance-none cursor-pointer">
-                                        <option value="@ContactRegion.North">@(currentLang == "vi" ? "Miền Bắc" : "North")</option>
-                                        <option value="@ContactRegion.Central">@(currentLang == "vi" ? "Miền Trung" : "Central")</option>
-                                        <option value="@ContactRegion.South">@(currentLang == "vi" ? "Miền Nam" : "South")</option>
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
-                                        <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                                    </div>
+                        @* Row 3: Region (Full Width sau khi xóa Product) *@
+                        <div class="form-group">
+                            <label asp-for="Region" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">
+                                @(currentLang == "vi" ? "KHU VỰC CỦA BẠN" : "YOUR REGION")
+                            </label>
+                            <div class="relative">
+                                <select asp-for="Region" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm appearance-none cursor-pointer">
+                                    <option value="@ContactRegion.North">@(currentLang == "vi" ? "Miền Bắc" : "North")</option>
+                                    <option value="@ContactRegion.Central">@(currentLang == "vi" ? "Miền Trung" : "Central")</option>
+                                    <option value="@ContactRegion.South">@(currentLang == "vi" ? "Miền Nam" : "South")</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                                    <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                                 </div>
                             </div>
                         </div>
-                        @* Row 4: Message (Full Width) *@
+
+                        @* Row 4: Message *@
                         <div class="form-group">
-                            <label asp-for="Message" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">@(currentLang == "vi" ? "CHÚNG TÔI CÓ THỂ GIÚP GÌ CHO BẠN?" : "HOW CAN WE HELP YOU?")</label>
+                            <label asp-for="Message" class="block text-xs uppercase text-slate-500 mb-2 font-body tracking-wider">
+                                @(currentLang == "vi" ? "CHÚNG TÔI CÓ THỂ GIÚP GÌ CHO BẠN?" : "HOW CAN WE HELP YOU?")
+                            </label>
                             <textarea asp-for="Message" rows="5" class="w-full bg-blue-50 border-transparent focus:border-[#004F9F] focus:ring-0 focus:bg-white text-slate-700 py-4 px-4 rounded-sm transition-colors duration-200 resize-none"></textarea>
                             <span asp-validation-for="Message" class="text-red-500 text-xs mt-1"></span>
                         </div>

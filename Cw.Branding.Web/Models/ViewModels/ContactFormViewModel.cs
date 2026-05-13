@@ -20,9 +20,6 @@ namespace Cw.Branding.Web.Models.ViewModels
         [Display(Name = "PHONE NUMBER")]
         public string? Phone { get; set; } 
 
-        [Display(Name = "SELECT A PRODUCT")]
-        public string? SelectedProduct { get; set; }
-
         [Required(ErrorMessage = "Please tell us how we can help")]
         [Display(Name = "HOW CAN WE HELP YOU?")]
         public string Message { get; set; } = null!;
