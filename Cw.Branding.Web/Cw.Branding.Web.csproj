@@ -8,13 +8,11 @@
   </PropertyGroup>
 
   <!-- Build Tailwind CSS before publish -->
-  <Target Name="NpmInstall" BeforeTargets="BuildTailwindCss"
-          Inputs="package.json" Outputs="node_modules/.package-lock.json">
+  <Target Name="NpmInstall" BeforeTargets="BuildTailwindCss" Inputs="package.json" Outputs="node_modules/.package-lock.json">
     <Exec Command="npm ci" WorkingDirectory="$(MSBuildProjectDirectory)" />
   </Target>
 
-  <Target Name="BuildTailwindCss" BeforeTargets="BeforeBuild"
-          Inputs="Styles/tailwind-input.css" Outputs="wwwroot/css/site.css">
+  <Target Name="BuildTailwindCss" BeforeTargets="BeforeBuild" Inputs="Styles/tailwind-input.css" Outputs="wwwroot/css/site.css">
     <Exec Command="npm run build:css" WorkingDirectory="$(MSBuildProjectDirectory)" />
   </Target>
 
@@ -34,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot/uploads/assets/" />
     <Folder Include="wwwroot/uploads/brands/" />
     <Folder Include="wwwroot/uploads/categories/" />

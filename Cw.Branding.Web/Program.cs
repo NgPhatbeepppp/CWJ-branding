@@ -76,7 +76,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         case "mariadb":
         case "mysql":
             var mariaDbConnection = GetRequiredConnectionString(builder.Configuration, "MariaDbConnection");
-            options.UseMySql(mariaDbConnection, ServerVersion.AutoDetect(mariaDbConnection));
+            var versionString = builder.Configuration["MariaDbVersion"] ?? "10.6";
+            var serverVersion = new MariaDbServerVersion(Version.Parse(versionString));
+            options.UseMySql(mariaDbConnection, serverVersion);
             break;
 
         case "sqlserver":
