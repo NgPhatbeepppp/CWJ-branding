@@ -5,6 +5,7 @@ wwwroot\images\about-bg-texture.png
 wwwroot\images\about-collage.png
 wwwroot\images\fnb-hero.png
 wwwroot\images\healthcare-hero.png
+wwwroot\images\Heroillstration.jpg
 wwwroot\images\icons\cardiology.png
 wwwroot\images\icons\Consumables.png
 wwwroot\images\icons\ENT.png
