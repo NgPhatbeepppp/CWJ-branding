@@ -49,9 +49,9 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 // 3. DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+           .EnableSensitiveDataLogging() // Hiển thị luôn giá trị của biến truyền vào
+           .LogTo(Console.WriteLine, LogLevel.Information)); // In thẳng ra Console
 
 // 4. Auth (Cập nhật đường dẫn Login động theo lang)
 builder.Services.AddAuthentication("AdminCookie")

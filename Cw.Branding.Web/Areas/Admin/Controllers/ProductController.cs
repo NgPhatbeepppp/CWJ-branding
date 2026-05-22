@@ -294,7 +294,7 @@ public class ProductController : BaseAdminController
             return RedirectToAction(nameof(Import), new { lang = currentLang });
         }
 
-        // Thực hiện lưu vào DB (Bao gồm việc tự tạo Brand/MT mới)[cite: 1, 8]
+        // Thực hiện lưu vào DB (Bao gồm việc tự tạo Brand/MT mới)
         var (success, message) = await _importService.CommitImportAsync(validRows);
 
         if (success)
