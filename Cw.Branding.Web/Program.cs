@@ -50,6 +50,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 // 3. DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
+<<<<<<< HEAD
 {
     var provider = builder.Configuration["DatabaseProvider"]?.Trim();
 
@@ -91,6 +92,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             throw new InvalidOperationException($"Unsupported DatabaseProvider '{provider}'. Use SqlServer, Postgres, or MariaDb.");
     }
 });
+=======
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+           .EnableSensitiveDataLogging() // Hiển thị luôn giá trị của biến truyền vào
+           .LogTo(Console.WriteLine, LogLevel.Information)); // In thẳng ra Console
+>>>>>>> 5cc0a8d52ca565b1ca2e32253525d4788ba06aa5
 
 // 4. Auth (Cập nhật đường dẫn Login động theo lang)
 builder.Services.AddAuthentication("AdminCookie")
