@@ -100,7 +100,7 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<HeroSection>().HasData(new HeroSection
         {
             Id = 1,
-            BackgroundImage = "/images/Hero illstration.png",
+            BackgroundImage = "/images/Heroillstration.jpg",
             TitleEn = "Trusted Medical Solutions For Modern",
             TitleVi = "Giải pháp Y tế Tin cậy cho",
             HighlightEn = "Healthcare",

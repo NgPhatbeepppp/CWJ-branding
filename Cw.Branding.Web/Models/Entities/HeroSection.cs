@@ -9,7 +9,7 @@ namespace Cw.Branding.Web.Models.Entities
 
         [Required]
         [MaxLength(255)]
-        public string BackgroundImage { get; set; } = "/images/Hero illstration.png";
+        public string BackgroundImage { get; set; } = "/images/Heroillstration.jpg";
 
         // Main Headline (Dòng 1)
         [Required][MaxLength(200)] public string TitleEn { get; set; } = "Trusted Medical Solutions For Modern";

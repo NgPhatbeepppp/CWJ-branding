@@ -17,7 +17,7 @@
 <section class="relative w-full h-screen min-h-[700px] flex items-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         @* Dùng toán tử ?? để đảm bảo luôn có ảnh *@
-        <img src="@(Model.Hero.BackgroundImage ?? "/images/Heroillstration.png")"
+        <img src="@(Model.Hero.BackgroundImage ?? "/images/Heroillstration.jpg")"
              alt="Hero" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-white/20"></div>
     </div>
@@ -60,7 +60,7 @@
             @* Cột Trái: Trượt từ trái vào (fade-right) *@
             <div class="flex flex-col text-slate-900 text-center md:text-left self-start pt-6"
                  data-aos="fade-right">
-                <h2 class="font-heading text-4xl md:text-6xl mb-2 text-slate-900 text-blue-600">
+                <h2 class="font-signature-override text-4xl md:text-6xl mb-2 text-slate-900 text-blue-600">
                     Charles Wembley
                 </h2>
                 <h3 class="font-body font-medium text-xl md:text-2xl tracking-wide border-b-2 border-slate-900 pb-4 inline-block md:self-start">

@@ -6,6 +6,7 @@ using Cw.Branding.Web.Services;
 using Cw.Branding.Web.Services.Implementations;
 using Cw.Branding.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Localization.Routing;
@@ -49,9 +50,48 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 // 3. DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-           .EnableSensitiveDataLogging() // Hiển thị luôn giá trị của biến truyền vào
-           .LogTo(Console.WriteLine, LogLevel.Information)); // In thẳng ra Console
+{
+    var provider = builder.Configuration["DatabaseProvider"]?.Trim();
+
+    static string GetRequiredConnectionString(IConfiguration configuration, string name)
+    {
+        var connectionString = configuration.GetConnectionString(name);
+
+        if (string.IsNullOrWhiteSpace(connectionString))
+        {
+            throw new InvalidOperationException(
+                $"Missing connection string '{name}'. Configure it via environment variables or user secrets.");
+        }
+
+        return connectionString;
+    }
+
+    switch (provider?.ToLowerInvariant())
+    {
+        case "postgres":
+        case "postgresql":
+            options.UseNpgsql(GetRequiredConnectionString(builder.Configuration, "PostgresConnection"));
+            break;
+
+        case "mariadb":
+        case "mysql":
+            var mariaDbConnection = GetRequiredConnectionString(builder.Configuration, "MariaDbConnection");
+            var versionString = builder.Configuration["MariaDbVersion"] ?? "10.6";
+            var serverVersion = new MariaDbServerVersion(Version.Parse(versionString));
+            options.UseMySql(mariaDbConnection, serverVersion);
+            break;
+
+        case "sqlserver":
+        case null:
+        case "":
+            options.UseSqlServer(GetRequiredConnectionString(builder.Configuration, "SqlServerConnection"));
+            break;
+
+        default:
+            throw new InvalidOperationException($"Unsupported DatabaseProvider '{provider}'. Use SqlServer, Postgres, or MariaDb.");
+    }
+});
+
 
 // 4. Auth (Cập nhật đường dẫn Login động theo lang)
 builder.Services.AddAuthentication("AdminCookie")
@@ -119,9 +159,14 @@ var app = builder.Build();
 
 
 
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/en/error");
     app.UseHsts();
 }
 
